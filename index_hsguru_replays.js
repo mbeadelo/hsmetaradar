@@ -98,6 +98,40 @@ async function scrapeHSGuruReplays() {
                     const deckNamesMatches = rowText.match(/###\s+([^\n]+)/g);
                     const deckNames = deckNamesMatches ? deckNamesMatches.map(m => m.replace(/###\s+/, '').trim().split('AAE')[0].trim()) : [];
                     
+                    // Extraer TODOS los arquetipos visibles de TODAS las celdas (para meta snapshot)
+                    const allArchetypes = [];
+                    const cellsList = Array.from(row.querySelectorAll('td'));
+                    cellsList.forEach(cell => {
+                        const cellText = cell.innerText || cell.textContent;
+                        
+                        // Método 1: Buscar patrón "### Archetype Name" 
+                        const matches1 = cellText.match(/###\s+([^\n#]+)/g);
+                        if (matches1) {
+                            matches1.forEach(m => {
+                                const archName = m.replace(/###\s+/, '').trim().split('AAE')[0].trim();
+                                if (archName && archName.length > 3 && !allArchetypes.includes(archName)) {
+                                    allArchetypes.push(archName);
+                                }
+                            });
+                        }
+                        
+                        // Método 2: Buscar botones con clase o data-deck-name
+                        const buttons = cell.querySelectorAll('button, [class*="deck"], [data-deck]');
+                        buttons.forEach(btn => {
+                            const btnText = (btn.innerText || btn.textContent || '').trim();
+                            // Si el texto tiene formato "Class Archetype" o "Archetype Class"
+                            if (btnText && btnText.length > 3 && !btnText.includes('AAE') && !allArchetypes.includes(btnText)) {
+                                // Verificar si tiene formato válido de arquetipo
+                                const words = btnText.split(' ');
+                                if (words.length >= 2 && !btnText.includes('#') && !btnText.includes('Legend')) {
+                                    allArchetypes.push(btnText);
+                                }
+                            }
+                        });
+                    });
+                    
+                    console.log(`   [DEBUG] Rank ${rank}: Found ${allArchetypes.length} archetypes: ${allArchetypes.join(' | ')}`);
+                    
                     // Timestamp
                     const timeMatch = rowText.match(/(\d+)\s+(minute|hour|second)s?\s+ago/i);
                     const timeAgo = timeMatch ? timeMatch[0] : 'Unknown';
@@ -124,7 +158,8 @@ async function scrapeHSGuruReplays() {
                             deckCode,
                             timeAgo,
                             replayUrl,
-                            deckIndex // 0 = jugador 1, 1 = jugador 2
+                            deckIndex, // 0 = jugador 1, 1 = jugador 2
+                            allArchetypes // Para meta snapshot adicional
                         });
                     });
                 } catch (e) {
@@ -596,10 +631,11 @@ async function scrapeHSGuruReplays() {
             console.log('✨ master_list.json actualizado');
         }
 
-        // Calcular Meta Snapshot
+        // Calcular Meta Snapshot + Meta Score
         const classDistribution = {};
-        const archetypeCount = {};
+        const archetypeData = {}; // { archetypeName: { count, ranks: [], players: Set(), hasDeckCode: bool } }
         
+        // Primero procesar los decks con deck code (más confiables)
         finalDecks.forEach(deck => {
             // Extraer clase del nombre del mazo
             const deckName = deck.deck.name;
@@ -608,16 +644,107 @@ async function scrapeHSGuruReplays() {
             
             classDistribution[className] = (classDistribution[className] || 0) + 1;
             
-            // Contar arquetipos completos
-            archetypeCount[deckName] = (archetypeCount[deckName] || 0) + 1;
+            // Recopilar datos completos del arquetipo para Meta Score
+            if (!archetypeData[deckName]) {
+                archetypeData[deckName] = {
+                    count: 0,
+                    ranks: [],
+                    players: new Set(),
+                    hasDeckCode: true
+                };
+            }
+            archetypeData[deckName].count++;
+            archetypeData[deckName].ranks.push(deck.rank);
+            if (deck.name !== `Legend #${deck.rank}`) {
+                archetypeData[deckName].players.add(deck.name);
+            }
         });
         
-        // Encontrar arquetipo más popular
-        const sortedArchetypes = Object.entries(archetypeCount)
-            .sort((a, b) => b[1] - a[1])
+        // BONUS: Añadir arquetipos adicionales encontrados en HSGuru (sin deck code)
+        // Esto aumenta las estadísticas del meta snapshot capturando AMBOS mazos de cada match
+        let totalArchetypesSeen = 0;
+        top100Replays.forEach(replay => {
+            if (replay.allArchetypes && replay.allArchetypes.length > 0) {
+                replay.allArchetypes.forEach(archName => {
+                    if (archName && archName !== 'Unknown Deck') {
+                        totalArchetypesSeen++;
+                        
+                        // Extraer clase
+                        const words = archName.split(' ');
+                        const className = words[words.length - 1];
+                        
+                        // Solo contar si NO está ya contado en finalDecks
+                        const isAlreadyCounted = finalDecks.some(d => 
+                            d.deck.name === archName && d.rank === replay.rank
+                        );
+                        
+                        if (!isAlreadyCounted) {
+                            classDistribution[className] = (classDistribution[className] || 0) + 1;
+                            
+                            // Añadir a archetype data
+                            if (!archetypeData[archName]) {
+                                archetypeData[archName] = {
+                                    count: 1,
+                                    ranks: [replay.rank],
+                                    players: new Set(),
+                                    hasDeckCode: false
+                                };
+                            } else {
+                                archetypeData[archName].count++;
+                                if (!archetypeData[archName].ranks.includes(replay.rank)) {
+                                    archetypeData[archName].ranks.push(replay.rank);
+                                }
+                            }
+                        }
+                    }
+                });
+            }
+        });
+        
+        const uniqueAdditional = Object.values(archetypeData).filter(d => !d.hasDeckCode).length;
+        console.log(`\n📊 Arquetipos adicionales capturados: ${uniqueAdditional} (sin deck code, solo para estadísticas)`);
+        
+        // Calcular Meta Score para cada arquetipo
+        const archetypeScores = Object.entries(archetypeData).map(([name, data]) => {
+            // Factores del Meta Score:
+            // 1. Frecuencia (40%): Cuántas veces aparece en el Top 100
+            const frequencyScore = (data.count / finalDecks.length) * 100 * 0.4;
+            
+            // 2. Diversidad de jugadores (30%): Cuántos jugadores diferentes lo usan
+            const uniquePlayersScore = (data.players.size / data.count) * 100 * 0.3;
+            
+            // 3. Ranking promedio (30%): Qué tan alto está en la ladder
+            const avgRank = data.ranks.reduce((a, b) => a + b, 0) / data.ranks.length;
+            const rankScore = ((100 - avgRank) / 100) * 100 * 0.3; // Invertir: rank 1 = mejor
+            
+            const totalScore = frequencyScore + uniquePlayersScore + rankScore;
+            
+            // Asignar tier basado en el score
+            let tier = 'C';
+            if (totalScore >= 75) tier = 'S';
+            else if (totalScore >= 60) tier = 'A';
+            else if (totalScore >= 45) tier = 'B';
+            
+            return {
+                name,
+                count: data.count,
+                percentage: ((data.count / finalDecks.length) * 100).toFixed(1),
+                uniquePlayers: data.players.size,
+                avgRank: Math.round(avgRank),
+                metaScore: Math.round(totalScore),
+                tier
+            };
+        });
+        
+        // Ordenar por Meta Score
+        archetypeScores.sort((a, b) => b.metaScore - a.metaScore);
+        
+        // Top 5 arquetipos (ordenados por frecuencia para el snapshot)
+        const topArchetypes = [...archetypeScores]
+            .sort((a, b) => b.count - a.count)
             .slice(0, 5);
         
-        // Calcular porcentajes
+        // Calcular porcentajes de clases
         const classPercentages = {};
         Object.keys(classDistribution).forEach(cls => {
             classPercentages[cls] = ((classDistribution[cls] / finalDecks.length) * 100).toFixed(1);
@@ -634,13 +761,22 @@ async function scrapeHSGuruReplays() {
             metaSnapshot: {
                 classDistribution,
                 classPercentages,
-                topArchetypes: sortedArchetypes.map(([name, count]) => ({
-                    name,
-                    count,
-                    percentage: ((count / finalDecks.length) * 100).toFixed(1)
+                topArchetypes: topArchetypes.map(arch => ({
+                    name: arch.name,
+                    count: arch.count,
+                    percentage: arch.percentage
                 })),
                 mostPlayedClass: Object.keys(classDistribution).sort((a, b) => 
                     classDistribution[b] - classDistribution[a])[0]
+            },
+            metaScore: {
+                lastCalculated: new Date().toISOString(),
+                archetypes: archetypeScores,
+                methodology: {
+                    frequency: "40% - Apariciones en Top 100",
+                    diversity: "30% - Jugadores únicos que lo usan",
+                    ranking: "30% - Ranking promedio de los jugadores"
+                }
             }
         };
 
@@ -648,6 +784,12 @@ async function scrapeHSGuruReplays() {
         
         console.log(`\n✨ ¡Completado! ${finalDecks.length} mazos del Top 100 guardados`);
         console.log(`⭐ Jugadores en tu lista: ${inList}/${finalDecks.length}`);
+        
+        // Mostrar Top 3 Meta Score
+        console.log('\n🏆 Top 3 Meta Score:');
+        archetypeScores.slice(0, 3).forEach((arch, i) => {
+            console.log(`   ${i + 1}. [${arch.tier}] ${arch.name} - Score: ${arch.metaScore} (${arch.count} decks, ${arch.uniquePlayers} jugadores)`);
+        });
 
     } catch (error) {
         console.error('❌ Error:', error.message);
