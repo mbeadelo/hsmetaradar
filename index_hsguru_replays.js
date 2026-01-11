@@ -14,7 +14,15 @@ async function scrapeHSGuruReplays() {
         console.log(`📂 Cargados ${knownPlayers.length} jugadores conocidos\n`);
     }
     
-    const browser = await puppeteer.launch({ headless: true });
+    const browser = await puppeteer.launch({
+        headless: true,
+        args: [
+            '--no-sandbox',
+            '--disable-setuid-sandbox',
+            '--disable-dev-shm-usage',
+            '--disable-gpu'
+        ]
+    });
     const page = await browser.newPage();
     await page.setViewport({ width: 1920, height: 1080 });
 
