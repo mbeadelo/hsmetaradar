@@ -14,15 +14,25 @@ async function scrapeHSGuruReplays() {
         console.log(`📂 Cargados ${knownPlayers.length} jugadores conocidos\n`);
     }
     
-    const browser = await puppeteer.launch({
+    // Configuración para Render y otros entornos cloud
+    const launchOptions = {
         headless: true,
         args: [
             '--no-sandbox',
             '--disable-setuid-sandbox',
             '--disable-dev-shm-usage',
-            '--disable-gpu'
+            '--disable-gpu',
+            '--disable-software-rasterizer',
+            '--disable-extensions'
         ]
-    });
+    };
+    
+    // En producción (Render), usar el Chrome instalado por Puppeteer
+    if (process.env.RENDER) {
+        console.log('🔧 Entorno Render detectado, usando configuración especial...');
+    }
+    
+    const browser = await puppeteer.launch(launchOptions);
     const page = await browser.newPage();
     await page.setViewport({ width: 1920, height: 1080 });
 
