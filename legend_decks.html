@@ -687,6 +687,11 @@
         <main class="main-content">
             <!-- Tab: Decks -->
             <div class="tab-content active" id="tab-decks">
+                <!-- Info Banner for No New Results -->
+                <div id="no-new-results-banner" class="info-banner hidden">
+                    📌 <strong>Información actualizada:</strong> <span id="no-new-results-message"></span>
+                </div>
+                
                 <div id="loading">
                     <div class="spinner"></div>
                     <p>Cargando mazos del Top 100...</p>
@@ -880,9 +885,6 @@
                 console.log('📺 Showing decks list');
                 const decksList = document.getElementById('decks-list');
                 decksList.classList.remove('hidden');
-                
-                // Show bottom ad when decks are loaded
-                document.getElementById('bottom-ad').style.display = 'flex';
                 
                 renderDecks();
                 console.log('✨ Rendering complete');
