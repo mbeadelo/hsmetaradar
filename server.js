@@ -29,7 +29,16 @@ app.use(express.static(__dirname, { index: false }));
 app.post('/api/refresh', (req, res) => {
     console.log('🔄 Refresh requested...');
     
-    // Execute the scraper
+    // En producción (Render), no ejecutar el scraper por limitaciones del entorno
+    if (process.env.RENDER || process.env.NODE_ENV === 'production') {
+        console.log('⚠️ Scraper deshabilitado en producción. Actualiza localmente y haz push a GitHub.');
+        return res.json({ 
+            success: false, 
+            error: 'El scraper no está disponible en producción. Ejecuta "npm run scrape" localmente y actualiza el repositorio.' 
+        });
+    }
+    
+    // Execute the scraper (solo en desarrollo local)
     exec('node index_hsguru_replays.js', { 
         cwd: __dirname,
         timeout: 120000 // 2 minutes timeout
