@@ -1,116 +1,152 @@
 {
-  "lastUpdate": "2026-01-11T21:11:10.153Z",
+  "lastUpdate": "2026-01-11T21:29:36.644Z",
   "source": "HSGuru Top 100 + HSReplay player names",
-  "totalDecks": 7,
-  "knownPlayers": 2,
+  "totalDecks": 4,
+  "knownPlayers": 0,
   "decks": [
     {
       "rank": 13,
-      "name": "Terko",
+      "name": "Këlthrag",
       "inMasterList": false,
       "battleTag": null,
       "deck": {
         "name": "Cycle Rogue",
         "code": "AAECAaIHBJegBL2+BvTJBozWBg32nwT3nwSgswa2tQaUygaY4Qbq5Qachwe+hwfBlwfXlwfUnQeKsQcAAA=="
       },
-      "lastSeen": "7 minutes ago"
+      "lastSeen": "8 minutes ago"
     },
     {
       "rank": 13,
-      "name": "ShickenBoy",
+      "name": "method4s#2358",
       "inMasterList": false,
       "battleTag": null,
       "deck": {
         "name": "Cycle Rogue",
         "code": "AAECAaIHBJegBL2+BvTJBozWBg32nwT3nwSgswa2tQaUygaY4Qbq5Qachwe+hwfBlwfXlwfUnQeKsQcAAA=="
       },
-      "lastSeen": "19 minutes ago"
-    },
-    {
-      "rank": 45,
-      "name": "Jaskol",
-      "inMasterList": false,
-      "battleTag": null,
-      "deck": {
-        "name": "Quest Spell Mage",
-        "code": "AAECAf0EAqebB9GmBw6xoAblpgbmpgazpwbluAaBvwaFvwbw5QaG5gaQ9Aaa9AbxkQf6mwfYngcAAA=="
-      },
-      "lastSeen": "5 minutes ago"
+      "lastSeen": "16 minutes ago"
     },
     {
       "rank": 51,
-      "name": "Theo",
+      "name": "demoshadow",
       "inMasterList": false,
       "battleTag": null,
       "deck": {
         "name": "Quest Spell Mage",
         "code": "AAECAf0EAqebB9GmBw6xoAblpgbmpgazpwbluAaBvwaFvwbw5QaG5gaQ9Aaa9AbxkQf6mwfYngcAAA=="
       },
-      "lastSeen": "12 minutes ago"
-    },
-    {
-      "rank": 74,
-      "name": "Kubu",
-      "inMasterList": true,
-      "battleTag": "Kubu#21353",
-      "deck": {
-        "name": "Cliff Dive DH",
-        "code": "AAECAea5AwTAjweKqgeSqgeTqgcNgIUE4fgFw7AG18AG9sAGpfwG3v8G/oMHqocHtpcHtZgH0a8HobEHAAA="
-      },
-      "lastSeen": "12 minutes ago"
+      "lastSeen": "9 minutes ago"
     },
     {
       "rank": 98,
-      "name": "antiisomer",
-      "inMasterList": true,
-      "battleTag": "antiisomer#3212",
-      "deck": {
-        "name": "Cliff Dive DH",
-        "code": "AAECAea5AwTAjweKqgeSqgeTqgcNgIUE4fgFw7AG18AG9sAGpfwG3v8G/oMHqocHtpcHtZgH0a8HobEHAAA="
-      },
-      "lastSeen": "3 minutes ago"
-    },
-    {
-      "rank": 99,
-      "name": "Legend #99",
+      "name": "Sabertan",
       "inMasterList": false,
       "battleTag": null,
       "deck": {
         "name": "Cliff Dive DH",
         "code": "AAECAea5AwTAjweKqgeSqgeTqgcNgIUE4fgFw7AG18AG9sAGpfwG3v8G/oMHqocHtpcHtZgH0a8HobEHAAA="
       },
-      "lastSeen": "15 minutes ago"
+      "lastSeen": "7 minutes ago"
     }
   ],
   "noNewResults": false,
   "metaSnapshot": {
     "classDistribution": {
       "Rogue": 2,
-      "Mage": 2,
-      "DH": 3
+      "Mage": 1,
+      "DH": 1,
+      "Shaman": 1,
+      "Hunter": 1
     },
     "classPercentages": {
-      "Rogue": "28.6",
-      "Mage": "28.6",
-      "DH": "42.9"
+      "Rogue": "50.0",
+      "Mage": "25.0",
+      "DH": "25.0",
+      "Shaman": "25.0",
+      "Hunter": "25.0"
     },
     "topArchetypes": [
       {
-        "name": "Cliff Dive DH",
-        "count": 3,
-        "percentage": "42.9"
-      },
-      {
         "name": "Cycle Rogue",
         "count": 2,
-        "percentage": "28.6"
+        "percentage": "50.0"
       },
       {
         "name": "Quest Spell Mage",
-        "count": 2,
-        "percentage": "28.6"
+        "count": 1,
+        "percentage": "25.0"
+      },
+      {
+        "name": "Cliff Dive DH",
+        "count": 1,
+        "percentage": "25.0"
+      },
+      {
+        "name": "Discover Hunter",
+        "count": 1,
+        "percentage": "25.0"
+      },
+      {
+        "name": "Hagatha Shaman",
+        "count": 1,
+        "percentage": "25.0"
       }
     ],
-    "mostPlayedClass": "DH"
+    "mostPlayedClass": "Rogue"
+  },
+  "metaScore": {
+    "lastCalculated": "2026-01-11T21:29:36.645Z",
+    "archetypes": [
+      {
+        "name": "Cycle Rogue",
+        "count": 2,
+        "percentage": "50.0",
+        "uniquePlayers": 2,
+        "avgRank": 13,
+        "metaScore": 76,
+        "tier": "S"
+      },
+      {
+        "name": "Quest Spell Mage",
+        "count": 1,
+        "percentage": "25.0",
+        "uniquePlayers": 1,
+        "avgRank": 51,
+        "metaScore": 55,
+        "tier": "B"
+      },
+      {
+        "name": "Cliff Dive DH",
+        "count": 1,
+        "percentage": "25.0",
+        "uniquePlayers": 1,
+        "avgRank": 98,
+        "metaScore": 41,
+        "tier": "C"
+      },
+      {
+        "name": "Discover Hunter",
+        "count": 1,
+        "percentage": "25.0",
+        "uniquePlayers": 0,
+        "avgRank": 51,
+        "metaScore": 25,
+        "tier": "C"
+      },
+      {
+        "name": "Hagatha Shaman",
+        "count": 1,
+        "percentage": "25.0",
+        "uniquePlayers": 0,
+        "avgRank": 98,
+        "metaScore": 11,
+        "tier": "C"
+      }
+    ],
+    "methodology": {
+      "frequency": "40% - Apariciones en Top 100",
+      "diversity": "30% - Jugadores únicos que lo usan",
+      "ranking": "30% - Ranking promedio de los jugadores"
+    }
   }
 }

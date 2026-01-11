@@ -479,6 +479,68 @@
             align-items: center;
         }
         
+        /* Meta Score Styles */
+        .meta-score-item {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            padding: 16px;
+            background: #111827;
+            border-radius: 8px;
+            margin-bottom: 12px;
+            border-left: 4px solid #7c3aed;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        
+        .meta-score-item:hover {
+            transform: translateX(4px);
+            box-shadow: 0 4px 12px rgba(124, 58, 237, 0.3);
+        }
+        
+        .tier-badge {
+            font-size: 1.5rem;
+            font-weight: 800;
+            padding: 8px 16px;
+            border-radius: 8px;
+            min-width: 60px;
+            text-align: center;
+        }
+        
+        .tier-S { background: linear-gradient(135deg, #fbbf24, #f59e0b); color: #000; }
+        .tier-A { background: linear-gradient(135deg, #c084fc, #a855f7); color: #fff; }
+        .tier-B { background: linear-gradient(135deg, #60a5fa, #3b82f6); color: #fff; }
+        .tier-C { background: linear-gradient(135deg, #6b7280, #4b5563); color: #fff; }
+        
+        .meta-score-info {
+            flex: 1;
+        }
+        
+        .meta-score-name {
+            font-size: 1.125rem;
+            font-weight: 700;
+            color: #e5e7eb;
+            margin-bottom: 6px;
+        }
+        
+        .meta-score-details {
+            display: flex;
+            gap: 16px;
+            font-size: 0.875rem;
+            color: #9ca3af;
+        }
+        
+        .meta-score-details span {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+        
+        .meta-score-value {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: #fbbf24;
+        }
+        
         .archetype-count {
             color: #fbbf24;
             font-weight: 700;
@@ -548,6 +610,23 @@
                         <!-- Will be populated by JS -->
                     </div>
                 </div>
+            </div>
+        </div>
+        
+        <!-- Meta Score Section -->
+        <div id="meta-score-section" class="meta-snapshot hidden" style="margin-top: 32px;">
+            <h2>🏆 Meta Score & Tier List</h2>
+            <p class="subtitle">Ranking de arquetipos basado en popularidad, diversidad y rendimiento</p>
+            
+            <div id="meta-score-list" style="margin-top: 24px;">
+                <!-- Will be populated by JS -->
+            </div>
+            
+            <div style="margin-top: 20px; padding: 16px; background: #1a1a2e; border-radius: 8px; font-size: 0.875rem; color: #9ca3af;">
+                <strong>Metodología del Meta Score:</strong><br>
+                • 40% Frecuencia - Apariciones en el Top 100<br>
+                • 30% Diversidad - Número de jugadores únicos<br>
+                • 30% Ranking - Posición promedio en la ladder
             </div>
         </div>
         
@@ -654,6 +733,11 @@
                 // Render Meta Snapshot if available
                 if (data.metaSnapshot) {
                     renderMetaSnapshot(data.metaSnapshot);
+                }
+                
+                // Render Meta Score if available
+                if (data.metaScore) {
+                    renderMetaScore(data.metaScore);
                 }
                 
                 // Hide loading
@@ -886,6 +970,36 @@
             });
             
             console.log('✅ Meta Snapshot rendered');
+        }
+        
+        function renderMetaScore(metaScore) {
+            console.log('🏆 Rendering Meta Score', metaScore);
+            
+            // Show the section
+            document.getElementById('meta-score-section').classList.remove('hidden');
+            
+            const scoreList = document.getElementById('meta-score-list');
+            scoreList.innerHTML = '';
+            
+            metaScore.archetypes.forEach((archetype, index) => {
+                const item = document.createElement('div');
+                item.className = 'meta-score-item';
+                item.innerHTML = `
+                    <div class="tier-badge tier-${archetype.tier}">${archetype.tier}</div>
+                    <div class="meta-score-info">
+                        <div class="meta-score-name">${index + 1}. ${escapeHtml(archetype.name)}</div>
+                        <div class="meta-score-details">
+                            <span>📊 ${archetype.count} mazos (${archetype.percentage}%)</span>
+                            <span>👥 ${archetype.uniquePlayers} jugadores</span>
+                            <span>📈 Avg Rank #${archetype.avgRank}</span>
+                        </div>
+                    </div>
+                    <div class="meta-score-value">${archetype.metaScore}</div>
+                `;
+                scoreList.appendChild(item);
+            });
+            
+            console.log('✅ Meta Score rendered');
         }
 
         // Load decks on page load
