@@ -1,55 +1,33 @@
 {
-  "lastUpdate": "2026-01-11T22:42:08.822Z",
+  "lastUpdate": "2026-01-11T23:11:34.441Z",
   "source": "HSGuru Top 100 + HSReplay player names",
-  "totalDecks": 6,
-  "knownPlayers": 2,
+  "totalDecks": 4,
+  "knownPlayers": 1,
   "decks": [
     {
-      "rank": 14,
+      "rank": 22,
+      "name": "Charon",
+      "inMasterList": false,
+      "battleTag": null,
+      "deck": {
+        "name": "Cycle Rogue",
+        "code": "AAECAaIHBJegBL2+BvTJBozWBg32nwT3nwSgswa2tQaUygaY4Qbq5Qachwe+hwfBlwfXlwfUnQeKsQcAAA=="
+      },
+      "lastSeen": "14 minutes ago"
+    },
+    {
+      "rank": 24,
       "name": "demoshadow",
       "inMasterList": false,
       "battleTag": null,
       "deck": {
-        "name": "Copy Druid",
-        "code": "AAECAZICDMekBquxBtmxBp3jBu3qBuHrBq+HB4KYB/ioB/moB/qoB5jEBwmunwSB1ASRvwbzygat4gb35QaQlweqrwesrwcAAQP1swbHpAb3swbHpAbu3gbHpAYAAA=="
+        "name": "Cycle Rogue",
+        "code": "AAECAaIHBJegBL2+BvTJBozWBg32nwT3nwSgswa2tQaUygaY4Qbq5Qachwe+hwfBlwfXlwfUnQeKsQcAAA=="
       },
       "lastSeen": "9 minutes ago"
     },
     {
-      "rank": 14,
-      "name": "MonkeFlip",
-      "inMasterList": true,
-      "battleTag": "MonkeFlip#2517",
-      "deck": {
-        "name": "Copy Druid",
-        "code": "AAECAZICDMekBquxBtmxBp3jBu3qBuHrBq+HB4KYB/ioB/moB/qoB5jEBwmunwSB1ASRvwbzygat4gb35QaQlweqrwesrwcAAQP1swbHpAb3swbHpAbu3gbHpAYAAA=="
-      },
-      "lastSeen": "21 minutes ago"
-    },
-    {
-      "rank": 15,
-      "name": "NickDrake",
-      "inMasterList": false,
-      "battleTag": null,
-      "deck": {
-        "name": "Copy Druid",
-        "code": "AAECAZICDMekBquxBtmxBp3jBu3qBuHrBq+HB4KYB/ioB/moB/qoB5jEBwmunwSB1ASRvwbzygat4gb35QaQlweqrwesrwcAAQP1swbHpAb3swbHpAbu3gbHpAYAAA=="
-      },
-      "lastSeen": "4 minutes ago"
-    },
-    {
-      "rank": 39,
-      "name": "NotBamity",
-      "inMasterList": true,
-      "battleTag": "NotBamity#1890",
-      "deck": {
-        "name": "Quest Spell Mage",
-        "code": "AAECAf0EAqebB9GmBw6xoAblpgbmpgazpwbluAaBvwaFvwbw5QaG5gaQ9Aaa9AbxkQf6mwfYngcAAA=="
-      },
-      "lastSeen": "19 minutes ago"
-    },
-    {
-      "rank": 45,
+      "rank": 41,
       "name": "Theo",
       "inMasterList": false,
       "battleTag": null,
@@ -57,111 +35,95 @@
         "name": "Quest Spell Mage",
         "code": "AAECAf0EAqebB9GmBw6xoAblpgbmpgazpwbluAaBvwaFvwbw5QaG5gaQ9Aaa9AbxkQf6mwfYngcAAA=="
       },
-      "lastSeen": "9 minutes ago"
+      "lastSeen": "10 minutes ago"
     },
     {
       "rank": 46,
-      "name": "Theo",
-      "inMasterList": false,
-      "battleTag": null,
+      "name": "Steelraiser",
+      "inMasterList": true,
+      "battleTag": "Steelraiser#11427",
       "deck": {
         "name": "Quest Spell Mage",
         "code": "AAECAf0EAqebB9GmBw6xoAblpgbmpgazpwbluAaBvwaFvwbw5QaG5gaQ9Aaa9AbxkQf6mwfYngcAAA=="
       },
-      "lastSeen": "26 minutes ago"
+      "lastSeen": "17 minutes ago"
     }
   ],
   "noNewResults": false,
   "metaSnapshot": {
     "classDistribution": {
-      "Druid": 3,
-      "Mage": 3,
-      "Rogue": 1,
-      "Warrior": 1,
-      "DH": 1
+      "Rogue": 2,
+      "Mage": 2,
+      "Druid": 1,
+      "Warrior": 1
     },
     "classPercentages": {
-      "Druid": "50.0",
+      "Rogue": "50.0",
       "Mage": "50.0",
-      "Rogue": "16.7",
-      "Warrior": "16.7",
-      "DH": "16.7"
+      "Druid": "25.0",
+      "Warrior": "25.0"
     },
     "topArchetypes": [
       {
-        "name": "Copy Druid",
-        "count": 3,
+        "name": "Cycle Rogue",
+        "count": 2,
         "percentage": "50.0"
       },
       {
         "name": "Quest Spell Mage",
-        "count": 3,
+        "count": 2,
         "percentage": "50.0"
       },
       {
-        "name": "Dragon Warrior",
+        "name": "Copy Druid",
         "count": 1,
-        "percentage": "16.7"
+        "percentage": "25.0"
       },
       {
-        "name": "Elise Rogue",
+        "name": "Control Warrior",
         "count": 1,
-        "percentage": "16.7"
-      },
-      {
-        "name": "No Minion DH",
-        "count": 1,
-        "percentage": "16.7"
+        "percentage": "25.0"
       }
     ],
-    "mostPlayedClass": "Druid"
+    "mostPlayedClass": "Rogue"
   },
   "metaScore": {
-    "lastCalculated": "2026-01-11T22:42:08.822Z",
+    "lastCalculated": "2026-01-11T23:11:34.441Z",
     "archetypes": [
       {
-        "name": "Copy Druid",
-        "count": 3,
+        "name": "Cycle Rogue",
+        "count": 2,
         "percentage": "50.0",
-        "uniquePlayers": 3,
-        "avgRank": 14,
-        "metaScore": 76,
-        "tier": "S"
+        "uniquePlayers": 2,
+        "avgRank": 23,
+        "metaScore": 73,
+        "tier": "A"
       },
       {
         "name": "Quest Spell Mage",
-        "count": 3,
+        "count": 2,
         "percentage": "50.0",
         "uniquePlayers": 2,
-        "avgRank": 43,
-        "metaScore": 57,
-        "tier": "B"
+        "avgRank": 44,
+        "metaScore": 67,
+        "tier": "A"
       },
       {
-        "name": "Dragon Warrior",
+        "name": "Copy Druid",
         "count": 1,
-        "percentage": "16.7",
+        "percentage": "25.0",
         "uniquePlayers": 0,
-        "avgRank": 39,
-        "metaScore": 25,
+        "avgRank": 41,
+        "metaScore": 28,
         "tier": "C"
       },
       {
-        "name": "Elise Rogue",
+        "name": "Control Warrior",
         "count": 1,
-        "percentage": "16.7",
-        "uniquePlayers": 0,
-        "avgRank": 45,
-        "metaScore": 23,
-        "tier": "C"
-      },
-      {
-        "name": "No Minion DH",
-        "count": 1,
-        "percentage": "16.7",
+        "percentage": "25.0",
         "uniquePlayers": 0,
         "avgRank": 46,
-        "metaScore": 23,
+        "metaScore": 26,
         "tier": "C"
       }
     ],
