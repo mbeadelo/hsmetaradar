@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HS MetaRadar | Top 50 Tracker</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
+        body { font-family: 'Inter', sans-serif; }
+        .tab-active { @apply bg-blue-600 text-white shadow-lg shadow-blue-900/50; }
+        .deck-card { transition: all 0.2s ease-in-out; }
+        .deck-card:hover { transform: translateY(-2px); }
+    </style>
+</head>
+<body class="bg-gray-950 text-gray-100 min-h-screen pb-12">
+
+    <header class="bg-gray-900 border-b border-gray-800 py-6 mb-8 sticky top-0 z-10 shadow-xl">
+        <div class="max-w-3xl mx-auto px-4 flex justify-between items-center">
+            <div>
+                <h1 class="text-2xl font-bold text-yellow-500 tracking-tight">HS MetaRadar</h1>
+                <p class="text-xs text-gray-400 uppercase tracking-widest font-semibold">Live Top 50 Tracker</p>
+            </div>
+            <div id="last-update" class="text-[10px] text-gray-500 bg-gray-800 px-3 py-1 rounded-full border border-gray-700">
+                Cargando datos...
+            </div>
+        </div>
+    </header>
+
+    <main class="max-w-3xl mx-auto px-4">
+        <div class="flex bg-gray-900 p-1 rounded-xl mb-8 border border-gray-800 shadow-inner">
+            <button onclick="render('EU', this)" class="region-btn tab-active flex-1 py-3 rounded-lg font-bold text-sm transition-all">EUROPA</button>
+            <button onclick="render('US', this)" class="region-btn text-gray-400 flex-1 py-3 rounded-lg font-bold text-sm transition-all">AMÉRICA</button>
+            <button onclick="render('AP', this)" class="region-btn text-gray-400 flex-1 py-3 rounded-lg font-bold text-sm transition-all">ASIA</button>
+        </div>
+
+        <div id="list" class="space-y-4">
+            <div class="flex flex-col items-center justify-center py-20 text-gray-500">
+                <div class="animate-spin rounded-full h-10 w-10 border-b-2 border-yellow-500 mb-4"></div>
+                <p>Esperando datos de top_decks.json...</p>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        let allData = {};
+
+        async function loadData() {
+            try {
+                // Intenta cargar el JSON generado por el script de Node
+                const response = await fetch('top_decks.json');
+                if (!response.ok) throw new Error('Archivo no encontrado');
+                
+                allData = await response.json();
+                
+                // Actualizar hora de la última carga
+                const now = new Date();
+                document.getElementById('last-update').innerText = `ACTUALIZADO: ${now.toLocaleTimeString()}`;
+                
+                // Renderizar Europa por defecto
+                render('EU', document.querySelector('.region-btn'));
+            } catch (error) {
+                document.getElementById('list').innerHTML = `
+                    <div class="bg-red-900/20 border border-red-900/50 p-6 rounded-xl text-center">
+                        <p class="text-red-400 font-bold">⚠️ Error: No se pudo cargar top_decks.json</p>
+                        <p class="text-red-300 text-sm mt-2">Asegúrate de haber ejecutado 'node index.js' y estar usando un servidor local (como Live Server).</p>
+                    </div>
+                `;
+            }
+        }
+
+        function render(region, element) {
+            const container = document.getElementById('list');
+            
+            // Actualizar estilos de los botones
+            document.querySelectorAll('.region-btn').forEach(btn => {
+                btn.classList.remove('tab-active', 'text-white');
+                btn.classList.add('text-gray-400');
+            });
+            if(element) {
+                element.classList.add('tab-active', 'text-white');
+                element.classList.remove('text-gray-400');
+            }
+
+            if (!allData[region] || allData[region].length === 0) {
+                container.innerHTML = `<p class="text-center text-gray-600 py-10">No hay datos disponibles para esta región.</p>`;
+                return;
+            }
+
+            // Pintar los mazos
+            container.innerHTML = allData[region].map(p => {
+                const hasDeck = p.deck && p.deck.code && p.deck.code !== "null";
+                return `
+                    <div class="deck-card bg-gray-900 border border-gray-800 p-5 rounded-2xl flex justify-between items-center shadow-sm">
+                        <div class="flex items-center gap-4">
+                            <div class="flex flex-col items-center justify-center bg-gray-800 w-12 h-12 rounded-xl border border-gray-700">
+                                <span class="text-xs text-gray-500 font-bold uppercase">Rank</span>
+                                <span class="text-lg font-black text-yellow-500">#${p.rank}</span>
+                            </div>
+                            <div>
+                                <h3 class="font-bold text-white text-lg leading-none">${p.name}</h3>
+                                <p class="text-blue-400 text-sm mt-1 font-semibold">
+                                    ${p.deck.name || "Mazo desconocido"}
+                                </p>
+                            </div>
+                        </div>
+                        
+                        <div>
+                            ${hasDeck ? `
+                                <button onclick="copyDeck('${p.deck.code}')" 
+                                        class="bg-blue-600 hover:bg-blue-500 active:scale-95 transition-all text-white text-xs font-bold py-3 px-5 rounded-xl uppercase tracking-wider">
+                                    Copiar
+                                </button>
+                            ` : `
+                                <span class="text-gray-600 text-xs font-bold uppercase italic">Privado</span>
+                            `}
+                        </div>
+                    </div>
+                `;
+            }).join('');
+        }
+
+        function copyDeck(code) {
+            navigator.clipboard.writeText(code).then(() => {
+                // Feedback visual simple
+                const toast = document.createElement('div');
+                toast.className = "fixed bottom-10 left-1/2 -translate-x-1/2 bg-yellow-500 text-gray-900 px-6 py-3 rounded-full font-bold shadow-2xl z-50 animate-bounce";
+                toast.innerText = "¡CÓDIGO COPIADO!";
+                document.body.appendChild(toast);
+                setTimeout(() => toast.remove(), 2000);
+            });
+        }
+
+        // Iniciar carga
+        loadData();
+    </script>
+</body>
+</html>

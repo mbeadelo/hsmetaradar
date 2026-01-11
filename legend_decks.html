@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HS Legend Decks | Top Meta Tracker</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
+        
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #0a0a0f;
+            color: #e5e7eb;
+            min-height: 100vh;
+            padding-bottom: 48px;
+        }
+        
+        header {
+            background: linear-gradient(to right, #581c87, #3730a3);
+            padding: 32px 16px;
+            margin-bottom: 32px;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.5);
+            text-align: center;
+        }
+        
+        h1 {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #fbbf24;
+            margin-bottom: 8px;
+        }
+        
+        .subtitle { color: #d1d5db; font-size: 0.875rem; }
+        
+        #metadata {
+            margin-top: 16px;
+            font-size: 0.75rem;
+            color: #9ca3af;
+        }
+        
+        #stats { color: #c084fc; }
+        
+        #refresh-btn {
+            background: #7c3aed;
+            color: white;
+            font-weight: 600;
+            padding: 8px 24px;
+            margin-top: 16px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.2s;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+        }
+        
+        #refresh-btn:hover { background: #6d28d9; box-shadow: 0 8px 12px rgba(0,0,0,0.4); }
+        #refresh-btn:disabled { background: #4b5563; cursor: not-allowed; }
+        
+        #refresh-status {
+            font-size: 0.75rem;
+            color: #9ca3af;
+            margin-top: 8px;
+        }
+        
+        .container {
+            max-width: 896px;
+            margin: 0 auto;
+            padding: 0 16px;
+        }
+        
+        #loading {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 80px 0;
+            color: #6b7280;
+        }
+        
+        .spinner {
+            border: 3px solid #1f2937;
+            border-top: 3px solid #7c3aed;
+            border-radius: 50%;
+            width: 48px;
+            height: 48px;
+            animation: spin 1s linear infinite;
+            margin-bottom: 16px;
+        }
+        
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        @keyframes spin-icon {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        .animate-spin { animation: spin-icon 1s linear infinite; }
+        
+        #decks-list { display: flex; flex-direction: column; gap: 12px; }
+        
+        .deck-card {
+            background: #111827;
+            border: 1px solid #1f2937;
+            border-radius: 8px;
+            padding: 20px;
+            transition: all 0.2s;
+        }
+        
+        .deck-card:hover {
+            border-color: #7c3aed;
+            box-shadow: 0 4px 12px rgba(124, 58, 237, 0.2);
+        }
+        
+        .card-content {
+            display: flex;
+            gap: 16px;
+            align-items: start;
+        }
+        
+        .rank-badge {
+            text-align: center;
+            flex-shrink: 0;
+        }
+        
+        .rank-icon {
+            font-size: 2rem;
+            font-weight: 700;
+        }
+        
+        .rank-number {
+            font-size: 0.875rem;
+            font-weight: 600;
+            margin-top: 4px;
+        }
+        
+        .rank-1 { color: #fbbf24; }
+        .rank-10 { color: #c084fc; }
+        .rank-50 { color: #60a5fa; }
+        .rank-100 { color: #34d399; }
+        .rank-default { color: #fb923c; }
+        
+        .deck-info { flex: 1; min-width: 0; }
+        
+        .player-name {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: #f3f4f6;
+            margin-bottom: 4px;
+        }
+        
+        .known-badge {
+            display: inline-block;
+            margin-left: 8px;
+            font-size: 0.875rem;
+            background: #7c3aed;
+            padding: 2px 8px;
+            border-radius: 4px;
+        }
+        
+        .battle-tag {
+            font-size: 0.875rem;
+            color: #9ca3af;
+            margin-bottom: 8px;
+        }
+        
+        .deck-name {
+            font-size: 1.125rem;
+            color: #c084fc;
+            font-weight: 600;
+            margin-bottom: 12px;
+        }
+        
+        .last-seen {
+            font-size: 0.75rem;
+            color: #6b7280;
+            margin-bottom: 12px;
+        }
+        
+        .deck-code-container {
+            display: flex;
+            gap: 8px;
+            align-items: center;
+        }
+        
+        .deck-code {
+            flex: 1;
+            background: #0a0a0f;
+            border: 1px solid #1f2937;
+            padding: 8px 12px;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            color: #9ca3af;
+            font-family: monospace;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+        
+        .copy-btn {
+            background: #7c3aed;
+            color: white;
+            border: none;
+            padding: 8px 20px;
+            border-radius: 4px;
+            font-weight: 600;
+            font-size: 0.875rem;
+            cursor: pointer;
+            transition: background 0.2s;
+            flex-shrink: 0;
+        }
+        
+        .copy-btn:hover { background: #6d28d9; }
+        .copy-btn:active { background: #5b21b6; }
+        .copy-btn.copied { background: #10b981; }
+        
+        .hidden { display: none !important; }
+        
+        #empty-state {
+            text-align: center;
+            padding: 80px 0;
+            color: #6b7280;
+        }
+        
+        #empty-state p:first-child {
+            font-size: 1.25rem;
+            margin-bottom: 8px;
+        }
+        
+        code {
+            background: #1f2937;
+            padding: 2px 8px;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container">
+            <h1>🃏 HS Legend Decks</h1>
+            <p class="subtitle">Top Meta Tracker - Real Legend Decks</p>
+            <div id="metadata">
+                <span id="last-update">Loading...</span> • 
+                <span id="source">HearthstoneTopDecks.com</span>
+                <br>
+                <span id="stats"></span>
+            </div>
+            <div>
+                <button id="refresh-btn" onclick="refreshData()">
+                    <span id="refresh-icon">🔄</span> Refresh Data
+                </button>
+                <p id="refresh-status"></p>
+            </div>
+        </div>
+    </header>
+
+    <main class="container">
+        <!-- Loading State -->
+        <div id="loading">
+            <div class="spinner"></div>
+            <p>Loading legend decks...</p>
+        </div>
+
+        <!-- Decks List -->
+        <div id="decks-list" class="hidden">
+            <!-- Cards will be injected here -->
+        </div>
+
+        <!-- Empty State -->
+        <div id="empty-state" class="hidden">
+            <p>❌ No decks available</p>
+            <p>Run <code>node index_hsguru_replays.js</code> first</p>
+        </div>
+    </main>
+
+    <script>
+        let allDecks = [];
+
+        async function loadDecks() {
+            console.log('🔍 Starting to load decks...');
+            try {
+                console.log('📡 Fetching top_decks.json...');
+                const response = await fetch('top_decks.json');
+                console.log('📊 Response status:', response.status);
+                
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+                
+                const data = await response.json();
+                console.log('✅ Data loaded:', data);
+                
+                allDecks = data.decks || [];
+                console.log('📋 Total decks:', allDecks.length);
+                
+                // Update metadata
+                const lastUpdate = new Date(data.lastUpdate).toLocaleString('es-ES');
+                document.getElementById('last-update').textContent = `Updated: ${lastUpdate}`;
+                document.getElementById('source').textContent = `Source: ${data.source}`;
+                document.getElementById('stats').textContent = `${data.totalDecks} decks • ${data.knownPlayers} known players from database`;
+                
+                // Hide loading
+                document.getElementById('loading').classList.add('hidden');
+                console.log('🚫 Loading hidden');
+                
+                if (allDecks.length === 0) {
+                    console.log('⚠️ No decks found');
+                    document.getElementById('empty-state').classList.remove('hidden');
+                    return;
+                }
+                
+                // Show decks
+                console.log('📺 Showing decks list');
+                const decksList = document.getElementById('decks-list');
+                decksList.classList.remove('hidden');
+                
+                renderDecks();
+                console.log('✨ Rendering complete');
+                
+            } catch (error) {
+                console.error('❌ Error loading decks:', error);
+                document.getElementById('loading').innerHTML = 
+                    `<div class="text-center">
+                        <p class="text-red-400 text-xl mb-2">❌ Error loading data</p>
+                        <p class="text-sm text-gray-500">Make sure top_decks.json exists and is valid</p>
+                    </div>`;
+            }
+        }
+
+        function renderDecks() {
+            console.log('🎨 Rendering', allDecks.length, 'decks');
+            const container = document.getElementById('decks-list');
+            container.innerHTML = '';
+            
+            allDecks.forEach((deck, index) => {
+                console.log(`  Card ${index + 1}:`, deck.name, '-', deck.deck?.name);
+                const card = createDeckCard(deck);
+                container.appendChild(card);
+            });
+            console.log('✅ All cards rendered');
+        }
+
+        function createDeckCard(deck) {
+            const card = document.createElement('div');
+            card.className = 'deck-card';
+            
+            const rankBadge = getRankBadge(deck.rank);
+            const hasDeck = deck.deck && deck.deck.code;
+            
+            card.innerHTML = `
+                <div class="card-content">
+                    <!-- Rank Badge -->
+                    <div class="rank-badge">
+                        <div class="rank-icon ${rankBadge.color}">${rankBadge.icon}</div>
+                        <div class="rank-number ${rankBadge.color}">#${deck.rank}</div>
+                    </div>
+                    
+                    <!-- Content -->
+                    <div class="deck-info">
+                        <!-- Player Name -->
+                        <div class="player-name">
+                            ${escapeHtml(deck.name)}
+                            ${deck.inMasterList ? '<span class="known-badge">⭐ Known</span>' : ''}
+                        </div>
+                        
+                        <!-- BattleTag if available -->
+                        ${deck.battleTag ? `
+                            <div class="battle-tag">
+                                ${escapeHtml(deck.battleTag)}
+                            </div>
+                        ` : ''}
+                        
+                        <!-- Deck Name -->
+                        <div class="deck-name">
+                            ${escapeHtml(deck.deck?.name || 'Unknown Deck')}
+                        </div>
+                        
+                        <!-- Last Seen -->
+                        ${deck.lastSeen ? `
+                            <div class="last-seen">
+                                Last seen: ${escapeHtml(deck.lastSeen)}
+                            </div>
+                        ` : ''}
+                        
+                        <!-- Deck Code -->
+                        ${hasDeck ? `
+                            <div class="deck-code-container">
+                                <code class="deck-code">
+                                    ${deck.deck.code.substring(0, 50)}...
+                                </code>
+                                <button 
+                                    onclick="copyDeckCode('${deck.deck.code}', this)" 
+                                    class="copy-btn">
+                                    📋 Copy
+                                </button>
+                            </div>
+                        ` : `
+                            <p style="color: #6b7280; font-style: italic; font-size: 0.875rem;">No deck code available</p>
+                        `}
+                    </div>
+                </div>
+            `;
+            
+            return card;
+        }
+
+        function getRankBadge(rank) {
+            if (rank === 1) return { icon: '👑', color: 'rank-1' };
+            if (rank <= 10) return { icon: '💎', color: 'rank-10' };
+            if (rank <= 50) return { icon: '⭐', color: 'rank-50' };
+            if (rank <= 100) return { icon: '🎯', color: 'rank-100' };
+            return { icon: '🔥', color: 'rank-default' };
+        }
+
+        function copyDeckCode(code, button) {
+            navigator.clipboard.writeText(code).then(() => {
+                const originalHTML = button.innerHTML;
+                
+                button.innerHTML = '✅ Copied!';
+                button.className = 'copy-btn copied';
+                
+                setTimeout(() => {
+                    button.innerHTML = originalHTML;
+                    button.className = 'copy-btn';
+                }, 2000);
+            }).catch(err => {
+                console.error('Failed to copy:', err);
+                alert('Failed to copy deck code');
+            });
+        }
+
+        function escapeHtml(text) {
+            const div = document.createElement('div');
+            div.textContent = text;
+            return div.innerHTML;
+        }
+
+        async function refreshData() {
+            const btn = document.getElementById('refresh-btn');
+            const icon = document.getElementById('refresh-icon');
+            const status = document.getElementById('refresh-status');
+            
+            // Disable button and show loading
+            btn.disabled = true;
+            icon.classList.add('animate-spin');
+            status.textContent = 'Scraping data... This may take 30-60 seconds';
+            status.style.color = '#fbbf24';
+            
+            try {
+                const response = await fetch('/api/refresh', {
+                    method: 'POST'
+                });
+                
+                const result = await response.json();
+                
+                if (result.success) {
+                    status.textContent = `✅ Updated! Found ${result.totalDecks} decks`;
+                    status.style.color = '#10b981';
+                    
+                    // Reload data
+                    setTimeout(() => {
+                        location.reload();
+                    }, 1000);
+                } else {
+                    status.textContent = `❌ Error: ${result.error}`;
+                    status.style.color = '#ef4444';
+                }
+            } catch (error) {
+                status.textContent = '❌ Failed to refresh data';
+                status.style.color = '#ef4444';
+                console.error('Refresh error:', error);
+            } finally {
+                btn.disabled = false;
+                icon.classList.remove('animate-spin');
+            }
+        }
+
+        // Load decks on page load
+        loadDecks();
+    </script>
+</body>
+</html>
