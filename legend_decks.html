@@ -642,12 +642,12 @@
                 <img src="assets/logo.png" alt="Entërra Logo" />
                 HS Meta Radar
             </h1>
-            <p class="subtitle">Top 100 Legend Decks • Actualizado cada 30 minutos</p>
+            <p class="subtitle">Top 100 Legend Decks • Updated every 30 minutes</p>
             
             <!-- Social Links -->
             <div class="social-links">
                 <a href="https://www.youtube.com/@Enterra" target="_blank" class="social-btn youtube">
-                    🎥 Suscríbete en YouTube
+                    🎥 Subscribe on YouTube
                 </a>
                 <a href="https://twitter.com/EnterraTV" target="_blank" class="social-btn twitter">
                     🐦 @EnterraTV
@@ -666,10 +666,10 @@
     <div class="container">
         <!-- Navigation Tabs -->
         <nav class="nav-tabs">
-            <button class="nav-tab active" data-tab="decks">🃏 Mazos Top 100</button>
+            <button class="nav-tab active" data-tab="decks">🃏 Top 100 Decks</button>
             <button class="nav-tab" data-tab="meta-snapshot">📊 Meta Snapshot</button>
             <button class="nav-tab" data-tab="meta-score">🏆 Meta Score</button>
-            <button class="nav-tab" data-tab="about">📡 Sobre el Proyecto</button>
+            <button class="nav-tab" data-tab="about">📡 About</button>
         </nav>
     </div>
 
@@ -689,17 +689,17 @@
             <div class="tab-content active" id="tab-decks">
                 <!-- Info Banner for No New Results -->
                 <div id="no-new-results-banner" class="info-banner hidden">
-                    📌 <strong>Información actualizada:</strong> <span id="no-new-results-message"></span>
+                    📌 <strong>Updated info:</strong> <span id="no-new-results-message"></span>
                 </div>
                 
                 <div id="loading">
                     <div class="spinner"></div>
-                    <p>Cargando mazos del Top 100...</p>
+                    <p>Loading Top 100 decks...</p>
                 </div>
                 
                 <div id="empty-state" class="hidden">
-                    <p>❌ No hay mazos disponibles</p>
-                    <p>Ejecuta <code>node index_hsguru_replays.js</code> primero</p>
+                    <p>❌ No decks available</p>
+                    <p>Run <code>node index_hsguru_replays.js</code> first</p>
                 </div>
                 
                 <div id="decks-list" class="hidden">
@@ -711,7 +711,7 @@
             <div class="tab-content" id="tab-meta-snapshot">
                 <div id="meta-snapshot" class="meta-snapshot">
             <h2>📊 Meta Snapshot</h2>
-            <p class="subtitle">Análisis en tiempo real del Top 100 Legend</p>
+            <p class="subtitle">Real-time analysis of Top 100 Legend</p>
             
             <div class="meta-grid">
                 <!-- Chart -->
@@ -735,28 +735,28 @@
             <!-- Tab: Meta Score -->\n            <div class="tab-content" id="tab-meta-score">
                 <div id="meta-score-section" class="meta-snapshot">
                     <h2>🏆 Meta Score & Tier List</h2>
-                    <p class="subtitle">Ranking de arquetipos basado en popularidad, diversidad y rendimiento</p>
+                    <p class="subtitle">Archetype ranking based on popularity, diversity and performance</p>
                     
                     <div id="meta-score-list" style="margin-top: 24px;">
                         <!-- Will be populated by JS -->
                     </div>
                     
                     <div style="margin-top: 20px; padding: 16px; background: #1a1a2e; border-radius: 8px; font-size: 0.875rem; color: #9ca3af;">
-                        <strong>Metodología del Meta Score:</strong><br>
-                        • 40% Frecuencia - Apariciones en el Top 100<br>
-                        • 30% Diversidad - Número de jugadores únicos<br>
-                        • 30% Ranking - Posición promedio en la ladder
+                        <strong>Meta Score Methodology:</strong><br>
+                        • 40% Frequency - Appearances in Top 100<br>
+                        • 30% Diversity - Number of unique players<br>
+                        • 30% Ranking - Average ladder position
                     </div>
                 </div>
             </div>
 
             <!-- Tab: About -->\n            <div class="tab-content" id="tab-about">
                 <div class="about-section">
-                    <h2>📡 Sobre el Proyecto</h2>
-                    <p>Este tracker automático rastrea en tiempo real los mazos del <strong>Top 100 Legend</strong> de Hearthstone.</p>
-                    <p>Los datos se actualizan automáticamente cada <strong>30 minutos</strong></p>
-                    <p class="creator-tag">Creado y mantenido por <strong>Entërra</strong></p>
-                    <p style="color: #9ca3af; font-size: 0.875rem;">Sígueme en YouTube y Twitter para más contenido del meta competitivo 🎮</p>
+                    <h2>📡 About the Project</h2>
+                    <p>This automatic tracker monitors <strong>Top 100 Legend</strong> decks from Hearthstone in real-time.</p>
+                    <p>Data is automatically updated every <strong>30 minutes</strong></p>
+                    <p class="creator-tag">Created and maintained by <strong>Entërra</strong></p>
+                    <p style="color: #9ca3af; font-size: 0.875rem;">Follow me on YouTube and Twitter for more competitive meta content 🎮</p>
                 </div>
             </div>
         </main>
@@ -776,8 +776,8 @@
                 <img src="assets/logo.png" alt="Entërra Logo" style="width: 40px; height: 40px; vertical-align: middle; margin-right: 8px;" />
                 HS Meta Radar
             </div>
-            <div class="footer-tagline">Tu fuente definitiva para el meta Top Legend de Hearthstone</div>
-            <div class="footer-creator">Creado por <strong>Entërra</strong></div>
+            <div class="footer-tagline">Your ultimate source for Hearthstone Top Legend meta</div>
+            <div class="footer-creator">Created by <strong>Entërra</strong></div>
             
             <div class="footer-social">
                 <a href="https://www.youtube.com/@Enterra" target="_blank" class="social-btn youtube">
@@ -848,10 +848,9 @@
                 console.log('📋 Total decks:', allDecks.length);
                 
                 // Update metadata
-                const lastUpdate = new Date(data.lastUpdate).toLocaleString('es-ES');
+                const lastUpdate = new Date(data.lastUpdate).toLocaleString('en-US');
                 document.getElementById('last-update').textContent = `Updated: ${lastUpdate}`;
                 document.getElementById('source').textContent = `Source: ${data.source}`;
-                document.getElementById('stats').textContent = `${data.totalDecks} decks • ${data.knownPlayers} known players from database`;
                 
                 // Check if there are no new results
                 if (data.noNewResults && data.noNewResultsMessage) {
