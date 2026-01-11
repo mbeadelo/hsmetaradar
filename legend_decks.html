@@ -53,6 +53,53 @@
         
         .subtitle { color: #d1d5db; font-size: 0.875rem; }
         
+        /* Navigation Tabs */
+        .nav-tabs {
+            display: flex;
+            gap: 8px;
+            margin: 24px 0;
+            border-bottom: 2px solid #374151;
+            overflow-x: auto;
+            scrollbar-width: thin;
+        }
+        
+        .nav-tab {
+            padding: 12px 24px;
+            background: transparent;
+            border: none;
+            color: #9ca3af;
+            font-weight: 600;
+            font-size: 0.875rem;
+            cursor: pointer;
+            border-bottom: 3px solid transparent;
+            transition: all 0.3s;
+            white-space: nowrap;
+        }
+        
+        .nav-tab:hover {
+            color: #c084fc;
+            background: rgba(124, 58, 237, 0.1);
+        }
+        
+        .nav-tab.active {
+            color: #fbbf24;
+            border-bottom-color: #fbbf24;
+        }
+        
+        .tab-content {
+            display: none;
+        }
+        
+        .tab-content.active {
+            display: block;
+            animation: fadeIn 0.3s;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
         #metadata {
             margin-top: 16px;
             font-size: 0.75rem;
@@ -62,9 +109,43 @@
         #stats { color: #c084fc; }
         
         .container {
-            max-width: 896px;
+            max-width: 1400px;
             margin: 0 auto;
             padding: 0 16px;
+        }
+        
+        .main-layout {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 24px;
+        }
+        
+        @media (min-width: 1024px) {
+            .main-layout {
+                grid-template-columns: 160px 1fr 160px;
+            }
+        }
+        
+        .sidebar-ad {
+            position: sticky;
+            top: 20px;
+            display: none;
+        }
+        
+        @media (min-width: 1024px) {
+            .sidebar-ad {
+                display: block;
+            }
+        }
+        
+        .sidebar-ad ins {
+            display: block;
+            min-height: 600px;
+        }
+        
+        .main-content {
+            max-width: 896px;
+            margin: 0 auto;
         }
         
         #loading {
@@ -582,18 +663,48 @@
         </div>
     </header>
 
-    <main class="container">
-        <!-- About Section -->
-        <div class="about-section">
-            <h2>📡 Sobre el Proyecto</h2>
-            <p>Este tracker automático rastrea en tiempo real los mazos del <strong>Top 100 Legend</strong> de Hearthstone.</p>
-            <p>Los datos se actualizan automáticamente cada <strong>30 minutos</strong></p>
-            <p class="creator-tag">Creado y mantenido por <strong>Entërra</strong></p>
-            <p style="color: #9ca3af; font-size: 0.875rem;">Sígueme en YouTube y Twitter para más contenido del meta competitivo 🎮</p>
-        </div>
-        
-        <!-- Meta Snapshot Section -->
-        <div id="meta-snapshot" class="meta-snapshot hidden">
+    <div class="container">
+        <!-- Navigation Tabs -->
+        <nav class="nav-tabs">
+            <button class="nav-tab active" data-tab="decks">🃏 Mazos Top 100</button>
+            <button class="nav-tab" data-tab="meta-snapshot">📊 Meta Snapshot</button>
+            <button class="nav-tab" data-tab="meta-score">🏆 Meta Score</button>
+            <button class="nav-tab" data-tab="about">📡 Sobre el Proyecto</button>
+        </nav>
+    </div>
+
+    <div class="container main-layout">
+        <!-- Left Sidebar Ad -->
+        <aside class="sidebar-ad">
+            <ins class="adsbygoogle"
+                 style="display:block"
+                 data-ad-client="ca-pub-6993117916486093"
+                 data-ad-slot="1234567890"
+                 data-ad-format="vertical"></ins>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Tab: Decks -->
+            <div class="tab-content active" id="tab-decks">
+                <div id="loading">
+                    <div class="spinner"></div>
+                    <p>Cargando mazos del Top 100...</p>
+                </div>
+                
+                <div id="empty-state" class="hidden">
+                    <p>❌ No hay mazos disponibles</p>
+                    <p>Ejecuta <code>node index_hsguru_replays.js</code> primero</p>
+                </div>
+                
+                <div id="decks-list" class="hidden">
+                    <!-- Cards will be injected here -->
+                </div>
+            </div>
+
+            <!-- Tab: Meta Snapshot -->
+            <div class="tab-content" id="tab-meta-snapshot">
+                <div id="meta-snapshot" class="meta-snapshot">
             <h2>📊 Meta Snapshot</h2>
             <p class="subtitle">Análisis en tiempo real del Top 100 Legend</p>
             
@@ -615,64 +726,45 @@
                 </div>
             </div>
         </div>
-        
-        <!-- Meta Score Section -->
-        <div id="meta-score-section" class="meta-snapshot hidden" style="margin-top: 32px;">
-            <h2>🏆 Meta Score & Tier List</h2>
-            <p class="subtitle">Ranking de arquetipos basado en popularidad, diversidad y rendimiento</p>
-            
-            <div id="meta-score-list" style="margin-top: 24px;">
-                <!-- Will be populated by JS -->
-            </div>
-            
-            <div style="margin-top: 20px; padding: 16px; background: #1a1a2e; border-radius: 8px; font-size: 0.875rem; color: #9ca3af;">
-                <strong>Metodología del Meta Score:</strong><br>
-                • 40% Frecuencia - Apariciones en el Top 100<br>
-                • 30% Diversidad - Número de jugadores únicos<br>
-                • 30% Ranking - Posición promedio en la ladder
-            </div>
-        </div>
-        
-        <!-- Google Ad Space #1 (Top Banner) -->
-        <div class="ad-container ad-banner">
-            <div class="ad-placeholder">
-                <!-- Aquí va tu código de Google Ads (728x90 Leaderboard) -->
-                📢 Espacio publicitario #1
-            </div>
-        </div>
-        
-        <!-- Info Banner for No New Results -->
-        <div id="no-new-results-banner" class="info-banner hidden">
-            📌 <strong>Información actualizada:</strong> <span id="no-new-results-message"></span>
-        </div>
-        
-        <!-- Loading State -->
-        <div id="loading">
-            <div class="spinner"></div>
-            <p>Loading legend decks...</p>
-        </div>
 
-        <!-- Decks List -->
-        <div id="decks-list" class="hidden">
-            <!-- Cards will be injected here -->
-        </div>
-
-        <!-- Empty State -->
-        <div id="empty-state" class="hidden">
-            <p>❌ No decks available</p>
-            <p>Run <code>node index_hsguru_replays.js</code> first</p>
-        </div>
-        
-        <!-- Google Ad Space #2 (Bottom Banner) -->
-        <div class="ad-container ad-banner" id="bottom-ad" style="display: none;">
-            <div class="ad-placeholder">
-                <!-- Aquí va tu código de Google Ads (728x90 Leaderboard) -->
-                📢 Espacio publicitario #2
+            <!-- Tab: Meta Score -->\n            <div class="tab-content" id="tab-meta-score">
+                <div id="meta-score-section" class="meta-snapshot">
+                    <h2>🏆 Meta Score & Tier List</h2>
+                    <p class="subtitle">Ranking de arquetipos basado en popularidad, diversidad y rendimiento</p>
+                    
+                    <div id="meta-score-list" style="margin-top: 24px;">
+                        <!-- Will be populated by JS -->
+                    </div>
+                    
+                    <div style="margin-top: 20px; padding: 16px; background: #1a1a2e; border-radius: 8px; font-size: 0.875rem; color: #9ca3af;">
+                        <strong>Metodología del Meta Score:</strong><br>
+                        • 40% Frecuencia - Apariciones en el Top 100<br>
+                        • 30% Diversidad - Número de jugadores únicos<br>
+                        • 30% Ranking - Posición promedio en la ladder
+                    </div>
+                </div>
             </div>
-        </div>
-    </main>
-    
-    <!-- Footer -->
+
+            <!-- Tab: About -->\n            <div class="tab-content" id="tab-about">
+                <div class="about-section">
+                    <h2>📡 Sobre el Proyecto</h2>
+                    <p>Este tracker automático rastrea en tiempo real los mazos del <strong>Top 100 Legend</strong> de Hearthstone.</p>
+                    <p>Los datos se actualizan automáticamente cada <strong>30 minutos</strong></p>
+                    <p class="creator-tag">Creado y mantenido por <strong>Entërra</strong></p>
+                    <p style="color: #9ca3af; font-size: 0.875rem;">Sígueme en YouTube y Twitter para más contenido del meta competitivo 🎮</p>
+                </div>
+            </div>
+        </main>
+
+        <!-- Right Sidebar Ad -->
+        <aside class="sidebar-ad">
+            <ins class="adsbygoogle"
+                 style="display:block"
+                 data-ad-client="ca-pub-6993117916486093"
+                 data-ad-slot="9876543210"
+                 data-ad-format="vertical"></ins>
+        </aside>
+    </div>
     <footer>
         <div class="footer-content">
             <div class="footer-brand">
@@ -701,6 +793,37 @@
     <script>
         let allDecks = [];
         let metaChart = null;
+
+        // Tab Navigation
+        document.addEventListener('DOMContentLoaded', () => {
+            const tabs = document.querySelectorAll('.nav-tab');
+            const tabContents = document.querySelectorAll('.tab-content');
+            
+            tabs.forEach(tab => {
+                tab.addEventListener('click', () => {
+                    const targetTab = tab.dataset.tab;
+                    
+                    // Remove active class from all tabs and contents
+                    tabs.forEach(t => t.classList.remove('active'));
+                    tabContents.forEach(c => c.classList.remove('active'));
+                    
+                    // Add active class to clicked tab and corresponding content
+                    tab.classList.add('active');
+                    document.getElementById(`tab-${targetTab}`).classList.add('active');
+                    
+                    // Initialize AdSense ads when tab changes
+                    if (typeof adsbygoogle !== 'undefined') {
+                        (adsbygoogle = window.adsbygoogle || []).push({});
+                    }
+                });
+            });
+            
+            // Initialize AdSense on page load
+            if (typeof adsbygoogle !== 'undefined') {
+                (adsbygoogle = window.adsbygoogle || []).push({});
+                (adsbygoogle = window.adsbygoogle || []).push({});
+            }
+        });
 
         async function loadDecks() {
             console.log('🔍 Starting to load decks...');
@@ -885,8 +1008,7 @@
         function renderMetaSnapshot(snapshot) {
             console.log('📊 Rendering Meta Snapshot', snapshot);
             
-            // Show the section
-            document.getElementById('meta-snapshot').classList.remove('hidden');
+            // Meta Snapshot is already visible in its tab, no need to toggle hidden
             
             // Prepare data for chart
             const classes = Object.keys(snapshot.classDistribution);
@@ -978,8 +1100,7 @@
         function renderMetaScore(metaScore) {
             console.log('🏆 Rendering Meta Score', metaScore);
             
-            // Show the section
-            document.getElementById('meta-score-section').classList.remove('hidden');
+            // Meta Score is already visible in its tab, no need to toggle hidden
             
             const scoreList = document.getElementById('meta-score-list');
             scoreList.innerHTML = '';
