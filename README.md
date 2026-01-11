@@ -1,6 +1,8 @@
 # 🃏 HS Meta Radar
 
-Rastreador de mazos del Top 50 Legend de Hearthstone con actualización automática.
+Rastreador de mazos del Top 50 Legend de Hearthstone con actualización automática cada 30 minutos.
+
+**Creado por [Entërra](https://www.youtube.com/@Enterra)** | [YouTube](https://www.youtube.com/@Enterra) | [Twitter @EnterraTV](https://twitter.com/EnterraTV)
 
 🌐 **Live:** [hsmetaradar.com](https://hsmetaradar.com) *(próximamente)*
 
@@ -143,9 +145,36 @@ cron.schedule('0 */6 * * *', () => {
 - ✅ Extrae Top 50 mazos de HSGuru
 - ✅ Obtiene nombres de jugadores de HSReplay/Firestone
 - ✅ Cross-referencia con 1350 BattleTags conocidos
-- ✅ Interfaz web con Tailwind CSS
+- ✅ **Interfaz web moderna y responsive**
+- ✅ **Enlaces a redes sociales del creador**
+- ✅ **Espacios para Google AdSense (monetización)**
+- ✅ **Footer profesional con información del creador**
 - ✅ Botón de actualización manual
 - ✅ Copia códigos de mazos con un click
+- ✅ **Manejo inteligente de sin resultados:** Si no se encuentran nuevos mazos en el Top 50, se publican los datos existentes con un mensaje informativo
+
+## 🔔 Sistema de Notificación Sin Nuevos Resultados
+
+Cuando el scraper ejecuta y no encuentra nuevos replays del Top 50, en lugar de no hacer nada:
+
+1. **Mantiene los datos existentes** en `top_decks.json`
+2. **Actualiza el timestamp** con la hora del último intento
+3. **Agrega un banner informativo** en la interfaz web que dice:
+   > 📌 **Información actualizada:** Se ha refrescado la información pero no se han encontrado nuevos mazos recientes dentro del top 50
+
+### Probar la funcionalidad
+
+```bash
+# Simular caso sin nuevos resultados
+npm run test:no-results
+
+# Abrir legend_decks.html para ver el banner
+
+# Restaurar estado normal
+npm run test:restore
+```
+
+Esto es útil para confirmar que el sistema está funcionando incluso cuando no hay nuevos datos disponibles.
 
 ## 🛠️ Estructura
 
@@ -153,11 +182,21 @@ cron.schedule('0 */6 * * *', () => {
 hsmetaradar/
 ├── server.js                  # Servidor Express
 ├── index_hsguru_replays.js    # Scraper principal
-├── legend_decks.html          # Frontend
+├── legend_decks.html          # Frontend (con ads y redes sociales)
 ├── top_decks.json            # Datos scrapeados
 ├── master_list.json          # 1350 BattleTags conocidos
+├── GOOGLE_ADS_SETUP.md       # Guía para configurar Google AdSense
 └── get_battlefy.js           # Scraper de Battlefy (ya usado)
 ```
+
+## 💰 Monetización
+
+El proyecto incluye espacios preparados para Google AdSense:
+- **2 banners horizontales** (728x90 o responsive)
+- Ubicación estratégica para maximizar visibilidad
+- Ver [GOOGLE_ADS_SETUP.md](GOOGLE_ADS_SETUP.md) para instrucciones completas
+
+**Ingresos estimados:** $30-750/mes dependiendo del tráfico
 
 ## 💡 Recomendación Final
 

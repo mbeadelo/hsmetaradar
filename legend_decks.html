@@ -3,7 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HS Legend Decks | Top Meta Tracker</title>
+    <title>HS Meta Radar | Top 50 Legend Decks by Entërra</title>
+    <meta name="description" content="Rastreador en tiempo real de los mejores mazos del Top 50 Legend de Hearthstone. Actualizado cada 30 minutos.">
+    
+    <!-- Google AdSense -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6993117916486093"
+         crossorigin="anonymous"></script>
+    
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
         
@@ -236,23 +242,200 @@
             padding: 2px 8px;
             border-radius: 4px;
         }
+        
+        .info-banner {
+            background: #1e3a8a;
+            border: 1px solid #3b82f6;
+            border-radius: 8px;
+            padding: 16px;
+            margin-bottom: 24px;
+            color: #93c5fd;
+            font-size: 0.875rem;
+            text-align: center;
+        }
+        
+        .info-banner strong {
+            color: #60a5fa;
+        }
+        
+        /* Social Links */
+        .social-links {
+            display: flex;
+            gap: 12px;
+            justify-content: center;
+            margin-top: 16px;
+            flex-wrap: wrap;
+        }
+        
+        .social-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            padding: 8px 16px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-size: 0.875rem;
+            font-weight: 600;
+            transition: all 0.2s;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .social-btn:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+        }
+        
+        .social-btn.youtube {
+            background: #ff0000;
+            border-color: #ff0000;
+        }
+        
+        .social-btn.youtube:hover {
+            background: #cc0000;
+        }
+        
+        .social-btn.twitter {
+            background: #1da1f2;
+            border-color: #1da1f2;
+        }
+        
+        .social-btn.twitter:hover {
+            background: #1a8cd8;
+        }
+        
+        /* About Section */
+        .about-section {
+            background: #111827;
+            border: 1px solid #1f2937;
+            border-radius: 12px;
+            padding: 24px;
+            margin-bottom: 32px;
+            text-align: center;
+        }
+        
+        .about-section h2 {
+            color: #fbbf24;
+            font-size: 1.5rem;
+            margin-bottom: 12px;
+        }
+        
+        .about-section p {
+            color: #d1d5db;
+            line-height: 1.6;
+            margin-bottom: 8px;
+        }
+        
+        .creator-tag {
+            display: inline-block;
+            color: #c084fc;
+            font-weight: 600;
+            margin: 8px 0;
+        }
+        
+        /* Footer */
+        footer {
+            background: #111827;
+            border-top: 2px solid #7c3aed;
+            padding: 32px 16px;
+            margin-top: 48px;
+            text-align: center;
+        }
+        
+        .footer-content {
+            max-width: 896px;
+            margin: 0 auto;
+        }
+        
+        .footer-brand {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #fbbf24;
+            margin-bottom: 8px;
+        }
+        
+        .footer-tagline {
+            color: #9ca3af;
+            font-size: 0.875rem;
+            margin-bottom: 16px;
+        }
+        
+        .footer-creator {
+            color: #c084fc;
+            font-size: 1rem;
+            margin-bottom: 16px;
+        }
+        
+        .footer-social {
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+            margin-bottom: 16px;
+        }
+        
+        .footer-copyright {
+            color: #6b7280;
+            font-size: 0.75rem;
+            padding-top: 16px;
+            border-top: 1px solid #1f2937;
+        }
+        
+        /* Ad Containers */
+        .ad-container {
+            background: #1f2937;
+            border: 1px dashed #374151;
+            border-radius: 8px;
+            padding: 16px;
+            margin: 24px 0;
+            text-align: center;
+            min-height: 100px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .ad-placeholder {
+            color: #6b7280;
+            font-size: 0.875rem;
+        }
+        
+        .ad-banner {
+            min-height: 90px;
+        }
+        
+        .ad-square {
+            min-height: 250px;
+        }
     </style>
 </head>
 <body>
 
     <header>
         <div class="container">
-            <h1>🃏 HS Legend Decks</h1>
-            <p class="subtitle">Top Meta Tracker - Real Legend Decks</p>
+            <h1>🃏 HS Meta Radar</h1>
+            <p class="subtitle">Top 50 Legend Decks • Actualizado cada 30 minutos</p>
+            
+            <!-- Social Links -->
+            <div class="social-links">
+                <a href="https://www.youtube.com/@Enterra" target="_blank" class="social-btn youtube">
+                    🎥 Suscríbete en YouTube
+                </a>
+                <a href="https://twitter.com/EnterraTV" target="_blank" class="social-btn twitter">
+                    🐦 @EnterraTV
+                </a>
+            </div>
+            
             <div id="metadata">
                 <span id="last-update">Loading...</span> • 
-                <span id="source">HearthstoneTopDecks.com</span>
+                <span id="source">HSGuru + HSReplay</span>
                 <br>
                 <span id="stats"></span>
             </div>
             <div>
                 <button id="refresh-btn" onclick="refreshData()">
-                    <span id="refresh-icon">🔄</span> Refresh Data
+                    <span id="refresh-icon">🔄</span> Actualizar Datos
                 </button>
                 <p id="refresh-status"></p>
             </div>
@@ -260,6 +443,28 @@
     </header>
 
     <main class="container">
+        <!-- About Section -->
+        <div class="about-section">
+            <h2>📡 Sobre el Proyecto</h2>
+            <p>Este tracker automático rastrea en tiempo real los mazos del <strong>Top 50 Legend</strong> de Hearthstone.</p>
+            <p>Los datos se actualizan automáticamente cada <strong>30 minutos</strong> mediante GitHub Actions.</p>
+            <p class="creator-tag">Creado y mantenido por <strong>Entërra</strong></p>
+            <p style="color: #9ca3af; font-size: 0.875rem;">Sígueme en YouTube y Twitter para más contenido del meta competitivo 🎮</p>
+        </div>
+        
+        <!-- Google Ad Space #1 (Top Banner) -->
+        <div class="ad-container ad-banner">
+            <div class="ad-placeholder">
+                <!-- Aquí va tu código de Google Ads (728x90 Leaderboard) -->
+                📢 Espacio publicitario #1
+            </div>
+        </div>
+        
+        <!-- Info Banner for No New Results -->
+        <div id="no-new-results-banner" class="info-banner hidden">
+            📌 <strong>Información actualizada:</strong> <span id="no-new-results-message"></span>
+        </div>
+        
         <!-- Loading State -->
         <div id="loading">
             <div class="spinner"></div>
@@ -276,7 +481,38 @@
             <p>❌ No decks available</p>
             <p>Run <code>node index_hsguru_replays.js</code> first</p>
         </div>
+        
+        <!-- Google Ad Space #2 (Bottom Banner) -->
+        <div class="ad-container ad-banner" id="bottom-ad" style="display: none;">
+            <div class="ad-placeholder">
+                <!-- Aquí va tu código de Google Ads (728x90 Leaderboard) -->
+                📢 Espacio publicitario #2
+            </div>
+        </div>
     </main>
+    
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-brand">🃏 HS Meta Radar</div>
+            <div class="footer-tagline">Tu fuente definitiva para el meta Top Legend de Hearthstone</div>
+            <div class="footer-creator">Creado por <strong>Entërra</strong></div>
+            
+            <div class="footer-social">
+                <a href="https://www.youtube.com/@Enterra" target="_blank" class="social-btn youtube">
+                    🎥 YouTube
+                </a>
+                <a href="https://twitter.com/EnterraTV" target="_blank" class="social-btn twitter">
+                    🐦 Twitter
+                </a>
+            </div>
+            
+            <div class="footer-copyright">
+                © 2026 Entërra • Actualización automática cada 30 minutos via GitHub Actions<br>
+                Datos obtenidos de HSGuru y HSReplay • No afiliado con Blizzard Entertainment
+            </div>
+        </div>
+    </footer>
 
     <script>
         let allDecks = [];
@@ -304,6 +540,14 @@
                 document.getElementById('source').textContent = `Source: ${data.source}`;
                 document.getElementById('stats').textContent = `${data.totalDecks} decks • ${data.knownPlayers} known players from database`;
                 
+                // Check if there are no new results
+                if (data.noNewResults && data.noNewResultsMessage) {
+                    const banner = document.getElementById('no-new-results-banner');
+                    const message = document.getElementById('no-new-results-message');
+                    message.textContent = data.noNewResultsMessage;
+                    banner.classList.remove('hidden');
+                }
+                
                 // Hide loading
                 document.getElementById('loading').classList.add('hidden');
                 console.log('🚫 Loading hidden');
@@ -318,6 +562,9 @@
                 console.log('📺 Showing decks list');
                 const decksList = document.getElementById('decks-list');
                 decksList.classList.remove('hidden');
+                
+                // Show bottom ad when decks are loaded
+                document.getElementById('bottom-ad').style.display = 'flex';
                 
                 renderDecks();
                 console.log('✨ Rendering complete');

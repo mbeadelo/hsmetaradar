@@ -11,6 +11,13 @@ async function scrapeHSGuruReplays() {
         console.log(`📂 Cargados ${knownPlayers.length} jugadores conocidos\n`);
     }
     
+    // Cargar datos existentes
+    let existingData = null;
+    if (fs.existsSync('top_decks.json')) {
+        existingData = JSON.parse(fs.readFileSync('top_decks.json', 'utf-8'));
+        console.log(`📂 Cargados ${existingData.totalDecks} mazos existentes\n`);
+    }
+    
     const browser = await chromium.launch({
         headless: true,
         args: ['--no-sandbox', '--disable-setuid-sandbox']
@@ -99,6 +106,15 @@ async function scrapeHSGuruReplays() {
         if (replays.length === 0) {
             console.log('⚠️ No se encontraron replays.');
             await browser.close();
+            
+            if (existingData) {
+                console.log('📌 Publicando datos existentes con mensaje de actualización...');
+                existingData.lastUpdate = new Date().toISOString();
+                existingData.noNewResults = true;
+                existingData.noNewResultsMessage = 'Se ha refrescado la información pero no se han encontrado nuevos mazos recientes dentro del top 50';
+                fs.writeFileSync('top_decks.json', JSON.stringify(existingData, null, 2));
+                console.log('✨ Datos actualizados con mensaje de sin resultados nuevos');
+            }
             return;
         }
 
@@ -109,6 +125,15 @@ async function scrapeHSGuruReplays() {
         if (top50Replays.length === 0) {
             console.log('⚠️ No hay replays del Top 50.');
             await browser.close();
+            
+            if (existingData) {
+                console.log('📌 Publicando datos existentes con mensaje de actualización...');
+                existingData.lastUpdate = new Date().toISOString();
+                existingData.noNewResults = true;
+                existingData.noNewResultsMessage = 'Se ha refrescado la información pero no se han encontrado nuevos mazos recientes dentro del top 50';
+                fs.writeFileSync('top_decks.json', JSON.stringify(existingData, null, 2));
+                console.log('✨ Datos actualizados con mensaje de sin resultados nuevos');
+            }
             return;
         }
 
@@ -224,7 +249,8 @@ async function scrapeHSGuruReplays() {
             source: "HSGuru Top 50 + HSReplay player names",
             totalDecks: finalDecks.length,
             knownPlayers: inList,
-            decks: finalDecks
+            decks: finalDecks,
+            noNewResults: false
         };
 
         fs.writeFileSync('top_decks.json', JSON.stringify(output, null, 2));
