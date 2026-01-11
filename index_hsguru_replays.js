@@ -24,7 +24,11 @@ async function scrapeHSGuruReplays() {
         console.log(`📖 Cargando ${url}...`);
         
         await page.goto(url, { waitUntil: 'domcontentloaded', timeout: 90000 });
-        await page.waitForTimeout(8000);
+        
+        // Esperar a que la tabla esté presente
+        console.log('⏳ Esperando tabla de replays...');
+        await page.waitForSelector('table tbody tr', { timeout: 60000 });
+        await page.waitForTimeout(5000);
 
         console.log('🔍 Extrayendo datos de replays...\n');
 
@@ -41,10 +45,15 @@ async function scrapeHSGuruReplays() {
                     if (!codeMatch) return;
                     const deckCode = codeMatch[0];
                     
-                    // Buscar rank
-                    const rankMatch = rowText.match(/#(\d+)\s+Legend/i);
+                    // Buscar rank - prueba varios patrones
+                    let rank = null;
+                    let rankMatch = rowText.match(/#(\d+)\s+Legend/i);
+                    if (!rankMatch) rankMatch = rowText.match(/Legend\s+#?(\d+)/i);
+                    if (!rankMatch) rankMatch = rowText.match(/\b(\d+)\s+Legend/i);
+                    if (!rankMatch) rankMatch = rowText.match(/Rank\s*:?\s*(\d+)/i);
+                    
                     if (!rankMatch) return;
-                    const rank = parseInt(rankMatch[1]);
+                    rank = parseInt(rankMatch[1]);
                     
                     // Extraer nombre del arquetipo
                     let deckName = 'Unknown Deck';
