@@ -20,11 +20,22 @@ async function scrapeHSGuruReplays() {
     
     const browser = await chromium.launch({
         headless: true,
-        args: ['--no-sandbox', '--disable-setuid-sandbox']
+        args: [
+            '--no-sandbox',
+            '--disable-setuid-sandbox',
+            '--disable-blink-features=AutomationControlled'
+        ]
     });
     
-    const page = await browser.newPage();
+    const page = await browser.newPage({
+        userAgent: 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36'
+    });
     await page.setViewportSize({ width: 1920, height: 1080 });
+    
+    // Ocultar que somos un bot
+    await page.addInitScript(() => {
+        Object.defineProperty(navigator, 'webdriver', { get: () => false });
+    });
 
     try {
         const url = 'https://www.hsguru.com/replays?rank=top_legend';
@@ -47,10 +58,9 @@ async function scrapeHSGuruReplays() {
                 try {
                     const rowText = row.innerText || row.textContent;
                     
-                    // Buscar código de deck
-                    const codeMatch = rowText.match(/AAE[A-Za-z0-9+/=]{50,}/);
-                    if (!codeMatch) return;
-                    const deckCode = codeMatch[0];
+                    // Buscar TODOS los códigos de deck en la fila (debería haber 2)
+                    const allCodes = rowText.match(/AAE[A-Za-z0-9+/=]{50,}/g);
+                    if (!allCodes || allCodes.length === 0) return;
                     
                     // Buscar rank - prueba varios patrones
                     let rank = null;
@@ -62,12 +72,31 @@ async function scrapeHSGuruReplays() {
                     if (!rankMatch) return;
                     rank = parseInt(rankMatch[1]);
                     
-                    // Extraer nombre del arquetipo
-                    let deckName = 'Unknown Deck';
-                    const match = rowText.match(/###\s+([^\n]+)/);
-                    if (match) {
-                        deckName = match[1].trim().split('AAE')[0].trim();
+                    // Extraer nombre del jugador desde la tabla de HSGuru
+                    let playerName = null;
+                    // Buscar en las celdas de la fila
+                    const cells = row.querySelectorAll('td');
+                    for (const cell of cells) {
+                        const cellText = cell.innerText || cell.textContent || '';
+                        // Buscar BattleTag pattern (Name#12345)
+                        const battleTagMatch = cellText.match(/([a-zA-Z0-9]+)#(\d+)/);
+                        if (battleTagMatch) {
+                            playerName = battleTagMatch[0];
+                            break;
+                        }
                     }
+                    
+                    // Si no encontramos BattleTag, buscar nombres comunes antes del rank
+                    if (!playerName) {
+                        const nameMatch = rowText.match(/^([a-zA-Z0-9_]+)\s+#?\d+\s+Legend/);
+                        if (nameMatch) {
+                            playerName = nameMatch[1];
+                        }
+                    }
+                    
+                    // Extraer nombre del arquetipo (puede haber 2 arquetipos separados por "###")
+                    const deckNamesMatches = rowText.match(/###\s+([^\n]+)/g);
+                    const deckNames = deckNamesMatches ? deckNamesMatches.map(m => m.replace(/###\s+/, '').trim().split('AAE')[0].trim()) : [];
                     
                     // Timestamp
                     const timeMatch = rowText.match(/(\d+)\s+(minute|hour|second)s?\s+ago/i);
@@ -86,12 +115,17 @@ async function scrapeHSGuruReplays() {
                         }
                     }
                     
-                    results.push({
-                        rank,
-                        deckName,
-                        deckCode,
-                        timeAgo,
-                        replayUrl
+                    // Crear entrada por cada deck code encontrado
+                    allCodes.forEach((deckCode, deckIndex) => {
+                        results.push({
+                            rank,
+                            playerName, // Nombre extraído directamente de HSGuru
+                            deckName: deckNames[deckIndex] || 'Unknown Deck',
+                            deckCode,
+                            timeAgo,
+                            replayUrl,
+                            deckIndex // 0 = jugador 1, 1 = jugador 2
+                        });
                     });
                 } catch (e) {
                     // Ignorar
@@ -102,6 +136,11 @@ async function scrapeHSGuruReplays() {
         });
 
         console.log(`✅ Encontrados ${replays.length} replays con deck codes\n`);
+        
+        // Debug: mostrar cuántos deck codes por replay
+        console.log(`📝 Total de deck entries: ${replays.length}`);
+        const replayUrls = new Set(replays.map(r => r.replayUrl).filter(Boolean));
+        console.log(`📝 URLs únicas de replays: ${replayUrls.size}\n`);
 
         if (replays.length === 0) {
             console.log('⚠️ No se encontraron replays.');
@@ -111,103 +150,394 @@ async function scrapeHSGuruReplays() {
                 console.log('📌 Publicando datos existentes con mensaje de actualización...');
                 existingData.lastUpdate = new Date().toISOString();
                 existingData.noNewResults = true;
-                existingData.noNewResultsMessage = 'Se ha refrescado la información pero no se han encontrado nuevos mazos recientes dentro del top 50';
+                existingData.noNewResultsMessage = 'Se ha refrescado la información pero no se han encontrado nuevos mazos recientes dentro del top 100';
                 fs.writeFileSync('top_decks.json', JSON.stringify(existingData, null, 2));
                 console.log('✨ Datos actualizados con mensaje de sin resultados nuevos');
             }
             return;
         }
 
-        // Filtrar: Solo Top 50
-        const top50Replays = replays.filter(r => r.rank <= 50);
-        console.log(`🎯 Filtrados ${top50Replays.length}/${replays.length} replays del Top 50\n`);
+        // Filtrar: Solo Top 100
+        const top100Replays = replays.filter(r => r.rank <= 100);
+        console.log(`🎯 Filtrados ${top100Replays.length}/${replays.length} replays del Top 100\n`);
 
-        if (top50Replays.length === 0) {
-            console.log('⚠️ No hay replays del Top 50.');
+        if (top100Replays.length === 0) {
+            console.log('⚠️ No hay replays del Top 100.');
             await browser.close();
             
             if (existingData) {
                 console.log('📌 Publicando datos existentes con mensaje de actualización...');
                 existingData.lastUpdate = new Date().toISOString();
                 existingData.noNewResults = true;
-                existingData.noNewResultsMessage = 'Se ha refrescado la información pero no se han encontrado nuevos mazos recientes dentro del top 50';
+                existingData.noNewResultsMessage = 'Se ha refrescado la información pero no se han encontrado nuevos mazos recientes dentro del top 100';
                 fs.writeFileSync('top_decks.json', JSON.stringify(existingData, null, 2));
                 console.log('✨ Datos actualizados con mensaje de sin resultados nuevos');
             }
             return;
         }
 
-        // Visitar replays para extraer nombres
-        console.log('🖱️  Visitando enlaces de replays para extraer nombres...\n');
+        // Visitar replays para extraer nombres (solo URLs únicas)
+        console.log('🖱️  Visitando replays para extraer nombres...\n');
         
-        for (const replay of top50Replays) {
+        // Agrupar replays por URL para visitarlos una sola vez
+        const replaysByUrl = {};
+        top100Replays.forEach(replay => {
+            if (replay.replayUrl) {
+                if (!replaysByUrl[replay.replayUrl]) {
+                    replaysByUrl[replay.replayUrl] = [];
+                }
+                replaysByUrl[replay.replayUrl].push(replay);
+            }
+        });
+        
+        for (const [url, replays] of Object.entries(replaysByUrl)) {
             try {
-                process.stdout.write(`   #${replay.rank} ${replay.deckName}... `);
+                const firstReplay = replays[0];
+                process.stdout.write(`   #${firstReplay.rank} ${firstReplay.deckName}`);                
+                // Mostrar URL para debugging
+                console.log(`\n      URL: ${url}`);
+                process.stdout.write(`      Extrayendo... `);
+                                if (replays.length > 1) {
+                    process.stdout.write(` + ${replays.length - 1} más... `);
+                } else {
+                    process.stdout.write(`... `);
+                }
                 
-                if (!replay.replayUrl) {
-                    console.log('❌ Sin URL');
+                // Si todos los replays ya tienen nombre de HSGuru, skip
+                const allHaveNames = replays.every(r => r.playerName);
+                if (allHaveNames) {
+                    console.log(`✅ Ya tiene nombres (HSGuru)`);
                     continue;
                 }
                 
-                const replayPage = await browser.newPage();
-                await replayPage.goto(replay.replayUrl, { waitUntil: 'networkidle', timeout: 15000 }).catch(() => {});
-                await replayPage.waitForTimeout(2000);
+                const replayPage = await browser.newPage({
+                    userAgent: 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36'
+                });
                 
-                // Extraer nombre del jugador
-                const playerData = await replayPage.evaluate(() => {
-                    // HSReplay
-                    const deckNameSpan = document.querySelector('.deck-name span');
-                    if (deckNameSpan) {
-                        const fullText = deckNameSpan.innerText.trim();
-                        const nameMatch = fullText.match(/^(.+?)'s?\s+Deck/i);
-                        if (nameMatch) {
-                            return { name: nameMatch[1].trim() };
-                        }
+                // Ocultar que somos un bot
+                await replayPage.addInitScript(() => {
+                    Object.defineProperty(navigator, 'webdriver', { get: () => false });
+                });
+                
+                try {
+                    await replayPage.goto(url, { waitUntil: 'domcontentloaded', timeout: 30000 });
+                    
+                    // Esperar más tiempo si es HSReplay (por Cloudflare)
+                    if (url.includes('hsreplay.net')) {
+                        await replayPage.waitForTimeout(5000); // 5 segundos para Cloudflare
+                    } else {
+                        await replayPage.waitForTimeout(3000);
                     }
                     
-                    // Buscar "'s Deck" en cualquier span
-                    const allSpans = document.querySelectorAll('span');
-                    for (const span of allSpans) {
-                        const text = span.innerText || span.textContent || '';
-                        if (text.includes("'s Deck")) {
-                            const nameMatch = text.match(/^(.+?)'s?\s+Deck/i);
-                            if (nameMatch) {
-                                return { name: nameMatch[1].trim() };
+                    let playerNames = [];
+                    let deckCodes = [];
+                    
+                    // Debug: capturar URL y tipo
+                    const pageType = url.includes('hsreplay.net') ? 'HSReplay' : url.includes('firestone') ? 'Firestone' : 'Unknown';
+                    
+                    // Detectar plataforma y usar método apropiado
+                    if (url.includes('hsreplay.net')) {
+                        // HSReplay (HDT) - Extraer AMBOS nombres y deck codes
+                        const hsreplayData = await replayPage.evaluate(() => {
+                            const names = [];
+                            const codes = [];
+                            
+                            // Debug info
+                            const debugInfo = {
+                                title: document.title,
+                                hasDeckNameSpans: document.querySelectorAll('.deck-name span').length,
+                                hasDataPlayerName: document.querySelectorAll('[data-player-name]').length,
+                                hasPlayerClass: document.querySelectorAll('.player-name, .player').length,
+                                bodyLength: document.body.innerText.length
+                            };
+                            
+                            // Método 1: .deck-name span con patrón "Name's Deck" (buscar todos y deduplicar)
+                            const deckNameSpans = document.querySelectorAll('.deck-name span');
+                            const uniqueNames = new Set();
+                            deckNameSpans.forEach(span => {
+                                const deckNameText = span.textContent || span.innerText;
+                                const match = deckNameText.match(/^(.+?)'s\s+Deck/i);
+                                if (match && match[1]) uniqueNames.add(match[1].trim());
+                            });
+                            names.push(...Array.from(uniqueNames));
+                            
+                            if (names.length === 0) {
+                                // Método 2: Buscar atributos data-player-name (deduplicar)
+                                const playerEls = document.querySelectorAll('[data-player-name]');
+                                const uniquePlayerNames = new Set();
+                                playerEls.forEach(el => {
+                                    const name = el.getAttribute('data-player-name');
+                                    if (name) uniquePlayerNames.add(name);
+                                });
+                                names.push(...Array.from(uniquePlayerNames));
                             }
+                            
+                            if (names.length === 0) {
+                                // Método 3: Fallback - buscar en clases o texto (deduplicar)
+                                const playerNameEls = document.querySelectorAll('.player-name, .player');
+                                const uniquePlayerNames = new Set();
+                                playerNameEls.forEach(el => {
+                                    const name = el.innerText || el.textContent;
+                                    if (name && name.trim()) uniquePlayerNames.add(name.trim());
+                                });
+                                names.push(...Array.from(uniquePlayerNames));
+                            }
+                            
+                            // Si solo tenemos 1 nombre único, buscar BattleTags en el texto
+                            if (names.length < 2) {
+                                const bodyText = document.body.innerText;
+                                const battleTagMatches = bodyText.match(/([a-zA-Z0-9]+)#(\d{4,5})/g);
+                                if (battleTagMatches && battleTagMatches.length >= 1) {
+                                    // Extraer nombres únicos de los BattleTags
+                                    const battleTagNames = new Set();
+                                    battleTagMatches.forEach(tag => {
+                                        const name = tag.split('#')[0];
+                                        battleTagNames.add(name);
+                                    });
+                                    
+                                    // Si encontramos 2 o más nombres únicos de BattleTags, usarlos
+                                    if (battleTagNames.size >= 2) {
+                                        names.length = 0; // Limpiar
+                                        names.push(...Array.from(battleTagNames).slice(0, 2));
+                                    } else if (names.length === 0 && battleTagNames.size === 1) {
+                                        // Si no teníamos ningún nombre, usar el BattleTag encontrado
+                                        names.push(...Array.from(battleTagNames));
+                                    } else if (names.length === 1 && battleTagNames.size >= 1) {
+                                        // Si tenemos 1 nombre y hay BattleTags, añadir el que no esté ya
+                                        const currentName = names[0].toLowerCase();
+                                        for (const btName of battleTagNames) {
+                                            if (btName.toLowerCase() !== currentName) {
+                                                names.push(btName);
+                                                break;
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                            
+                            // Extraer deck codes de la página (en botones de copy o export)
+                            const bodyText = document.body.innerText || document.body.textContent;
+                            const codeMatches = bodyText.match(/AAE[A-Za-z0-9+/=]{50,}/g);
+                            if (codeMatches) {
+                                codes.push(...new Set(codeMatches)); // Deduplicar
+                            }
+                            
+                            return { 
+                                names: names.slice(0, 2), 
+                                codes: codes.slice(0, 2),
+                                debug: debugInfo
+                            };
+                        });
+                        
+                        playerNames = hsreplayData.names;
+                        deckCodes = hsreplayData.codes;
+                        
+                        // Si no encontró nombres, mostrar debug
+                        if (playerNames.length === 0) {
+                            console.log(`\n      [HSReplay Debug] Title: ${hsreplayData.debug.title}`);
+                            console.log(`      [HSReplay Debug] .deck-name spans: ${hsreplayData.debug.hasDeckNameSpans}`);
+                            console.log(`      [HSReplay Debug] [data-player-name]: ${hsreplayData.debug.hasDataPlayerName}`);
+                            console.log(`      [HSReplay Debug] .player-name: ${hsreplayData.debug.hasPlayerClass}`);
+                            console.log(`      [HSReplay Debug] Body length: ${hsreplayData.debug.bodyLength} chars`);
+                        }
+                    } else if (url.includes('firestone')) {
+                        // Firestone - Primero Events para nombres, luego Decks para códigos
+                        try {
+                            // PASO 1: Ir a Events y extraer nombres de jugadores
+                            const eventsTab = await replayPage.$('button:has-text("Events"), a:has-text("Events"), [role="tab"]:has-text("Events")').catch(() => null);
+                            if (eventsTab) {
+                                await eventsTab.click();
+                                await replayPage.waitForTimeout(1500);
+                            }
+                            
+                            playerNames = await replayPage.evaluate(() => {
+                                const names = [];
+                                const bodyText = document.body.innerText;
+                                
+                                // Buscar texto después de "mulligan" para encontrar Turn 1
+                                const mulliganIndex = bodyText.toLowerCase().indexOf('mulligan');
+                                const relevantText = mulliganIndex >= 0 ? bodyText.substring(mulliganIndex) : bodyText;
+                                
+                                // Buscar patrón "Turn 1 - [Nombre]" o "Turn 1 [Nombre]" en el texto relevante
+                                const turn1Matches = relevantText.match(/Turn\s+1[:\s-]+([a-zA-Z0-9#_]+)/gi);
+                                if (turn1Matches && turn1Matches.length >= 2) {
+                                    const uniqueNames = new Set();
+                                    turn1Matches.forEach(match => {
+                                        const nameMatch = match.match(/Turn\s+1[:\s-]+([a-zA-Z0-9#_]+)/i);
+                                        if (nameMatch) uniqueNames.add(nameMatch[1].trim());
+                                    });
+                                    names.push(...Array.from(uniqueNames).slice(0, 2));
+                                }
+                                
+                                if (names.length === 0) {
+                                    // Fallback: buscar cualquier BattleTag
+                                    const battleTagMatches = bodyText.match(/([a-zA-Z0-9]+)#(\d{4,5})/g);
+                                    if (battleTagMatches) {
+                                        const uniqueTags = new Set(battleTagMatches);
+                                        names.push(...Array.from(uniqueTags).slice(0, 2));
+                                    }
+                                }
+                                
+                                return names.slice(0, 2);
+                            });
+                            
+                            // Si no encontramos nombres (replay muy corto/surrender), marcar como inválido
+                            if (playerNames.length === 0) {
+                                console.log('❌ Replay sin información (posible surrender temprano)');
+                                await replayPage.close();
+                                continue; // Saltar este replay
+                            }
+                            
+                            // PASO 2: Ir a Decks y buscar deck codes
+                            const decksTab = await replayPage.$('button:has-text("Decks"), a:has-text("Decks"), [role="tab"]:has-text("Decks")').catch(() => null);
+                            if (decksTab) {
+                                await decksTab.click();
+                                await replayPage.waitForTimeout(2000);
+                                
+                                // Intentar encontrar botones de deck y hacer clic
+                                const deckButtons = await replayPage.$$('button').catch(() => []);
+                                
+                                // Extraer deck codes del contenido visible
+                                deckCodes = await replayPage.evaluate(() => {
+                                    const codes = [];
+                                    const bodyText = document.body.innerText || document.body.textContent;
+                                    
+                                    // Buscar todos los códigos AAE en la página
+                                    const codeMatches = bodyText.match(/AAE[A-Za-z0-9+/=]{50,}/g);
+                                    if (codeMatches) {
+                                        codes.push(...new Set(codeMatches));
+                                    }
+                                    
+                                    return codes.slice(0, 2);
+                                });
+                                
+                                // Si solo tenemos 1 código, intentar hacer clic en botones para revelar más
+                                if (deckCodes.length < 2 && deckButtons.length >= 2) {
+                                    for (let i = 0; i < Math.min(deckButtons.length, 4); i++) {
+                                        try {
+                                            await deckButtons[i].click();
+                                            await replayPage.waitForTimeout(500);
+                                            
+                                            const newCodes = await replayPage.evaluate(() => {
+                                                const codes = [];
+                                                const bodyText = document.body.innerText;
+                                                const codeMatches = bodyText.match(/AAE[A-Za-z0-9+/=]{50,}/g);
+                                                if (codeMatches) {
+                                                    codes.push(...new Set(codeMatches));
+                                                }
+                                                return codes;
+                                            });
+                                            
+                                            if (newCodes.length > deckCodes.length) {
+                                                deckCodes = newCodes.slice(0, 2);
+                                                if (deckCodes.length >= 2) break;
+                                            }
+                                        } catch (e) {
+                                            // Botón no clickeable, continuar
+                                        }
+                                    }
+                                }
+                            }
+                            
+                            // Si no hay códigos en Decks, buscar en toda la página
+                            if (deckCodes.length === 0) {
+                                deckCodes = await replayPage.evaluate(() => {
+                                    const codes = [];
+                                    const bodyText = document.body.innerText;
+                                    const codeMatches = bodyText.match(/AAE[A-Za-z0-9+/=]{50,}/g);
+                                    if (codeMatches) codes.push(...new Set(codeMatches));
+                                    return codes.slice(0, 2);
+                                });
+                            }
+                        } catch (err) {
+                            // Si falla el click, intentar extraer directamente
+                            const firestoneData = await replayPage.evaluate(() => {
+                                const names = [];
+                                const codes = [];
+                                const bodyText = document.body.innerText;
+                                
+                                const battleTagMatches = bodyText.match(/([a-zA-Z0-9]+)#(\d{4,5})/g);
+                                if (battleTagMatches) names.push(...new Set(battleTagMatches).slice(0, 2));
+                                
+                                const codeMatches = bodyText.match(/AAE[A-Za-z0-9+/=]{50,}/g);
+                                if (codeMatches) codes.push(...new Set(codeMatches));
+                                
+                                return { 
+                                    names: names.slice(0, 2), 
+                                    codes: codes.slice(0, 2) 
+                                };
+                            });
+                            
+                            playerNames = firestoneData.names;
+                            deckCodes = firestoneData.codes;
                         }
                     }
                     
-                    return { name: null };
-                }).catch(() => ({ name: null }));
-                
-                replay.playerName = playerData.name;
-                
-                if (playerData.name) {
-                    console.log(`✅ ${playerData.name}`);
-                } else {
-                    console.log(`❌ Sin nombre`);
+                    // Si encontramos deck codes adicionales, crear nuevos replays
+                    if (deckCodes.length > 1 && deckCodes.length > replays.length) {
+                        // Hay más deck codes que los que teníamos, añadir el segundo jugador
+                        const firstReplay = replays[0];
+                        for (let i = replays.length; i < deckCodes.length; i++) {
+                            const newReplay = {
+                                rank: firstReplay.rank,
+                                playerName: playerNames[i] || null,
+                                deckName: 'Unknown Deck', // No sabemos el arquetipo del oponente
+                                deckCode: deckCodes[i],
+                                timeAgo: firstReplay.timeAgo,
+                                replayUrl: url,
+                                deckIndex: i
+                            };
+                            replays.push(newReplay);
+                            top100Replays.push(newReplay);
+                        }
+                    }
+                    
+                    // Asignar nombres a los replays correspondientes según deckIndex
+                    replays.forEach((replay, idx) => {
+                        if (!replay.playerName && playerNames[replay.deckIndex || idx]) {
+                            replay.playerName = playerNames[replay.deckIndex || idx];
+                        }
+                        // Actualizar deck code si lo encontramos
+                        if (deckCodes[replay.deckIndex || idx]) {
+                            replay.deckCode = deckCodes[replay.deckIndex || idx];
+                        }
+                    });
+                    
+                    // Mostrar resultados
+                    if (playerNames.length > 0) {
+                        console.log(`✅ ${playerNames.join(' vs ')} (${deckCodes.length} decks)`);
+                    } else {
+                        console.log('❌ Sin nombres');
+                    }
+                } catch (error) {
+                    console.log('❌ Error cargando');
                 }
                 
                 await replayPage.close();
                 await page.waitForTimeout(500);
                 
             } catch (error) {
-                console.log(`❌ Error`);
+                console.log('❌ Error');
             }
         }
         
         console.log('');
 
-        // Agrupar por rank
-        const uniqueByRank = {};
-        top50Replays.forEach(replay => {
-            if (!uniqueByRank[replay.rank]) {
-                uniqueByRank[replay.rank] = replay;
+        // NO agrupar por rank - mantener TODOS los decks (ambos jugadores)
+        // Solo deduplicar si son exactamente el mismo deck code + mismo jugador
+        const uniqueDecks = [];
+        const seen = new Set();
+        
+        top100Replays.forEach(replay => {
+            const key = `${replay.rank}-${replay.deckCode}-${replay.playerName || 'unknown'}`;
+            if (!seen.has(key)) {
+                seen.add(key);
+                uniqueDecks.push(replay);
             }
         });
 
         // Convertir y ordenar
-        const finalDecks = Object.values(uniqueByRank)
+        const finalDecks = uniqueDecks
             .sort((a, b) => a.rank - b.rank)
             .map(replay => {
                 const playerInList = replay.playerName 
@@ -230,7 +560,7 @@ async function scrapeHSGuruReplays() {
             });
 
         // Preview
-        console.log('\n📊 Resultado final del Top 50:\n');
+        console.log('\n📊 Resultado final del Top 100:\n');
         const inList = finalDecks.filter(d => d.inMasterList).length;
         console.log(`   ⭐ ${inList} jugadores de tu master_list.json`);
         console.log(`   📋 ${finalDecks.length - inList} jugadores adicionales\n`);
@@ -243,19 +573,80 @@ async function scrapeHSGuruReplays() {
 
         await browser.close();
 
+        // Recopilar nombres nuevos para añadir a master_list
+        const newPlayers = [];
+        finalDecks.forEach(deck => {
+            if (deck.name && !deck.inMasterList && deck.name !== `Legend #${deck.rank}`) {
+                // Si tiene BattleTag completo, añadirlo
+                if (deck.name.includes('#')) {
+                    if (!newPlayers.includes(deck.name)) {
+                        newPlayers.push(deck.name);
+                    }
+                }
+            }
+        });
+        
+        // Añadir nuevos jugadores a master_list.json
+        if (newPlayers.length > 0) {
+            console.log(`\n🆕 Añadiendo ${newPlayers.length} nuevos jugadores a master_list.json:`);
+            newPlayers.forEach(player => console.log(`   + ${player}`));
+            
+            const updatedMasterList = [...knownPlayers, ...newPlayers].sort();
+            fs.writeFileSync('master_list.json', JSON.stringify(updatedMasterList, null, 2));
+            console.log('✨ master_list.json actualizado');
+        }
+
+        // Calcular Meta Snapshot
+        const classDistribution = {};
+        const archetypeCount = {};
+        
+        finalDecks.forEach(deck => {
+            // Extraer clase del nombre del mazo
+            const deckName = deck.deck.name;
+            const words = deckName.split(' ');
+            const className = words[words.length - 1]; // Última palabra suele ser la clase
+            
+            classDistribution[className] = (classDistribution[className] || 0) + 1;
+            
+            // Contar arquetipos completos
+            archetypeCount[deckName] = (archetypeCount[deckName] || 0) + 1;
+        });
+        
+        // Encontrar arquetipo más popular
+        const sortedArchetypes = Object.entries(archetypeCount)
+            .sort((a, b) => b[1] - a[1])
+            .slice(0, 5);
+        
+        // Calcular porcentajes
+        const classPercentages = {};
+        Object.keys(classDistribution).forEach(cls => {
+            classPercentages[cls] = ((classDistribution[cls] / finalDecks.length) * 100).toFixed(1);
+        });
+
         // Guardar
         const output = {
             lastUpdate: new Date().toISOString(),
-            source: "HSGuru Top 50 + HSReplay player names",
+            source: "HSGuru Top 100 + HSReplay player names",
             totalDecks: finalDecks.length,
             knownPlayers: inList,
             decks: finalDecks,
-            noNewResults: false
+            noNewResults: false,
+            metaSnapshot: {
+                classDistribution,
+                classPercentages,
+                topArchetypes: sortedArchetypes.map(([name, count]) => ({
+                    name,
+                    count,
+                    percentage: ((count / finalDecks.length) * 100).toFixed(1)
+                })),
+                mostPlayedClass: Object.keys(classDistribution).sort((a, b) => 
+                    classDistribution[b] - classDistribution[a])[0]
+            }
         };
 
         fs.writeFileSync('top_decks.json', JSON.stringify(output, null, 2));
         
-        console.log(`\n✨ ¡Completado! ${finalDecks.length} mazos del Top 50 guardados`);
+        console.log(`\n✨ ¡Completado! ${finalDecks.length} mazos del Top 100 guardados`);
         console.log(`⭐ Jugadores en tu lista: ${inList}/${finalDecks.length}`);
 
     } catch (error) {

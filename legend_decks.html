@@ -3,12 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HS Meta Radar | Top 50 Legend Decks by Entërra</title>
-    <meta name="description" content="Rastreador en tiempo real de los mejores mazos del Top 50 Legend de Hearthstone. Actualizado cada 30 minutos.">
+    <title>HS Meta Radar | Top 100 Legend Decks by Entërra</title>
+    <meta name="description" content="Rastreador en tiempo real de los mejores mazos del Top 100 Legend de Hearthstone. Actualizado cada 30 minutos.">
     
     <!-- Google AdSense -->
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6993117916486093"
          crossorigin="anonymous"></script>
+    
+    <!-- Chart.js for Meta Snapshot -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
     
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
@@ -36,6 +39,16 @@
             font-weight: 700;
             color: #fbbf24;
             margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+        }
+        
+        h1 img {
+            width: 48px;
+            height: 48px;
+            object-fit: contain;
         }
         
         .subtitle { color: #d1d5db; font-size: 0.875rem; }
@@ -47,28 +60,6 @@
         }
         
         #stats { color: #c084fc; }
-        
-        #refresh-btn {
-            background: #7c3aed;
-            color: white;
-            font-weight: 600;
-            padding: 8px 24px;
-            margin-top: 16px;
-            border: none;
-            border-radius: 8px;
-            cursor: pointer;
-            transition: all 0.2s;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.3);
-        }
-        
-        #refresh-btn:hover { background: #6d28d9; box-shadow: 0 8px 12px rgba(0,0,0,0.4); }
-        #refresh-btn:disabled { background: #4b5563; cursor: not-allowed; }
-        
-        #refresh-status {
-            font-size: 0.75rem;
-            color: #9ca3af;
-            margin-top: 8px;
-        }
         
         .container {
             max-width: 896px;
@@ -408,6 +399,96 @@
         .ad-square {
             min-height: 250px;
         }
+        
+        /* Meta Snapshot Section */
+        .meta-snapshot {
+            background: #111827;
+            border: 2px solid #7c3aed;
+            border-radius: 12px;
+            padding: 24px;
+            margin-bottom: 32px;
+        }
+        
+        .meta-snapshot h2 {
+            color: #fbbf24;
+            font-size: 1.75rem;
+            margin-bottom: 8px;
+            text-align: center;
+        }
+        
+        .meta-snapshot .subtitle {
+            color: #9ca3af;
+            font-size: 0.875rem;
+            text-align: center;
+            margin-bottom: 24px;
+        }
+        
+        .meta-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 24px;
+            margin-top: 24px;
+        }
+        
+        @media (max-width: 768px) {
+            .meta-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        .chart-container {
+            position: relative;
+            height: 300px;
+        }
+        
+        .top-archetypes {
+            background: #0a0a0f;
+            border-radius: 8px;
+            padding: 16px;
+        }
+        
+        .top-archetypes h3 {
+            color: #c084fc;
+            font-size: 1.125rem;
+            margin-bottom: 16px;
+        }
+        
+        .archetype-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 12px;
+            background: #111827;
+            border-radius: 6px;
+            margin-bottom: 8px;
+            border-left: 3px solid #7c3aed;
+        }
+        
+        .archetype-item:last-child {
+            margin-bottom: 0;
+        }
+        
+        .archetype-name {
+            color: #e5e7eb;
+            font-weight: 600;
+        }
+        
+        .archetype-stats {
+            display: flex;
+            gap: 12px;
+            align-items: center;
+        }
+        
+        .archetype-count {
+            color: #fbbf24;
+            font-weight: 700;
+            font-size: 1.125rem;
+        }
+        
+        .archetype-percentage {
+            color: #9ca3af;
+            font-size: 0.875rem;
+        }
     </style>
 </head>
 <body>
@@ -415,7 +496,7 @@
     <header>
         <div class="container">
             <h1>🃏 HS Meta Radar</h1>
-            <p class="subtitle">Top 50 Legend Decks • Actualizado cada 30 minutos</p>
+            <p class="subtitle">Top 100 Legend Decks • Actualizado cada 30 minutos</p>
             
             <!-- Social Links -->
             <div class="social-links">
@@ -433,12 +514,6 @@
                 <br>
                 <span id="stats"></span>
             </div>
-            <div>
-                <button id="refresh-btn" onclick="refreshData()">
-                    <span id="refresh-icon">🔄</span> Actualizar Datos
-                </button>
-                <p id="refresh-status"></p>
-            </div>
         </div>
     </header>
 
@@ -446,10 +521,34 @@
         <!-- About Section -->
         <div class="about-section">
             <h2>📡 Sobre el Proyecto</h2>
-            <p>Este tracker automático rastrea en tiempo real los mazos del <strong>Top 50 Legend</strong> de Hearthstone.</p>
+            <p>Este tracker automático rastrea en tiempo real los mazos del <strong>Top 100 Legend</strong> de Hearthstone.</p>
             <p>Los datos se actualizan automáticamente cada <strong>30 minutos</strong> mediante GitHub Actions.</p>
             <p class="creator-tag">Creado y mantenido por <strong>Entërra</strong></p>
             <p style="color: #9ca3af; font-size: 0.875rem;">Sígueme en YouTube y Twitter para más contenido del meta competitivo 🎮</p>
+        </div>
+        
+        <!-- Meta Snapshot Section -->
+        <div id="meta-snapshot" class="meta-snapshot hidden">
+            <h2>📊 Meta Snapshot</h2>
+            <p class="subtitle">Análisis en tiempo real del Top 100 Legend</p>
+            
+            <div class="meta-grid">
+                <!-- Chart -->
+                <div>
+                    <h3 style="color: #c084fc; font-size: 1.125rem; margin-bottom: 16px; text-align: center;">Distribución de Clases</h3>
+                    <div class="chart-container">
+                        <canvas id="classChart"></canvas>
+                    </div>
+                </div>
+                
+                <!-- Top Archetypes -->
+                <div class="top-archetypes">
+                    <h3>🔥 Arquetipos Más Jugados</h3>
+                    <div id="top-archetypes-list">
+                        <!-- Will be populated by JS -->
+                    </div>
+                </div>
+            </div>
         </div>
         
         <!-- Google Ad Space #1 (Top Banner) -->
@@ -494,7 +593,10 @@
     <!-- Footer -->
     <footer>
         <div class="footer-content">
-            <div class="footer-brand">🃏 HS Meta Radar</div>
+            <div class="footer-brand">
+                <img src="https://yt3.googleusercontent.com/ytc/AIdro_nM8XQpL1dj5mWDM5nRfC8qr5sJ4ypTYGZqjxPPxPKGzw=s160-c-k-c0x00ffffff-no-rj" alt="Entërra" style="width: 32px; height: 32px; vertical-align: middle; margin-right: 8px; border-radius: 50%;" />
+                HS Meta Radar
+            </div>
             <div class="footer-tagline">Tu fuente definitiva para el meta Top Legend de Hearthstone</div>
             <div class="footer-creator">Creado por <strong>Entërra</strong></div>
             
@@ -516,6 +618,7 @@
 
     <script>
         let allDecks = [];
+        let metaChart = null;
 
         async function loadDecks() {
             console.log('🔍 Starting to load decks...');
@@ -546,6 +649,11 @@
                     const message = document.getElementById('no-new-results-message');
                     message.textContent = data.noNewResultsMessage;
                     banner.classList.remove('hidden');
+                }
+                
+                // Render Meta Snapshot if available
+                if (data.metaSnapshot) {
+                    renderMetaSnapshot(data.metaSnapshot);
                 }
                 
                 // Hide loading
@@ -686,45 +794,98 @@
             div.textContent = text;
             return div.innerHTML;
         }
-
-        async function refreshData() {
-            const btn = document.getElementById('refresh-btn');
-            const icon = document.getElementById('refresh-icon');
-            const status = document.getElementById('refresh-status');
+        
+        function renderMetaSnapshot(snapshot) {
+            console.log('📊 Rendering Meta Snapshot', snapshot);
             
-            // Disable button and show loading
-            btn.disabled = true;
-            icon.classList.add('animate-spin');
-            status.textContent = 'Scraping data... This may take 30-60 seconds';
-            status.style.color = '#fbbf24';
+            // Show the section
+            document.getElementById('meta-snapshot').classList.remove('hidden');
             
-            try {
-                const response = await fetch('/api/refresh', {
-                    method: 'POST'
-                });
-                
-                const result = await response.json();
-                
-                if (result.success) {
-                    status.textContent = `✅ Updated! Found ${result.totalDecks} decks`;
-                    status.style.color = '#10b981';
-                    
-                    // Reload data
-                    setTimeout(() => {
-                        location.reload();
-                    }, 1000);
-                } else {
-                    status.textContent = `❌ Error: ${result.error}`;
-                    status.style.color = '#ef4444';
-                }
-            } catch (error) {
-                status.textContent = '❌ Failed to refresh data';
-                status.style.color = '#ef4444';
-                console.error('Refresh error:', error);
-            } finally {
-                btn.disabled = false;
-                icon.classList.remove('animate-spin');
+            // Prepare data for chart
+            const classes = Object.keys(snapshot.classDistribution);
+            const counts = Object.values(snapshot.classDistribution);
+            
+            // Colors for different classes (Hearthstone theme)
+            const colors = [
+                '#FF7D0A', // Druid - Orange
+                '#ABD473', // Hunter - Green
+                '#69CCF0', // Mage - Light Blue
+                '#F58CBA', // Paladin - Pink
+                '#FFFFFF', // Priest - White
+                '#FFF569', // Rogue - Yellow
+                '#0070DE', // Shaman - Blue
+                '#9482C9', // Warlock - Purple
+                '#C79C6E', // Warrior - Brown
+                '#00FF96', // Demon Hunter - Teal
+                '#FF4444', // Death Knight - Red
+            ];
+            
+            // Destroy previous chart if exists
+            if (metaChart) {
+                metaChart.destroy();
             }
+            
+            // Create pie chart
+            const ctx = document.getElementById('classChart').getContext('2d');
+            metaChart = new Chart(ctx, {
+                type: 'doughnut',
+                data: {
+                    labels: classes,
+                    datasets: [{
+                        data: counts,
+                        backgroundColor: colors.slice(0, classes.length),
+                        borderColor: '#1f2937',
+                        borderWidth: 2
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            position: 'bottom',
+                            labels: {
+                                color: '#e5e7eb',
+                                padding: 15,
+                                font: {
+                                    size: 12
+                                }
+                            }
+                        },
+                        tooltip: {
+                            callbacks: {
+                                label: function(context) {
+                                    const label = context.label || '';
+                                    const value = context.parsed || 0;
+                                    const percentage = snapshot.classPercentages[label] || '0';
+                                    return `${label}: ${value} mazos (${percentage}%)`;
+                                }
+                            }
+                        }
+                    }
+                }
+            });
+            
+            // Render top archetypes list
+            const archetypesList = document.getElementById('top-archetypes-list');
+            archetypesList.innerHTML = '';
+            
+            snapshot.topArchetypes.forEach((archetype, index) => {
+                const item = document.createElement('div');
+                item.className = 'archetype-item';
+                item.innerHTML = `
+                    <div class="archetype-name">
+                        ${index + 1}. ${escapeHtml(archetype.name)}
+                    </div>
+                    <div class="archetype-stats">
+                        <span class="archetype-count">${archetype.count}</span>
+                        <span class="archetype-percentage">${archetype.percentage}%</span>
+                    </div>
+                `;
+                archetypesList.appendChild(item);
+            });
+            
+            console.log('✅ Meta Snapshot rendered');
         }
 
         // Load decks on page load
