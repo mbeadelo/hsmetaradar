@@ -24,8 +24,8 @@ apt-get install -y \
     libasound2 \
     libatspi2.0-0
 
-# Install Node.js dependencies
-npm install
+# Install Node.js dependencies with Yarn
+yarn install
 
 # Playwright will install Chromium via postinstall
 echo "✅ Build complete"
