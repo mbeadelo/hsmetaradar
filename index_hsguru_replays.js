@@ -23,8 +23,8 @@ async function scrapeHSGuruReplays() {
         const url = 'https://www.hsguru.com/replays?rank=top_legend';
         console.log(`📖 Cargando ${url}...`);
         
-        await page.goto(url, { waitUntil: 'networkidle', timeout: 30000 });
-        await page.waitForTimeout(5000);
+        await page.goto(url, { waitUntil: 'domcontentloaded', timeout: 90000 });
+        await page.waitForTimeout(8000);
 
         console.log('🔍 Extrayendo datos de replays...\n');
 
