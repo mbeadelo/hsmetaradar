@@ -1,23 +1,23 @@
 {
-  "lastUpdate": "2026-01-11T21:29:36.644Z",
+  "lastUpdate": "2026-01-11T21:37:50.234Z",
   "source": "HSGuru Top 100 + HSReplay player names",
-  "totalDecks": 4,
+  "totalDecks": 5,
   "knownPlayers": 0,
   "decks": [
     {
       "rank": 13,
-      "name": "Këlthrag",
+      "name": "Mrmorse",
       "inMasterList": false,
       "battleTag": null,
       "deck": {
         "name": "Cycle Rogue",
         "code": "AAECAaIHBJegBL2+BvTJBozWBg32nwT3nwSgswa2tQaUygaY4Qbq5Qachwe+hwfBlwfXlwfUnQeKsQcAAA=="
       },
-      "lastSeen": "8 minutes ago"
+      "lastSeen": "3 minutes ago"
     },
     {
       "rank": 13,
-      "name": "method4s#2358",
+      "name": "Këlthrag",
       "inMasterList": false,
       "battleTag": null,
       "deck": {
@@ -35,7 +35,18 @@
         "name": "Quest Spell Mage",
         "code": "AAECAf0EAqebB9GmBw6xoAblpgbmpgazpwbluAaBvwaFvwbw5QaG5gaQ9Aaa9AbxkQf6mwfYngcAAA=="
       },
-      "lastSeen": "9 minutes ago"
+      "lastSeen": "18 minutes ago"
+    },
+    {
+      "rank": 61,
+      "name": "Velszt",
+      "inMasterList": false,
+      "battleTag": null,
+      "deck": {
+        "name": "Quest Spell Mage",
+        "code": "AAECAf0EAqebB9GmBw6xoAblpgbmpgazpwbluAaBvwaFvwbw5QaG5gaQ9Aaa9AbxkQf6mwfYngcAAA=="
+      },
+      "lastSeen": "6 minutes ago"
     },
     {
       "rank": 98,
@@ -46,100 +57,109 @@
         "name": "Cliff Dive DH",
         "code": "AAECAea5AwTAjweKqgeSqgeTqgcNgIUE4fgFw7AG18AG9sAGpfwG3v8G/oMHqocHtpcHtZgH0a8HobEHAAA="
       },
-      "lastSeen": "7 minutes ago"
+      "lastSeen": "15 minutes ago"
     }
   ],
   "noNewResults": false,
   "metaSnapshot": {
     "classDistribution": {
-      "Rogue": 2,
-      "Mage": 1,
+      "Rogue": 3,
+      "Mage": 2,
       "DH": 1,
       "Shaman": 1,
       "Hunter": 1
     },
     "classPercentages": {
-      "Rogue": "50.0",
-      "Mage": "25.0",
-      "DH": "25.0",
-      "Shaman": "25.0",
-      "Hunter": "25.0"
+      "Rogue": "60.0",
+      "Mage": "40.0",
+      "DH": "20.0",
+      "Shaman": "20.0",
+      "Hunter": "20.0"
     },
     "topArchetypes": [
       {
         "name": "Cycle Rogue",
         "count": 2,
-        "percentage": "50.0"
+        "percentage": "40.0"
       },
       {
         "name": "Quest Spell Mage",
-        "count": 1,
-        "percentage": "25.0"
+        "count": 2,
+        "percentage": "40.0"
       },
       {
         "name": "Cliff Dive DH",
         "count": 1,
-        "percentage": "25.0"
+        "percentage": "20.0"
       },
       {
         "name": "Discover Hunter",
         "count": 1,
-        "percentage": "25.0"
+        "percentage": "20.0"
       },
       {
-        "name": "Hagatha Shaman",
+        "name": "Elise Rogue",
         "count": 1,
-        "percentage": "25.0"
+        "percentage": "20.0"
       }
     ],
     "mostPlayedClass": "Rogue"
   },
   "metaScore": {
-    "lastCalculated": "2026-01-11T21:29:36.645Z",
+    "lastCalculated": "2026-01-11T21:37:50.234Z",
     "archetypes": [
       {
         "name": "Cycle Rogue",
         "count": 2,
-        "percentage": "50.0",
+        "percentage": "40.0",
         "uniquePlayers": 2,
         "avgRank": 13,
-        "metaScore": 76,
-        "tier": "S"
+        "metaScore": 72,
+        "tier": "A"
       },
       {
         "name": "Quest Spell Mage",
-        "count": 1,
-        "percentage": "25.0",
-        "uniquePlayers": 1,
-        "avgRank": 51,
-        "metaScore": 55,
+        "count": 2,
+        "percentage": "40.0",
+        "uniquePlayers": 2,
+        "avgRank": 56,
+        "metaScore": 59,
         "tier": "B"
       },
       {
         "name": "Cliff Dive DH",
         "count": 1,
-        "percentage": "25.0",
+        "percentage": "20.0",
         "uniquePlayers": 1,
         "avgRank": 98,
-        "metaScore": 41,
+        "metaScore": 39,
         "tier": "C"
       },
       {
         "name": "Discover Hunter",
         "count": 1,
-        "percentage": "25.0",
+        "percentage": "20.0",
         "uniquePlayers": 0,
         "avgRank": 51,
-        "metaScore": 25,
+        "metaScore": 23,
+        "tier": "C"
+      },
+      {
+        "name": "Elise Rogue",
+        "count": 1,
+        "percentage": "20.0",
+        "uniquePlayers": 0,
+        "avgRank": 61,
+        "metaScore": 20,
         "tier": "C"
       },
       {
         "name": "Hagatha Shaman",
         "count": 1,
-        "percentage": "25.0",
+        "percentage": "20.0",
         "uniquePlayers": 0,
         "avgRank": 98,
-        "metaScore": 11,
+        "metaScore": 9,
         "tier": "C"
       }
     ],
