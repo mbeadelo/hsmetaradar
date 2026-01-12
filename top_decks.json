@@ -1,129 +1,102 @@
 {
-  "lastUpdate": "2026-01-11T23:11:34.441Z",
+  "lastUpdate": "2026-01-11T23:38:41.385Z",
   "source": "HSGuru Top 100 + HSReplay player names",
-  "totalDecks": 4,
+  "totalDecks": 3,
   "knownPlayers": 1,
   "decks": [
     {
-      "rank": 22,
-      "name": "Charon",
+      "rank": 5,
+      "name": "gamergirluwu",
       "inMasterList": false,
       "battleTag": null,
       "deck": {
-        "name": "Cycle Rogue",
-        "code": "AAECAaIHBJegBL2+BvTJBozWBg32nwT3nwSgswa2tQaUygaY4Qbq5Qachwe+hwfBlwfXlwfUnQeKsQcAAA=="
+        "name": "Elise Rogue",
+        "code": "AAECAaIHDMekBrOpBqfTBrXqBuHrBqn1Bt/+BqGBB5KDB6yIB4KYB9GdBwn2nwT3nwS2tQaM1gbq5Qa1+gaQgwfHrgfZrwcAAQP1swbHpAb3swbHpAbu3gbHpAYAAA=="
       },
-      "lastSeen": "14 minutes ago"
+      "lastSeen": "4 minutes ago"
     },
     {
-      "rank": 24,
-      "name": "demoshadow",
-      "inMasterList": false,
-      "battleTag": null,
-      "deck": {
-        "name": "Cycle Rogue",
-        "code": "AAECAaIHBJegBL2+BvTJBozWBg32nwT3nwSgswa2tQaUygaY4Qbq5Qachwe+hwfBlwfXlwfUnQeKsQcAAA=="
-      },
-      "lastSeen": "9 minutes ago"
-    },
-    {
-      "rank": 41,
-      "name": "Theo",
-      "inMasterList": false,
-      "battleTag": null,
-      "deck": {
-        "name": "Quest Spell Mage",
-        "code": "AAECAf0EAqebB9GmBw6xoAblpgbmpgazpwbluAaBvwaFvwbw5QaG5gaQ9Aaa9AbxkQf6mwfYngcAAA=="
-      },
-      "lastSeen": "10 minutes ago"
-    },
-    {
-      "rank": 46,
-      "name": "Steelraiser",
+      "rank": 6,
+      "name": "Fled",
       "inMasterList": true,
-      "battleTag": "Steelraiser#11427",
+      "battleTag": "Fled#11390",
+      "deck": {
+        "name": "Elise Rogue",
+        "code": "AAECAaIHDMekBrOpBqfTBrXqBuHrBqn1Bt/+BqGBB5KDB6yIB4KYB9GdBwn2nwT3nwS2tQaM1gbq5Qa1+gaQgwfHrgfZrwcAAQP1swbHpAb3swbHpAbu3gbHpAYAAA=="
+      },
+      "lastSeen": "12 minutes ago"
+    },
+    {
+      "rank": 37,
+      "name": "Legend #37",
+      "inMasterList": false,
+      "battleTag": null,
       "deck": {
         "name": "Quest Spell Mage",
         "code": "AAECAf0EAqebB9GmBw6xoAblpgbmpgazpwbluAaBvwaFvwbw5QaG5gaQ9Aaa9AbxkQf6mwfYngcAAA=="
       },
-      "lastSeen": "17 minutes ago"
+      "lastSeen": "13 minutes ago"
     }
   ],
   "noNewResults": false,
   "metaSnapshot": {
     "classDistribution": {
       "Rogue": 2,
-      "Mage": 2,
-      "Druid": 1,
-      "Warrior": 1
+      "Mage": 1,
+      "DK": 1
     },
     "classPercentages": {
-      "Rogue": "50.0",
-      "Mage": "50.0",
-      "Druid": "25.0",
-      "Warrior": "25.0"
+      "Rogue": "66.7",
+      "Mage": "33.3",
+      "DK": "33.3"
     },
     "topArchetypes": [
       {
-        "name": "Cycle Rogue",
+        "name": "Elise Rogue",
         "count": 2,
-        "percentage": "50.0"
+        "percentage": "66.7"
       },
       {
         "name": "Quest Spell Mage",
-        "count": 2,
-        "percentage": "50.0"
+        "count": 1,
+        "percentage": "33.3"
       },
       {
-        "name": "Copy Druid",
+        "name": "Control DK",
         "count": 1,
-        "percentage": "25.0"
-      },
-      {
-        "name": "Control Warrior",
-        "count": 1,
-        "percentage": "25.0"
+        "percentage": "33.3"
       }
     ],
     "mostPlayedClass": "Rogue"
   },
   "metaScore": {
-    "lastCalculated": "2026-01-11T23:11:34.441Z",
+    "lastCalculated": "2026-01-11T23:38:41.386Z",
     "archetypes": [
       {
-        "name": "Cycle Rogue",
+        "name": "Elise Rogue",
         "count": 2,
-        "percentage": "50.0",
+        "percentage": "66.7",
         "uniquePlayers": 2,
-        "avgRank": 23,
-        "metaScore": 73,
-        "tier": "A"
+        "avgRank": 6,
+        "metaScore": 85,
+        "tier": "S"
       },
       {
         "name": "Quest Spell Mage",
-        "count": 2,
-        "percentage": "50.0",
-        "uniquePlayers": 2,
-        "avgRank": 44,
-        "metaScore": 67,
-        "tier": "A"
-      },
-      {
-        "name": "Copy Druid",
         "count": 1,
-        "percentage": "25.0",
+        "percentage": "33.3",
         "uniquePlayers": 0,
-        "avgRank": 41,
-        "metaScore": 28,
+        "avgRank": 37,
+        "metaScore": 32,
         "tier": "C"
       },
       {
-        "name": "Control Warrior",
+        "name": "Control DK",
         "count": 1,
-        "percentage": "25.0",
+        "percentage": "33.3",
         "uniquePlayers": 0,
-        "avgRank": 46,
-        "metaScore": 26,
+        "avgRank": 37,
+        "metaScore": 32,
         "tier": "C"
       }
     ],
