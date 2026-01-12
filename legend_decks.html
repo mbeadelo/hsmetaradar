@@ -931,15 +931,7 @@
                         <!-- Player Name -->
                         <div class="player-name">
                             ${escapeHtml(deck.name)}
-                            ${deck.inMasterList ? '<span class="known-badge">⭐ Known</span>' : ''}
                         </div>
-                        
-                        <!-- BattleTag if available -->
-                        ${deck.battleTag ? `
-                            <div class="battle-tag">
-                                ${escapeHtml(deck.battleTag)}
-                            </div>
-                        ` : ''}
                         
                         <!-- Deck Name -->
                         <div class="deck-name">
