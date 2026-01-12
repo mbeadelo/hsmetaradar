@@ -165,7 +165,7 @@ app.get('/api/decode-deck', async (req, res) => {
     }
 });
 
-app.listen(PORT, async () => {
+app.listen(PORT, () => {
     console.log(`
 ╔════════════════════════════════════════════╗
 ║   🃏 HS Meta Radar Server                 ║
@@ -179,6 +179,8 @@ app.listen(PORT, async () => {
 Press Ctrl+C to stop
 `);
     
-    // Precargar caché de cartas
-    await getCardsData();
+    // Precargar caché de cartas (no bloqueante)
+    getCardsData().catch(err => {
+        console.error('⚠️ Failed to preload cards cache, will load on first request:', err.message);
+    });
 });
