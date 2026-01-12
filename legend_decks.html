@@ -655,7 +655,7 @@
             </div>
             
             <div id="metadata">
-                <span id="last-update">Loading...</span> • 
+                <span id="last-update">Loading...</span>
             </div>
         </div>
     </header>
@@ -835,7 +835,6 @@
                 // Update metadata
                 const lastUpdate = new Date(data.lastUpdate).toLocaleString('en-US');
                 document.getElementById('last-update').textContent = `Updated: ${lastUpdate}`;
-                document.getElementById('source').textContent = `Source: ${data.source}`;
                 
                 // Check if there are no new results
                 if (data.noNewResults && data.noNewResultsMessage) {
