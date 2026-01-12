@@ -1050,8 +1050,6 @@
                             <tr>
                                 <th>Rank</th>
                                 <th>Deck</th>
-                                <th>WR</th>
-                                <th>Games</th>
                                 <th>Updated</th>
                                 <th>Actions</th>
                             </tr>
@@ -1422,7 +1420,7 @@
             
             if (decksToRender.length === 0) {
                 const tr = document.createElement('tr');
-                tr.innerHTML = '<td colspan="6" style="text-align: center; padding: 2rem; color: var(--text-muted);">No decks match your filters</td>';
+                tr.innerHTML = '<td colspan="4" style="text-align: center; padding: 2rem; color: var(--text-muted);">No decks match your filters</td>';
                 tbody.appendChild(tr);
                 return;
             }
@@ -1460,8 +1458,6 @@
                             <span>${escapeHtml(deckName)}</span>
                         </div>
                     </td>
-                    <td>-</td>
-                    <td>-</td>
                     <td>${escapeHtml(lastSeen)}</td>
                     <td>
                         ${hasDeck ? `
