@@ -492,6 +492,103 @@
             background: #16a34a;
         }
         
+        /* Expanded Row */
+        .decks-table tbody tr {
+            cursor: pointer;
+        }
+        
+        .decks-table tbody tr.expanded {
+            background: rgba(201, 167, 101, 0.05);
+        }
+        
+        .deck-details-row {
+            background: var(--bg-card);
+            border-top: 1px solid var(--border-color);
+        }
+        
+        .deck-details {
+            padding: 24px;
+        }
+        
+        .deck-cards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 8px;
+            margin-top: 12px;
+        }
+        
+        .card-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 6px 10px;
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            font-size: 0.875rem;
+            transition: all 0.2s;
+        }
+        
+        .card-item:hover {
+            border-color: var(--accent-gold);
+            transform: translateX(2px);
+        }
+        
+        .card-item.rare-card {
+            background: linear-gradient(135deg, rgba(201, 167, 101, 0.1), rgba(201, 167, 101, 0.05));
+            border-color: var(--accent-gold);
+            box-shadow: 0 0 8px rgba(201, 167, 101, 0.2);
+        }
+        
+        .card-item.rare-card::before {
+            content: '⭐';
+            font-size: 0.75rem;
+        }
+        
+        .card-cost {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-width: 24px;
+            height: 24px;
+            background: var(--accent-gold);
+            color: white;
+            border-radius: 50%;
+            font-weight: 700;
+            font-size: 0.75rem;
+        }
+        
+        .card-name {
+            flex: 1;
+            font-weight: 500;
+        }
+        
+        .card-count {
+            color: var(--text-secondary);
+            font-size: 0.8125rem;
+        }
+        
+        .deck-details-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 16px;
+            padding-bottom: 12px;
+            border-bottom: 2px solid var(--border-color);
+        }
+        
+        .deck-details-title {
+            font-size: 1.125rem;
+            font-weight: 700;
+            color: var(--text-primary);
+        }
+        
+        .rare-cards-info {
+            font-size: 0.875rem;
+            color: var(--accent-gold);
+            font-weight: 600;
+        }
+        
         .hidden { display: none !important; }
         
         
@@ -1425,8 +1522,9 @@
                 return;
             }
             
-            decksToRender.forEach((deck, index) => {
+            decksToRender.forEach((deck, i) => {
                 const tr = document.createElement('tr');
+                tr.dataset.deckIndex = i;
                 
                 const hasDeck = deck.deck && deck.deck.code;
                 const deckName = deck.deck?.name || 'Unknown Deck';
@@ -1461,12 +1559,18 @@
                     <td>${escapeHtml(lastSeen)}</td>
                     <td>
                         ${hasDeck ? `
-                            <button class="copy-btn" onclick="copyDeckCode('${escapeHtml(deck.deck.code)}', this)">
+                            <button class="copy-btn" onclick="event.stopPropagation(); copyDeckCode('${escapeHtml(deck.deck.code)}', this)">
                                 Copy Code
                             </button>
                         ` : '-'}
                     </td>
                 `;
+                
+                // Add click handler to expand/collapse deck details
+                if (hasDeck) {
+                    tr.style.cursor = 'pointer';
+                    tr.addEventListener('click', () => toggleDeckDetails(tr, deck, i));
+                }
                 
                 tbody.appendChild(tr);
             });
@@ -1558,6 +1662,131 @@
             return `<img src="assets/class_emblems/${fileName}.png" alt="${className}" onerror="this.style.display='none'; this.parentElement.textContent='🃏'">`;
         }
 
+        async function toggleDeckDetails(tr, deck, deckIndex) {
+            const tbody = tr.parentElement;
+            const nextRow = tr.nextElementSibling;
+            
+            // Si ya está expandida, colapsar
+            if (nextRow && nextRow.classList.contains('deck-details-row')) {
+                nextRow.remove();
+                tr.classList.remove('expanded');
+                return;
+            }
+            
+            // Colapsar cualquier otra fila expandida
+            tbody.querySelectorAll('.deck-details-row').forEach(row => row.remove());
+            tbody.querySelectorAll('tr.expanded').forEach(row => row.classList.remove('expanded'));
+            
+            // Expandir esta fila
+            tr.classList.add('expanded');
+            
+            const detailsRow = document.createElement('tr');
+            detailsRow.className = 'deck-details-row';
+            detailsRow.innerHTML = `
+                <td colspan="4">
+                    <div class="deck-details">
+                        <div class="deck-details-header">
+                            <div class="deck-details-title">Loading cards...</div>
+                        </div>
+                        <div class="deck-cards-grid" id="deck-cards-${deckIndex}"></div>
+                    </div>
+                </td>
+            `;
+            
+            tr.after(detailsRow);
+            
+            // Cargar y mostrar las cartas
+            try {
+                const cards = await decodeDeckCode(deck.deck.code);
+                const rareCards = await identifyRareCards(deck, cards, allDecks);
+                renderDeckCards(cards, rareCards, deckIndex);
+            } catch (error) {
+                console.error('Error decoding deck:', error);
+                document.querySelector(`#deck-cards-${deckIndex}`).parentElement.innerHTML = `
+                    <div style="color: var(--text-secondary); text-align: center; padding: 20px;">
+                        Unable to load deck cards
+                    </div>
+                `;
+            }
+        }
+        
+        async function decodeDeckCode(deckCode) {
+            // Llamar a nuestro servidor para decodificar el deck code
+            try {
+                const response = await fetch(`/api/decode-deck?code=${encodeURIComponent(deckCode)}`);
+                if (!response.ok) throw new Error('Failed to decode');
+                const data = await response.json();
+                return data.cards;
+            } catch (error) {
+                console.error('Decode error:', error);
+                throw error;
+            }
+        }
+        
+        async function identifyRareCards(currentDeck, cards, allDecks) {
+            // Encontrar otros decks del mismo arquetipo
+            const sameArchetypeDecks = allDecks.filter(d => 
+                d.deck?.name === currentDeck.deck?.name && 
+                d.deck?.code !== currentDeck.deck?.code
+            );
+            
+            if (sameArchetypeDecks.length < 3) {
+                // No hay suficientes decks para comparar, todas son "comunes"
+                return new Set();
+            }
+            
+            // Decodificar otros decks del mismo arquetipo (hasta 10 para no saturar)
+            const otherDecksCodes = sameArchetypeDecks.slice(0, 10).map(d => d.deck.code);
+            const otherDecksCards = await Promise.all(
+                otherDecksCodes.map(code => decodeDeckCode(code).catch(() => []))
+            );
+            
+            // Contar frecuencia de cada carta en el arquetipo
+            const cardFrequency = {};
+            otherDecksCards.forEach(deckCards => {
+                deckCards.forEach(card => {
+                    cardFrequency[card.dbfId] = (cardFrequency[card.dbfId] || 0) + 1;
+                });
+            });
+            
+            // Una carta es "rara" si aparece en menos del 40% de los decks del arquetipo
+            const threshold = otherDecksCards.length * 0.4;
+            const rareCardIds = new Set();
+            
+            cards.forEach(card => {
+                const frequency = cardFrequency[card.dbfId] || 0;
+                if (frequency < threshold) {
+                    rareCardIds.add(card.dbfId);
+                }
+            });
+            
+            return rareCardIds;
+        }
+        
+        function renderDeckCards(cards, rareCards, deckIndex) {
+            const container = document.querySelector(`#deck-cards-${deckIndex}`);
+            const header = container.previousElementSibling;
+            
+            // Ordenar cartas por coste
+            cards.sort((a, b) => a.cost - b.cost);
+            
+            // Actualizar header con info de cartas raras
+            const rareCount = cards.filter(c => rareCards.has(c.dbfId)).length;
+            header.innerHTML = `
+                <div class="deck-details-title">${cards.length} Cards</div>
+                ${rareCount > 0 ? `<div class="rare-cards-info">⭐ ${rareCount} Tech Card${rareCount > 1 ? 's' : ''}</div>` : ''}
+            `;
+            
+            // Renderizar cartas
+            container.innerHTML = cards.map(card => `
+                <div class="card-item ${rareCards.has(card.dbfId) ? 'rare-card' : ''}">
+                    <div class="card-cost">${card.cost}</div>
+                    <div class="card-name">${escapeHtml(card.name)}</div>
+                    ${card.count > 1 ? `<div class="card-count">x${card.count}</div>` : ''}
+                </div>
+            `).join('');
+        }
+        
         function copyDeckCode(code, button) {
             navigator.clipboard.writeText(code).then(() => {
                 const originalHTML = button.innerHTML;
