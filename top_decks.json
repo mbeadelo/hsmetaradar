@@ -1,19 +1,30 @@
 {
-  "lastUpdate": "2026-01-12T07:26:41.737Z",
+  "lastUpdate": "2026-01-12T07:46:36.052Z",
   "source": "HSGuru Top 100 + HSReplay player names",
-  "totalDecks": 7,
-  "knownPlayers": 3,
+  "totalDecks": 6,
+  "knownPlayers": 2,
   "decks": [
     {
-      "rank": 4,
-      "name": "Fled",
-      "inMasterList": true,
-      "battleTag": "Fled#11390",
+      "rank": 5,
+      "name": "Predictor",
+      "inMasterList": false,
+      "battleTag": null,
       "deck": {
-        "name": "Copy Druid",
-        "code": "AAECAZICDMekBquxBtmxBp3jBu3qBuHrBq+HB4KYB/ioB/moB/qoB5jEBwmunwSB1ASRvwbzygat4gb35QaQlweqrwesrwcAAQP1swbHpAb3swbHpAbu3gbHpAYAAA=="
+        "name": "Quest Warrior",
+        "code": "AAECAQcOiaAEx6QG1boGjr8GusEG+skGquoGg4oH7o8H1JcH25cHgpgHhJ0HyqsHCIigBI7UBIegBvPKBrDiBraUB+qnB/yvBwABA/WzBsekBvezBsekBu7eBsekBgAA"
       },
-      "lastSeen": "1 hour ago"
+      "lastSeen": "7 minutes ago"
+    },
+    {
+      "rank": 5,
+      "name": "하스스토너7",
+      "inMasterList": false,
+      "battleTag": null,
+      "deck": {
+        "name": "Quest Warrior",
+        "code": "AAECAQcOiaAEx6QG1boGjr8GusEG+skGquoGg4oH7o8H1JcH25cHgpgHhJ0HyqsHCIigBI7UBIegBvPKBrDiBraUB+qnB/yvBwABA/WzBsekBvezBsekBu7eBsekBgAA"
+      },
+      "lastSeen": "15 minutes ago"
     },
     {
       "rank": 5,
@@ -24,7 +35,7 @@
         "name": "Quest Warrior",
         "code": "AAECAQcOiaAEx6QG1boGjr8GusEG+skGquoGg4oH7o8H1JcH25cHgpgHhJ0HyqsHCIigBI7UBIegBvPKBrDiBraUB+qnB/yvBwABA/WzBsekBvezBsekBu7eBsekBgAA"
       },
-      "lastSeen": "8 minutes ago"
+      "lastSeen": "28 minutes ago"
     },
     {
       "rank": 5,
@@ -35,7 +46,7 @@
         "name": "Quest Warrior",
         "code": "AAECAQcOiaAEx6QG1boGjr8GusEG+skGquoGg4oH7o8H1JcH25cHgpgHhJ0HyqsHCIigBI7UBIegBvPKBrDiBraUB+qnB/yvBwABA/WzBsekBvezBsekBu7eBsekBgAA"
       },
-      "lastSeen": "24 minutes ago"
+      "lastSeen": "44 minutes ago"
     },
     {
       "rank": 5,
@@ -45,28 +56,6 @@
       "deck": {
         "name": "Quest Warrior",
         "code": "AAECAQcOiaAEx6QG1boGjr8GusEG+skGquoGg4oH7o8H1JcH25cHgpgHhJ0HyqsHCIigBI7UBIegBvPKBrDiBraUB+qnB/yvBwABA/WzBsekBvezBsekBu7eBsekBgAA"
-      },
-      "lastSeen": "40 minutes ago"
-    },
-    {
-      "rank": 5,
-      "name": "양금모",
-      "inMasterList": false,
-      "battleTag": null,
-      "deck": {
-        "name": "Quest Warrior",
-        "code": "AAECAQcOiaAEx6QG1boGjr8GusEG+skGquoGg4oH7o8H1JcH25cHgpgHhJ0HyqsHCIigBI7UBIegBvPKBrDiBraUB+qnB/yvBwABA/WzBsekBvezBsekBu7eBsekBgAA"
-      },
-      "lastSeen": "1 hour ago"
-    },
-    {
-      "rank": 6,
-      "name": "RobertJ",
-      "inMasterList": false,
-      "battleTag": null,
-      "deck": {
-        "name": "Copy Druid",
-        "code": "AAECAZICDMekBquxBtmxBp3jBu3qBuHrBq+HB4KYB/ioB/moB/qoB5jEBwmunwSB1ASRvwbzygat4gb35QaQlweqrwesrwcAAQP1swbHpAb3swbHpAbu3gbHpAYAAA=="
       },
       "lastSeen": "1 hour ago"
     },
@@ -79,84 +68,68 @@
         "name": "Elise Rogue",
         "code": "AAECAaIHCsekBrOpBqfTBrXqBuHrBt/+BpKDB4KYB9GdB92vBwr2nwT3nwS2tQaM1gbq5Qa1+gaQgweMrQfHrgfZrwcAAQP1swbHpAb3swbHpAbu3gbHpAYAAA=="
       },
-      "lastSeen": "6 minutes ago"
+      "lastSeen": "27 minutes ago"
     }
   ],
   "noNewResults": false,
   "metaSnapshot": {
     "classDistribution": {
-      "Druid": 2,
-      "Warrior": 4,
+      "Warrior": 5,
       "Rogue": 1,
       "Hunter": 1
     },
     "classPercentages": {
-      "Druid": "28.6",
-      "Warrior": "57.1",
-      "Rogue": "14.3",
-      "Hunter": "14.3"
+      "Warrior": "83.3",
+      "Rogue": "16.7",
+      "Hunter": "16.7"
     },
     "topArchetypes": [
       {
         "name": "Quest Warrior",
-        "count": 4,
-        "percentage": "57.1"
-      },
-      {
-        "name": "Copy Druid",
-        "count": 2,
-        "percentage": "28.6"
+        "count": 5,
+        "percentage": "83.3"
       },
       {
         "name": "Elise Rogue",
         "count": 1,
-        "percentage": "14.3"
+        "percentage": "16.7"
       },
       {
         "name": "Discover Hunter",
         "count": 1,
-        "percentage": "14.3"
+        "percentage": "16.7"
       }
     ],
     "mostPlayedClass": "Warrior"
   },
   "metaScore": {
-    "lastCalculated": "2026-01-12T07:26:41.737Z",
+    "lastCalculated": "2026-01-12T07:46:36.052Z",
     "archetypes": [
       {
         "name": "Quest Warrior",
-        "count": 4,
-        "percentage": "57.1",
-        "uniquePlayers": 4,
+        "count": 5,
+        "percentage": "83.3",
+        "uniquePlayers": 5,
         "avgRank": 5,
-        "metaScore": 81,
+        "metaScore": 92,
         "tier": "S"
-      },
-      {
-        "name": "Copy Druid",
-        "count": 2,
-        "percentage": "28.6",
-        "uniquePlayers": 2,
-        "avgRank": 5,
-        "metaScore": 70,
-        "tier": "A"
       },
       {
         "name": "Elise Rogue",
         "count": 1,
-        "percentage": "14.3",
+        "percentage": "16.7",
         "uniquePlayers": 1,
         "avgRank": 98,
-        "metaScore": 36,
+        "metaScore": 37,
         "tier": "C"
       },
       {
         "name": "Discover Hunter",
         "count": 1,
-        "percentage": "14.3",
+        "percentage": "16.7",
         "uniquePlayers": 0,
         "avgRank": 98,
-        "metaScore": 6,
+        "metaScore": 7,
         "tier": "C"
       }
     ],
