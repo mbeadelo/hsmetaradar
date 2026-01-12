@@ -860,11 +860,13 @@ async function scrapeHSGuruReplays() {
         console.log(`\n✨ ¡Completado! ${finalDecks.length} mazos del Top 100 guardados`);
         console.log(`⭐ Jugadores en tu lista: ${inList}/${finalDecks.length}`);
         
-        // Mostrar Top 3 Meta Score
-        console.log('\n🏆 Top 3 Meta Score:');
-        archetypeScores.slice(0, 3).forEach((arch, i) => {
-            console.log(`   ${i + 1}. [${arch.tier}] ${arch.name} - Score: ${arch.metaScore} (${arch.count} decks, ${arch.uniquePlayers} jugadores)`);
-        });
+        // Mostrar Top 3 Meta Score (24h)
+        console.log('\n🏆 Top 3 Meta Score (24h):');
+        if (stats24h && stats24h.metaScore && stats24h.metaScore.archetypes) {
+            stats24h.metaScore.archetypes.slice(0, 3).forEach((arch, i) => {
+                console.log(`   ${i + 1}. [${arch.tier}] ${arch.name} - Score: ${arch.metaScore} (${arch.count} decks, ${arch.uniquePlayers} jugadores)`);
+            });
+        }
 
     } catch (error) {
         console.error('❌ Error:', error.message);
