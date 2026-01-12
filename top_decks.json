@@ -1,8 +1,8 @@
 {
-  "lastUpdate": "2026-01-12T11:13:08.729Z",
+  "lastUpdate": "2026-01-12T11:40:59.621Z",
   "source": "HSGuru Top 100 + HSReplay player names",
-  "totalDecks": 6,
-  "knownPlayers": 3,
+  "totalDecks": 7,
+  "knownPlayers": 2,
   "decks": [
     {
       "rank": 16,
@@ -24,7 +24,7 @@
         "name": "Quest Warrior",
         "code": "AAECAQcMx6QGjr8GusEG+skGquoGg4oH7o8HtpQH1JcH25cHgpgHhJ0HCYigBImgBI7UBNGeBoegBvPKBrDiBuqnB/yvBwABA/WzBsekBvezBsekBu7eBsekBgAA"
       },
-      "lastSeen": "34 minutes ago"
+      "lastSeen": "1 hour ago"
     },
     {
       "rank": 18,
@@ -35,7 +35,18 @@
         "name": "Cycle Rogue",
         "code": "AAECAaIHBJegBL2+BvTJBozWBg32nwT3nwSgswa2tQaUygaY4Qbq5Qachwe+hwfBlwfXlwfUnQeKsQcAAA=="
       },
-      "lastSeen": "11 minutes ago"
+      "lastSeen": "39 minutes ago"
+    },
+    {
+      "rank": 23,
+      "name": "하스갓겜",
+      "inMasterList": false,
+      "battleTag": null,
+      "deck": {
+        "name": "Cycle Rogue",
+        "code": "AAECAaIHBJegBL2+BvTJBozWBg32nwT3nwSgswa2tQaUygaY4Qbq5Qachwe+hwfBlwfXlwfUnQeKsQcAAA=="
+      },
+      "lastSeen": "26 minutes ago"
     },
     {
       "rank": 23,
@@ -46,18 +57,7 @@
         "name": "Copy Druid",
         "code": "AAECAZICDMekBquxBp3jBvflBuHrBq+HB6GJB4KYB/ioB/moB/qoB5jEBwmunwSB1ATZsQaRvwbzygat4gaQlweqrwesrwcAAQP1swbHpAb3swbHpAbu3gbHpAYAAA=="
       },
-      "lastSeen": "24 minutes ago"
-    },
-    {
-      "rank": 23,
-      "name": "Lokyin",
-      "inMasterList": true,
-      "battleTag": "Lokyin#3405",
-      "deck": {
-        "name": "Copy Druid",
-        "code": "AAECAZICDMekBquxBp3jBvflBuHrBq+HB6GJB4KYB/ioB/moB/qoB5jEBwmunwSB1ATZsQaRvwbzygat4gaQlweqrwesrwcAAQP1swbHpAb3swbHpAbu3gbHpAYAAA=="
-      },
-      "lastSeen": "1 hour ago"
+      "lastSeen": "51 minutes ago"
     },
     {
       "rank": 24,
@@ -68,69 +68,96 @@
         "name": "Quest Warrior",
         "code": "AAECAQcMx6QGjr8GusEG+skGquoGg4oH7o8HtpQH1JcH25cHgpgHhJ0HCYigBImgBI7UBNGeBoegBvPKBrDiBuqnB/yvBwABA/WzBsekBvezBsekBu7eBsekBgAA"
       },
-      "lastSeen": "47 minutes ago"
+      "lastSeen": "1 hour ago"
+    },
+    {
+      "rank": 26,
+      "name": "Predictor",
+      "inMasterList": false,
+      "battleTag": null,
+      "deck": {
+        "name": "Discover Hunter",
+        "code": "AAECAR8Ip9MG3OMG4uMGw4MHmacHmqcHm6cHxbEHC6mfBKqfBJygBOqlBsK+Bs7ABtDABpXiBq3rBq+SB5CnBwAA"
+      },
+      "lastSeen": "12 minutes ago"
     }
   ],
   "noNewResults": false,
   "metaSnapshot": {
     "classDistribution": {
-      "Druid": 3,
+      "Druid": 2,
       "Warrior": 2,
-      "Rogue": 1
+      "Rogue": 2,
+      "Hunter": 1
     },
     "classPercentages": {
-      "Druid": "50.0",
-      "Warrior": "33.3",
-      "Rogue": "16.7"
+      "Druid": "28.6",
+      "Warrior": "28.6",
+      "Rogue": "28.6",
+      "Hunter": "14.3"
     },
     "topArchetypes": [
       {
         "name": "Copy Druid",
-        "count": 3,
-        "percentage": "50.0"
+        "count": 2,
+        "percentage": "28.6"
       },
       {
         "name": "Quest Warrior",
         "count": 2,
-        "percentage": "33.3"
+        "percentage": "28.6"
       },
       {
         "name": "Cycle Rogue",
+        "count": 2,
+        "percentage": "28.6"
+      },
+      {
+        "name": "Discover Hunter",
         "count": 1,
-        "percentage": "16.7"
+        "percentage": "14.3"
       }
     ],
     "mostPlayedClass": "Druid"
   },
   "metaScore": {
-    "lastCalculated": "2026-01-12T11:13:08.729Z",
+    "lastCalculated": "2026-01-12T11:40:59.622Z",
     "archetypes": [
       {
         "name": "Copy Druid",
-        "count": 3,
-        "percentage": "50.0",
-        "uniquePlayers": 3,
-        "avgRank": 21,
-        "metaScore": 74,
+        "count": 2,
+        "percentage": "28.6",
+        "uniquePlayers": 2,
+        "avgRank": 20,
+        "metaScore": 66,
         "tier": "A"
       },
       {
         "name": "Quest Warrior",
         "count": 2,
-        "percentage": "33.3",
+        "percentage": "28.6",
         "uniquePlayers": 2,
         "avgRank": 21,
-        "metaScore": 67,
+        "metaScore": 65,
         "tier": "A"
       },
       {
         "name": "Cycle Rogue",
-        "count": 1,
-        "percentage": "16.7",
-        "uniquePlayers": 1,
-        "avgRank": 18,
-        "metaScore": 61,
+        "count": 2,
+        "percentage": "28.6",
+        "uniquePlayers": 2,
+        "avgRank": 21,
+        "metaScore": 65,
         "tier": "A"
+      },
+      {
+        "name": "Discover Hunter",
+        "count": 1,
+        "percentage": "14.3",
+        "uniquePlayers": 1,
+        "avgRank": 26,
+        "metaScore": 58,
+        "tier": "B"
       }
     ],
     "methodology": {
