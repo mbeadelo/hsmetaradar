@@ -2,7 +2,7 @@ const express = require('express');
 const { exec } = require('child_process');
 const path = require('path');
 const fs = require('fs');
-const deckstrings = require('deckstrings');
+// const deckstrings = require('deckstrings'); // TODO: Fix dependency issue on Render
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -79,38 +79,12 @@ app.get('/api/health', (req, res) => {
     res.json({ status: 'ok', timestamp: new Date().toISOString() });
 });
 
-// Decode deck code endpoint
+// Decode deck code endpoint (temporarily disabled)
 app.get('/api/decode-deck', async (req, res) => {
-    try {
-        const { code } = req.query;
-        
-        if (!code) {
-            return res.status(400).json({ error: 'Deck code is required' });
-        }
-        
-        // Decode the deck string
-        const decoded = deckstrings.decode(code);
-        
-        // Por ahora devolver datos básicos sin nombres de cartas
-        // TODO: Implementar cache de cartas de forma más robusta
-        const cards = decoded.cards.map(([dbfId, count]) => ({
-            dbfId,
-            count,
-            name: `Card ${dbfId}`,
-            cost: 0,
-            rarity: 'COMMON'
-        }));
-        
-        res.json({
-            format: decoded.format,
-            heroes: decoded.heroes,
-            cards: cards
-        });
-        
-    } catch (error) {
-        console.error('Error decoding deck:', error);
-        res.status(500).json({ error: 'Failed to decode deck code' });
-    }
+    res.status(503).json({ 
+        error: 'Deck decoding temporarily unavailable',
+        message: 'Feature under maintenance'
+    });
 });
 
 app.listen(PORT, () => {
