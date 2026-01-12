@@ -1,63 +1,19 @@
 {
-  "lastUpdate": "2026-01-12T13:14:26.989Z",
+  "lastUpdate": "2026-01-12T13:57:11.248Z",
   "source": "HSGuru Top 100 + HSReplay player names",
-  "totalDecks": 7,
-  "knownPlayers": 2,
+  "totalDecks": 3,
+  "knownPlayers": 0,
   "decks": [
     {
-      "rank": 77,
-      "name": "McBanterFake",
+      "rank": 89,
+      "name": "Basegod",
       "inMasterList": false,
       "battleTag": null,
-      "deck": {
-        "name": "Discover Hunter",
-        "code": "AAECAR8Ivb4Gp9MG3OMG4uMGmacHmqcHm6cHxbEHC6mfBKqfBJygBNOeBsK+Boa/Bs7ABtDABpXiBq3rBpCnBwAA"
-      },
-      "lastSeen": "20 minutes ago"
-    },
-    {
-      "rank": 81,
-      "name": "shiversrip",
-      "inMasterList": false,
-      "battleTag": null,
-      "deck": {
-        "name": "Discover Hunter",
-        "code": "AAECAR8Ivb4Gp9MG3OMG4uMGmacHmqcHm6cHxbEHC6mfBKqfBJygBNOeBsK+Boa/Bs7ABtDABpXiBq3rBpCnBwAA"
-      },
-      "lastSeen": "32 minutes ago"
-    },
-    {
-      "rank": 82,
-      "name": "Wolder",
-      "inMasterList": true,
-      "battleTag": "Wolder#21746",
-      "deck": {
-        "name": "Elise Rogue",
-        "code": "AAECAaIHDMekBrOpBqfTBrXqBuHrBt/+BpKDB8GXB4KYB9GdB4ytB92vBwn2nwT3nwS2tQaM1gbq5Qa1+gaQgwfHrgfZrwcAAQP1swbHpAb3swbHpAbu3gbHpAYAAA=="
-      },
-      "lastSeen": "49 minutes ago"
-    },
-    {
-      "rank": 83,
-      "name": "Casualaddict",
-      "inMasterList": false,
-      "battleTag": null,
-      "deck": {
-        "name": "Quest Warrior",
-        "code": "AAECAQcMx6QG1boGjr8G+skG9MoGouIGquoG7o8H1JcH25cHgpgHyqsHCYigBImgBI7UBIegBvPKBrDiBraUB+qnB/yvBwABA/WzBsekBvezBsekBu7eBsekBgAA"
-      },
-      "lastSeen": "9 minutes ago"
-    },
-    {
-      "rank": 88,
-      "name": "Derik",
-      "inMasterList": true,
-      "battleTag": "Derik#4520",
       "deck": {
         "name": "Protoss Mage",
         "code": "AAECAf0ECJygBIW/BrHOBqn1BtuXB4KYB4qxB5mxBwve+AW0pwaBvwaG5gaL9AaM9AaQ9AaZ9Aaa9Aad9AazhwcAAA=="
       },
-      "lastSeen": "21 minutes ago"
+      "lastSeen": "40 minutes ago"
     },
     {
       "rank": 98,
@@ -68,102 +24,284 @@
         "name": "Quest Warrior",
         "code": "AAECAQcMx6QG1boGjr8G+skG9MoGouIGquoG7o8H1JcH25cHgpgHyqsHCYigBImgBI7UBIegBvPKBrDiBraUB+qnB/yvBwABA/WzBsekBvezBsekBu7eBsekBgAA"
       },
-      "lastSeen": "1 minute ago"
+      "lastSeen": "44 minutes ago"
     },
     {
       "rank": 100,
-      "name": "邪恐夜皇",
+      "name": "MLS",
       "inMasterList": false,
       "battleTag": null,
       "deck": {
         "name": "Protoss Mage",
         "code": "AAECAf0ECJygBIW/BrHOBqn1BtuXB4KYB4qxB5mxBwve+AW0pwaBvwaG5gaL9AaM9AaQ9AaZ9Aaa9Aad9AazhwcAAA=="
       },
-      "lastSeen": "30 minutes ago"
+      "lastSeen": "29 minutes ago"
     }
   ],
   "noNewResults": false,
   "metaSnapshot": {
-    "classDistribution": {
-      "Hunter": 2,
-      "Rogue": 1,
-      "Warrior": 2,
-      "Mage": 2
+    "24h": {
+      "classDistribution": {
+        "Hunter": 2,
+        "Rogue": 1,
+        "Warrior": 2,
+        "Mage": 4
+      },
+      "classPercentages": {
+        "Hunter": "22.2",
+        "Rogue": "11.1",
+        "Warrior": "22.2",
+        "Mage": "44.4"
+      },
+      "topArchetypes": [
+        {
+          "name": "Protoss Mage",
+          "count": 4,
+          "percentage": "44.4"
+        },
+        {
+          "name": "Discover Hunter",
+          "count": 2,
+          "percentage": "22.2"
+        },
+        {
+          "name": "Quest Warrior",
+          "count": 2,
+          "percentage": "22.2"
+        },
+        {
+          "name": "Elise Rogue",
+          "count": 1,
+          "percentage": "11.1"
+        }
+      ],
+      "mostPlayedClass": "Mage",
+      "totalDecksAnalyzed": 9,
+      "period": "Last 24 hours"
     },
-    "classPercentages": {
-      "Hunter": "28.6",
-      "Rogue": "14.3",
-      "Warrior": "28.6",
-      "Mage": "28.6"
+    "7d": {
+      "classDistribution": {
+        "Hunter": 2,
+        "Rogue": 1,
+        "Warrior": 2,
+        "Mage": 4
+      },
+      "classPercentages": {
+        "Hunter": "22.2",
+        "Rogue": "11.1",
+        "Warrior": "22.2",
+        "Mage": "44.4"
+      },
+      "topArchetypes": [
+        {
+          "name": "Protoss Mage",
+          "count": 4,
+          "percentage": "44.4"
+        },
+        {
+          "name": "Discover Hunter",
+          "count": 2,
+          "percentage": "22.2"
+        },
+        {
+          "name": "Quest Warrior",
+          "count": 2,
+          "percentage": "22.2"
+        },
+        {
+          "name": "Elise Rogue",
+          "count": 1,
+          "percentage": "11.1"
+        }
+      ],
+      "mostPlayedClass": "Mage",
+      "totalDecksAnalyzed": 9,
+      "period": "Last 7 days"
     },
-    "topArchetypes": [
-      {
-        "name": "Discover Hunter",
-        "count": 2,
-        "percentage": "28.6"
+    "30d": {
+      "classDistribution": {
+        "Hunter": 2,
+        "Rogue": 1,
+        "Warrior": 2,
+        "Mage": 4
       },
-      {
-        "name": "Quest Warrior",
-        "count": 2,
-        "percentage": "28.6"
+      "classPercentages": {
+        "Hunter": "22.2",
+        "Rogue": "11.1",
+        "Warrior": "22.2",
+        "Mage": "44.4"
       },
-      {
-        "name": "Protoss Mage",
-        "count": 2,
-        "percentage": "28.6"
-      },
-      {
-        "name": "Elise Rogue",
-        "count": 1,
-        "percentage": "14.3"
-      }
-    ],
-    "mostPlayedClass": "Hunter"
+      "topArchetypes": [
+        {
+          "name": "Protoss Mage",
+          "count": 4,
+          "percentage": "44.4"
+        },
+        {
+          "name": "Discover Hunter",
+          "count": 2,
+          "percentage": "22.2"
+        },
+        {
+          "name": "Quest Warrior",
+          "count": 2,
+          "percentage": "22.2"
+        },
+        {
+          "name": "Elise Rogue",
+          "count": 1,
+          "percentage": "11.1"
+        }
+      ],
+      "mostPlayedClass": "Mage",
+      "totalDecksAnalyzed": 9,
+      "period": "Last 30 days"
+    }
   },
   "metaScore": {
-    "lastCalculated": "2026-01-12T13:14:26.989Z",
-    "archetypes": [
-      {
-        "name": "Discover Hunter",
-        "count": 2,
-        "percentage": "28.6",
-        "uniquePlayers": 2,
-        "avgRank": 79,
-        "metaScore": 48,
-        "tier": "B"
-      },
-      {
-        "name": "Quest Warrior",
-        "count": 2,
-        "percentage": "28.6",
-        "uniquePlayers": 2,
-        "avgRank": 91,
-        "metaScore": 44,
-        "tier": "C"
-      },
-      {
-        "name": "Protoss Mage",
-        "count": 2,
-        "percentage": "28.6",
-        "uniquePlayers": 2,
-        "avgRank": 94,
-        "metaScore": 43,
-        "tier": "C"
-      },
-      {
-        "name": "Elise Rogue",
-        "count": 1,
-        "percentage": "14.3",
-        "uniquePlayers": 1,
-        "avgRank": 82,
-        "metaScore": 41,
-        "tier": "C"
+    "24h": {
+      "archetypes": [
+        {
+          "name": "Protoss Mage",
+          "count": 4,
+          "percentage": "44.4",
+          "uniquePlayers": 4,
+          "avgRank": 94,
+          "metaScore": 50,
+          "tier": "B"
+        },
+        {
+          "name": "Discover Hunter",
+          "count": 2,
+          "percentage": "22.2",
+          "uniquePlayers": 2,
+          "avgRank": 79,
+          "metaScore": 45,
+          "tier": "B"
+        },
+        {
+          "name": "Quest Warrior",
+          "count": 2,
+          "percentage": "22.2",
+          "uniquePlayers": 2,
+          "avgRank": 91,
+          "metaScore": 42,
+          "tier": "C"
+        },
+        {
+          "name": "Elise Rogue",
+          "count": 1,
+          "percentage": "11.1",
+          "uniquePlayers": 1,
+          "avgRank": 82,
+          "metaScore": 40,
+          "tier": "C"
+        }
+      ],
+      "totalDecksAnalyzed": 9,
+      "period": "Last 24 hours",
+      "lastCalculated": "2026-01-12T13:57:11.247Z",
+      "methodology": {
+        "frequency": "40% - Apariciones en el período",
+        "diversity": "30% - Jugadores únicos que lo usan",
+        "ranking": "30% - Ranking promedio de los jugadores"
       }
-    ],
-    "methodology": {
-      "frequency": "40% - Apariciones en Top 100",
-      "diversity": "30% - Jugadores únicos que lo usan",
-      "ranking": "30% - Ranking promedio de los jugadores"
+    },
+    "7d": {
+      "archetypes": [
+        {
+          "name": "Protoss Mage",
+          "count": 4,
+          "percentage": "44.4",
+          "uniquePlayers": 4,
+          "avgRank": 94,
+          "metaScore": 50,
+          "tier": "B"
+        },
+        {
+          "name": "Discover Hunter",
+          "count": 2,
+          "percentage": "22.2",
+          "uniquePlayers": 2,
+          "avgRank": 79,
+          "metaScore": 45,
+          "tier": "B"
+        },
+        {
+          "name": "Quest Warrior",
+          "count": 2,
+          "percentage": "22.2",
+          "uniquePlayers": 2,
+          "avgRank": 91,
+          "metaScore": 42,
+          "tier": "C"
+        },
+        {
+          "name": "Elise Rogue",
+          "count": 1,
+          "percentage": "11.1",
+          "uniquePlayers": 1,
+          "avgRank": 82,
+          "metaScore": 40,
+          "tier": "C"
+        }
+      ],
+      "totalDecksAnalyzed": 9,
+      "period": "Last 7 days",
+      "lastCalculated": "2026-01-12T13:57:11.248Z",
+      "methodology": {
+        "frequency": "40% - Apariciones en el período",
+        "diversity": "30% - Jugadores únicos que lo usan",
+        "ranking": "30% - Ranking promedio de los jugadores"
+      }
+    },
+    "30d": {
+      "archetypes": [
+        {
+          "name": "Protoss Mage",
+          "count": 4,
+          "percentage": "44.4",
+          "uniquePlayers": 4,
+          "avgRank": 94,
+          "metaScore": 50,
+          "tier": "B"
+        },
+        {
+          "name": "Discover Hunter",
+          "count": 2,
+          "percentage": "22.2",
+          "uniquePlayers": 2,
+          "avgRank": 79,
+          "metaScore": 45,
+          "tier": "B"
+        },
+        {
+          "name": "Quest Warrior",
+          "count": 2,
+          "percentage": "22.2",
+          "uniquePlayers": 2,
+          "avgRank": 91,
+          "metaScore": 42,
+          "tier": "C"
+        },
+        {
+          "name": "Elise Rogue",
+          "count": 1,
+          "percentage": "11.1",
+          "uniquePlayers": 1,
+          "avgRank": 82,
+          "metaScore": 40,
+          "tier": "C"
+        }
+      ],
+      "totalDecksAnalyzed": 9,
+      "period": "Last 30 days",
+      "lastCalculated": "2026-01-12T13:57:11.248Z",
+      "methodology": {
+        "frequency": "40% - Apariciones en el período",
+        "diversity": "30% - Jugadores únicos que lo usan",
+        "ranking": "30% - Ranking promedio de los jugadores"
+      }
     }
   }
 }
