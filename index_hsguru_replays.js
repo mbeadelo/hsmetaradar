@@ -1,6 +1,55 @@
 const { chromium } = require('playwright');
 const fs = require('fs');
 
+// Función para normalizar nombres para comparación
+function normalizeName(name) {
+    if (!name) return null;
+    // Convertir a lowercase y remover espacios extra
+    return name.trim().toLowerCase();
+}
+
+// Función para extraer BattleTag si existe
+function extractBattleTag(text) {
+    if (!text) return null;
+    const match = text.match(/([a-zA-Z0-9]+)#(\d{4,5})/);
+    return match ? match[0] : null;
+}
+
+// Función para cargar y limpiar datos históricos (últimos 30 días)
+function loadHistoricalData() {
+    if (!fs.existsSync('historical_data.json')) {
+        return { entries: [] };
+    }
+    
+    const data = JSON.parse(fs.readFileSync('historical_data.json', 'utf-8'));
+    const now = Date.now();
+    const thirtyDaysAgo = now - (30 * 24 * 60 * 60 * 1000);
+    
+    // Filtrar solo entradas de los últimos 30 días
+    data.entries = data.entries.filter(entry => {
+        const entryTime = new Date(entry.timestamp).getTime();
+        return entryTime > thirtyDaysAgo;
+    });
+    
+    return data;
+}
+
+// Función para añadir nueva entrada a datos históricos
+function addToHistoricalData(decks) {
+    const historical = loadHistoricalData();
+    
+    // Añadir nueva entrada con timestamp
+    historical.entries.push({
+        timestamp: new Date().toISOString(),
+        decks: decks
+    });
+    
+    // Guardar
+    fs.writeFileSync('historical_data.json', JSON.stringify(historical, null, 2));
+    
+    return historical;
+}
+
 async function scrapeHSGuruReplays() {
     console.log('🚀 Iniciando scraping de HSGuru Top Legend Replays...\n');
     
@@ -17,6 +66,10 @@ async function scrapeHSGuruReplays() {
         existingData = JSON.parse(fs.readFileSync('top_decks.json', 'utf-8'));
         console.log(`📂 Cargados ${existingData.totalDecks} mazos existentes\n`);
     }
+    
+    // Cargar datos históricos (hasta 30 días)
+    const historicalData = loadHistoricalData();
+    console.log(`📊 Datos históricos: ${historicalData.entries.length} entradas (hasta 30 días)\n`);
     
     const browser = await chromium.launch({
         headless: true,
@@ -72,16 +125,19 @@ async function scrapeHSGuruReplays() {
                     if (!rankMatch) return;
                     rank = parseInt(rankMatch[1]);
                     
-                    // Extraer nombre del jugador desde la tabla de HSGuru
+                    // Extraer nombre del jugador desde la tabla de HSGuru (priorizar BattleTag)
                     let playerName = null;
+                    let hasBattleTag = false;
+                    
                     // Buscar en las celdas de la fila
                     const cells = row.querySelectorAll('td');
                     for (const cell of cells) {
                         const cellText = cell.innerText || cell.textContent || '';
                         // Buscar BattleTag pattern (Name#12345)
-                        const battleTagMatch = cellText.match(/([a-zA-Z0-9]+)#(\d+)/);
+                        const battleTagMatch = cellText.match(/([a-zA-Z0-9]+)#(\d{4,5})/);
                         if (battleTagMatch) {
                             playerName = battleTagMatch[0];
+                            hasBattleTag = true;
                             break;
                         }
                     }
@@ -91,6 +147,7 @@ async function scrapeHSGuruReplays() {
                         const nameMatch = rowText.match(/^([a-zA-Z0-9_]+)\s+#?\d+\s+Legend/);
                         if (nameMatch) {
                             playerName = nameMatch[1];
+                            hasBattleTag = false;
                         }
                     }
                     
@@ -154,6 +211,7 @@ async function scrapeHSGuruReplays() {
                         results.push({
                             rank,
                             playerName, // Nombre extraído directamente de HSGuru
+                            hasBattleTag, // Flag para saber si tenemos BattleTag completo
                             deckName: deckNames[deckIndex] || 'Unknown Deck',
                             deckCode,
                             timeAgo,
@@ -529,12 +587,15 @@ async function scrapeHSGuruReplays() {
                     
                     // Asignar nombres a los replays correspondientes según deckIndex
                     replays.forEach((replay, idx) => {
-                        if (!replay.playerName && playerNames[replay.deckIndex || idx]) {
-                            replay.playerName = playerNames[replay.deckIndex || idx];
+                        const nameIndex = replay.deckIndex || idx;
+                        if (!replay.playerName && playerNames[nameIndex]) {
+                            replay.playerName = playerNames[nameIndex];
+                            // Verificar si el nombre extraído tiene BattleTag
+                            replay.hasBattleTag = playerNames[nameIndex].includes('#');
                         }
                         // Actualizar deck code si lo encontramos
-                        if (deckCodes[replay.deckIndex || idx]) {
-                            replay.deckCode = deckCodes[replay.deckIndex || idx];
+                        if (deckCodes[nameIndex]) {
+                            replay.deckCode = deckCodes[nameIndex];
                         }
                     });
                     
@@ -559,12 +620,13 @@ async function scrapeHSGuruReplays() {
         console.log('');
 
         // NO agrupar por rank - mantener TODOS los decks (ambos jugadores)
-        // Solo deduplicar si son exactamente el mismo deck code + mismo jugador
+        // Solo deduplicar si son exactamente el mismo deck code + mismo jugador (normalizado)
         const uniqueDecks = [];
         const seen = new Set();
         
         top100Replays.forEach(replay => {
-            const key = `${replay.rank}-${replay.deckCode}-${replay.playerName || 'unknown'}`;
+            const normalizedName = normalizeName(replay.playerName) || 'unknown';
+            const key = `${replay.rank}-${replay.deckCode}-${normalizedName}`;
             if (!seen.has(key)) {
                 seen.add(key);
                 uniqueDecks.push(replay);
@@ -631,126 +693,149 @@ async function scrapeHSGuruReplays() {
             console.log('✨ master_list.json actualizado');
         }
 
-        // Calcular Meta Snapshot + Meta Score
-        const classDistribution = {};
-        const archetypeData = {}; // { archetypeName: { count, ranks: [], players: Set(), hasDeckCode: bool } }
+        // ========================================
+        // AÑADIR DATOS ACTUALES AL HISTÓRICO
+        // ========================================
+        const historical = addToHistoricalData(finalDecks);
+        console.log(`\n📊 Datos históricos actualizados: ${historical.entries.length} entradas`);
+
+        // ========================================
+        // CALCULAR META SNAPSHOT + META SCORE CON DIFERENTES PERÍODOS
+        // ========================================
+        console.log('\n🔄 Calculando estadísticas para múltiples períodos de tiempo...\n');
         
-        // Primero procesar los decks con deck code (más confiables)
-        finalDecks.forEach(deck => {
-            // Extraer clase del nombre del mazo
-            const deckName = deck.deck.name;
-            const words = deckName.split(' ');
-            const className = words[words.length - 1]; // Última palabra suele ser la clase
-            
-            classDistribution[className] = (classDistribution[className] || 0) + 1;
-            
-            // Recopilar datos completos del arquetipo para Meta Score
-            if (!archetypeData[deckName]) {
-                archetypeData[deckName] = {
-                    count: 0,
-                    ranks: [],
-                    players: new Set(),
-                    hasDeckCode: true
-                };
-            }
-            archetypeData[deckName].count++;
-            archetypeData[deckName].ranks.push(deck.rank);
-            if (deck.name !== `Legend #${deck.rank}`) {
-                archetypeData[deckName].players.add(deck.name);
-            }
-        });
+        // Función auxiliar para filtrar decks por período
+        function getDecksForPeriod(entries, hours) {
+            const now = Date.now();
+            const cutoff = now - (hours * 60 * 60 * 1000);
+            const filteredEntries = entries.filter(entry => {
+                const entryTime = new Date(entry.timestamp).getTime();
+                return entryTime > cutoff;
+            });
+            const decks = [];
+            filteredEntries.forEach(entry => decks.push(...entry.decks));
+            return decks;
+        }
         
-        // BONUS: Añadir arquetipos adicionales encontrados en HSGuru (sin deck code)
-        // Esto aumenta las estadísticas del meta snapshot capturando AMBOS mazos de cada match
-        let totalArchetypesSeen = 0;
-        top100Replays.forEach(replay => {
-            if (replay.allArchetypes && replay.allArchetypes.length > 0) {
-                replay.allArchetypes.forEach(archName => {
-                    if (archName && archName !== 'Unknown Deck') {
-                        totalArchetypesSeen++;
-                        
-                        // Extraer clase
-                        const words = archName.split(' ');
-                        const className = words[words.length - 1];
-                        
-                        // Solo contar si NO está ya contado en finalDecks
-                        const isAlreadyCounted = finalDecks.some(d => 
-                            d.deck.name === archName && d.rank === replay.rank
-                        );
-                        
-                        if (!isAlreadyCounted) {
-                            classDistribution[className] = (classDistribution[className] || 0) + 1;
-                            
-                            // Añadir a archetype data
-                            if (!archetypeData[archName]) {
-                                archetypeData[archName] = {
-                                    count: 1,
-                                    ranks: [replay.rank],
-                                    players: new Set(),
-                                    hasDeckCode: false
-                                };
-                            } else {
-                                archetypeData[archName].count++;
-                                if (!archetypeData[archName].ranks.includes(replay.rank)) {
-                                    archetypeData[archName].ranks.push(replay.rank);
-                                }
-                            }
-                        }
+        // Obtener decks para cada período
+        const allDecks24h = getDecksForPeriod(historical.entries, 24);
+        const allDecks7d = getDecksForPeriod(historical.entries, 24 * 7);
+        const allDecks30d = getDecksForPeriod(historical.entries, 24 * 30);
+        
+        console.log(`📈 Mazos por período:`);
+        console.log(`   - 24h: ${allDecks24h.length} mazos`);
+        console.log(`   - 7 días: ${allDecks7d.length} mazos`);
+        console.log(`   - 30 días: ${allDecks30d.length} mazos`);
+        console.log();
+        
+        // Función para calcular estadísticas de un período
+        function calculateMetaStats(decks, periodName) {
+            console.log(`\n🔍 Calculando estadísticas para ${periodName}...`);
+            
+            const classDistribution = {};
+            const archetypeData = {};
+            
+            decks.forEach(deck => {
+                // Extraer clase del nombre del mazo
+                const deckName = deck.deck.name;
+                const words = deckName.split(' ');
+                const className = words[words.length - 1];
+                
+                classDistribution[className] = (classDistribution[className] || 0) + 1;
+                
+                // Recopilar datos del arquetipo
+                if (!archetypeData[deckName]) {
+                    archetypeData[deckName] = {
+                        count: 0,
+                        ranks: [],
+                        uniquePlayers: new Set(),
+                        hasDeckCode: true
+                    };
+                }
+                archetypeData[deckName].count++;
+                archetypeData[deckName].ranks.push(deck.rank);
+                
+                if (deck.name !== `Legend #${deck.rank}`) {
+                    const normalized = normalizeName(deck.name);
+                    if (normalized) {
+                        archetypeData[deckName].uniquePlayers.add(normalized);
                     }
-                });
-            }
-        });
-        
-        const uniqueAdditional = Object.values(archetypeData).filter(d => !d.hasDeckCode).length;
-        console.log(`\n📊 Arquetipos adicionales capturados: ${uniqueAdditional} (sin deck code, solo para estadísticas)`);
-        
-        // Calcular Meta Score para cada arquetipo
-        const archetypeScores = Object.entries(archetypeData).map(([name, data]) => {
-            // Factores del Meta Score:
-            // 1. Frecuencia (40%): Cuántas veces aparece en el Top 100
-            const frequencyScore = (data.count / finalDecks.length) * 100 * 0.4;
+                }
+            });
             
-            // 2. Diversidad de jugadores (30%): Cuántos jugadores diferentes lo usan
-            const uniquePlayersScore = (data.players.size / data.count) * 100 * 0.3;
+            // Calcular Meta Score para cada arquetipo
+            const archetypeScores = Object.entries(archetypeData).map(([name, data]) => {
+                const frequencyScore = (data.count / decks.length) * 100 * 0.4;
+                const uniquePlayersScore = (data.uniquePlayers.size / data.count) * 100 * 0.3;
+                const avgRank = data.ranks.reduce((a, b) => a + b, 0) / data.ranks.length;
+                const rankScore = ((100 - avgRank) / 100) * 100 * 0.3;
+                const totalScore = frequencyScore + uniquePlayersScore + rankScore;
+                
+                let tier = 'C';
+                if (totalScore >= 75) tier = 'S';
+                else if (totalScore >= 60) tier = 'A';
+                else if (totalScore >= 45) tier = 'B';
+                
+                return {
+                    name,
+                    count: data.count,
+                    percentage: ((data.count / decks.length) * 100).toFixed(1),
+                    uniquePlayers: data.uniquePlayers.size,
+                    avgRank: Math.round(avgRank),
+                    metaScore: Math.round(totalScore),
+                    tier
+                };
+            });
             
-            // 3. Ranking promedio (30%): Qué tan alto está en la ladder
-            const avgRank = data.ranks.reduce((a, b) => a + b, 0) / data.ranks.length;
-            const rankScore = ((100 - avgRank) / 100) * 100 * 0.3; // Invertir: rank 1 = mejor
+            archetypeScores.sort((a, b) => b.metaScore - a.metaScore);
             
-            const totalScore = frequencyScore + uniquePlayersScore + rankScore;
+            // Snapshot (top 5 por frecuencia)
+            const topArchetypes = [...archetypeScores]
+                .sort((a, b) => b.count - a.count)
+                .slice(0, 5);
             
-            // Asignar tier basado en el score
-            let tier = 'C';
-            if (totalScore >= 75) tier = 'S';
-            else if (totalScore >= 60) tier = 'A';
-            else if (totalScore >= 45) tier = 'B';
+            // Porcentajes de clases
+            const classPercentages = {};
+            Object.keys(classDistribution).forEach(cls => {
+                classPercentages[cls] = ((classDistribution[cls] / decks.length) * 100).toFixed(1);
+            });
+            
+            console.log(`   ✅ ${Object.keys(archetypeData).length} arquetipos únicos`);
             
             return {
-                name,
-                count: data.count,
-                percentage: ((data.count / finalDecks.length) * 100).toFixed(1),
-                uniquePlayers: data.players.size,
-                avgRank: Math.round(avgRank),
-                metaScore: Math.round(totalScore),
-                tier
+                snapshot: {
+                    classDistribution,
+                    classPercentages,
+                    topArchetypes: topArchetypes.map(arch => ({
+                        name: arch.name,
+                        count: arch.count,
+                        percentage: arch.percentage
+                    })),
+                    mostPlayedClass: Object.keys(classDistribution).sort((a, b) => 
+                        classDistribution[b] - classDistribution[a])[0],
+                    totalDecksAnalyzed: decks.length,
+                    period: periodName
+                },
+                metaScore: {
+                    archetypes: archetypeScores,
+                    totalDecksAnalyzed: decks.length,
+                    period: periodName,
+                    lastCalculated: new Date().toISOString(),
+                    methodology: {
+                        frequency: "40% - Apariciones en el período",
+                        diversity: "30% - Jugadores únicos que lo usan",
+                        ranking: "30% - Ranking promedio de los jugadores"
+                    }
+                }
             };
-        });
+        }
         
-        // Ordenar por Meta Score
-        archetypeScores.sort((a, b) => b.metaScore - a.metaScore);
-        
-        // Top 5 arquetipos (ordenados por frecuencia para el snapshot)
-        const topArchetypes = [...archetypeScores]
-            .sort((a, b) => b.count - a.count)
-            .slice(0, 5);
-        
-        // Calcular porcentajes de clases
-        const classPercentages = {};
-        Object.keys(classDistribution).forEach(cls => {
-            classPercentages[cls] = ((classDistribution[cls] / finalDecks.length) * 100).toFixed(1);
-        });
+        // Calcular para cada período
+        const stats24h = calculateMetaStats(allDecks24h, 'Last 24 hours');
+        const stats7d = calculateMetaStats(allDecks7d, 'Last 7 days');
+        const stats30d = calculateMetaStats(allDecks30d, 'Last 30 days');
 
-        // Guardar
+        // Guardar datos actuales (última iteración) + estadísticas multi-período
         const output = {
             lastUpdate: new Date().toISOString(),
             source: "HSGuru Top 100 + HSReplay player names",
@@ -759,24 +844,14 @@ async function scrapeHSGuruReplays() {
             decks: finalDecks,
             noNewResults: false,
             metaSnapshot: {
-                classDistribution,
-                classPercentages,
-                topArchetypes: topArchetypes.map(arch => ({
-                    name: arch.name,
-                    count: arch.count,
-                    percentage: arch.percentage
-                })),
-                mostPlayedClass: Object.keys(classDistribution).sort((a, b) => 
-                    classDistribution[b] - classDistribution[a])[0]
+                '24h': stats24h.snapshot,
+                '7d': stats7d.snapshot,
+                '30d': stats30d.snapshot
             },
             metaScore: {
-                lastCalculated: new Date().toISOString(),
-                archetypes: archetypeScores,
-                methodology: {
-                    frequency: "40% - Apariciones en Top 100",
-                    diversity: "30% - Jugadores únicos que lo usan",
-                    ranking: "30% - Ranking promedio de los jugadores"
-                }
+                '24h': stats24h.metaScore,
+                '7d': stats7d.metaScore,
+                '30d': stats30d.metaScore
             }
         };
 
