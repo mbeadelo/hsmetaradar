@@ -2,7 +2,6 @@ const express = require('express');
 const { exec } = require('child_process');
 const path = require('path');
 const fs = require('fs');
-// const deckstrings = require('deckstrings'); // TODO: Fix dependency issue on Render
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -77,14 +76,6 @@ app.post('/api/refresh', (req, res) => {
 // Health check
 app.get('/api/health', (req, res) => {
     res.json({ status: 'ok', timestamp: new Date().toISOString() });
-});
-
-// Decode deck code endpoint (temporarily disabled)
-app.get('/api/decode-deck', async (req, res) => {
-    res.status(503).json({ 
-        error: 'Deck decoding temporarily unavailable',
-        message: 'Feature under maintenance'
-    });
 });
 
 app.listen(PORT, () => {
