@@ -1,7 +1,7 @@
 {
-  "lastUpdate": "2026-01-12T08:54:35.993Z",
+  "lastUpdate": "2026-01-12T09:23:30.024Z",
   "source": "HSGuru Top 100 + HSReplay player names",
-  "totalDecks": 6,
+  "totalDecks": 5,
   "knownPlayers": 1,
   "decks": [
     {
@@ -9,28 +9,6 @@
       "name": "Definition",
       "inMasterList": true,
       "battleTag": "Definition#31238",
-      "deck": {
-        "name": "Quest Warrior",
-        "code": "AAECAQcOiaAEx6QG1boGjr8GusEG+skGquoGg4oH7o8H1JcH25cHgpgHhJ0HyqsHCIigBI7UBIegBvPKBrDiBraUB+qnB/yvBwABA/WzBsekBvezBsekBu7eBsekBgAA"
-      },
-      "lastSeen": "49 minutes ago"
-    },
-    {
-      "rank": 5,
-      "name": "TOTIendeer",
-      "inMasterList": false,
-      "battleTag": null,
-      "deck": {
-        "name": "Quest Warrior",
-        "code": "AAECAQcOiaAEx6QG1boGjr8GusEG+skGquoGg4oH7o8H1JcH25cHgpgHhJ0HyqsHCIigBI7UBIegBvPKBrDiBraUB+qnB/yvBwABA/WzBsekBvezBsekBu7eBsekBgAA"
-      },
-      "lastSeen": "1 hour ago"
-    },
-    {
-      "rank": 5,
-      "name": "Predictor",
-      "inMasterList": false,
-      "battleTag": null,
       "deck": {
         "name": "Quest Warrior",
         "code": "AAECAQcOiaAEx6QG1boGjr8GusEG+skGquoGg4oH7o8H1JcH25cHgpgHhJ0HyqsHCIigBI7UBIegBvPKBrDiBraUB+qnB/yvBwABA/WzBsekBvezBsekBu7eBsekBgAA"
@@ -46,7 +24,7 @@
         "name": "Quest Warrior",
         "code": "AAECAQcOiaAEx6QG1boGjr8GusEG+skGquoGg4oH7o8H1JcH25cHgpgHhJ0HyqsHCIigBI7UBIegBvPKBrDiBraUB+qnB/yvBwABA/WzBsekBvezBsekBu7eBsekBgAA"
       },
-      "lastSeen": "34 minutes ago"
+      "lastSeen": "1 hour ago"
     },
     {
       "rank": 11,
@@ -57,7 +35,7 @@
         "name": "Elise Rogue",
         "code": "AAECAaIHCsekBrOpBqfTBrXqBuHrBt/+BpKDB4KYB9GdB92vBwr2nwT3nwS2tQaM1gbq5Qa1+gaQgweMrQfHrgfZrwcAAQP1swbHpAb3swbHpAbu3gbHpAYAAA=="
       },
-      "lastSeen": "13 minutes ago"
+      "lastSeen": "42 minutes ago"
     },
     {
       "rank": 11,
@@ -68,52 +46,79 @@
         "name": "Quest Warrior",
         "code": "AAECAQcOiaAEx6QG1boGjr8GusEG+skGquoGg4oH7o8H1JcH25cHgpgHhJ0HyqsHCIigBI7UBIegBvPKBrDiBraUB+qnB/yvBwABA/WzBsekBvezBsekBu7eBsekBgAA"
       },
-      "lastSeen": "21 minutes ago"
+      "lastSeen": "50 minutes ago"
+    },
+    {
+      "rank": 12,
+      "name": "KrustyKrab",
+      "inMasterList": false,
+      "battleTag": null,
+      "deck": {
+        "name": "Copy Druid",
+        "code": "AAECAZICDMekBquxBp3jBvflBuHrBq+HB6GJB4KYB/ioB/moB/qoB5jEBwmunwSB1ATZsQaRvwbzygat4gaQlweqrwesrwcAAQP1swbHpAb3swbHpAbu3gbHpAYAAA=="
+      },
+      "lastSeen": "11 minutes ago"
     }
   ],
   "noNewResults": false,
   "metaSnapshot": {
     "classDistribution": {
-      "Warrior": 5,
-      "Rogue": 1
+      "Warrior": 3,
+      "Rogue": 1,
+      "Druid": 1
     },
     "classPercentages": {
-      "Warrior": "83.3",
-      "Rogue": "16.7"
+      "Warrior": "60.0",
+      "Rogue": "20.0",
+      "Druid": "20.0"
     },
     "topArchetypes": [
       {
         "name": "Quest Warrior",
-        "count": 5,
-        "percentage": "83.3"
+        "count": 3,
+        "percentage": "60.0"
       },
       {
         "name": "Elise Rogue",
         "count": 1,
-        "percentage": "16.7"
+        "percentage": "20.0"
+      },
+      {
+        "name": "Copy Druid",
+        "count": 1,
+        "percentage": "20.0"
       }
     ],
     "mostPlayedClass": "Warrior"
   },
   "metaScore": {
-    "lastCalculated": "2026-01-12T08:54:35.993Z",
+    "lastCalculated": "2026-01-12T09:23:30.024Z",
     "archetypes": [
       {
         "name": "Quest Warrior",
-        "count": 5,
-        "percentage": "83.3",
-        "uniquePlayers": 4,
-        "avgRank": 7,
-        "metaScore": 85,
+        "count": 3,
+        "percentage": "60.0",
+        "uniquePlayers": 3,
+        "avgRank": 9,
+        "metaScore": 81,
         "tier": "S"
       },
       {
         "name": "Elise Rogue",
         "count": 1,
-        "percentage": "16.7",
+        "percentage": "20.0",
         "uniquePlayers": 1,
         "avgRank": 11,
-        "metaScore": 63,
+        "metaScore": 65,
+        "tier": "A"
+      },
+      {
+        "name": "Copy Druid",
+        "count": 1,
+        "percentage": "20.0",
+        "uniquePlayers": 1,
+        "avgRank": 12,
+        "metaScore": 64,
         "tier": "A"
       }
     ],
