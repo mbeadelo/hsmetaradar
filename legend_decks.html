@@ -1208,8 +1208,15 @@
                 console.log('📋 Total decks:', allDecks.length);
                 
                 // Update metadata
-                const lastUpdate = new Date(data.lastUpdate).toLocaleString('en-US');
-                document.getElementById('last-update').textContent = `Updated: ${lastUpdate}`;
+                const lastUpdate = new Date(data.lastUpdate).toLocaleString('en-US', {
+                    timeZone: 'Europe/Madrid',
+                    year: 'numeric',
+                    month: '2-digit',
+                    day: '2-digit',
+                    hour: '2-digit',
+                    minute: '2-digit'
+                });
+                document.getElementById('last-update').textContent = `Updated: ${lastUpdate} CET`;
                 
                 // Check if there are no new results
                 if (data.noNewResults && data.noNewResultsMessage) {
