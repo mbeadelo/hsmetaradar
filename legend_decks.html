@@ -36,12 +36,28 @@
             --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.1);
         }
         
+        /* Dark Mode */
+        [data-theme="dark"] {
+            --bg-primary: #1a1a1a;
+            --bg-secondary: #242424;
+            --bg-card: #2a2a2a;
+            --border-color: #3a3a3a;
+            --text-primary: #e5e5e5;
+            --text-secondary: #a0a0a0;
+            --accent-gold: #d4af6a;
+            --accent-hover: #e5c07b;
+            --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.3);
+            --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.4);
+            --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.5);
+        }
+        
         body {
             font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
             background: var(--bg-primary);
             color: var(--text-primary);
             min-height: 100vh;
             line-height: 1.6;
+            transition: background-color 0.3s ease, color 0.3s ease;
         }
         
         .container {
@@ -60,6 +76,7 @@
             position: sticky;
             top: 0;
             z-index: 100;
+            transition: background-color 0.3s ease, border-color 0.3s ease;
         }
         
         .header-content {
@@ -98,7 +115,7 @@
             font-size: 0.875rem;
             background: var(--bg-card);
             color: var(--text-primary);
-            transition: all 0.2s;
+            transition: all 0.3s ease;
         }
         
         .search-bar input:focus {
@@ -120,15 +137,20 @@
             border-radius: 8px;
             background: var(--bg-card);
             color: var(--text-secondary);
-            font-size: 0.875rem;
-            font-weight: 600;
+            font-size: 1.25rem;
             cursor: pointer;
             transition: all 0.2s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-width: 44px;
+            height: 44px;
         }
         
         .theme-toggle:hover {
             border-color: var(--accent-gold);
-            color: var(--text-primary);
+            background: var(--bg-secondary);
+            transform: scale(1.05);
         }
         
         /* Stats Cards */
@@ -147,7 +169,7 @@
             border-radius: 12px;
             padding: 20px;
             box-shadow: var(--shadow-sm);
-            transition: all 0.2s;
+            transition: all 0.3s ease, transform 0.2s ease;
         }
         
         .stat-card:hover {
@@ -330,6 +352,7 @@
         .decks-table thead {
             background: var(--bg-card);
             border-bottom: 2px solid var(--border-color);
+            transition: background-color 0.3s ease, border-color 0.3s ease;
         }
         
         .decks-table th {
@@ -345,7 +368,7 @@
         
         .decks-table tbody tr {
             border-bottom: 1px solid var(--border-color);
-            transition: all 0.2s;
+            transition: all 0.3s ease, background-color 0.2s ease;
             cursor: pointer;
         }
         
@@ -956,6 +979,9 @@
             </div>
             
             <div class="header-actions">
+                <button class="theme-toggle" id="theme-toggle" title="Toggle Dark Mode">
+                    <span id="theme-icon">🌙</span>
+                </button>
                 <span style="font-size: 0.875rem; color: var(--text-secondary);" id="last-update">Loading...</span>
             </div>
         </div>
@@ -1162,6 +1188,40 @@
         let allDecks = [];
         let metaChart = null;
         let metaData = {}; // Store all meta data (snapshots and scores for all periods)
+
+        // Dark Mode Toggle
+        (function() {
+            const themeToggle = document.getElementById('theme-toggle');
+            const themeIcon = document.getElementById('theme-icon');
+            const htmlElement = document.documentElement;
+            
+            // Check for saved theme preference or default to light mode
+            const currentTheme = localStorage.getItem('theme') || 'light';
+            htmlElement.setAttribute('data-theme', currentTheme);
+            updateIcon(currentTheme);
+            
+            themeToggle.addEventListener('click', () => {
+                const currentTheme = htmlElement.getAttribute('data-theme');
+                const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+                
+                htmlElement.setAttribute('data-theme', newTheme);
+                localStorage.setItem('theme', newTheme);
+                updateIcon(newTheme);
+                
+                // Reload chart with new colors if it exists
+                if (metaChart && metaData.snapshots) {
+                    const activeTab = document.querySelector('.nav-tab.active');
+                    const period = activeTab ? activeTab.dataset.tab : '24h';
+                    if (metaData.snapshots[period]) {
+                        renderMetaSnapshot(metaData.snapshots[period], period);
+                    }
+                }
+            });
+            
+            function updateIcon(theme) {
+                themeIcon.textContent = theme === 'dark' ? '☀️' : '🌙';
+            }
+        })();
 
         // Tab Navigation
         document.addEventListener('DOMContentLoaded', () => {
@@ -1636,6 +1696,11 @@
                 metaChart.destroy();
             }
             
+            // Get current theme for chart colors
+            const isDarkMode = document.documentElement.getAttribute('data-theme') === 'dark';
+            const textColor = isDarkMode ? '#e5e5e5' : '#000000';
+            const borderColor = isDarkMode ? '#3a3a3a' : '#1f2937';
+            
             // Create pie chart
             const ctx = document.getElementById('classChart').getContext('2d');
             metaChart = new Chart(ctx, {
@@ -1645,7 +1710,7 @@
                     datasets: [{
                         data: counts,
                         backgroundColor: colors.slice(0, classes.length),
-                        borderColor: '#1f2937',
+                        borderColor: borderColor,
                         borderWidth: 2
                     }]
                 },
@@ -1656,7 +1721,7 @@
                         legend: {
                             position: 'bottom',
                             labels: {
-                                color: '#000000',
+                                color: textColor,
                                 padding: 15,
                                 font: {
                                     size: 12,
