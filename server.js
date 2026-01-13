@@ -2,53 +2,70 @@ const express = require('express');
 const { exec } = require('child_process');
 const path = require('path');
 const fs = require('fs');
-const helmet = require('helmet');
-const rateLimit = require('express-rate-limit');
 
 const app = express();
 const PORT = process.env.PORT || 3000;
 
-// Security: Helmet for HTTP headers
-app.use(helmet({
-    contentSecurityPolicy: {
-        directives: {
-            defaultSrc: ["'self'"],
-            scriptSrc: [
-                "'self'", 
-                "'unsafe-inline'", // Necesario para scripts inline en el HTML
-                "https://pagead2.googlesyndication.com",
-                "https://cdn.jsdelivr.net",
-                "https://www.googletagmanager.com"
-            ],
-            styleSrc: ["'self'", "'unsafe-inline'", "https://fonts.googleapis.com"],
-            imgSrc: ["'self'", "data:", "https:", "blob:"],
-            fontSrc: ["'self'", "https://fonts.gstatic.com"],
-            connectSrc: ["'self'", "https://pagead2.googlesyndication.com"],
-            frameSrc: ["'self'", "https://googleads.g.doubleclick.net"],
+// Try to load security modules (graceful degradation if not available)
+let helmet, rateLimit;
+try {
+    helmet = require('helmet');
+    rateLimit = require('express-rate-limit');
+    console.log('✅ Security modules loaded');
+} catch (err) {
+    console.warn('⚠️ Security modules not available, running with basic security');
+}
+
+// Security: Helmet for HTTP headers (if available)
+if (helmet) {
+    app.use(helmet({
+        contentSecurityPolicy: {
+            directives: {
+                defaultSrc: ["'self'"],
+                scriptSrc: [
+                    "'self'", 
+                    "'unsafe-inline'", // Necesario para scripts inline en el HTML
+                    "https://pagead2.googlesyndication.com",
+                    "https://cdn.jsdelivr.net",
+                    "https://www.googletagmanager.com"
+                ],
+                styleSrc: ["'self'", "'unsafe-inline'", "https://fonts.googleapis.com"],
+                imgSrc: ["'self'", "data:", "https:", "blob:"],
+                fontSrc: ["'self'", "https://fonts.gstatic.com"],
+                connectSrc: ["'self'", "https://pagead2.googlesyndication.com"],
+                frameSrc: ["'self'", "https://googleads.g.doubleclick.net"],
+            },
         },
-    },
-    crossOriginEmbedderPolicy: false, // Permitir recursos externos como Google Ads
-}));
+        crossOriginEmbedderPolicy: false, // Permitir recursos externos como Google Ads
+    }));
+}
 
-// Rate limiting
-const generalLimiter = rateLimit({
-    windowMs: 15 * 60 * 1000, // 15 minutos
-    max: 100, // Límite de 100 peticiones por IP
-    message: { error: 'Demasiadas peticiones desde esta IP, intenta de nuevo más tarde.' },
-    standardHeaders: true,
-    legacyHeaders: false,
-});
+// Rate limiting (if available)
+if (rateLimit) {
+    const generalLimiter = rateLimit({
+        windowMs: 15 * 60 * 1000, // 15 minutos
+        max: 100, // Límite de 100 peticiones por IP
+        message: { error: 'Demasiadas peticiones desde esta IP, intenta de nuevo más tarde.' },
+        standardHeaders: true,
+        legacyHeaders: false,
+    });
 
-const refreshLimiter = rateLimit({
-    windowMs: 30 * 60 * 1000, // 30 minutos
-    max: 5, // Máximo 5 refrescos por IP cada 30 minutos
-    message: { error: 'Límite de refrescos alcanzado. Intenta de nuevo más tarde.' },
-    standardHeaders: true,
-    legacyHeaders: false,
-});
+    const refreshLimiter = rateLimit({
+        windowMs: 30 * 60 * 1000, // 30 minutos
+        max: 5, // Máximo 5 refrescos por IP cada 30 minutos
+        message: { error: 'Límite de refrescos alcanzado. Intenta de nuevo más tarde.' },
+        standardHeaders: true,
+        legacyHeaders: false,
+    });
 
-// Apply rate limiting to all requests
-app.use(generalLimiter);
+    // Apply rate limiting to all requests
+    app.use(generalLimiter);
+    
+    // Store for later use
+    app.locals.refreshLimiter = refreshLimiter;
+} else {
+    console.warn('⚠️ Rate limiting disabled - install express-rate-limit for better security');
+}
 
 // Middleware
 app.use(express.json({ limit: '10kb' })); // Limitar tamaño de JSON
@@ -91,7 +108,8 @@ app.use(express.static(__dirname, {
 }));
 
 // API endpoint to refresh data
-app.post('/api/refresh', refreshLimiter, (req, res) => {
+const refreshMiddleware = app.locals.refreshLimiter || ((req, res, next) => next());
+app.post('/api/refresh', refreshMiddleware, (req, res) => {
     console.log('🔄 Refresh requested...');
     
     // Log IP address for security monitoring
