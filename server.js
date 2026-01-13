@@ -19,23 +19,36 @@ try {
 // Security: Helmet for HTTP headers (if available)
 if (helmet) {
     app.use(helmet({
-        contentSecurityPolicy: {
-            directives: {
-                defaultSrc: ["'self'"],
-                scriptSrc: [
-                    "'self'", 
-                    "'unsafe-inline'", // Necesario para scripts inline en el HTML
-                    "https://pagead2.googlesyndication.com",
-                    "https://cdn.jsdelivr.net",
-                    "https://www.googletagmanager.com"
-                ],
-                styleSrc: ["'self'", "'unsafe-inline'", "https://fonts.googleapis.com"],
-                imgSrc: ["'self'", "data:", "https:", "blob:"],
-                fontSrc: ["'self'", "https://fonts.gstatic.com"],
-                connectSrc: ["'self'", "https://pagead2.googlesyndication.com"],
-                frameSrc: ["'self'", "https://googleads.g.doubleclick.net"],
-            },
-        },
+contentSecurityPolicy: {
+  directives: {
+    defaultSrc: ["'self'"],
+    scriptSrc: [
+      "'self'",
+      "'unsafe-inline'",
+      "https://pagead2.googlesyndication.com",
+      "https://tpc.googlesyndication.com",
+      "https://www.googletagservices.com",
+      "https://www.googletagmanager.com",
+      "https://cdn.jsdelivr.net"
+    ],
+    styleSrc: ["'self'", "'unsafe-inline'", "https://fonts.googleapis.com"],
+    imgSrc: ["'self'", "data:", "https:", "blob:"],
+    fontSrc: ["'self'", "https://fonts.gstatic.com"],
+    connectSrc: [
+      "'self'",
+      "https://pagead2.googlesyndication.com",
+      "https://tpc.googlesyndication.com",
+      "https://googleads.g.doubleclick.net",
+      "https://www.googletagservices.com"
+    ],
+    frameSrc: [
+      "'self'",
+      "https://googleads.g.doubleclick.net",
+      "https://tpc.googlesyndication.com"
+    ]
+  }
+},
+
         crossOriginEmbedderPolicy: false, // Permitir recursos externos como Google Ads
     }));
 }

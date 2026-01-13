@@ -1,5 +1,70 @@
 const { chromium } = require('playwright');
 const fs = require('fs');
+const path = require('path');
+// ================================
+// Render/cron hardening helpers
+// ================================
+const DATA_DIR = process.env.DATA_DIR || process.cwd();
+const LOCK_FILE = path.join(DATA_DIR, '.scrape.lock');
+
+function p(file) {
+  return path.join(DATA_DIR, file);
+}
+
+function writeJsonAtomic(filePath, obj) {
+  const tmp = `${filePath}.tmp`;
+  fs.writeFileSync(tmp, JSON.stringify(obj, null, 2));
+  fs.renameSync(tmp, filePath);
+}
+
+function acquireLock() {
+  try {
+    if (fs.existsSync(LOCK_FILE)) {
+      const ageMs = Date.now() - fs.statSync(LOCK_FILE).mtimeMs;
+      // Consider lock stale after 2 hours
+      if (ageMs < 2 * 60 * 60 * 1000) return false;
+    }
+    fs.writeFileSync(LOCK_FILE, String(Date.now()));
+    return true;
+  } catch {
+    // If lock handling fails, fail open but log
+    return true;
+  }
+}
+
+function releaseLock() {
+  try {
+    if (fs.existsSync(LOCK_FILE)) fs.unlinkSync(LOCK_FILE);
+  } catch {}
+}
+
+async function configurePage(page) {
+  // Reduce bandwidth/CPU: block images/fonts/media
+  await page.route('**/*', (route) => {
+    const type = route.request().resourceType();
+    if (type === 'image' || type === 'font' || type === 'media') return route.abort();
+    return route.continue();
+  });
+
+  page.setDefaultNavigationTimeout(60000);
+  page.setDefaultTimeout(60000);
+}
+
+async function gotoWithRetries(page, url, options, retries = 3) {
+  let lastErr;
+  for (let i = 0; i < retries; i++) {
+    try {
+      await page.goto(url, options);
+      return;
+    } catch (e) {
+      lastErr = e;
+      const wait = 1000 * Math.pow(2, i);
+      console.log(`   ⚠️ goto falló (${i + 1}/${retries}). Reintento en ${wait}ms: ${e.message}`);
+      try { await page.waitForTimeout(wait); } catch {}
+    }
+  }
+  throw lastErr;
+}
 
 // Función para normalizar nombres para comparación
 function normalizeName(name) {
@@ -17,11 +82,11 @@ function extractBattleTag(text) {
 
 // Función para cargar y limpiar datos históricos (últimos 30 días)
 function loadHistoricalData() {
-    if (!fs.existsSync('historical_data.json')) {
+    if (!fs.existsSync(p('historical_data.json'))) {
         return { entries: [] };
     }
     
-    const data = JSON.parse(fs.readFileSync('historical_data.json', 'utf-8'));
+    const data = JSON.parse(fs.readFileSync(p('historical_data.json'), 'utf-8'));
     const now = Date.now();
     const thirtyDaysAgo = now - (30 * 24 * 60 * 60 * 1000);
     
@@ -45,25 +110,31 @@ function addToHistoricalData(decks) {
     });
     
     // Guardar
-    fs.writeFileSync('historical_data.json', JSON.stringify(historical, null, 2));
+    writeJsonAtomic(p('historical_data.json'), historical);
     
     return historical;
 }
 
 async function scrapeHSGuruReplays() {
+    // Prevent overlapping runs (common in cron environments)
+    if (!acquireLock()) {
+        console.log('⛔ Scrape ya en ejecución. Salgo para evitar solapamiento.');
+        return;
+    }
+
     console.log('🚀 Iniciando scraping de HSGuru Top Legend Replays...\n');
     
     // Cargar lista de BattleTags conocidos
     let knownPlayers = [];
-    if (fs.existsSync('master_list.json')) {
-        knownPlayers = JSON.parse(fs.readFileSync('master_list.json', 'utf-8'));
+    if (fs.existsSync(p('master_list.json'))) {
+        knownPlayers = JSON.parse(fs.readFileSync(p('master_list.json'), 'utf-8'));
         console.log(`📂 Cargados ${knownPlayers.length} jugadores conocidos\n`);
     }
     
     // Cargar datos existentes
     let existingData = null;
-    if (fs.existsSync('top_decks.json')) {
-        existingData = JSON.parse(fs.readFileSync('top_decks.json', 'utf-8'));
+    if (fs.existsSync(p('top_decks.json'))) {
+        existingData = JSON.parse(fs.readFileSync(p('top_decks.json'), 'utf-8'));
         console.log(`📂 Cargados ${existingData.totalDecks} mazos existentes\n`);
     }
     
@@ -83,6 +154,7 @@ async function scrapeHSGuruReplays() {
     const page = await browser.newPage({
         userAgent: 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36'
     });
+    await configurePage(page);
     await page.setViewportSize({ width: 1920, height: 1080 });
     
     // Ocultar que somos un bot
@@ -94,7 +166,7 @@ async function scrapeHSGuruReplays() {
         const url = 'https://www.hsguru.com/replays?rank=top_legend';
         console.log(`📖 Cargando ${url}...`);
         
-        await page.goto(url, { waitUntil: 'domcontentloaded', timeout: 90000 });
+        await gotoWithRetries(page, url, { waitUntil: 'domcontentloaded', timeout: 90000 }, 3);
         
         // Esperar a que la tabla esté presente
         console.log('⏳ Esperando tabla de replays...');
@@ -186,9 +258,6 @@ async function scrapeHSGuruReplays() {
                             }
                         });
                     });
-                    
-                    console.log(`   [DEBUG] Rank ${rank}: Found ${allArchetypes.length} archetypes: ${allArchetypes.join(' | ')}`);
-                    
                     // Timestamp
                     const timeMatch = rowText.match(/(\d+)\s+(minute|hour|second)s?\s+ago/i);
                     const timeAgo = timeMatch ? timeMatch[0] : 'Unknown';
@@ -244,7 +313,7 @@ async function scrapeHSGuruReplays() {
                 existingData.lastUpdate = new Date().toISOString();
                 existingData.noNewResults = true;
                 existingData.noNewResultsMessage = 'Se ha refrescado la información pero no se han encontrado nuevos mazos recientes dentro del top 100';
-                fs.writeFileSync('top_decks.json', JSON.stringify(existingData, null, 2));
+                writeJsonAtomic(p('top_decks.json'), existingData);
                 console.log('✨ Datos actualizados con mensaje de sin resultados nuevos');
             }
             return;
@@ -263,7 +332,7 @@ async function scrapeHSGuruReplays() {
                 existingData.lastUpdate = new Date().toISOString();
                 existingData.noNewResults = true;
                 existingData.noNewResultsMessage = 'Se ha refrescado la información pero no se han encontrado nuevos mazos recientes dentro del top 100';
-                fs.writeFileSync('top_decks.json', JSON.stringify(existingData, null, 2));
+                writeJsonAtomic(p('top_decks.json'), existingData);
                 console.log('✨ Datos actualizados con mensaje de sin resultados nuevos');
             }
             return;
@@ -689,7 +758,7 @@ async function scrapeHSGuruReplays() {
             newPlayers.forEach(player => console.log(`   + ${player}`));
             
             const updatedMasterList = [...knownPlayers, ...newPlayers].sort();
-            fs.writeFileSync('master_list.json', JSON.stringify(updatedMasterList, null, 2));
+            writeJsonAtomic(p('master_list.json'), updatedMasterList);
             console.log('✨ master_list.json actualizado');
         }
 
@@ -855,7 +924,7 @@ async function scrapeHSGuruReplays() {
             }
         };
 
-        fs.writeFileSync('top_decks.json', JSON.stringify(output, null, 2));
+        writeJsonAtomic(p('top_decks.json'), output);
         
         console.log(`\n✨ ¡Completado! ${finalDecks.length} mazos del Top 100 guardados`);
         console.log(`⭐ Jugadores en tu lista: ${inList}/${finalDecks.length}`);
@@ -869,8 +938,10 @@ async function scrapeHSGuruReplays() {
         }
 
     } catch (error) {
-        console.error('❌ Error:', error.message);
-        await browser.close();
+        console.error('❌ Error:', error && error.message ? error.message : error);
+    } finally {
+        try { if (browser) await browser.close(); } catch {}
+        releaseLock();
     }
 }
 
