@@ -1,0 +1,10 @@
+services:
+  - type: web
+    name: hsmetaradar
+    env: node
+    buildCommand: npm install && npx playwright install-deps chromium && npx playwright install chromium
+    startCommand: npm start
+    healthCheckPath: /api/health
+    envVars:
+      - key: NODE_ENV
+        value: production
