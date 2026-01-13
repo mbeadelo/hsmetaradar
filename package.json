@@ -9,7 +9,8 @@
     "dev": "node server.js",
     "test": "echo \"Error: no test specified\" && exit 1",
     "test:no-results": "node test_no_results.js",
-    "test:restore": "node test_restore.js"
+    "test:restore": "node test_restore.js",
+    "postinstall": "npx playwright install chromium"
   },
   "keywords": [
     "hearthstone",
@@ -26,5 +27,8 @@
     "helmet": "^7.1.0",
     "node-fetch": "^2.7.0",
     "playwright": "^1.57.0"
+  },
+  "engines": {
+    "node": ">=18"
   }
 }

@@ -19,36 +19,35 @@ try {
 // Security: Helmet for HTTP headers (if available)
 if (helmet) {
     app.use(helmet({
-contentSecurityPolicy: {
-  directives: {
-    defaultSrc: ["'self'"],
-    scriptSrc: [
-      "'self'",
-      "'unsafe-inline'",
-      "https://pagead2.googlesyndication.com",
-      "https://tpc.googlesyndication.com",
-      "https://www.googletagservices.com",
-      "https://www.googletagmanager.com",
-      "https://cdn.jsdelivr.net"
-    ],
-    styleSrc: ["'self'", "'unsafe-inline'", "https://fonts.googleapis.com"],
-    imgSrc: ["'self'", "data:", "https:", "blob:"],
-    fontSrc: ["'self'", "https://fonts.gstatic.com"],
-    connectSrc: [
-      "'self'",
-      "https://pagead2.googlesyndication.com",
-      "https://tpc.googlesyndication.com",
-      "https://googleads.g.doubleclick.net",
-      "https://www.googletagservices.com"
-    ],
-    frameSrc: [
-      "'self'",
-      "https://googleads.g.doubleclick.net",
-      "https://tpc.googlesyndication.com"
-    ]
-  }
-},
-
+        contentSecurityPolicy: {
+            directives: {
+                defaultSrc: ["'self'"],
+                scriptSrc: [
+                    "'self'",
+                    "'unsafe-inline'",
+                    "https://pagead2.googlesyndication.com",
+                    "https://tpc.googlesyndication.com",
+                    "https://www.googletagservices.com",
+                    "https://www.googletagmanager.com",
+                    "https://cdn.jsdelivr.net"
+                ],
+                styleSrc: ["'self'", "'unsafe-inline'", "https://fonts.googleapis.com"],
+                imgSrc: ["'self'", "data:", "https:", "blob:"],
+                fontSrc: ["'self'", "https://fonts.gstatic.com"],
+                connectSrc: [
+                    "'self'",
+                    "https://pagead2.googlesyndication.com",
+                    "https://tpc.googlesyndication.com",
+                    "https://googleads.g.doubleclick.net",
+                    "https://www.googletagservices.com"
+                ],
+                frameSrc: [
+                    "'self'",
+                    "https://googleads.g.doubleclick.net",
+                    "https://tpc.googlesyndication.com"
+                ]
+            }
+        },
         crossOriginEmbedderPolicy: false, // Permitir recursos externos como Google Ads
     }));
 }
@@ -73,7 +72,7 @@ if (rateLimit) {
 
     // Apply rate limiting to all requests
     app.use(generalLimiter);
-    
+
     // Store for later use
     app.locals.refreshLimiter = refreshLimiter;
 } else {
@@ -86,7 +85,12 @@ app.use(express.json({ limit: '10kb' })); // Limitar tamaño de JSON
 // Security: Additional headers
 app.use((req, res, next) => {
     res.set('X-Content-Type-Options', 'nosniff');
+
+    // Nota: X-Frame-Options DENY puede interferir con algunos formatos de anuncios
+    // (aunque normalmente AdSense se renderiza en iframes de terceros y no enmarcando tu sitio).
+    // Lo mantengo como lo tenías.
     res.set('X-Frame-Options', 'DENY');
+
     res.set('X-XSS-Protection', '1; mode=block');
     next();
 });
@@ -105,69 +109,91 @@ app.get('/', (req, res) => {
 });
 
 // Static files (but not index.html since we override / route)
-app.use(express.static(__dirname, { 
+app.use(express.static(__dirname, {
     index: false,
     dotfiles: 'deny', // No servir archivos ocultos
     setHeaders: (res, filePath) => {
         // Solo servir archivos permitidos
         const allowedExtensions = ['.html', '.json', '.js', '.css', '.png', '.jpg', '.jpeg', '.gif', '.svg', '.ico'];
         const ext = path.extname(filePath).toLowerCase();
-        
+
         if (!allowedExtensions.includes(ext)) {
-            res.status(403);
+            // Importante: aquí no puedes "res.status(403)" y cortar la respuesta de static,
+            // pero sí puedes marcar statusCode. Express seguirá intentando; esto es un hardening básico.
+            res.statusCode = 403;
             return;
         }
     }
 }));
 
-// API endpoint to refresh data
+// =======================================================
+// API endpoint to refresh data (Render-safe, token protected)
+// - Se permite en producción SOLO si llega x-refresh-token correcto
+// - Esto habilita "Opción A": el Cron llama al Web Service y el Web Service ejecuta el scraper
+// =======================================================
 const refreshMiddleware = app.locals.refreshLimiter || ((req, res, next) => next());
+
 app.post('/api/refresh', refreshMiddleware, (req, res) => {
     console.log('🔄 Refresh requested...');
-    
+
     // Log IP address for security monitoring
     const ip = req.ip || req.connection.remoteAddress;
     console.log(`📍 IP: ${ip}`);
-    
-    // En producción (Render), no ejecutar el scraper por limitaciones del entorno
-    if (process.env.RENDER || process.env.NODE_ENV === 'production') {
-        console.log('⚠️ Scraper deshabilitado en producción. Actualiza localmente y haz push a GitHub.');
-        return res.status(403).json({ 
-            success: false, 
-            error: 'El scraper no está disponible en producción. Ejecuta "npm run scrape" localmente y actualiza el repositorio.' 
+
+    // 🔐 Auth via header token (required in all environments)
+    const token = req.get('x-refresh-token');
+
+    if (!process.env.REFRESH_TOKEN) {
+        console.error('❌ REFRESH_TOKEN is not set in environment variables');
+        return res.status(500).json({
+            success: false,
+            error: 'Server misconfigured: REFRESH_TOKEN missing'
         });
     }
-    
-    // Execute the scraper (solo en desarrollo local)
-    exec('node index_hsguru_replays.js', { 
+
+    if (!token || token !== process.env.REFRESH_TOKEN) {
+        console.warn('⚠️ Unauthorized refresh attempt');
+        return res.status(401).json({
+            success: false,
+            error: 'Unauthorized'
+        });
+    }
+
+    // ✅ Ejecutar el scraper también en producción (Render), porque el cron lo dispara con token
+    console.log('▶️ Running scraper...');
+
+    exec('node index_hsguru_replays.js', {
         cwd: __dirname,
-        timeout: 120000 // 2 minutes timeout
+        timeout: 180000, // 3 minutes timeout (mejor que 2m si hay latencia/Cloudflare)
+        env: process.env // asegurar PLAYWRIGHT_BROWSERS_PATH=0 y demás
     }, (error, stdout, stderr) => {
+        if (stdout) console.log(stdout);
+        if (stderr) console.warn(stderr);
+
         if (error) {
             console.error('❌ Scraper error:', error);
-            return res.status(500).json({ 
-                success: false, 
-                error: error.message 
+            return res.status(500).json({
+                success: false,
+                error: error.message
             });
         }
-        
+
         console.log('✅ Scraper completed');
-        console.log(stdout);
-        
+
         // Read the updated JSON file
         try {
             const data = JSON.parse(fs.readFileSync(path.join(__dirname, 'top_decks.json'), 'utf8'));
-            res.json({ 
-                success: true, 
-                totalDecks: data.totalDecks || data.decks.length,
+            res.json({
+                success: true,
+                totalDecks: data.totalDecks || (data.decks ? data.decks.length : 0),
                 knownPlayers: data.knownPlayers || 0,
                 lastUpdate: data.lastUpdate
             });
         } catch (readError) {
             console.error('❌ Error reading result:', readError);
-            res.status(500).json({ 
-                success: false, 
-                error: 'Failed to read result file' 
+            res.status(500).json({
+                success: false,
+                error: 'Failed to read result file'
             });
         }
     });
@@ -182,7 +208,7 @@ app.get('/api/health', (req, res) => {
 app.use((err, req, res, next) => {
     const ip = req.ip || req.connection.remoteAddress;
     console.error(`❌ [${new Date().toISOString()}] Error from ${ip}:`, err.stack);
-    
+
     res.status(err.status || 500).json({
         error: 'Internal Server Error',
         message: process.env.NODE_ENV === 'production' ? 'Something went wrong' : err.message
@@ -204,7 +230,7 @@ app.listen(PORT, () => {
 ╚════════════════════════════════════════════╝
 
 📖 Open in browser: http://localhost:${PORT}
-🔄 Auto-refresh available via button
+🔄 Refresh endpoint: POST /api/refresh (token protected)
 ⭐ Tracking ${PORT === 3000 ? 'Top 50' : 'Legend'} players
 
 Press Ctrl+C to stop
