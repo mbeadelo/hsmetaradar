@@ -1401,8 +1401,8 @@
                     <td>
                         ${hasDeck ? `
                             <button 
-                                onclick="copyDeckCode('${deck.deck.code}', this)" 
-                                class="copy-btn">
+                                class="copy-btn" 
+                                data-deck-code="${deck.deck.code}">
                                 📋 Copy
                             </button>
                         ` : `
@@ -1541,7 +1541,7 @@
                     <td>${escapeHtml(lastSeen)}</td>
                     <td>
                         ${hasDeck ? `
-                            <button class="copy-btn" onclick="event.stopPropagation(); copyDeckCode('${escapeHtml(deck.deck.code)}', this)">
+                            <button class="copy-btn" data-deck-code="${escapeHtml(deck.deck.code)}">
                                 Copy Code
                             </button>
                         ` : '-'}
@@ -1595,8 +1595,8 @@
                                     ${deck.deck.code.substring(0, 50)}...
                                 </code>
                                 <button 
-                                    onclick="copyDeckCode('${deck.deck.code}', this)" 
-                                    class="copy-btn">
+                                    class="copy-btn" 
+                                    data-deck-code="${deck.deck.code}">
                                     📋 Copy
                                 </button>
                             </div>
@@ -1828,8 +1828,20 @@
             // For now, Meta Snapshot will stay as is (24h only)
         }
 
+        // Asignar evento de copiar a todos los botones de copiar deck
+        function assignCopyDeckEvents() {
+            document.querySelectorAll('.copy-btn').forEach(btn => {
+                btn.addEventListener('click', function(e) {
+                    e.stopPropagation();
+                    copyDeckCode(this.getAttribute('data-deck-code'), this);
+                });
+            });
+        }
+
         // Load decks on page load
         loadDecks();
+        // Asignar eventos después de renderizar decks
+        setTimeout(assignCopyDeckEvents, 500);
     </script>
 </body>
 </html>
