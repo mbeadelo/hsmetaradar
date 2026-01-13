@@ -1101,27 +1101,27 @@
             <!-- Tab: Meta Snapshot -->
             <div class="tab-content" id="tab-meta-snapshot">
                 <div id="meta-snapshot" class="meta-snapshot">
-            <h2>📊 Meta Snapshot</h2>
-            <p class="subtitle">Analysis based on data from the last 24 hours</p>
-            
-            <div class="meta-grid">
-                <!-- Chart -->
-                <div>
-                    <h3 style="color: #c084fc; font-size: 1.125rem; margin-bottom: 16px; text-align: center;">Class Distribution</h3>
-                    <div class="chart-container">
-                        <canvas id="classChart"></canvas>
+                    <h2>📊 Meta Snapshot</h2>
+                    <p class="subtitle">Analysis based on data from the last 24 hours</p>
+                    
+                    <div class="meta-grid">
+                        <!-- Chart -->
+                        <div>
+                            <h3 style="color: #c084fc; font-size: 1.125rem; margin-bottom: 16px; text-align: center;">Class Distribution</h3>
+                            <div class="chart-container">
+                                <canvas id="classChart"></canvas>
+                            </div>
+                        </div>
+                        
+                        <!-- Top Archetypes -->
+                        <div class="top-archetypes">
+                            <h3>🔥 Most Played Archetypes</h3>
+                            <div id="top-archetypes-list">
+                                <!-- Will be populated by JS -->
+                            </div>
+                        </div>
                     </div>
                 </div>
-                
-                <!-- Top Archetypes -->
-                <div class="top-archetypes">
-                    <h3>🔥 Most Played Archetypes</h3>
-                    <div id="top-archetypes-list">
-                        <!-- Will be populated by JS -->
-                    </div>
-                </div>
-            </div>
-        </div>
             </div>
 
             <!-- Tab: Meta Score -->
@@ -1177,6 +1177,20 @@
                     </svg>
                 </a>
             </div>
+
+            <!-- AdSense Footer Ad (primer anuncio real) -->
+            <div class="ad-container ad-banner" style="margin-top: 16px;">
+                <ins class="adsbygoogle"
+                     style="display:block"
+                     data-ad-client="ca-pub-6993117916486093"
+                     data-ad-slot="PON_AQUI_TU_SLOT"
+                     data-ad-format="auto"
+                     data-full-width-responsive="true"></ins>
+            </div>
+            <script>
+                (window.adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
+
             <div class="footer-copyright">
                 © 2026 • Automatically updated every 30 minutes<br>
                 Data from HSGuru, HSReplay & Firestone • Not affiliated with Blizzard Entertainment
@@ -1239,19 +1253,11 @@
                     // Add active class to clicked tab and corresponding content
                     tab.classList.add('active');
                     document.getElementById(`tab-${targetTab}`).classList.add('active');
-                    
-                    // Initialize AdSense ads when tab changes
-                    if (typeof adsbygoogle !== 'undefined') {
-                        (adsbygoogle = window.adsbygoogle || []).push({});
-                    }
+
+                    // Nota: NO hacemos adsbygoogle.push() aquí.
+                    // Los anuncios se inicializan justo después de cada <ins class="adsbygoogle">.
                 });
             });
-            
-            // Initialize AdSense on page load
-            if (typeof adsbygoogle !== 'undefined') {
-                (adsbygoogle = window.adsbygoogle || []).push({});
-                (adsbygoogle = window.adsbygoogle || []).push({});
-            }
         });
 
         async function loadDecks() {
@@ -1286,8 +1292,10 @@
                 if (data.noNewResults && data.noNewResultsMessage) {
                     const banner = document.getElementById('no-new-results-banner');
                     const message = document.getElementById('no-new-results-message');
-                    message.textContent = data.noNewResultsMessage;
-                    banner.classList.remove('hidden');
+                    if (banner && message) {
+                        message.textContent = data.noNewResultsMessage;
+                        banner.classList.remove('hidden');
+                    }
                 }
                 
                 // Update stats (Last Update)
@@ -1373,50 +1381,6 @@
             }
         }
 
-        function renderDecksTable() {
-            console.log('🎨 Rendering', allDecks.length, 'decks in table');
-            const tbody = document.getElementById('decks-table-body');
-            tbody.innerHTML = '';
-            
-            allDecks.forEach((deck, index) => {
-                const tr = document.createElement('tr');
-                
-                const hasDeck = deck.deck && deck.deck.code;
-                const deckName = deck.deck?.name || 'Unknown Deck';
-                const lastSeen = deck.lastSeen || 'Unknown';
-                
-                tr.innerHTML = `
-                    <td>
-                        <div class="rank-badge-table">#${deck.rank}</div>
-                    </td>
-                    <td>
-                        <div class="deck-name-cell">
-                            <div class="deck-icon">🃏</div>
-                            <span>${escapeHtml(deckName)}</span>
-                        </div>
-                    </td>
-                    <td class="winrate-cell">-</td>
-                    <td>-</td>
-                    <td class="time-cell">${escapeHtml(lastSeen)}</td>
-                    <td>
-                        ${hasDeck ? `
-                            <button 
-                                class="copy-btn" 
-                                data-deck-code="${deck.deck.code}">
-                                📋 Copy
-                            </button>
-                        ` : `
-                            <span style="color: var(--text-secondary); font-size: 0.8125rem;">-</span>
-                        `}
-                    </td>
-                `;
-                
-                tbody.appendChild(tr);
-            });
-            
-            console.log('✅ Table rendered');
-        }
-        
         // Filter and Search functionality
         let filteredDecks = [];
         
@@ -1460,29 +1424,21 @@
                     if (deckName) {
                         const words = deckName.split(' ');
                         const deckClass = words[words.length - 1];
-                        if (deckClass !== classFilter) {
-                            return false;
-                        }
+                        if (deckClass !== classFilter) return false;
                     } else {
                         return false;
                     }
                 }
                 
                 // Rank filter
-                if (rankFilter === 'top10' && deck.rank > 10) {
-                    return false;
-                }
-                if (rankFilter === 'top50' && deck.rank > 50) {
-                    return false;
-                }
+                if (rankFilter === 'top10' && deck.rank > 10) return false;
+                if (rankFilter === 'top50' && deck.rank > 50) return false;
                 
                 // Search filter
                 if (searchTerm) {
                     const deckName = (deck.deck?.name || '').toLowerCase();
                     const playerName = (deck.name || '').toLowerCase();
-                    if (!deckName.includes(searchTerm) && !playerName.includes(searchTerm)) {
-                        return false;
-                    }
+                    if (!deckName.includes(searchTerm) && !playerName.includes(searchTerm)) return false;
                 }
                 
                 return true;
@@ -1554,62 +1510,6 @@
             console.log('✅ Table rendered');
         }
 
-        function createDeckCard(deck) {
-            const card = document.createElement('div');
-            card.className = 'deck-card';
-            
-            const rankBadge = getRankBadge(deck.rank);
-            const hasDeck = deck.deck && deck.deck.code;
-            
-            card.innerHTML = `
-                <div class="card-content">
-                    <!-- Rank Badge -->
-                    <div class="rank-badge">
-                        <div class="rank-icon ${rankBadge.color}">${rankBadge.icon}</div>
-                        <div class="rank-number ${rankBadge.color}">#${deck.rank}</div>
-                    </div>
-                    
-                    <!-- Content -->
-                    <div class="deck-info">
-                        <!-- Player Name -->
-                        <div class="player-name">
-                            ${escapeHtml(deck.name)}
-                        </div>
-                        
-                        <!-- Deck Name -->
-                        <div class="deck-name">
-                            ${escapeHtml(deck.deck?.name || 'Unknown Deck')}
-                        </div>
-                        
-                        <!-- Last Seen -->
-                        ${deck.lastSeen ? `
-                            <div class="last-seen">
-                                Last seen: ${escapeHtml(deck.lastSeen)}
-                            </div>
-                        ` : ''}
-                        
-                        <!-- Deck Code -->
-                        ${hasDeck ? `
-                            <div class="deck-code-container">
-                                <code class="deck-code">
-                                    ${deck.deck.code.substring(0, 50)}...
-                                </code>
-                                <button 
-                                    class="copy-btn" 
-                                    data-deck-code="${deck.deck.code}">
-                                    📋 Copy
-                                </button>
-                            </div>
-                        ` : `
-                            <p style="color: #6b7280; font-style: italic; font-size: 0.875rem;">No deck code available</p>
-                        `}
-                    </div>
-                </div>
-            `;
-            
-            return card;
-        }
-
         function getRankBadge(rank) {
             if (rank === 1) return { icon: '👑', color: 'rank-1' };
             if (rank <= 10) return { icon: '💎', color: 'rank-10' };
@@ -1619,12 +1519,11 @@
         }
         
         function getClassIcon(className) {
-            // Normalizar nombre de clase para nombre de archivo
             const classFiles = {
                 'Death Knight': 'deathknight',
-                'DK': 'deathknight',  // Abreviatura de Death Knight
+                'DK': 'deathknight',
                 'Demon Hunter': 'dh',
-                'DH': 'dh',  // Abreviatura de Demon Hunter
+                'DH': 'dh',
                 'Druid': 'druid',
                 'Hunter': 'hunter',
                 'Mage': 'mage',
@@ -1666,44 +1565,25 @@
         function renderMetaSnapshot(snapshot) {
             console.log('📊 Rendering Meta Snapshot', snapshot);
             
-            // Meta Snapshot is already visible in its tab, no need to toggle hidden
-            
-            // Mostrar info de período si está disponible
             const subtitleEl = document.querySelector('#tab-meta-snapshot .subtitle');
             if (subtitleEl && snapshot.totalDecksAnalyzed) {
                 subtitleEl.textContent = `Analysis based on ${snapshot.totalDecksAnalyzed} decks from the last 24 hours`;
             }
             
-            // Prepare data for chart
             const classes = Object.keys(snapshot.classDistribution);
             const counts = Object.values(snapshot.classDistribution);
             
-            // Colors for different classes (Hearthstone theme)
             const colors = [
-                '#FF7D0A', // Druid - Orange
-                '#ABD473', // Hunter - Green
-                '#69CCF0', // Mage - Light Blue
-                '#F58CBA', // Paladin - Pink
-                '#FFFFFF', // Priest - White
-                '#FFF569', // Rogue - Yellow
-                '#0070DE', // Shaman - Blue
-                '#9482C9', // Warlock - Purple
-                '#C79C6E', // Warrior - Brown
-                '#00FF96', // Demon Hunter - Teal
-                '#FF4444', // Death Knight - Red
+                '#FF7D0A', '#ABD473', '#69CCF0', '#F58CBA', '#FFFFFF',
+                '#FFF569', '#0070DE', '#9482C9', '#C79C6E', '#00FF96', '#FF4444',
             ];
             
-            // Destroy previous chart if exists
-            if (metaChart) {
-                metaChart.destroy();
-            }
+            if (metaChart) metaChart.destroy();
             
-            // Get current theme for chart colors
             const isDarkMode = document.documentElement.getAttribute('data-theme') === 'dark';
             const textColor = isDarkMode ? '#e5e5e5' : '#000000';
             const borderColor = isDarkMode ? '#3a3a3a' : '#1f2937';
             
-            // Create pie chart
             const ctx = document.getElementById('classChart').getContext('2d');
             metaChart = new Chart(ctx, {
                 type: 'doughnut',
@@ -1725,10 +1605,7 @@
                             labels: {
                                 color: textColor,
                                 padding: 15,
-                                font: {
-                                    size: 12,
-                                    weight: 600
-                                }
+                                font: { size: 12, weight: 600 }
                             }
                         },
                         tooltip: {
@@ -1745,7 +1622,6 @@
                 }
             });
             
-            // Render top archetypes list
             const archetypesList = document.getElementById('top-archetypes-list');
             archetypesList.innerHTML = '';
             
@@ -1770,7 +1646,6 @@
         function renderMetaScore(metaScore) {
             console.log('🏆 Rendering Meta Score', metaScore);
             
-            // Actualizar subtitle con info de período
             const subtitleEl = document.getElementById('meta-score-subtitle');
             if (subtitleEl && metaScore.totalDecksAnalyzed) {
                 subtitleEl.textContent = `Archetype ranking based on ${metaScore.totalDecksAnalyzed} decks from ${metaScore.period}`;
@@ -1811,11 +1686,9 @@
                 btn.addEventListener('click', () => {
                     const period = btn.dataset.period;
                     
-                    // Update active state
                     periodButtons.forEach(b => b.classList.remove('active'));
                     btn.classList.add('active');
                     
-                    // Render Meta Score for selected period
                     if (metaData.metaScore && metaData.metaScore[period]) {
                         renderMetaScore(metaData.metaScore[period]);
                     }
@@ -1824,11 +1697,9 @@
         }
         
         function initializeMetaSnapshotPeriodSelector() {
-            // Similar to Meta Score, but for Meta Snapshot if we want to add period selector there too
-            // For now, Meta Snapshot will stay as is (24h only)
+            // Placeholder - currently only 24h
         }
 
-        // Asignar evento de copiar a todos los botones de copiar deck
         function assignCopyDeckEvents() {
             document.querySelectorAll('.copy-btn').forEach(btn => {
                 btn.addEventListener('click', function(e) {
@@ -1838,9 +1709,7 @@
             });
         }
 
-        // Load decks on page load
         loadDecks();
-        // Asignar eventos después de renderizar decks
         setTimeout(assignCopyDeckEvents, 500);
     </script>
 </body>
