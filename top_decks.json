@@ -1,188 +1,221 @@
 {
-  "lastUpdate": "2026-01-13T15:15:30.437Z",
+  "lastUpdate": "2026-01-13T15:48:06.909Z",
   "source": "HSGuru Top 100 + HSReplay player names",
-  "totalDecks": 2,
-  "knownPlayers": 0,
+  "totalDecks": 5,
+  "knownPlayers": 1,
   "decks": [
     {
-      "rank": 39,
-      "name": "MLS",
+      "rank": 32,
+      "name": "EnjoyPizza",
       "inMasterList": false,
       "battleTag": null,
       "deck": {
         "name": "Dragon Warrior",
         "code": "AAECAQcIx6QGzOEGoYEHrIgHwY8HgpgHhJ0H8a8HC+qoBuPmBqr8Bqv8BveDB+iHB9KXB56ZB7etB5iwB4+xBwABA/WzBsekBvezBsekBu7eBsekBgAA"
       },
-      "lastSeen": "16 minutes ago"
+      "lastSeen": "27 minutes ago"
     },
     {
-      "rank": 43,
-      "name": "Hasely",
+      "rank": 40,
+      "name": "RustGhost",
       "inMasterList": false,
       "battleTag": null,
       "deck": {
-        "name": "Hagatha Shaman",
-        "code": "AAECAaoIDICgBMekBqilBtSlBtnABq3hBuHrBoOKB4KYB9umB9+mB+WmBwmopwaBuAbDvgaEvwbOwAbQwAbR0Abmlge8sQcAAQP1swbHpAb3swbHpAbu3gbHpAYAAA=="
+        "name": "Dragon Warrior",
+        "code": "AAECAQcIx6QGzOEGoYEHrIgHwY8HgpgHhJ0H8a8HC+qoBuPmBqr8Bqv8BveDB+iHB9KXB56ZB7etB5iwB4+xBwABA/WzBsekBvezBsekBu7eBsekBgAA"
       },
-      "lastSeen": "24 minutes ago"
+      "lastSeen": "3 minutes ago"
+    },
+    {
+      "rank": 41,
+      "name": "kiki",
+      "inMasterList": true,
+      "battleTag": "kiki#21838",
+      "deck": {
+        "name": "Dragon Warrior",
+        "code": "AAECAQcIx6QGzOEGoYEHrIgHwY8HgpgHhJ0H8a8HC+qoBuPmBqr8Bqv8BveDB+iHB9KXB56ZB7etB5iwB4+xBwABA/WzBsekBvezBsekBu7eBsekBgAA"
+      },
+      "lastSeen": "19 minutes ago"
+    },
+    {
+      "rank": 45,
+      "name": "Matthew",
+      "inMasterList": false,
+      "battleTag": null,
+      "deck": {
+        "name": "Dragon Warrior",
+        "code": "AAECAQcIx6QGzOEGoYEHrIgHwY8HgpgHhJ0H8a8HC+qoBuPmBqr8Bqv8BveDB+iHB9KXB56ZB7etB5iwB4+xBwABA/WzBsekBvezBsekBu7eBsekBgAA"
+      },
+      "lastSeen": "17 minutes ago"
+    },
+    {
+      "rank": 71,
+      "name": "Ovmovm",
+      "inMasterList": false,
+      "battleTag": null,
+      "deck": {
+        "name": "BBU Control DK",
+        "code": "AAECAfHhBA6YgQXHpAaouAa6wQbm5QbC6Aaq6gap9QaWggeSgwfDgweDigeCmAeTmwcIh/YE/7oGtfoG/fwGgf0Gl4IHupUHh5wHAAED9bMGx6QG97MGx6QG7t4Gx6QGAAA="
+      },
+      "lastSeen": "16 minutes ago"
     }
   ],
   "noNewResults": false,
   "metaSnapshot": {
     "24h": {
       "classDistribution": {
-        "Rogue": 17,
-        "Mage": 4,
-        "Warrior": 28,
+        "Mage": 3,
+        "Warrior": 32,
+        "Rogue": 14,
         "Hunter": 31,
         "Shaman": 53,
         "Druid": 25,
-        "DK": 6,
+        "DK": 7,
         "DH": 3
       },
       "classPercentages": {
-        "Rogue": "10.2",
-        "Mage": "2.4",
-        "Warrior": "16.8",
-        "Hunter": "18.6",
-        "Shaman": "31.7",
-        "Druid": "15.0",
-        "DK": "3.6",
+        "Mage": "1.8",
+        "Warrior": "19.0",
+        "Rogue": "8.3",
+        "Hunter": "18.5",
+        "Shaman": "31.5",
+        "Druid": "14.9",
+        "DK": "4.2",
         "DH": "1.8"
       },
       "topArchetypes": [
         {
           "name": "Hagatha Shaman",
           "count": 53,
-          "percentage": "31.7"
+          "percentage": "31.5"
         },
         {
           "name": "Discover Hunter",
           "count": 31,
-          "percentage": "18.6"
+          "percentage": "18.5"
         },
         {
           "name": "Copy Druid",
           "count": 25,
-          "percentage": "15.0"
+          "percentage": "14.9"
         },
         {
           "name": "Dragon Warrior",
-          "count": 19,
-          "percentage": "11.4"
+          "count": 23,
+          "percentage": "13.7"
         },
         {
           "name": "Elise Rogue",
-          "count": 17,
-          "percentage": "10.2"
+          "count": 14,
+          "percentage": "8.3"
         }
       ],
       "mostPlayedClass": "Shaman",
-      "totalDecksAnalyzed": 167,
+      "totalDecksAnalyzed": 168,
       "period": "Last 24 hours"
     },
     "7d": {
       "classDistribution": {
         "Hunter": 33,
         "Rogue": 18,
-        "Warrior": 32,
+        "Warrior": 36,
         "Mage": 14,
         "Shaman": 53,
         "Druid": 25,
-        "DK": 6,
+        "DK": 7,
         "DH": 3
       },
       "classPercentages": {
-        "Hunter": "17.9",
-        "Rogue": "9.8",
-        "Warrior": "17.4",
-        "Mage": "7.6",
-        "Shaman": "28.8",
-        "Druid": "13.6",
-        "DK": "3.3",
+        "Hunter": "17.5",
+        "Rogue": "9.5",
+        "Warrior": "19.0",
+        "Mage": "7.4",
+        "Shaman": "28.0",
+        "Druid": "13.2",
+        "DK": "3.7",
         "DH": "1.6"
       },
       "topArchetypes": [
         {
           "name": "Hagatha Shaman",
           "count": 53,
-          "percentage": "28.8"
+          "percentage": "28.0"
         },
         {
           "name": "Discover Hunter",
           "count": 33,
-          "percentage": "17.9"
+          "percentage": "17.5"
         },
         {
           "name": "Copy Druid",
           "count": 25,
-          "percentage": "13.6"
+          "percentage": "13.2"
         },
         {
           "name": "Dragon Warrior",
-          "count": 19,
-          "percentage": "10.3"
+          "count": 23,
+          "percentage": "12.2"
         },
         {
           "name": "Elise Rogue",
           "count": 18,
-          "percentage": "9.8"
+          "percentage": "9.5"
         }
       ],
       "mostPlayedClass": "Shaman",
-      "totalDecksAnalyzed": 184,
+      "totalDecksAnalyzed": 189,
       "period": "Last 7 days"
     },
     "30d": {
       "classDistribution": {
         "Hunter": 33,
         "Rogue": 18,
-        "Warrior": 32,
+        "Warrior": 36,
         "Mage": 14,
         "Shaman": 53,
         "Druid": 25,
-        "DK": 6,
+        "DK": 7,
         "DH": 3
       },
       "classPercentages": {
-        "Hunter": "17.9",
-        "Rogue": "9.8",
-        "Warrior": "17.4",
-        "Mage": "7.6",
-        "Shaman": "28.8",
-        "Druid": "13.6",
-        "DK": "3.3",
+        "Hunter": "17.5",
+        "Rogue": "9.5",
+        "Warrior": "19.0",
+        "Mage": "7.4",
+        "Shaman": "28.0",
+        "Druid": "13.2",
+        "DK": "3.7",
         "DH": "1.6"
       },
       "topArchetypes": [
         {
           "name": "Hagatha Shaman",
           "count": 53,
-          "percentage": "28.8"
+          "percentage": "28.0"
         },
         {
           "name": "Discover Hunter",
           "count": 33,
-          "percentage": "17.9"
+          "percentage": "17.5"
         },
         {
           "name": "Copy Druid",
           "count": 25,
-          "percentage": "13.6"
+          "percentage": "13.2"
         },
         {
           "name": "Dragon Warrior",
-          "count": 19,
-          "percentage": "10.3"
+          "count": 23,
+          "percentage": "12.2"
         },
         {
           "name": "Elise Rogue",
           "count": 18,
-          "percentage": "9.8"
+          "percentage": "9.5"
         }
       ],
       "mostPlayedClass": "Shaman",
-      "totalDecksAnalyzed": 184,
+      "totalDecksAnalyzed": 189,
       "period": "Last 30 days"
     }
   },
@@ -192,7 +225,7 @@
         {
           "name": "Copy Druid",
           "count": 25,
-          "percentage": "15.0",
+          "percentage": "14.9",
           "uniquePlayers": 17,
           "avgRank": 8,
           "metaScore": 54,
@@ -208,27 +241,27 @@
           "tier": "B"
         },
         {
-          "name": "Elise Rogue",
-          "count": 17,
-          "percentage": "10.2",
-          "uniquePlayers": 15,
-          "avgRank": 72,
-          "metaScore": 39,
+          "name": "Dragon Warrior",
+          "count": 23,
+          "percentage": "13.7",
+          "uniquePlayers": 21,
+          "avgRank": 70,
+          "metaScore": 42,
           "tier": "C"
         },
         {
-          "name": "Dragon Warrior",
-          "count": 19,
-          "percentage": "11.4",
-          "uniquePlayers": 17,
-          "avgRank": 77,
-          "metaScore": 38,
+          "name": "Elise Rogue",
+          "count": 14,
+          "percentage": "8.3",
+          "uniquePlayers": 12,
+          "avgRank": 72,
+          "metaScore": 37,
           "tier": "C"
         },
         {
           "name": "Discover Hunter",
           "count": 31,
-          "percentage": "18.6",
+          "percentage": "18.5",
           "uniquePlayers": 16,
           "avgRank": 54,
           "metaScore": 37,
@@ -237,7 +270,7 @@
         {
           "name": "Hagatha Shaman",
           "count": 53,
-          "percentage": "31.7",
+          "percentage": "31.5",
           "uniquePlayers": 20,
           "avgRank": 58,
           "metaScore": 37,
@@ -245,19 +278,19 @@
         },
         {
           "name": "BBU Control DK",
-          "count": 6,
-          "percentage": "3.6",
-          "uniquePlayers": 4,
-          "avgRank": 53,
-          "metaScore": 36,
+          "count": 7,
+          "percentage": "4.2",
+          "uniquePlayers": 5,
+          "avgRank": 55,
+          "metaScore": 37,
           "tier": "C"
         },
         {
           "name": "Protoss Mage",
-          "count": 3,
-          "percentage": "1.8",
-          "uniquePlayers": 3,
-          "avgRank": 86,
+          "count": 2,
+          "percentage": "1.2",
+          "uniquePlayers": 2,
+          "avgRank": 85,
           "metaScore": 35,
           "tier": "C"
         },
@@ -280,9 +313,9 @@
           "tier": "C"
         }
       ],
-      "totalDecksAnalyzed": 167,
+      "totalDecksAnalyzed": 168,
       "period": "Last 24 hours",
-      "lastCalculated": "2026-01-13T15:15:30.436Z",
+      "lastCalculated": "2026-01-13T15:48:06.908Z",
       "methodology": {
         "frequency": "40% - Apariciones en el período",
         "diversity": "30% - Jugadores únicos que lo usan",
@@ -294,7 +327,7 @@
         {
           "name": "Copy Druid",
           "count": 25,
-          "percentage": "13.6",
+          "percentage": "13.2",
           "uniquePlayers": 17,
           "avgRank": 8,
           "metaScore": 53,
@@ -311,17 +344,17 @@
         },
         {
           "name": "Dragon Warrior",
-          "count": 19,
-          "percentage": "10.3",
-          "uniquePlayers": 17,
-          "avgRank": 77,
-          "metaScore": 38,
+          "count": 23,
+          "percentage": "12.2",
+          "uniquePlayers": 21,
+          "avgRank": 70,
+          "metaScore": 41,
           "tier": "C"
         },
         {
           "name": "Discover Hunter",
           "count": 33,
-          "percentage": "17.9",
+          "percentage": "17.5",
           "uniquePlayers": 18,
           "avgRank": 55,
           "metaScore": 37,
@@ -330,7 +363,7 @@
         {
           "name": "Elise Rogue",
           "count": 18,
-          "percentage": "9.8",
+          "percentage": "9.5",
           "uniquePlayers": 15,
           "avgRank": 73,
           "metaScore": 37,
@@ -338,17 +371,17 @@
         },
         {
           "name": "BBU Control DK",
-          "count": 6,
-          "percentage": "3.3",
-          "uniquePlayers": 4,
-          "avgRank": 53,
+          "count": 7,
+          "percentage": "3.7",
+          "uniquePlayers": 5,
+          "avgRank": 55,
           "metaScore": 36,
           "tier": "C"
         },
         {
           "name": "Hagatha Shaman",
           "count": 53,
-          "percentage": "28.8",
+          "percentage": "28.0",
           "uniquePlayers": 20,
           "avgRank": 58,
           "metaScore": 35,
@@ -357,7 +390,7 @@
         {
           "name": "Protoss Mage",
           "count": 13,
-          "percentage": "7.1",
+          "percentage": "6.9",
           "uniquePlayers": 9,
           "avgRank": 89,
           "metaScore": 27,
@@ -366,7 +399,7 @@
         {
           "name": "Quest Warrior",
           "count": 13,
-          "percentage": "7.1",
+          "percentage": "6.9",
           "uniquePlayers": 8,
           "avgRank": 87,
           "metaScore": 25,
@@ -382,9 +415,9 @@
           "tier": "C"
         }
       ],
-      "totalDecksAnalyzed": 184,
+      "totalDecksAnalyzed": 189,
       "period": "Last 7 days",
-      "lastCalculated": "2026-01-13T15:15:30.436Z",
+      "lastCalculated": "2026-01-13T15:48:06.908Z",
       "methodology": {
         "frequency": "40% - Apariciones en el período",
         "diversity": "30% - Jugadores únicos que lo usan",
@@ -396,7 +429,7 @@
         {
           "name": "Copy Druid",
           "count": 25,
-          "percentage": "13.6",
+          "percentage": "13.2",
           "uniquePlayers": 17,
           "avgRank": 8,
           "metaScore": 53,
@@ -413,17 +446,17 @@
         },
         {
           "name": "Dragon Warrior",
-          "count": 19,
-          "percentage": "10.3",
-          "uniquePlayers": 17,
-          "avgRank": 77,
-          "metaScore": 38,
+          "count": 23,
+          "percentage": "12.2",
+          "uniquePlayers": 21,
+          "avgRank": 70,
+          "metaScore": 41,
           "tier": "C"
         },
         {
           "name": "Discover Hunter",
           "count": 33,
-          "percentage": "17.9",
+          "percentage": "17.5",
           "uniquePlayers": 18,
           "avgRank": 55,
           "metaScore": 37,
@@ -432,7 +465,7 @@
         {
           "name": "Elise Rogue",
           "count": 18,
-          "percentage": "9.8",
+          "percentage": "9.5",
           "uniquePlayers": 15,
           "avgRank": 73,
           "metaScore": 37,
@@ -440,17 +473,17 @@
         },
         {
           "name": "BBU Control DK",
-          "count": 6,
-          "percentage": "3.3",
-          "uniquePlayers": 4,
-          "avgRank": 53,
+          "count": 7,
+          "percentage": "3.7",
+          "uniquePlayers": 5,
+          "avgRank": 55,
           "metaScore": 36,
           "tier": "C"
         },
         {
           "name": "Hagatha Shaman",
           "count": 53,
-          "percentage": "28.8",
+          "percentage": "28.0",
           "uniquePlayers": 20,
           "avgRank": 58,
           "metaScore": 35,
@@ -459,7 +492,7 @@
         {
           "name": "Protoss Mage",
           "count": 13,
-          "percentage": "7.1",
+          "percentage": "6.9",
           "uniquePlayers": 9,
           "avgRank": 89,
           "metaScore": 27,
@@ -468,7 +501,7 @@
         {
           "name": "Quest Warrior",
           "count": 13,
-          "percentage": "7.1",
+          "percentage": "6.9",
           "uniquePlayers": 8,
           "avgRank": 87,
           "metaScore": 25,
@@ -484,9 +517,9 @@
           "tier": "C"
         }
       ],
-      "totalDecksAnalyzed": 184,
+      "totalDecksAnalyzed": 189,
       "period": "Last 30 days",
-      "lastCalculated": "2026-01-13T15:15:30.437Z",
+      "lastCalculated": "2026-01-13T15:48:06.909Z",
       "methodology": {
         "frequency": "40% - Apariciones en el período",
         "diversity": "30% - Jugadores únicos que lo usan",
