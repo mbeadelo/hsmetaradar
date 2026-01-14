@@ -295,37 +295,30 @@
 
     <!-- Stats Cards -->
     <div class="stats-grid">
-        <!-- Card 1: Social + Support -->
+        <!-- Card 1: Total Decks (Last Update) -->
         <div class="stat-card">
-            <div class="footer-social">
-                <a href="https://www.youtube.com/@Enterra" target="_blank" class="footer-social-btn" aria-label="YouTube">
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-                        <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
-                    </svg>
-                </a>
-                <img src="assets/logo_enterra.png" alt="Enterra" class="footer-logo" />
-                <a href="https://twitter.com/EnterraTV" target="_blank" class="footer-social-btn" aria-label="Twitter/X">
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-                        <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
-                    </svg>
-                </a>
+            <div class="stat-period">Last Update</div>
+            <div class="stat-label">Total Decks</div>
+            <div class="stat-value">
+                <span id="total-decks-stat">0</span>
             </div>
+        </div>
 
-            <div class="support-block" style="margin: 24px 0; padding: 18px; background: var(--bg-card); border: 1px solid var(--border-color); border-radius: 10px; text-align: center;">
-                <div style="font-weight: 600; font-size: 1.1rem; margin-bottom: 10px;">Do you find HS Meta Radar useful?</div>
-                <div style="display: flex; gap: 12px; justify-content: center; margin-bottom: 8px; flex-wrap: wrap;">
-                    <a href="#patreon-link" target="_blank" class="social-btn" style="background:#ff424d;color:white;">Support me on Patreon</a>
-                </div>
-                <div style="font-size:0.95rem; color:var(--text-secondary);">Help cover hosting and improvements. Thank you!</div>
+        <!-- Card 2: Top Archetype (Last Update) -->
+        <div class="stat-card">
+            <div class="stat-period">Last Update</div>
+            <div class="stat-label">Top Archetype</div>
+            <div class="stat-value" style="font-size: 1.25rem;">
+                <span id="top-archetype-stat">-</span>
             </div>
+        </div>
 
-            <div class="info-banner" style="margin-bottom: 18px;">
-                <strong>No tracking cookies.</strong> Only basic technical logs for security. No analytics, no ads (except YouTube/Patreon links).
-            </div>
-
-            <!-- Banner “no new results” (tu JS lo busca) -->
-            <div id="no-new-results-banner" class="info-banner hidden" style="margin-top: 12px;">
-                <strong>Info:</strong> <span id="no-new-results-message"></span>
+        <!-- Card 3: Avg Rank (Last Update) -->
+        <div class="stat-card">
+            <div class="stat-period">Last Update</div>
+            <div class="stat-label">Avg. Rank</div>
+            <div class="stat-value">
+                <span id="avg-rank-stat">#0</span>
             </div>
         </div>
 
@@ -385,52 +378,35 @@
     </div>
 
     <!-- Main Layout with Sidebar -->
-    <div class="main-layout">
-        <!-- Sidebar Filters -->
-        <aside class="sidebar">
-            <h3>Filters</h3>
+    <div class="container">
+        <!-- Navigation Tabs -->
+        <nav class="nav-tabs">
+            <button class="nav-tab active" data-tab="decks">🃏 Top 100 Decks</button>
+            <button class="nav-tab" data-tab="meta-snapshot">📊 Meta Snapshot</button>
+            <!-- <button class="nav-tab" data-tab="meta-score">🏆 Meta Score</button> -->
+            <button class="nav-tab" data-tab="about">📡 About</button>
+        </nav>
+    </div>
 
-            <div class="filter-group">
-                <label class="filter-label">Class</label>
-                <select class="filter-select" id="filter-class">
-                    <option value="">Any</option>
-                </select>
-            </div>
+    <div class="container main-layout">
+        <!-- Left Sidebar Ad (optional, can be removed if not needed) -->
+        <!-- <aside class="sidebar-ad"></aside> -->
 
-            <div class="filter-group">
-                <label class="filter-label">Rank Range</label>
-                <select class="filter-select" id="filter-rank">
-                    <option value="">Any</option>
-                    <option value="top10">Top 10</option>
-                    <option value="top25">Top 25</option>
-                    <option value="top50">Top 50</option>
-                </select>
-            </div>
-        </aside>
-
-        <!-- Main Content Area -->
-        <main class="content-area">
-            <!-- Navigation Tabs -->
-            <nav class="nav-tabs">
-                <button class="nav-tab active" data-tab="decks">🃏 Top Decks</button>
-                <button class="nav-tab" data-tab="meta-snapshot">📊 Meta Snapshot</button>
-                <button class="nav-tab" data-tab="meta-score">🏆 Meta Score</button>
-                <button class="nav-tab" data-tab="about">📡 About</button>
-            </nav>
-
+        <!-- Main Content -->
+        <main class="main-content">
             <!-- Tab: Decks -->
             <div class="tab-content active" id="tab-decks">
+                <div id="no-new-results-banner" class="info-banner hidden">
+                    📌 <strong>Updated info:</strong> <span id="no-new-results-message"></span>
+                </div>
                 <div id="loading">
                     <div class="spinner"></div>
                     <p>Loading Top 100 decks...</p>
                 </div>
-
                 <div id="empty-state" class="hidden">
                     <p>❌ No decks available</p>
                     <p>Run <code>node index_hsguru_replays.js</code> first</p>
                 </div>
-
-                <!-- Decks Table -->
                 <div id="decks-table-container" class="hidden">
                     <h2 class="section-title">Top Decks</h2>
                     <table class="decks-table">
@@ -447,6 +423,9 @@
                         </tbody>
                     </table>
                 </div>
+                <div id="decks-list" class="hidden">
+                    <!-- Cards will be injected here (if needed) -->
+                </div>
             </div>
 
             <!-- Tab: Meta Snapshot -->
@@ -454,7 +433,6 @@
                 <div id="meta-snapshot" class="meta-snapshot">
                     <h2>📊 Meta Snapshot</h2>
                     <p class="subtitle">Analysis based on data from the last 24 hours</p>
-
                     <div class="meta-grid">
                         <!-- Chart -->
                         <div>
@@ -463,7 +441,6 @@
                                 <canvas id="classChart"></canvas>
                             </div>
                         </div>
-
                         <!-- Top Archetypes -->
                         <div class="top-archetypes">
                             <h3>🔥 Most Played Archetypes</h3>
@@ -475,46 +452,20 @@
                 </div>
             </div>
 
-            <!-- Tab: Meta Score -->
-            <div class="tab-content" id="tab-meta-score">
-                <div id="meta-score-section" class="meta-snapshot">
-                    <h2>🏆 Meta Score & Tier List</h2>
-                    <p class="subtitle" id="meta-score-subtitle">Archetype ranking based on popularity, diversity and performance</p>
-
-                    <!-- Period Selector -->
-                    <div class="period-selector" style="margin: 1.5rem 0;">
-                        <button class="period-btn active" data-period="24h">24 Hours</button>
-                        <button class="period-btn" data-period="7d">7 Days</button>
-                        <button class="period-btn" data-period="30d">30 Days</button>
-                    </div>
-
-                    <div id="meta-score-list" style="margin-top: 24px;">
-                        <!-- Will be populated by JS -->
-                    </div>
-
-                    <div id="meta-score-methodology" style="margin-top: 20px; padding: 16px; background: var(--bg-card); border: 1px solid var(--border-color); border-radius: 8px; font-size: 0.875rem; color: var(--text-secondary);">
-                        <strong>Meta Score Methodology:</strong><br>
-                        • 40% Frequency - Appearances in the selected period<br>
-                        • 30% Diversity - Number of unique players<br>
-                        • 30% Ranking - Average ladder position
-                    </div>
-                </div>
-            </div>
-
             <!-- Tab: About -->
             <div class="tab-content" id="tab-about">
                 <div class="about-section">
-                    <h2>📡 About Hearthstone Meta Radar</h2>
-                    <p>Automatic real-time tracker of <strong>Top 100 Legend</strong> Hearthstone decks.</p>
-                    <p><strong>HS Meta Radar</strong> is an automatic real-time tracker of <strong>Top 100 Legend</strong> Hearthstone decks. Data is updated every <strong>30 minutes</strong> from public sources: HSGuru, HSReplay & Firestone.</p>
-                    <p>No tracking cookies, no analytics, no personal data collected. Only basic technical logs for security.</p>
-                    <p><strong>Disclaimer:</strong> This site is not affiliated with Blizzard Entertainment. All Hearthstone assets are property of Blizzard.</p>
+                    <h2>📡 About the Project</h2>
+                    <p>This automatic tracker monitors <strong>Top 100 Legend</strong> decks from Hearthstone in real-time.</p>
+                    <p>Data is automatically updated every <strong>30 minutes</strong></p>
                     <p class="creator-tag">Created and maintained by <strong>Entërra</strong></p>
-                    <h3 style="margin-top:2rem; font-size:1.1rem; color:var(--accent-gold);">Contact</h3>
-                    <p>For feedback, suggestions or issues, contact: <a href="mailto:your@email.com">your@email.com</a></p>
+                    <p style="color: #9ca3af; font-size: 0.875rem;">Follow me on YouTube and Twitter for more competitive meta content 🎮</p>
                 </div>
             </div>
         </main>
+
+        <!-- Right Sidebar Ad (optional, can be removed if not needed) -->
+        <!-- <aside class="sidebar-ad"></aside> -->
     </div>
 
     <footer>
@@ -575,18 +526,15 @@
             }
         })();
 
-        // Tab Navigation
+        // Tab Navigation (restored from backup)
         document.addEventListener('DOMContentLoaded', () => {
             const tabs = document.querySelectorAll('.nav-tab');
             const tabContents = document.querySelectorAll('.tab-content');
-
             tabs.forEach(tab => {
                 tab.addEventListener('click', () => {
                     const targetTab = tab.dataset.tab;
-
                     tabs.forEach(t => t.classList.remove('active'));
                     tabContents.forEach(c => c.classList.remove('active'));
-
                     tab.classList.add('active');
                     document.getElementById(`tab-${targetTab}`).classList.add('active');
                 });
