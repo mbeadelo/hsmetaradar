@@ -817,7 +817,12 @@ async function scrapeHSGuruReplays() {
     }
 
 
-    // Inicialización segura de stats y salida
+    // Inicialización segura de arrays y stats
+    const allDecks24h = typeof allDecks24h !== 'undefined' && Array.isArray(allDecks24h) ? allDecks24h : [];
+    const allDecks7d = typeof allDecks7d !== 'undefined' && Array.isArray(allDecks7d) ? allDecks7d : [];
+    const allDecks30d = typeof allDecks30d !== 'undefined' && Array.isArray(allDecks30d) ? allDecks30d : [];
+    const finalDecks = typeof finalDecks !== 'undefined' && Array.isArray(finalDecks) ? finalDecks : [];
+
     let stats24h = { snapshot: [], metaScore: { archetypes: [] } };
     let stats7d = { snapshot: [], metaScore: { archetypes: [] } };
     let stats30d = { snapshot: [], metaScore: { archetypes: [] } };
@@ -835,9 +840,9 @@ async function scrapeHSGuruReplays() {
     const output = {
       lastUpdate: new Date().toISOString(),
       source: "HSGuru Top 100 + HSReplay player names",
-      totalDecks: finalDecks ? finalDecks.length : 0,
+      totalDecks: finalDecks.length,
       knownPlayers: inList || 0,
-      decks: finalDecks || [],
+      decks: finalDecks,
       noNewResults: false,
       metaSnapshot: {
         '24h': stats24h.snapshot,
