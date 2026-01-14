@@ -3,14 +3,12 @@ const { exec } = require('child_process');
 const path = require('path');
 const fs = require('fs');
 
+
 const app = express();
 const PORT = process.env.PORT || 3000;
 
-// =======================================================
-// Single-flight guard to avoid concurrent Playwright runs
-// (common source of OOM / 502 when cron triggers overlap)
-// =======================================================
-let SCRAPE_RUNNING = false;
+// Trust proxy para entornos detrás de proxy/reverse proxy (Render, Actions, etc)
+app.set('trust proxy', 1);
 
 // Try to load security modules (graceful degradation if not available)
 let helmet, rateLimit;
