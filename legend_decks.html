@@ -1410,10 +1410,10 @@
             const classFilter = document.getElementById('filter-class').value;
             const rankFilter = document.getElementById('filter-rank').value;
             const searchTerm = document.getElementById('search-input').value.toLowerCase();
-            
+
             filteredDecks = allDecks.filter(deck => {
                 // Class filter
-                if (classFilter) {
+                if (classFilter && classFilter !== 'any') {
                     const deckName = deck.deck?.name;
                     if (deckName) {
                         const words = deckName.split(' ');
@@ -1423,21 +1423,24 @@
                         return false;
                     }
                 }
-                
+
                 // Rank filter
-                if (rankFilter === 'top10' && deck.rank > 10) return false;
-                if (rankFilter === 'top50' && deck.rank > 50) return false;
-                
+                if (rankFilter && rankFilter !== 'any') {
+                    if (rankFilter === 'top10' && deck.rank > 10) return false;
+                    if (rankFilter === 'top25' && deck.rank > 25) return false;
+                    if (rankFilter === 'top50' && deck.rank > 50) return false;
+                }
+
                 // Search filter
                 if (searchTerm) {
                     const deckName = (deck.deck?.name || '').toLowerCase();
                     const playerName = (deck.name || '').toLowerCase();
                     if (!deckName.includes(searchTerm) && !playerName.includes(searchTerm)) return false;
                 }
-                
+
                 return true;
             });
-            
+
             // Re-render table with filtered decks
             renderDecksTable(filteredDecks);
         }
