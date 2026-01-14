@@ -661,7 +661,12 @@ async function scrapeHSGuruReplays() {
       return decks;
     }
 
-    // Declarar e inicializar los arrays de decks por periodo
+    // ========================================
+    // HISTÓRICO: cargar antes de calcular stats
+    // ========================================
+    let historical = loadHistoricalData();
+
+    // Inicializar los arrays de decks por periodo
     const allDecks24h = getDecksForPeriod(historical.entries, 24);
     const allDecks7d = getDecksForPeriod(historical.entries, 24 * 7);
     const allDecks30d = getDecksForPeriod(historical.entries, 24 * 30);
@@ -733,7 +738,7 @@ async function scrapeHSGuruReplays() {
     // ========================================
     // HISTÓRICO (se mantiene igual)
     // ========================================
-    const historical = addToHistoricalData(finalDecks);
+    historical = addToHistoricalData(finalDecks);
     console.log(`\n📊 Datos históricos actualizados: ${historical.entries.length} entradas`);
 
     // ========================================
@@ -763,7 +768,10 @@ async function scrapeHSGuruReplays() {
       return decks;
     }
 
-    // ...existing code...
+    // Inicializar los arrays de decks por periodo
+    const allDecks24h = getDecksForPeriod(historical.entries, 24);
+    const allDecks7d = getDecksForPeriod(historical.entries, 24 * 7);
+    const allDecks30d = getDecksForPeriod(historical.entries, 24 * 30);
 
     console.log(`📈 Mazos por período (cap ${MAX_DECKS_PER_PERIOD}):`);
     console.log(`   - 24h: ${allDecks24h.length} mazos`);
