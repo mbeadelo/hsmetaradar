@@ -634,6 +634,68 @@ async function scrapeHSGuruReplays() {
 
 
     // ========================================
+    // STATS: evitar arrays gigantes (cap por periodo)
+    // ========================================
+    console.log('\n🔄 Calculando estadísticas para múltiples períodos de tiempo...\n');
+
+    function getDecksForPeriod(entries, hours, cap = MAX_DECKS_PER_PERIOD) {
+      const now = Date.now();
+      const cutoff = now - (hours * 60 * 60 * 1000);
+
+      // Filtrar entradas recientes
+      const filteredEntries = entries.filter(entry => {
+        const entryTime = new Date(entry.timestamp).getTime();
+        return entryTime > cutoff;
+      });
+
+      // En lugar de concatenar TODO, agregamos hasta "cap"
+      const decks = [];
+      for (const entry of filteredEntries) {
+        if (!entry || !Array.isArray(entry.decks)) continue;
+        for (const d of entry.decks) {
+          decks.push(d);
+          if (decks.length >= cap) return decks;
+        }
+      }
+      return decks;
+    }
+
+    const allDecks24h = getDecksForPeriod(historical.entries, 24);
+    const allDecks7d = getDecksForPeriod(historical.entries, 24 * 7);
+    const allDecks30d = getDecksForPeriod(historical.entries, 24 * 30);
+
+    console.log(`📈 Mazos por período (cap ${MAX_DECKS_PER_PERIOD}):`);
+    console.log(`   - 24h: ${allDecks24h.length} mazos`);
+    console.log(`   - 7 días: ${allDecks7d.length} mazos`);
+    console.log(`   - 30 días: ${allDecks30d.length} mazos`);
+    console.log();
+
+    function calculateMetaStats(decks, periodName, archetypeLatestCache) {
+      // ...existing code...
+    }
+
+    // Inicialización segura de arrays y stats (solo asignar si están indefinidas)
+    // (No redeclarar si ya existen)
+    if (typeof allDecks24h === 'undefined' || !Array.isArray(allDecks24h)) global.allDecks24h = [];
+    if (typeof allDecks7d === 'undefined' || !Array.isArray(allDecks7d)) global.allDecks7d = [];
+    if (typeof allDecks30d === 'undefined' || !Array.isArray(allDecks30d)) global.allDecks30d = [];
+    if (typeof finalDecks === 'undefined' || !Array.isArray(finalDecks)) global.finalDecks = [];
+
+    let stats24h = { snapshot: [], metaScore: { archetypes: [] } };
+    let stats7d = { snapshot: [], metaScore: { archetypes: [] } };
+    let stats30d = { snapshot: [], metaScore: { archetypes: [] } };
+
+    try {
+      stats24h = calculateMetaStats(allDecks24h, 'Last 24 hours', archetypeLatest) || stats24h;
+    } catch (e) { console.warn('No se pudo calcular stats24h:', e); }
+    try {
+      stats7d = calculateMetaStats(allDecks7d, 'Last 7 days', archetypeLatest) || stats7d;
+    } catch (e) { console.warn('No se pudo calcular stats7d:', e); }
+    try {
+      stats30d = calculateMetaStats(allDecks30d, 'Last 30 days', archetypeLatest) || stats30d;
+    } catch (e) { console.warn('No se pudo calcular stats30d:', e); }
+
+    // ========================================
     // ACTUALIZAR archetype_latest.json
     // ========================================
     let archetypeLatest = loadArchetypeLatest();
