@@ -557,7 +557,6 @@ async function scrapeHSGuruReplays() {
             const names = [];
             const codes = [];
 
-            // Método 1: .deck-name span
             const deckNameSpans = document.querySelectorAll('.deck-name span');
             const uniqueNames = new Set();
             deckNameSpans.forEach(span => {
@@ -793,6 +792,34 @@ async function scrapeHSGuruReplays() {
     }
 
     // ========================================
+    // CAMBIO APLICADO:
+    // - Nutrir archetypeLatest EN MEMORIA antes de calcular stats
+    // - No depender de deck.lastSeen (no es fecha ISO)
+    // ========================================
+    const nowIso = new Date().toISOString();
+    let archetypeLatestUpdated = false;
+
+    for (const deck of finalDecks) {
+      const name = deck?.deck?.name;
+      const code = deck?.deck?.code;
+      if (!name || !code) continue;
+
+      const prev = archetypeLatest[name];
+      const prevRank = typeof prev?.rank === 'number' ? prev.rank : Infinity;
+      const currRank = typeof deck.rank === 'number' ? deck.rank : Infinity;
+
+      // Actualiza si no existe, cambia el código, o mejora el rank representativo
+      if (!prev || prev.code !== code || currRank < prevRank) {
+        archetypeLatest[name] = {
+          code,
+          updatedAt: nowIso,
+          rank: Number.isFinite(currRank) ? currRank : null
+        };
+        archetypeLatestUpdated = true;
+      }
+    }
+
+    // ========================================
     // HISTÓRICO: guardar snapshot y calcular stats
     // ========================================
     historical = addToHistoricalData(finalDecks);
@@ -821,44 +848,30 @@ async function scrapeHSGuruReplays() {
 
     // ========================================
     // ACTUALIZAR archetype_latest.json (después de stats)
+    // - Mantenerlo poblado con sampleDeckCode cuando exista
     // ========================================
-    let updated = false;
-
-    // 1. Nutrir con los decks reales
-    finalDecks.forEach(deck => {
-      const name = deck.deck?.name;
-      const code = deck.deck?.code;
-      if (!name || !code) return;
-
-      const prev = archetypeLatest[name];
-      if (!prev || prev.code !== code) {
-        archetypeLatest[name] = {
-          code,
-          updatedAt: new Date().toISOString(),
-          rank: deck.rank
-        };
-        updated = true;
-      }
-    });
-
-    // 2. Nutrir con los sampleDeckCode de Meta Score (24h, 7d, 30d)
     [stats24h, stats7d, stats30d].forEach(stats => {
       if (!stats?.metaScore?.archetypes) return;
       stats.metaScore.archetypes.forEach(arch => {
-        if (!arch.name || !arch.sampleDeckCode) return;
+        if (!arch?.name || !arch.sampleDeckCode) return;
         const prev = archetypeLatest[arch.name];
+
+        // Nota: arch.sampleDeckCode ya es "code" puro
         if (!prev || prev.code !== arch.sampleDeckCode) {
           archetypeLatest[arch.name] = {
             code: arch.sampleDeckCode,
             updatedAt: new Date().toISOString(),
-            rank: null
+            rank: typeof prev?.rank === 'number' ? prev.rank : null
           };
-          updated = true;
+          archetypeLatestUpdated = true;
         }
       });
     });
 
-    if (updated) saveArchetypeLatest(archetypeLatest);
+    if (archetypeLatestUpdated) {
+      saveArchetypeLatest(archetypeLatest);
+      console.log('💾 archetype_latest.json actualizado');
+    }
 
     const output = {
       lastUpdate: new Date().toISOString(),
