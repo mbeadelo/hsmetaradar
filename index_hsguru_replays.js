@@ -660,9 +660,7 @@ async function scrapeHSGuruReplays() {
       return decks;
     }
 
-    const allDecks24h = getDecksForPeriod(historical.entries, 24);
-    const allDecks7d = getDecksForPeriod(historical.entries, 24 * 7);
-    const allDecks30d = getDecksForPeriod(historical.entries, 24 * 30);
+    // ...existing code...
 
     console.log(`📈 Mazos por período (cap ${MAX_DECKS_PER_PERIOD}):`);
     console.log(`   - 24h: ${allDecks24h.length} mazos`);
@@ -681,9 +679,7 @@ async function scrapeHSGuruReplays() {
     if (typeof allDecks30d === 'undefined' || !Array.isArray(allDecks30d)) global.allDecks30d = [];
     if (typeof finalDecks === 'undefined' || !Array.isArray(finalDecks)) global.finalDecks = [];
 
-    let stats24h = { snapshot: [], metaScore: { archetypes: [] } };
-    let stats7d = { snapshot: [], metaScore: { archetypes: [] } };
-    let stats30d = { snapshot: [], metaScore: { archetypes: [] } };
+    // ...existing code...
 
     try {
       stats24h = calculateMetaStats(allDecks24h, 'Last 24 hours', archetypeLatest) || stats24h;
@@ -767,9 +763,7 @@ async function scrapeHSGuruReplays() {
       return decks;
     }
 
-    const allDecks24h = getDecksForPeriod(historical.entries, 24);
-    const allDecks7d = getDecksForPeriod(historical.entries, 24 * 7);
-    const allDecks30d = getDecksForPeriod(historical.entries, 24 * 30);
+    // ...existing code...
 
     console.log(`📈 Mazos por período (cap ${MAX_DECKS_PER_PERIOD}):`);
     console.log(`   - 24h: ${allDecks24h.length} mazos`);
@@ -894,9 +888,7 @@ async function scrapeHSGuruReplays() {
     if (typeof allDecks30d === 'undefined' || !Array.isArray(allDecks30d)) global.allDecks30d = [];
     if (typeof finalDecks === 'undefined' || !Array.isArray(finalDecks)) global.finalDecks = [];
 
-    let stats24h = { snapshot: [], metaScore: { archetypes: [] } };
-    let stats7d = { snapshot: [], metaScore: { archetypes: [] } };
-    let stats30d = { snapshot: [], metaScore: { archetypes: [] } };
+    // ...existing code...
 
     try {
       stats24h = calculateMetaStats(allDecks24h, 'Last 24 hours', archetypeLatest) || stats24h;
