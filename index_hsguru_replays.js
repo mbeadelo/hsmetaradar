@@ -817,11 +817,12 @@ async function scrapeHSGuruReplays() {
     }
 
 
-    // Inicialización segura de arrays y stats
-    const allDecks24h = typeof allDecks24h !== 'undefined' && Array.isArray(allDecks24h) ? allDecks24h : [];
-    const allDecks7d = typeof allDecks7d !== 'undefined' && Array.isArray(allDecks7d) ? allDecks7d : [];
-    const allDecks30d = typeof allDecks30d !== 'undefined' && Array.isArray(allDecks30d) ? allDecks30d : [];
-    const finalDecks = typeof finalDecks !== 'undefined' && Array.isArray(finalDecks) ? finalDecks : [];
+    // Inicialización segura de arrays y stats (solo asignar si están indefinidas)
+    // (No redeclarar si ya existen)
+    if (typeof allDecks24h === 'undefined' || !Array.isArray(allDecks24h)) global.allDecks24h = [];
+    if (typeof allDecks7d === 'undefined' || !Array.isArray(allDecks7d)) global.allDecks7d = [];
+    if (typeof allDecks30d === 'undefined' || !Array.isArray(allDecks30d)) global.allDecks30d = [];
+    if (typeof finalDecks === 'undefined' || !Array.isArray(finalDecks)) global.finalDecks = [];
 
     let stats24h = { snapshot: [], metaScore: { archetypes: [] } };
     let stats7d = { snapshot: [], metaScore: { archetypes: [] } };
