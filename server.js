@@ -6,6 +6,12 @@ const fs = require('fs');
 const app = express();
 const PORT = process.env.PORT || 3000;
 
+// =======================================================
+// Single-flight guard to avoid concurrent Playwright runs
+// (common source of OOM / 502 when cron triggers overlap)
+// =======================================================
+let SCRAPE_RUNNING = false;
+
 // Try to load security modules (graceful degradation if not available)
 let helmet, rateLimit;
 try {
@@ -129,7 +135,7 @@ app.use(express.static(__dirname, {
 // =======================================================
 // API endpoint to refresh data (Render-safe, token protected)
 // - Se permite en producción SOLO si llega x-refresh-token correcto
-// - Esto habilita "Opción A": el Cron llama al Web Service y el Web Service ejecuta el scraper
+// - Evita solapamientos (SCRAPE_RUNNING) para reducir 502/OOM
 // =======================================================
 const refreshMiddleware = app.locals.refreshLimiter || ((req, res, next) => next());
 
@@ -159,14 +165,27 @@ app.post('/api/refresh', refreshMiddleware, (req, res) => {
         });
     }
 
-    // ✅ Ejecutar el scraper también en producción (Render), porque el cron lo dispara con token
-    console.log('▶️ Running scraper...');
+    // ✅ Single-flight: no permitir 2 scrapes simultáneos
+    if (SCRAPE_RUNNING) {
+        console.warn('⛔ Scrape already running, rejecting to avoid overlap');
+        return res.status(409).json({
+            success: false,
+            error: 'Scrape already running'
+        });
+    }
+
+    SCRAPE_RUNNING = true;
+    const startedAt = new Date().toISOString();
+    console.log(`▶️ Running scraper... (started ${startedAt})`);
 
     exec('node index_hsguru_replays.js', {
         cwd: __dirname,
-        timeout: 180000, // 3 minutes timeout (mejor que 2m si hay latencia/Cloudflare)
-        env: process.env // asegurar PLAYWRIGHT_BROWSERS_PATH=0 y demás
+        timeout: 180000, // 3 minutes timeout
+        env: process.env  // asegurar PLAYWRIGHT_BROWSERS_PATH=0 y demás
     }, (error, stdout, stderr) => {
+        // IMPORTANTE: liberar el lock SIEMPRE
+        SCRAPE_RUNNING = false;
+
         if (stdout) console.log(stdout);
         if (stderr) console.warn(stderr);
 
@@ -183,7 +202,7 @@ app.post('/api/refresh', refreshMiddleware, (req, res) => {
         // Read the updated JSON file
         try {
             const data = JSON.parse(fs.readFileSync(path.join(__dirname, 'top_decks.json'), 'utf8'));
-            res.json({
+            return res.json({
                 success: true,
                 totalDecks: data.totalDecks || (data.decks ? data.decks.length : 0),
                 knownPlayers: data.knownPlayers || 0,
@@ -191,7 +210,7 @@ app.post('/api/refresh', refreshMiddleware, (req, res) => {
             });
         } catch (readError) {
             console.error('❌ Error reading result:', readError);
-            res.status(500).json({
+            return res.status(500).json({
                 success: false,
                 error: 'Failed to read result file'
             });
