@@ -45,7 +45,8 @@ if (helmet) {
                     "https://pagead2.googlesyndication.com",
                     "https://tpc.googlesyndication.com",
                     "https://googleads.g.doubleclick.net",
-                    "https://www.googletagservices.com"
+                    "https://www.googletagservices.com",
+                    "https://cdn.jsdelivr.net"
                 ],
                 frameSrc: [
                     "'self'",
