@@ -1,7 +1,5 @@
 <!DOCTYPE html>
 <html lang="es">
-<!DOCTYPE html>
-<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -14,6 +12,8 @@
     <!-- CSS principal -->
     <link rel="stylesheet" href="/assets/main.css">
 
+    <!-- Chart.js (necesario para Meta Snapshot) -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js" defer></script>
 </head>
 
 <body>
@@ -24,12 +24,15 @@
                 <img src="assets/logo.png" alt="Hearthstone Meta Radar" />
                 <span>Hearthstone Meta Radar</span>
             </a>
-            
+
             <div class="search-bar">
                 <input type="text" placeholder="Search decks..." id="search-input">
-                <a href="#youtube-members-link" target="_blank" class="social-btn youtube" style="font-weight:600; background:#ff0000; color:white; border-radius:6px; padding:6px 14px; font-size:0.98rem; text-decoration:none; margin-left:8px;">YouTube Members</a>
+                <a href="#youtube-members-link" target="_blank" class="social-btn youtube"
+                   style="font-weight:600; background:#ff0000; color:white; border-radius:6px; padding:6px 14px; font-size:0.98rem; text-decoration:none; margin-left:8px;">
+                    YouTube Members
+                </a>
             </div>
-            
+
             <div class="header-actions">
                 <button class="theme-toggle" id="theme-toggle" title="Toggle Dark Mode">
                     <span id="theme-icon">🌙</span>
@@ -41,6 +44,7 @@
 
     <!-- Stats Cards -->
     <div class="stats-grid">
+        <!-- Card 1: Social + Support -->
         <div class="stat-card">
             <div class="footer-social">
                 <a href="https://www.youtube.com/@Enterra" target="_blank" class="footer-social-btn" aria-label="YouTube">
@@ -56,7 +60,6 @@
                 </a>
             </div>
 
-            <!-- Support Block -->
             <div class="support-block" style="margin: 24px 0; padding: 18px; background: var(--bg-card); border: 1px solid var(--border-color); border-radius: 10px; text-align: center;">
                 <div style="font-weight: 600; font-size: 1.1rem; margin-bottom: 10px;">Do you find HS Meta Radar useful?</div>
                 <div style="display: flex; gap: 12px; justify-content: center; margin-bottom: 8px; flex-wrap: wrap;">
@@ -65,12 +68,35 @@
                 <div style="font-size:0.95rem; color:var(--text-secondary);">Help cover hosting and improvements. Thank you!</div>
             </div>
 
-            <!-- Zero Cookies Banner (optional) -->
             <div class="info-banner" style="margin-bottom: 18px;">
                 <strong>No tracking cookies.</strong> Only basic technical logs for security. No analytics, no ads (except YouTube/Patreon links).
             </div>
+
+            <!-- Banner “no new results” (tu JS lo busca) -->
+            <div id="no-new-results-banner" class="info-banner hidden" style="margin-top: 12px;">
+                <strong>Info:</strong> <span id="no-new-results-message"></span>
+            </div>
         </div>
 
+        <!-- Card 2: Total Decks (Last Update) -> tu JS esperaba este id -->
+        <div class="stat-card">
+            <div class="stat-period">Last Update</div>
+            <div class="stat-label">Total Decks</div>
+            <div class="stat-value">
+                <span id="total-decks-stat">0</span>
+            </div>
+        </div>
+
+        <!-- Card 3: Top Archetype (Last Update) -> tu JS esperaba este id -->
+        <div class="stat-card">
+            <div class="stat-period">Last Update</div>
+            <div class="stat-label">Top Archetype</div>
+            <div class="stat-value" style="font-size: 1.25rem;">
+                <span id="top-archetype-stat">-</span>
+            </div>
+        </div>
+
+        <!-- Card 4: Avg Rank (Last Update) -->
         <div class="stat-card">
             <div class="stat-period">Last Update</div>
             <div class="stat-label">Avg. Rank</div>
@@ -78,6 +104,8 @@
                 <span id="avg-rank-stat">#0</span>
             </div>
         </div>
+
+        <!-- Card 5: Total Decks (24h) -->
         <div class="stat-card">
             <div class="stat-period">Last 24h</div>
             <div class="stat-label">Total Decks</div>
@@ -85,6 +113,8 @@
                 <span id="total-decks-24h-stat">0</span>
             </div>
         </div>
+
+        <!-- Card 6: Top Archetype (24h) -->
         <div class="stat-card">
             <div class="stat-period">Last 24h</div>
             <div class="stat-label">Top Archetype</div>
@@ -92,6 +122,8 @@
                 <span id="top-archetype-24h-stat">-</span>
             </div>
         </div>
+
+        <!-- Card 7: Avg Rank (24h) -->
         <div class="stat-card">
             <div class="stat-period">Last 24h</div>
             <div class="stat-label">Avg. Rank</div>
@@ -106,18 +138,18 @@
         <!-- Sidebar Filters -->
         <aside class="sidebar">
             <h3>Filters</h3>
-            
+
             <div class="filter-group">
                 <label class="filter-label">Class</label>
                 <select class="filter-select" id="filter-class">
-                    <option value="any">Any</option>
+                    <option value="">Any</option>
                 </select>
             </div>
-            
+
             <div class="filter-group">
                 <label class="filter-label">Rank Range</label>
                 <select class="filter-select" id="filter-rank">
-                    <option value="any">Any</option>
+                    <option value="">Any</option>
                     <option value="top10">Top 10</option>
                     <option value="top25">Top 25</option>
                     <option value="top50">Top 50</option>
@@ -141,12 +173,12 @@
                     <div class="spinner"></div>
                     <p>Loading Top 100 decks...</p>
                 </div>
-                
+
                 <div id="empty-state" class="hidden">
                     <p>❌ No decks available</p>
                     <p>Run <code>node index_hsguru_replays.js</code> first</p>
                 </div>
-                
+
                 <!-- Decks Table -->
                 <div id="decks-table-container" class="hidden">
                     <h2 class="section-title">Top Decks</h2>
@@ -171,7 +203,7 @@
                 <div id="meta-snapshot" class="meta-snapshot">
                     <h2>📊 Meta Snapshot</h2>
                     <p class="subtitle">Analysis based on data from the last 24 hours</p>
-                    
+
                     <div class="meta-grid">
                         <!-- Chart -->
                         <div>
@@ -180,7 +212,7 @@
                                 <canvas id="classChart"></canvas>
                             </div>
                         </div>
-                        
+
                         <!-- Top Archetypes -->
                         <div class="top-archetypes">
                             <h3>🔥 Most Played Archetypes</h3>
@@ -197,18 +229,18 @@
                 <div id="meta-score-section" class="meta-snapshot">
                     <h2>🏆 Meta Score & Tier List</h2>
                     <p class="subtitle" id="meta-score-subtitle">Archetype ranking based on popularity, diversity and performance</p>
-                    
+
                     <!-- Period Selector -->
                     <div class="period-selector" style="margin: 1.5rem 0;">
                         <button class="period-btn active" data-period="24h">24 Hours</button>
                         <button class="period-btn" data-period="7d">7 Days</button>
                         <button class="period-btn" data-period="30d">30 Days</button>
                     </div>
-                    
+
                     <div id="meta-score-list" style="margin-top: 24px;">
                         <!-- Will be populated by JS -->
                     </div>
-                    
+
                     <div id="meta-score-methodology" style="margin-top: 20px; padding: 16px; background: var(--bg-card); border: 1px solid var(--border-color); border-radius: 8px; font-size: 0.875rem; color: var(--text-secondary);">
                         <strong>Meta Score Methodology:</strong><br>
                         • 40% Frequency - Appearances in the selected period<br>
@@ -233,7 +265,7 @@
             </div>
         </main>
     </div>
-    
+
     <footer>
         <div class="footer-content">
             <div class="footer-social">
@@ -249,9 +281,6 @@
                     </svg>
                 </a>
             </div>
-            <script>
-                (window.adsbygoogle = window.adsbygoogle || []).push({});
-            </script>
 
             <div class="footer-copyright">
                 © 2026 • Automatically updated every 30 minutes<br>
@@ -270,30 +299,26 @@
             const themeToggle = document.getElementById('theme-toggle');
             const themeIcon = document.getElementById('theme-icon');
             const htmlElement = document.documentElement;
-            
-            // Check for saved theme preference or default to light mode
+
             const currentTheme = localStorage.getItem('theme') || 'light';
             htmlElement.setAttribute('data-theme', currentTheme);
             updateIcon(currentTheme);
-            
+
             themeToggle.addEventListener('click', () => {
                 const currentTheme = htmlElement.getAttribute('data-theme');
                 const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
-                
+
                 htmlElement.setAttribute('data-theme', newTheme);
                 localStorage.setItem('theme', newTheme);
                 updateIcon(newTheme);
-                
+
                 // Reload chart with new colors if it exists
-                if (metaChart && metaData.snapshots) {
-                    const activeTab = document.querySelector('.nav-tab.active');
-                    const period = activeTab ? activeTab.dataset.tab : '24h';
-                    if (metaData.snapshots[period]) {
-                        renderMetaSnapshot(metaData.snapshots[period], period);
-                    }
+                // FIX: metaData.metaSnapshot (no metaData.snapshots)
+                if (metaChart && metaData.metaSnapshot && metaData.metaSnapshot['24h']) {
+                    renderMetaSnapshot(metaData.metaSnapshot['24h']);
                 }
             });
-            
+
             function updateIcon(theme) {
                 themeIcon.textContent = theme === 'dark' ? '☀️' : '🌙';
             }
@@ -303,21 +328,16 @@
         document.addEventListener('DOMContentLoaded', () => {
             const tabs = document.querySelectorAll('.nav-tab');
             const tabContents = document.querySelectorAll('.tab-content');
-            
+
             tabs.forEach(tab => {
                 tab.addEventListener('click', () => {
                     const targetTab = tab.dataset.tab;
-                    
-                    // Remove active class from all tabs and contents
+
                     tabs.forEach(t => t.classList.remove('active'));
                     tabContents.forEach(c => c.classList.remove('active'));
-                    
-                    // Add active class to clicked tab and corresponding content
+
                     tab.classList.add('active');
                     document.getElementById(`tab-${targetTab}`).classList.add('active');
-
-                    // Nota: NO hacemos adsbygoogle.push() aquí.
-                    // Los anuncios se inicializan justo después de cada <ins class="adsbygoogle">.
                 });
             });
         });
@@ -328,17 +348,15 @@
                 console.log('📡 Fetching top_decks.json...');
                 const response = await fetch('top_decks.json');
                 console.log('📊 Response status:', response.status);
-                
-                if (!response.ok) {
-                    throw new Error(`HTTP error! status: ${response.status}`);
-                }
-                
+
+                if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
+
                 const data = await response.json();
                 console.log('✅ Data loaded:', data);
-                
+
                 allDecks = data.decks || [];
                 console.log('📋 Total decks:', allDecks.length);
-                
+
                 // Update metadata
                 const lastUpdate = new Date(data.lastUpdate).toLocaleString('en-US', {
                     timeZone: 'Europe/Madrid',
@@ -349,7 +367,7 @@
                     minute: '2-digit'
                 });
                 document.getElementById('last-update').textContent = `Updated: ${lastUpdate} CET`;
-                
+
                 // Check if there are no new results
                 if (data.noNewResults && data.noNewResultsMessage) {
                     const banner = document.getElementById('no-new-results-banner');
@@ -359,10 +377,10 @@
                         banner.classList.remove('hidden');
                     }
                 }
-                
+
                 // Update stats (Last Update)
                 document.getElementById('total-decks-stat').textContent = data.totalDecks || allDecks.length;
-                
+
                 // Calculate top archetype (Last Update)
                 const archetypeCounts = {};
                 allDecks.forEach(d => {
@@ -371,71 +389,66 @@
                 });
                 const topArchetype = Object.keys(archetypeCounts).sort((a, b) => archetypeCounts[b] - archetypeCounts[a])[0];
                 document.getElementById('top-archetype-stat').textContent = topArchetype || '-';
-                
+
                 // Calculate avg rank (Last Update)
-                const avgRank = Math.round(allDecks.reduce((sum, d) => sum + d.rank, 0) / allDecks.length);
+                const avgRank = Math.round(allDecks.reduce((sum, d) => sum + d.rank, 0) / (allDecks.length || 1));
                 document.getElementById('avg-rank-stat').textContent = `#${avgRank}`;
-                
+
                 // Update stats (Last 24h) from metaScore data
                 if (data.metaScore && data.metaScore['24h']) {
                     const metaScore24h = data.metaScore['24h'];
                     document.getElementById('total-decks-24h-stat').textContent = metaScore24h.totalDecksAnalyzed || 0;
-                    
+
                     if (metaScore24h.archetypes && metaScore24h.archetypes.length > 0) {
                         const topArchetype24h = metaScore24h.archetypes[0].name;
                         document.getElementById('top-archetype-24h-stat').textContent = topArchetype24h;
-                        
-                        // Calculate avg rank from all archetypes
+
                         let totalRank = 0;
                         let totalCount = 0;
                         metaScore24h.archetypes.forEach(arch => {
                             totalRank += arch.avgRank * arch.count;
                             totalCount += arch.count;
                         });
-                        const avgRank24h = Math.round(totalRank / totalCount);
+                        const avgRank24h = Math.round(totalRank / (totalCount || 1));
                         document.getElementById('avg-rank-24h-stat').textContent = `#${avgRank24h}`;
                     }
                 }
-                
+
                 // Store meta data for all periods
                 metaData = {
                     metaSnapshot: data.metaSnapshot,
                     metaScore: data.metaScore
                 };
-                
+
                 // Render Meta Snapshot if available (default to 24h)
                 if (data.metaSnapshot && data.metaSnapshot['24h']) {
                     renderMetaSnapshot(data.metaSnapshot['24h']);
                     initializeMetaSnapshotPeriodSelector();
                 }
-                
+
                 // Render Meta Score if available (default to 24h)
                 if (data.metaScore && data.metaScore['24h']) {
                     renderMetaScore(data.metaScore['24h']);
                     initializeMetaScorePeriodSelector();
                 }
-                
+
                 // Hide loading
                 document.getElementById('loading').classList.add('hidden');
-                console.log('🚫 Loading hidden');
-                
+
                 if (allDecks.length === 0) {
-                    console.log('⚠️ No decks found');
                     document.getElementById('empty-state').classList.remove('hidden');
                     return;
                 }
-                
+
                 // Show decks table
-                console.log('📺 Showing decks table');
                 document.getElementById('decks-table-container').classList.remove('hidden');
-                
+
                 initializeFilters();
                 renderDecksTable();
-                console.log('✨ Rendering complete');
-                
+
             } catch (error) {
                 console.error('❌ Error loading decks:', error);
-                document.getElementById('loading').innerHTML = 
+                document.getElementById('loading').innerHTML =
                     `<div class="text-center">
                         <p class="text-red-400 text-xl mb-2">❌ Error loading data</p>
                         <p class="text-sm text-gray-500">Make sure top_decks.json exists and is valid</p>
@@ -445,9 +458,8 @@
 
         // Filter and Search functionality
         let filteredDecks = [];
-        
+
         function initializeFilters() {
-            // Populate class filter with unique classes (extract from deck name)
             const classes = [...new Set(allDecks.map(d => {
                 const deckName = d.deck?.name;
                 if (deckName) {
@@ -456,6 +468,7 @@
                 }
                 return null;
             }).filter(Boolean))].sort();
+
             const classFilter = document.getElementById('filter-class');
             classFilter.innerHTML = '<option value="">All Classes</option>';
             classes.forEach(cls => {
@@ -464,85 +477,74 @@
                 option.textContent = cls;
                 classFilter.appendChild(option);
             });
-            
-            // Add event listeners
+
             document.getElementById('filter-class').addEventListener('change', applyFilters);
             document.getElementById('filter-rank').addEventListener('change', applyFilters);
             document.getElementById('search-input').addEventListener('input', applyFilters);
-            
-            // Initial render with all decks
+
             filteredDecks = [...allDecks];
         }
-        
+
         function applyFilters() {
             const classFilter = document.getElementById('filter-class').value;
             const rankFilter = document.getElementById('filter-rank').value;
             const searchTerm = document.getElementById('search-input').value.toLowerCase();
-            
+
             filteredDecks = allDecks.filter(deck => {
-                // Class filter
                 if (classFilter) {
                     const deckName = deck.deck?.name;
                     if (deckName) {
                         const words = deckName.split(' ');
                         const deckClass = words[words.length - 1];
                         if (deckClass !== classFilter) return false;
-                    } else {
-                        return false;
-                    }
+                    } else return false;
                 }
-                
-                // Rank filter
+
                 if (rankFilter === 'top10' && deck.rank > 10) return false;
+                if (rankFilter === 'top25' && deck.rank > 25) return false;
                 if (rankFilter === 'top50' && deck.rank > 50) return false;
-                
-                // Search filter
+
                 if (searchTerm) {
                     const deckName = (deck.deck?.name || '').toLowerCase();
                     const playerName = (deck.name || '').toLowerCase();
                     if (!deckName.includes(searchTerm) && !playerName.includes(searchTerm)) return false;
                 }
-                
+
                 return true;
             });
-            
-            // Re-render table with filtered decks
+
             renderDecksTable(filteredDecks);
         }
-        
+
         function renderDecksTable(decksToRender = allDecks) {
-            console.log('🎨 Rendering', decksToRender.length, 'decks in table');
             const tbody = document.getElementById('decks-table-body');
             tbody.innerHTML = '';
-            
+
             if (decksToRender.length === 0) {
                 const tr = document.createElement('tr');
-                tr.innerHTML = '<td colspan="4" style="text-align: center; padding: 2rem; color: var(--text-muted);">No decks match your filters</td>';
+                tr.innerHTML = '<td colspan="4" style="text-align: center; padding: 2rem; color: var(--text-secondary);">No decks match your filters</td>';
                 tbody.appendChild(tr);
                 return;
             }
-            
+
             decksToRender.forEach((deck, i) => {
                 const tr = document.createElement('tr');
                 tr.dataset.deckIndex = i;
-                
+
                 const hasDeck = deck.deck && deck.deck.code;
                 const deckName = deck.deck?.name || 'Unknown Deck';
                 const lastSeen = deck.lastSeen || 'Unknown';
-                
-                // Get rank badge
+
                 const rankBadge = getRankBadge(deck.rank);
-                
-                // Extract class from deck name (last word)
+
                 let className = null;
                 if (deckName && deckName !== 'Unknown Deck') {
                     const words = deckName.split(' ');
                     className = words[words.length - 1];
                 }
-                
-                // Get class icon
+
                 const classIcon = getClassIcon(className);
-                
+
                 tr.innerHTML = `
                     <td>
                         <div class="rank-badge ${rankBadge.color}">
@@ -556,7 +558,7 @@
                             <span>${escapeHtml(deckName)}</span>
                         </div>
                     </td>
-                    <td>${escapeHtml(lastSeen)}</td>
+                    <td class="time-cell">${escapeHtml(lastSeen)}</td>
                     <td>
                         ${hasDeck ? `
                             <button class="copy-btn" data-deck-code="${escapeHtml(deck.deck.code)}">
@@ -565,11 +567,9 @@
                         ` : '-'}
                     </td>
                 `;
-                
+
                 tbody.appendChild(tr);
             });
-            
-            console.log('✅ Table rendered');
         }
 
         function getRankBadge(rank) {
@@ -579,7 +579,7 @@
             if (rank <= 100) return { icon: '🎯', color: 'rank-100' };
             return { icon: '🔥', color: 'rank-default' };
         }
-        
+
         function getClassIcon(className) {
             const classFiles = {
                 'Death Knight': 'deathknight',
@@ -596,18 +596,17 @@
                 'Warlock': 'warlock',
                 'Warrior': 'warrior'
             };
-            
+
             const fileName = classFiles[className] || 'neutral';
-            return `<img src="assets/class_emblems/${fileName}.png" alt="${className}" onerror="this.style.display='none'; this.parentElement.textContent='🃏'">`;
+            return `<img src="assets/class_emblems/${fileName}.png" alt="${className || ''}" onerror="this.style.display='none'; this.parentElement.textContent='🃏'">`;
         }
 
         function copyDeckCode(code, button) {
             navigator.clipboard.writeText(code).then(() => {
                 const originalHTML = button.innerHTML;
-                
                 button.innerHTML = '✅ Copied!';
                 button.className = 'copy-btn copied';
-                
+
                 setTimeout(() => {
                     button.innerHTML = originalHTML;
                     button.className = 'copy-btn';
@@ -623,30 +622,33 @@
             div.textContent = text;
             return div.innerHTML;
         }
-        
+
         function renderMetaSnapshot(snapshot) {
-            console.log('📊 Rendering Meta Snapshot', snapshot);
-            
+            if (!snapshot || !snapshot.classDistribution) return;
+
             const subtitleEl = document.querySelector('#tab-meta-snapshot .subtitle');
             if (subtitleEl && snapshot.totalDecksAnalyzed) {
                 subtitleEl.textContent = `Analysis based on ${snapshot.totalDecksAnalyzed} decks from the last 24 hours`;
             }
-            
+
             const classes = Object.keys(snapshot.classDistribution);
             const counts = Object.values(snapshot.classDistribution);
-            
+
             const colors = [
                 '#FF7D0A', '#ABD473', '#69CCF0', '#F58CBA', '#FFFFFF',
                 '#FFF569', '#0070DE', '#9482C9', '#C79C6E', '#00FF96', '#FF4444',
             ];
-            
+
             if (metaChart) metaChart.destroy();
-            
+
             const isDarkMode = document.documentElement.getAttribute('data-theme') === 'dark';
             const textColor = isDarkMode ? '#e5e5e5' : '#000000';
             const borderColor = isDarkMode ? '#3a3a3a' : '#1f2937';
-            
-            const ctx = document.getElementById('classChart').getContext('2d');
+
+            const canvas = document.getElementById('classChart');
+            if (!canvas) return;
+
+            const ctx = canvas.getContext('2d');
             metaChart = new Chart(ctx, {
                 type: 'doughnut',
                 data: {
@@ -675,7 +677,7 @@
                                 label: function(context) {
                                     const label = context.label || '';
                                     const value = context.parsed || 0;
-                                    const percentage = snapshot.classPercentages[label] || '0';
+                                    const percentage = snapshot.classPercentages?.[label] || '0';
                                     return `${label}: ${value} mazos (${percentage}%)`;
                                 }
                             }
@@ -683,11 +685,12 @@
                     }
                 }
             });
-            
+
             const archetypesList = document.getElementById('top-archetypes-list');
+            if (!archetypesList) return;
+
             archetypesList.innerHTML = '';
-            
-            snapshot.topArchetypes.forEach((archetype, index) => {
+            (snapshot.topArchetypes || []).forEach((archetype, index) => {
                 const item = document.createElement('div');
                 item.className = 'archetype-item';
                 item.innerHTML = `
@@ -701,33 +704,35 @@
                 `;
                 archetypesList.appendChild(item);
             });
-            
-            console.log('✅ Meta Snapshot rendered');
         }
-        
+
         function renderMetaScore(metaScore) {
-            console.log('🏆 Rendering Meta Score', metaScore);
-            
+            if (!metaScore) return;
+
             const subtitleEl = document.getElementById('meta-score-subtitle');
             if (subtitleEl && metaScore.totalDecksAnalyzed) {
                 subtitleEl.textContent = `Archetype ranking based on ${metaScore.totalDecksAnalyzed} decks from ${metaScore.period}`;
             }
-            
+
             const scoreList = document.getElementById('meta-score-list');
+            if (!scoreList) return;
+
             scoreList.innerHTML = '';
-            
+
             if (!metaScore.archetypes || metaScore.archetypes.length === 0) {
-                scoreList.innerHTML = '<p style="text-align: center; color: var(--text-muted); padding: 2rem;">No data available for this period yet</p>';
+                scoreList.innerHTML = '<p style="text-align: center; color: var(--text-secondary); padding: 2rem;">No data available for this period yet</p>';
                 return;
             }
-            
+
             metaScore.archetypes.forEach((archetype, index) => {
                 const item = document.createElement('div');
                 item.className = 'meta-score-item';
+
                 let copyBtn = '';
                 if (archetype.sampleDeckCode) {
-                    copyBtn = `<button class="copy-btn" data-deck-code="${escapeHtml(archetype.sampleDeckCode)}" title="Copiar deck">Copiar deck</button>`;
+                    copyBtn = `<button class="copy-btn" data-deck-code="${escapeHtml(archetype.sampleDeckCode)}" title="Copy deck">Copy</button>`;
                 }
+
                 item.innerHTML = `
                     <div class="tier-badge tier-${archetype.tier}">${archetype.tier}</div>
                     <div class="meta-score-info">
@@ -741,55 +746,46 @@
                     </div>
                     <div class="meta-score-value">${archetype.metaScore}</div>
                 `;
-                // Añadir event listener al botón copiar si existe
-                if (archetype.sampleDeckCode) {
-                    setTimeout(() => {
-                        const btn = item.querySelector('.copy-btn');
-                        if (btn) {
-                            btn.addEventListener('click', function(e) {
-                                e.stopPropagation();
-                                copyDeckCode(archetype.sampleDeckCode, btn);
-                            });
-                        }
-                    }, 0);
-                }
+
                 scoreList.appendChild(item);
             });
-            
-            console.log('✅ Meta Score rendered');
         }
-        
+
         function initializeMetaScorePeriodSelector() {
             const periodButtons = document.querySelectorAll('#tab-meta-score .period-btn');
             periodButtons.forEach(btn => {
                 btn.addEventListener('click', () => {
                     const period = btn.dataset.period;
-                    
+
                     periodButtons.forEach(b => b.classList.remove('active'));
                     btn.classList.add('active');
-                    
+
                     if (metaData.metaScore && metaData.metaScore[period]) {
                         renderMetaScore(metaData.metaScore[period]);
                     }
                 });
             });
         }
-        
+
         function initializeMetaSnapshotPeriodSelector() {
             // Placeholder - currently only 24h
         }
 
-        function assignCopyDeckEvents() {
-            document.querySelectorAll('.copy-btn').forEach(btn => {
-                btn.addEventListener('click', function(e) {
-                    e.stopPropagation();
-                    copyDeckCode(this.getAttribute('data-deck-code'), this);
-                });
-            });
-        }
+        // Delegación de eventos: SIEMPRE funciona aunque re-renderices el DOM
+        document.addEventListener('click', (e) => {
+            const btn = e.target.closest('.copy-btn');
+            if (!btn) return;
+            const code = btn.getAttribute('data-deck-code');
+            if (!code) return;
+            e.preventDefault();
+            e.stopPropagation();
+            copyDeckCode(code, btn);
+        });
 
-        loadDecks();
-        setTimeout(assignCopyDeckEvents, 500);
+        // Espera a DOM listo + a que Chart.js haya cargado (defer)
+        window.addEventListener('load', () => {
+            loadDecks();
+        });
     </script>
 </body>
 </html>
