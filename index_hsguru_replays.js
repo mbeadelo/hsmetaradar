@@ -816,16 +816,28 @@ async function scrapeHSGuruReplays() {
       };
     }
 
-    const stats24h = calculateMetaStats(allDecks24h, 'Last 24 hours', archetypeLatest);
-    const stats7d = calculateMetaStats(allDecks7d, 'Last 7 days', archetypeLatest);
-    const stats30d = calculateMetaStats(allDecks30d, 'Last 30 days', archetypeLatest);
+
+    // Inicialización segura de stats y salida
+    let stats24h = { snapshot: [], metaScore: { archetypes: [] } };
+    let stats7d = { snapshot: [], metaScore: { archetypes: [] } };
+    let stats30d = { snapshot: [], metaScore: { archetypes: [] } };
+
+    try {
+      stats24h = calculateMetaStats(allDecks24h, 'Last 24 hours', archetypeLatest) || stats24h;
+    } catch (e) { console.warn('No se pudo calcular stats24h:', e); }
+    try {
+      stats7d = calculateMetaStats(allDecks7d, 'Last 7 days', archetypeLatest) || stats7d;
+    } catch (e) { console.warn('No se pudo calcular stats7d:', e); }
+    try {
+      stats30d = calculateMetaStats(allDecks30d, 'Last 30 days', archetypeLatest) || stats30d;
+    } catch (e) { console.warn('No se pudo calcular stats30d:', e); }
 
     const output = {
       lastUpdate: new Date().toISOString(),
       source: "HSGuru Top 100 + HSReplay player names",
-      totalDecks: finalDecks.length,
-      knownPlayers: inList,
-      decks: finalDecks,
+      totalDecks: finalDecks ? finalDecks.length : 0,
+      knownPlayers: inList || 0,
+      decks: finalDecks || [],
       noNewResults: false,
       metaSnapshot: {
         '24h': stats24h.snapshot,
