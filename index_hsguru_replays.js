@@ -1,3 +1,11 @@
+// --- VERIFICACIÓN DE VERSIÓN PARA GITHUB ACTIONS ---
+try {
+  const { execSync } = require('child_process');
+  const commit = execSync('git rev-parse --short HEAD').toString().trim();
+  console.log(`🟢 index_hsguru_replays.js versión commit: ${commit} - Fecha: ${new Date().toISOString()}`);
+} catch (e) {
+  console.log(`🟢 index_hsguru_replays.js versión local (sin git): ${new Date().toISOString()}`);
+}
 const { chromium } = require('playwright');
 const fs = require('fs');
 const path = require('path');
