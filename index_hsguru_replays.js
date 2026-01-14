@@ -355,6 +355,15 @@ async function scrapeHSGuruReplays() {
           continue;
         }
 
+
+        // Crear una nueva página para cada replay
+        const replayPage = await browser.newPage({ userAgent });
+        await configurePage(replayPage);
+        await replayPage.setViewportSize({ width: 1920, height: 1080 });
+        await replayPage.addInitScript(() => {
+          Object.defineProperty(navigator, 'webdriver', { get: () => false });
+        });
+
         // Navegar con reintentos (Cloudflare / latencia)
         await gotoWithRetries(replayPage, replayUrl, { waitUntil: 'domcontentloaded', timeout: 45000 }, 3);
 
@@ -468,6 +477,7 @@ async function scrapeHSGuruReplays() {
 
             if (playerNames.length === 0) {
               console.log('❌ Replay sin información (posible surrender temprano)');
+              await replayPage.close();
               continue;
             }
 
@@ -513,6 +523,16 @@ async function scrapeHSGuruReplays() {
             deckCodes = firestoneData.codes;
           }
         }
+
+        if (playerNames.length > 0) {
+          console.log(`✅ ${playerNames.join(' vs ')} (${deckCodes.length || group.length} decks)`);
+        } else {
+          console.log('❌ Sin nombres');
+        }
+
+        // Pequeña pausa para no “calentar” el proceso
+        await replayPage.waitForTimeout(250);
+        await replayPage.close();
 
         // Asignar nombres / códigos al grupo según deckIndex
         group.forEach((replay, idx) => {
