@@ -638,6 +638,7 @@ async function scrapeHSGuruReplays() {
     // ========================================
     console.log('\n🔄 Calculando estadísticas para múltiples períodos de tiempo...\n');
 
+
     function getDecksForPeriod(entries, hours, cap = MAX_DECKS_PER_PERIOD) {
       const now = Date.now();
       const cutoff = now - (hours * 60 * 60 * 1000);
@@ -660,7 +661,10 @@ async function scrapeHSGuruReplays() {
       return decks;
     }
 
-    // ...existing code...
+    // Declarar e inicializar los arrays de decks por periodo
+    const allDecks24h = getDecksForPeriod(historical.entries, 24);
+    const allDecks7d = getDecksForPeriod(historical.entries, 24 * 7);
+    const allDecks30d = getDecksForPeriod(historical.entries, 24 * 30);
 
     console.log(`📈 Mazos por período (cap ${MAX_DECKS_PER_PERIOD}):`);
     console.log(`   - 24h: ${allDecks24h.length} mazos`);
@@ -672,11 +676,7 @@ async function scrapeHSGuruReplays() {
       // ...existing code...
     }
 
-    // Inicialización segura de arrays y stats (solo asignar si están indefinidas)
-    // (No redeclarar si ya existen)
-    if (typeof allDecks24h === 'undefined' || !Array.isArray(allDecks24h)) global.allDecks24h = [];
-    if (typeof allDecks7d === 'undefined' || !Array.isArray(allDecks7d)) global.allDecks7d = [];
-    if (typeof allDecks30d === 'undefined' || !Array.isArray(allDecks30d)) global.allDecks30d = [];
+    // Inicialización segura de finalDecks (solo asignar si está indefinida)
     if (typeof finalDecks === 'undefined' || !Array.isArray(finalDecks)) global.finalDecks = [];
 
     // ...existing code...
