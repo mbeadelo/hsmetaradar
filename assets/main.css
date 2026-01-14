@@ -1,3 +1,12 @@
+/* Footer logo fix */
+.footer-logo {
+    width: 32px;
+    height: 32px;
+    object-fit: contain;
+    display: inline-block;
+    margin: 0 8px;
+    vertical-align: middle;
+}
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
 
 * { margin: 0; padding: 0; box-sizing: border-box; }
