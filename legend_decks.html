@@ -976,6 +976,7 @@
             
             <div class="search-bar">
                 <input type="text" placeholder="Search decks..." id="search-input">
+                <a href="#youtube-members-link" target="_blank" class="social-btn youtube" style="font-weight:600; background:#ff0000; color:white; border-radius:6px; padding:6px 14px; font-size:0.98rem; text-decoration:none; margin-left:8px;">YouTube Members</a>
             </div>
             
             <div class="header-actions">
@@ -990,19 +991,34 @@
     <!-- Stats Cards -->
     <div class="stats-grid">
         <div class="stat-card">
-            <div class="stat-period">Last Update</div>
-            <div class="stat-label">Total Decks</div>
-            <div class="stat-value">
-                <span id="total-decks-stat">0</span>
+            <div class="footer-social">
+                <a href="https://www.youtube.com/@Enterra" target="_blank" class="footer-social-btn" aria-label="YouTube">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+                    </svg>
+                </a>
+                <img src="assets/logo_enterra.png" alt="Enterra" class="footer-logo" />
+                <a href="https://twitter.com/EnterraTV" target="_blank" class="footer-social-btn" aria-label="Twitter/X">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+                    </svg>
+                </a>
             </div>
-        </div>
-        <div class="stat-card">
-            <div class="stat-period">Last Update</div>
-            <div class="stat-label">Top Archetype</div>
-            <div class="stat-value" style="font-size: 1.25rem;">
-                <span id="top-archetype-stat">-</span>
+
+            <!-- Support Block -->
+            <div class="support-block" style="margin: 24px 0; padding: 18px; background: var(--bg-card); border: 1px solid var(--border-color); border-radius: 10px; text-align: center;">
+                <div style="font-weight: 600; font-size: 1.1rem; margin-bottom: 10px;">Do you find HS Meta Radar useful?</div>
+                <div style="display: flex; gap: 12px; justify-content: center; margin-bottom: 8px; flex-wrap: wrap;">
+                    <a href="#patreon-link" target="_blank" class="social-btn" style="background:#ff424d;color:white;">Support me on Patreon</a>
+                </div>
+                <div style="font-size:0.95rem; color:var(--text-secondary);">Help cover hosting and improvements. Thank you!</div>
             </div>
-        </div>
+
+            <!-- Zero Cookies Banner (optional) -->
+            <div class="info-banner" style="margin-bottom: 18px;">
+                <strong>No tracking cookies.</strong> Only basic technical logs for security. No analytics, no ads (except YouTube/Patreon links).
+            </div>
+
         <div class="stat-card">
             <div class="stat-period">Last Update</div>
             <div class="stat-label">Avg. Rank</div>
@@ -1155,8 +1171,12 @@
                 <div class="about-section">
                     <h2>📡 About Hearthstone Meta Radar</h2>
                     <p>Automatic real-time tracker of <strong>Top 100 Legend</strong> Hearthstone decks.</p>
-                    <p>Data is automatically updated every <strong>30 minutes</strong> from HSGuru, HSReplay & Firestone.</p>
+                    <p><strong>HS Meta Radar</strong> is an automatic real-time tracker of <strong>Top 100 Legend</strong> Hearthstone decks. Data is updated every <strong>30 minutes</strong> from public sources: HSGuru, HSReplay & Firestone.</p>
+                    <p>No tracking cookies, no analytics, no personal data collected. Only basic technical logs for security.</p>
+                    <p><strong>Disclaimer:</strong> This site is not affiliated with Blizzard Entertainment. All Hearthstone assets are property of Blizzard.</p>
                     <p class="creator-tag">Created and maintained by <strong>Entërra</strong></p>
+                    <h3 style="margin-top:2rem; font-size:1.1rem; color:var(--accent-gold);">Contact</h3>
+                    <p>For feedback, suggestions or issues, contact: <a href="mailto:your@email.com">your@email.com</a></p>
                 </div>
             </div>
         </main>
@@ -1662,6 +1682,10 @@
             metaScore.archetypes.forEach((archetype, index) => {
                 const item = document.createElement('div');
                 item.className = 'meta-score-item';
+                let copyBtn = '';
+                if (archetype.sampleDeckCode) {
+                    copyBtn = `<button class="copy-btn" data-deck-code="${escapeHtml(archetype.sampleDeckCode)}" title="Copiar deck">Copiar deck</button>`;
+                }
                 item.innerHTML = `
                     <div class="tier-badge tier-${archetype.tier}">${archetype.tier}</div>
                     <div class="meta-score-info">
@@ -1670,10 +1694,23 @@
                             <span>📊 ${archetype.count} decks (${archetype.percentage}%)</span>
                             <span>👥 ${archetype.uniquePlayers} players</span>
                             <span>📈 Avg Rank #${archetype.avgRank}</span>
+                            ${copyBtn}
                         </div>
                     </div>
                     <div class="meta-score-value">${archetype.metaScore}</div>
                 `;
+                // Añadir event listener al botón copiar si existe
+                if (archetype.sampleDeckCode) {
+                    setTimeout(() => {
+                        const btn = item.querySelector('.copy-btn');
+                        if (btn) {
+                            btn.addEventListener('click', function(e) {
+                                e.stopPropagation();
+                                copyDeckCode(archetype.sampleDeckCode, btn);
+                            });
+                        }
+                    }, 0);
+                }
                 scoreList.appendChild(item);
             });
             
