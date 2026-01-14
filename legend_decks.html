@@ -1658,25 +1658,35 @@
             console.log('✅ Meta Snapshot rendered');
         }
         
-        function renderMetaScore(metaScore) {
+        async function renderMetaScore(metaScore) {
             console.log('🏆 Rendering Meta Score', metaScore);
-            
             const subtitleEl = document.getElementById('meta-score-subtitle');
             if (subtitleEl && metaScore.totalDecksAnalyzed) {
                 subtitleEl.textContent = `Archetype ranking based on ${metaScore.totalDecksAnalyzed} decks from ${metaScore.period}`;
             }
-            
             const scoreList = document.getElementById('meta-score-list');
             scoreList.innerHTML = '';
-            
             if (!metaScore.archetypes || metaScore.archetypes.length === 0) {
                 scoreList.innerHTML = '<p style="text-align: center; color: var(--text-muted); padding: 2rem;">No data available for this period yet</p>';
                 return;
             }
-            
+            // Cargar archetype_latest.json
+            let latestCodes = {};
+            try {
+                const res = await fetch('archetype_latest.json');
+                if (res.ok) {
+                    latestCodes = await res.json();
+                }
+            } catch (e) { console.warn('No archetype_latest.json or invalid'); }
             metaScore.archetypes.forEach((archetype, index) => {
                 const item = document.createElement('div');
                 item.className = 'meta-score-item';
+                // Buscar código: primero en el arquetipo, si no en latestCodes
+                let deckCode = archetype.sampleDeckCode || latestCodes[archetype.name] || '';
+                let copyBtn = '';
+                if (deckCode) {
+                    copyBtn = `<button class="copy-btn" data-deck-code="${escapeHtml(deckCode)}" title="Copy deck">Copy deck</button>`;
+                }
                 item.innerHTML = `
                     <div class="tier-badge tier-${archetype.tier}">${archetype.tier}</div>
                     <div class="meta-score-info">
@@ -1685,13 +1695,13 @@
                             <span>📊 ${archetype.count} decks (${archetype.percentage}%)</span>
                             <span>👥 ${archetype.uniquePlayers} players</span>
                             <span>📈 Avg Rank #${archetype.avgRank}</span>
+                            ${copyBtn}
                         </div>
                     </div>
                     <div class="meta-score-value">${archetype.metaScore}</div>
                 `;
                 scoreList.appendChild(item);
             });
-            
             console.log('✅ Meta Score rendered');
         }
         
