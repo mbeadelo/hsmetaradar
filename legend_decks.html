@@ -1664,7 +1664,7 @@
                 const item = document.createElement('div');
                 item.className = 'meta-score-item';
                 // Buscar código: primero en el arquetipo, si no en latestCodes
-                let deckCode = archetype.sampleDeckCode || latestCodes[archetype.name] || '';
+                let deckCode = archetype.sampleDeckCode || latestCodes[archetype.name]?.code || '';
                 let copyBtn = '';
                 if (deckCode) {
                     copyBtn = `<button class="copy-btn" data-deck-code="${escapeHtml(deckCode)}" title="Copy deck">Copy deck</button>`;
@@ -1684,6 +1684,7 @@
                 `;
                 scoreList.appendChild(item);
             });
+            assignCopyDeckEvents();
             console.log('✅ Meta Score rendered');
         }
         
