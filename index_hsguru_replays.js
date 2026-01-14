@@ -7,6 +7,20 @@ const path = require('path');
 // ================================
 const DATA_DIR = process.env.DATA_DIR || process.cwd();
 const LOCK_FILE = path.join(DATA_DIR, '.scrape.lock');
+const ARCHETYPE_LATEST_FILE = path.join(DATA_DIR, 'archetype_latest.json');
+
+function loadArchetypeLatest() {
+  if (!fs.existsSync(ARCHETYPE_LATEST_FILE)) return {};
+  try {
+    return JSON.parse(fs.readFileSync(ARCHETYPE_LATEST_FILE, 'utf-8'));
+  } catch {
+    return {};
+  }
+}
+
+function saveArchetypeLatest(obj) {
+  writeJsonAtomic(ARCHETYPE_LATEST_FILE, obj);
+}
 
 // Limitar memoria de stats (evita OOM cuando el histórico crece)
 const MAX_DECKS_PER_PERIOD = parseInt(process.env.MAX_DECKS_PER_PERIOD || '1200', 10);
@@ -590,6 +604,29 @@ async function scrapeHSGuruReplays() {
       console.log('✨ master_list.json actualizado');
     }
 
+
+    // ========================================
+    // ACTUALIZAR archetype_latest.json
+    // ========================================
+    let archetypeLatest = loadArchetypeLatest();
+    let updated = false;
+    finalDecks.forEach(deck => {
+      const name = deck.deck?.name;
+      const code = deck.deck?.code;
+      if (!name || !code) return;
+      const prev = archetypeLatest[name];
+      // Si no existe o es más antiguo, actualiza
+      if (!prev || new Date(deck.lastSeen).getTime() > new Date(prev.updatedAt).getTime()) {
+        archetypeLatest[name] = {
+          code,
+          updatedAt: new Date().toISOString(),
+          rank: deck.rank
+        };
+        updated = true;
+      }
+    });
+    if (updated) saveArchetypeLatest(archetypeLatest);
+
     // ========================================
     // HISTÓRICO (se mantiene igual)
     // ========================================
@@ -633,7 +670,7 @@ async function scrapeHSGuruReplays() {
     console.log(`   - 30 días: ${allDecks30d.length} mazos`);
     console.log();
 
-    function calculateMetaStats(decks, periodName) {
+    function calculateMetaStats(decks, periodName, archetypeLatestCache) {
       console.log(`\n🔍 Calculando estadísticas para ${periodName}...`);
 
       const classDistribution = {};
@@ -680,6 +717,12 @@ async function scrapeHSGuruReplays() {
         else if (totalScore >= 60) tier = 'A';
         else if (totalScore >= 45) tier = 'B';
 
+        // sampleDeckCode: busca en archetypeLatestCache, si no, null
+        let sampleDeckCode = null;
+        if (archetypeLatestCache && archetypeLatestCache[name] && archetypeLatestCache[name].code) {
+          sampleDeckCode = archetypeLatestCache[name].code;
+        }
+
         return {
           name,
           count: data.count,
@@ -687,7 +730,8 @@ async function scrapeHSGuruReplays() {
           uniquePlayers: data.uniquePlayers.size,
           avgRank: Number.isFinite(avgRank) ? Math.round(avgRank) : 100,
           metaScore: Math.round(totalScore),
-          tier
+          tier,
+          sampleDeckCode
         };
       });
 
@@ -735,9 +779,9 @@ async function scrapeHSGuruReplays() {
       };
     }
 
-    const stats24h = calculateMetaStats(allDecks24h, 'Last 24 hours');
-    const stats7d = calculateMetaStats(allDecks7d, 'Last 7 days');
-    const stats30d = calculateMetaStats(allDecks30d, 'Last 30 days');
+    const stats24h = calculateMetaStats(allDecks24h, 'Last 24 hours', archetypeLatest);
+    const stats7d = calculateMetaStats(allDecks7d, 'Last 7 days', archetypeLatest);
+    const stats30d = calculateMetaStats(allDecks30d, 'Last 30 days', archetypeLatest);
 
     const output = {
       lastUpdate: new Date().toISOString(),
