@@ -133,90 +133,17 @@ app.use(express.static(__dirname, {
 }));
 
 // =======================================================
-// API endpoint to refresh data (Render-safe, token protected)
-// - Se permite en producción SOLO si llega x-refresh-token correcto
-// - Evita solapamientos (SCRAPE_RUNNING) para reducir 502/OOM
+// API endpoint to refresh data (solo disponible en desarrollo/local)
 // =======================================================
-const refreshMiddleware = app.locals.refreshLimiter || ((req, res, next) => next());
-
-app.post('/api/refresh', refreshMiddleware, (req, res) => {
-    console.log('🔄 Refresh requested...');
-
-    // Log IP address for security monitoring
-    const ip = req.ip || req.connection.remoteAddress;
-    console.log(`📍 IP: ${ip}`);
-
-    // 🔐 Auth via header token (required in all environments)
-    const token = req.get('x-refresh-token');
-
-    if (!process.env.REFRESH_TOKEN) {
-        console.error('❌ REFRESH_TOKEN is not set in environment variables');
-        return res.status(500).json({
-            success: false,
-            error: 'Server misconfigured: REFRESH_TOKEN missing'
-        });
-    }
-
-    if (!token || token !== process.env.REFRESH_TOKEN) {
-        console.warn('⚠️ Unauthorized refresh attempt');
-        return res.status(401).json({
-            success: false,
-            error: 'Unauthorized'
-        });
-    }
-
-    // ✅ Single-flight: no permitir 2 scrapes simultáneos
-    if (SCRAPE_RUNNING) {
-        console.warn('⛔ Scrape already running, rejecting to avoid overlap');
-        return res.status(409).json({
-            success: false,
-            error: 'Scrape already running'
-        });
-    }
-
-    SCRAPE_RUNNING = true;
-    const startedAt = new Date().toISOString();
-    console.log(`▶️ Running scraper... (started ${startedAt})`);
-
-    exec('node index_hsguru_replays.js', {
-        cwd: __dirname,
-        timeout: 180000, // 3 minutes timeout
-        env: process.env  // asegurar PLAYWRIGHT_BROWSERS_PATH=0 y demás
-    }, (error, stdout, stderr) => {
-        // IMPORTANTE: liberar el lock SIEMPRE
-        SCRAPE_RUNNING = false;
-
-        if (stdout) console.log(stdout);
-        if (stderr) console.warn(stderr);
-
-        if (error) {
-            console.error('❌ Scraper error:', error);
-            return res.status(500).json({
-                success: false,
-                error: error.message
-            });
-        }
-
-        console.log('✅ Scraper completed');
-
-        // Read the updated JSON file
-        try {
-            const data = JSON.parse(fs.readFileSync(path.join(__dirname, 'top_decks.json'), 'utf8'));
-            return res.json({
-                success: true,
-                totalDecks: data.totalDecks || (data.decks ? data.decks.length : 0),
-                knownPlayers: data.knownPlayers || 0,
-                lastUpdate: data.lastUpdate
-            });
-        } catch (readError) {
-            console.error('❌ Error reading result:', readError);
-            return res.status(500).json({
-                success: false,
-                error: 'Failed to read result file'
-            });
-        }
+if (process.env.NODE_ENV !== 'production') {
+  const refreshMiddleware = app.locals.refreshLimiter || ((req, res, next) => next());
+  app.post('/api/refresh', refreshMiddleware, (req, res) => {
+    res.status(403).json({
+      success: false,
+      error: 'Endpoint desactivado en producción. Usa GitHub Actions para refrescar datos.'
     });
-});
+  });
+}
 
 // Health check
 app.get('/api/health', (req, res) => {

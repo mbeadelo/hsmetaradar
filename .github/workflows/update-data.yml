@@ -1,32 +1,53 @@
-name: Update HS Meta Data
+name: Scrape HSGuru and publish JSON
+
 on:
-	schedule:
-		- cron: '*/30 * * * *'
-	workflow_dispatch:
+  schedule:
+    - cron: "*/30 * * * *" # cada 30 min (ajústalo)
+  workflow_dispatch:
+
+concurrency:
+  group: scrape-hsguru
+  cancel-in-progress: true
+
 permissions:
-	contents: write
+  contents: write
+
 jobs:
-	scrape:
-		runs-on: ubuntu-latest
-		timeout-minutes: 20
-		steps:
-			- name: Checkout repository
-				uses: actions/checkout@v4
-			- name: Setup Node.js
-				uses: actions/setup-node@v4
-				with:
-					node-version: '20'
-			- name: Install dependencies
-				run: |
-					npm install
-					npm install playwright
-			- name: Install Playwright browsers
-				run: npx playwright install --with-deps chromium
-			- name: Run scraper
-				run: npm run scrape
-			- name: Commit and push if changes
-				run: |
-					git config --local user.email "github-actions[bot]@users.noreply.github.com"
-					git config --local user.name "github-actions[bot]"
-					git add top_decks.json historical_data.json package.json package-lock.json
-					git diff --quiet && git diff --staged --quiet || (git commit -m "🔄 Auto-update [$(date +'%Y-%m-%d %H:%M UTC')]" && git push)
+  scrape:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: "npm"
+
+      - name: Install deps
+        run: npm ci
+
+      - name: Install Playwright browsers
+        run: npx playwright install --with-deps chromium
+
+      - name: Run scraper
+        run: npm run scrape
+
+      - name: Commit updated JSON if changed
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+
+          # Solo commitea si hay cambios reales
+          if git status --porcelain | grep -E "(top_decks\.json|historical_data\.json|master_list\.json)"; then
+            git add top_decks.json historical_data.json master_list.json
+            git commit -m "chore: update meta data ($(date -u +'%Y-%m-%dT%H:%M:%SZ'))"
+            git push
+          else
+            echo "No changes to commit"
+          fi
