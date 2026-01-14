@@ -610,12 +610,12 @@ async function scrapeHSGuruReplays() {
     // ========================================
     let archetypeLatest = loadArchetypeLatest();
     let updated = false;
+    // 1. Nutrir con los decks reales
     finalDecks.forEach(deck => {
       const name = deck.deck?.name;
       const code = deck.deck?.code;
       if (!name || !code) return;
       const prev = archetypeLatest[name];
-      // Si no existe o es más antiguo, actualiza
       if (!prev || new Date(deck.lastSeen).getTime() > new Date(prev.updatedAt).getTime()) {
         archetypeLatest[name] = {
           code,
@@ -624,6 +624,23 @@ async function scrapeHSGuruReplays() {
         };
         updated = true;
       }
+    });
+    // 2. Nutrir con los sampleDeckCode de Meta Score (24h, 7d, 30d)
+    [stats24h, stats7d, stats30d].forEach(stats => {
+      if (!stats?.metaScore?.archetypes) return;
+      stats.metaScore.archetypes.forEach(arch => {
+        if (!arch.name || !arch.sampleDeckCode) return;
+        const prev = archetypeLatest[arch.name];
+        // Solo actualiza si no existe o el código es diferente
+        if (!prev || prev.code !== arch.sampleDeckCode) {
+          archetypeLatest[arch.name] = {
+            code: arch.sampleDeckCode,
+            updatedAt: new Date().toISOString(),
+            rank: null
+          };
+          updated = true;
+        }
+      });
     });
     if (updated) saveArchetypeLatest(archetypeLatest);
 
