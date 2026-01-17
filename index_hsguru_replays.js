@@ -166,7 +166,9 @@ function calculateMetaStats(decks, periodName, archetypeLatestCache) {
   safeDecks.forEach(deck => {
     const deckName = deck?.deck?.name || 'Unknown Deck';
     let className;
-    if (/lock/i.test(deckName.replace(/\s+/g, ''))) {
+    // Normaliza: quita espacios y caracteres especiales, pasa a minúsculas
+    const normalizedDeckName = deckName.replace(/[^a-zA-Z0-9]/g, '').toLowerCase();
+    if (normalizedDeckName.includes('lock')) {
       className = 'Warlock';
     } else {
       const words = String(deckName).split(' ');
