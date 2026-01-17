@@ -165,8 +165,13 @@ function calculateMetaStats(decks, periodName, archetypeLatestCache) {
 
   safeDecks.forEach(deck => {
     const deckName = deck?.deck?.name || 'Unknown Deck';
-    const words = String(deckName).split(' ');
-    const className = words[words.length - 1] || 'Unknown';
+    let className;
+    if (/lock/i.test(deckName)) {
+      className = 'Warlock';
+    } else {
+      const words = String(deckName).split(' ');
+      className = words[words.length - 1] || 'Unknown';
+    }
 
     classDistribution[className] = (classDistribution[className] || 0) + 1;
 
