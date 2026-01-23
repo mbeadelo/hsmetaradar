@@ -1,9 +1,42 @@
 {
-  "lastUpdate": "2026-01-23T22:16:03.457Z",
+  "lastUpdate": "2026-01-23T22:43:18.998Z",
   "source": "HSGuru Top 100 + HSReplay player names",
-  "totalDecks": 4,
-  "knownPlayers": 3,
+  "totalDecks": 5,
+  "knownPlayers": 1,
   "decks": [
+    {
+      "rank": 56,
+      "name": "Haztlan",
+      "inMasterList": false,
+      "battleTag": null,
+      "deck": {
+        "name": "BF Egglock",
+        "code": "AAECAf0GCMSeBse4BsjJBpPLBu+PB/WYB+ybB9edBwuPnwSxnwSRoATnoATTngaJtQaUygbrhAepiAeEmQfgnQcAAA=="
+      },
+      "lastSeen": "19 minutes ago"
+    },
+    {
+      "rank": 63,
+      "name": "Jking7",
+      "inMasterList": false,
+      "battleTag": null,
+      "deck": {
+        "name": "BF Egglock",
+        "code": "AAECAf0GCMSeBse4BsjJBpPLBu+PB/WYB+ybB9edBwuPnwSxnwSRoATnoATTngaJtQaUygbrhAepiAeEmQfgnQcAAA=="
+      },
+      "lastSeen": "7 minutes ago"
+    },
+    {
+      "rank": 63,
+      "name": "Lim",
+      "inMasterList": false,
+      "battleTag": null,
+      "deck": {
+        "name": "BF Egglock",
+        "code": "AAECAf0GCMSeBse4BsjJBpPLBu+PB/WYB+ybB9edBwuPnwSxnwSRoATnoATTngaJtQaUygbrhAepiAeEmQfgnQcAAA=="
+      },
+      "lastSeen": "24 minutes ago"
+    },
     {
       "rank": 63,
       "name": "Jheick",
@@ -13,7 +46,7 @@
         "name": "BF Egglock",
         "code": "AAECAf0GCMSeBse4BsjJBpPLBu+PB/WYB+ybB9edBwuPnwSxnwSRoATnoATTngaJtQaUygbrhAepiAeEmQfgnQcAAA=="
       },
-      "lastSeen": "22 minutes ago"
+      "lastSeen": "49 minutes ago"
     },
     {
       "rank": 70,
@@ -24,29 +57,7 @@
         "name": "BF Egglock",
         "code": "AAECAf0GCMSeBse4BsjJBpPLBu+PB/WYB+ybB9edBwuPnwSxnwSRoATnoATTngaJtQaUygbrhAepiAeEmQfgnQcAAA=="
       },
-      "lastSeen": "10 minutes ago"
-    },
-    {
-      "rank": 72,
-      "name": "gyu",
-      "inMasterList": true,
-      "battleTag": "gyu#31470",
-      "deck": {
-        "name": "BF Egglock",
-        "code": "AAECAf0GCMSeBse4BsjJBpPLBu+PB/WYB+ybB9edBwuPnwSxnwSRoATnoATTngaJtQaUygbrhAepiAeEmQfgnQcAAA=="
-      },
-      "lastSeen": "27 minutes ago"
-    },
-    {
-      "rank": 80,
-      "name": "Mesmile",
-      "inMasterList": true,
-      "battleTag": "Mesmile#1425",
-      "deck": {
-        "name": "Egglock",
-        "code": "AAECAf0GBse4BpPLBu+PB/WYB+ybB9edBwyPnwSxnwSRoATnoATEngbTngaJtQaUygbrhAepiAeEmQfgnQcAAA=="
-      },
-      "lastSeen": "40 minutes ago"
+      "lastSeen": "37 minutes ago"
     }
   ],
   "noNewResults": false,
@@ -56,51 +67,51 @@
         "Warrior": 33,
         "Rogue": 18,
         "Mage": 3,
-        "Warlock": 13,
+        "Warlock": 18,
         "DK": 3,
         "Hunter": 97,
         "DH": 36,
         "Druid": 11
       },
       "classPercentages": {
-        "Warrior": "15.4",
-        "Rogue": "8.4",
+        "Warrior": "15.1",
+        "Rogue": "8.2",
         "Mage": "1.4",
-        "Warlock": "6.1",
+        "Warlock": "8.2",
         "DK": "1.4",
-        "Hunter": "45.3",
-        "DH": "16.8",
-        "Druid": "5.1"
+        "Hunter": "44.3",
+        "DH": "16.4",
+        "Druid": "5.0"
       },
       "topArchetypes": [
         {
           "name": "Discover Hunter",
           "count": 97,
-          "percentage": "45.3"
+          "percentage": "44.3"
         },
         {
           "name": "Quest Warrior",
           "count": 29,
-          "percentage": "13.6"
+          "percentage": "13.2"
         },
         {
           "name": "Blobxigar DH",
           "count": 16,
-          "percentage": "7.5"
+          "percentage": "7.3"
         },
         {
           "name": "Imbue Rogue",
           "count": 14,
-          "percentage": "6.5"
+          "percentage": "6.4"
         },
         {
           "name": "Broxigar DH",
           "count": 11,
-          "percentage": "5.1"
+          "percentage": "5.0"
         }
       ],
       "mostPlayedClass": "Hunter",
-      "totalDecksAnalyzed": 214,
+      "totalDecksAnalyzed": 219,
       "period": "Last 24 hours"
     },
     "7d": {
@@ -224,7 +235,7 @@
         {
           "name": "Discover Hunter",
           "count": 97,
-          "percentage": "45.3",
+          "percentage": "44.3",
           "uniquePlayers": 43,
           "avgRank": 20,
           "metaScore": 55,
@@ -254,7 +265,7 @@
         {
           "name": "Quest DH",
           "count": 9,
-          "percentage": "4.2",
+          "percentage": "4.1",
           "uniquePlayers": 9,
           "avgRank": 51,
           "metaScore": 46,
@@ -274,7 +285,7 @@
         {
           "name": "Imbue Rogue",
           "count": 14,
-          "percentage": "6.5",
+          "percentage": "6.4",
           "uniquePlayers": 12,
           "avgRank": 55,
           "metaScore": 42,
@@ -284,7 +295,7 @@
         {
           "name": "Blobxigar DH",
           "count": 16,
-          "percentage": "7.5",
+          "percentage": "7.3",
           "uniquePlayers": 14,
           "avgRank": 65,
           "metaScore": 40,
@@ -292,19 +303,9 @@
           "sampleDeckCode": null
         },
         {
-          "name": "BF Egglock",
-          "count": 3,
-          "percentage": "1.4",
-          "uniquePlayers": 3,
-          "avgRank": 68,
-          "metaScore": 40,
-          "tier": "C",
-          "sampleDeckCode": "AAECAf0GCMSeBse4BsjJBpPLBu+PB/WYB+ybB9edBwuPnwSxnwSRoATnoATTngaJtQaUygbrhAepiAeEmQfgnQcAAA=="
-        },
-        {
           "name": "Broxigar DH",
           "count": 11,
-          "percentage": "5.1",
+          "percentage": "5.0",
           "uniquePlayers": 9,
           "avgRank": 63,
           "metaScore": 38,
@@ -314,22 +315,32 @@
         {
           "name": "Quest Warrior",
           "count": 29,
-          "percentage": "13.6",
+          "percentage": "13.2",
           "uniquePlayers": 11,
           "avgRank": 38,
-          "metaScore": 36,
+          "metaScore": 35,
           "tier": "C",
           "sampleDeckCode": null
         },
         {
           "name": "Copy Druid",
           "count": 11,
-          "percentage": "5.1",
+          "percentage": "5.0",
           "uniquePlayers": 7,
           "avgRank": 55,
           "metaScore": 35,
           "tier": "C",
           "sampleDeckCode": null
+        },
+        {
+          "name": "BF Egglock",
+          "count": 8,
+          "percentage": "3.7",
+          "uniquePlayers": 6,
+          "avgRank": 65,
+          "metaScore": 34,
+          "tier": "C",
+          "sampleDeckCode": "AAECAf0GCMSeBse4BsjJBpPLBu+PB/WYB+ybB9edBwuPnwSxnwSRoATnoATTngaJtQaUygbrhAepiAeEmQfgnQcAAA=="
         },
         {
           "name": "Toki Mage",
@@ -344,12 +355,12 @@
         {
           "name": "Egglock",
           "count": 10,
-          "percentage": "4.7",
+          "percentage": "4.6",
           "uniquePlayers": 7,
           "avgRank": 77,
           "metaScore": 30,
           "tier": "C",
-          "sampleDeckCode": "AAECAf0GBse4BpPLBu+PB/WYB+ybB9edBwyPnwSxnwSRoATnoATEngbTngaJtQaUygbrhAepiAeEmQfgnQcAAA=="
+          "sampleDeckCode": null
         },
         {
           "name": "BBU Control DK",
@@ -382,9 +393,9 @@
           "sampleDeckCode": null
         }
       ],
-      "totalDecksAnalyzed": 214,
+      "totalDecksAnalyzed": 219,
       "period": "Last 24 hours",
-      "lastCalculated": "2026-01-23T22:16:03.449Z",
+      "lastCalculated": "2026-01-23T22:43:18.993Z",
       "methodology": {
         "frequency": "40% - Apariciones en el período",
         "diversity": "30% - Jugadores únicos que lo usan",
@@ -551,7 +562,7 @@
           "avgRank": 77,
           "metaScore": 31,
           "tier": "C",
-          "sampleDeckCode": "AAECAf0GBse4BpPLBu+PB/WYB+ybB9edBwyPnwSxnwSRoATnoATEngbTngaJtQaUygbrhAepiAeEmQfgnQcAAA=="
+          "sampleDeckCode": null
         },
         {
           "name": "Deathrattle DH",
@@ -666,7 +677,7 @@
       ],
       "totalDecksAnalyzed": 1200,
       "period": "Last 7 days",
-      "lastCalculated": "2026-01-23T22:16:03.453Z",
+      "lastCalculated": "2026-01-23T22:43:18.995Z",
       "methodology": {
         "frequency": "40% - Apariciones en el período",
         "diversity": "30% - Jugadores únicos que lo usan",
@@ -913,7 +924,7 @@
           "avgRank": 88,
           "metaScore": 30,
           "tier": "C",
-          "sampleDeckCode": "AAECAf0GBse4BpPLBu+PB/WYB+ybB9edBwyPnwSxnwSRoATnoATEngbTngaJtQaUygbrhAepiAeEmQfgnQcAAA=="
+          "sampleDeckCode": null
         },
         {
           "name": "Deathrattle DH",
@@ -1008,7 +1019,7 @@
       ],
       "totalDecksAnalyzed": 1200,
       "period": "Last 30 days",
-      "lastCalculated": "2026-01-23T22:16:03.456Z",
+      "lastCalculated": "2026-01-23T22:43:18.997Z",
       "methodology": {
         "frequency": "40% - Apariciones en el período",
         "diversity": "30% - Jugadores únicos que lo usan",
