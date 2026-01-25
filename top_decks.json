@@ -1,22 +1,11 @@
 {
-  "lastUpdate": "2026-01-25T22:13:56.211Z",
+  "lastUpdate": "2026-01-25T22:43:45.810Z",
   "source": "HSGuru Top 100 + HSReplay player names",
-  "totalDecks": 8,
-  "knownPlayers": 3,
+  "totalDecks": 9,
+  "knownPlayers": 4,
   "decks": [
     {
       "rank": 7,
-      "name": "Definition",
-      "inMasterList": true,
-      "battleTag": "Definition#31238",
-      "deck": {
-        "name": "Broxigar DH",
-        "code": "AAECAea5AwjDsAa9vgb8wAaq6gaKqgeSqgeTqgfRrwcLnKAE4fgF4/gF054G38AG9sAG3v8GtpcH15cH4rEH6LEHAAA="
-      },
-      "lastSeen": "23 minutes ago"
-    },
-    {
-      "rank": 8,
       "name": "maxiebon1234",
       "inMasterList": true,
       "battleTag": "maxiebon1234#1738",
@@ -24,22 +13,33 @@
         "name": "Broxigar DH",
         "code": "AAECAea5AwjDsAa9vgb8wAaq6gaKqgeSqgeTqgfRrwcLnKAE4fgF4/gF054G38AG9sAG3v8GtpcH15cH4rEH6LEHAAA="
       },
-      "lastSeen": "13 minutes ago"
+      "lastSeen": "16 minutes ago"
     },
     {
-      "rank": 17,
-      "name": "Casualaddict",
+      "rank": 7,
+      "name": "Legend #7",
+      "inMasterList": false,
+      "battleTag": null,
+      "deck": {
+        "name": "Broxigar DH",
+        "code": "AAECAea5AwjDsAa9vgb8wAaq6gaKqgeSqgeTqgfRrwcLnKAE4fgF4/gF054G38AG9sAG3v8GtpcH15cH4rEH6LEHAAA="
+      },
+      "lastSeen": "26 minutes ago"
+    },
+    {
+      "rank": 14,
+      "name": "ДикийЗверь",
       "inMasterList": false,
       "battleTag": null,
       "deck": {
         "name": "Elise Rogue",
         "code": "AAECAaIHCIukBcekBrXqBuHrBoOKB4KYB5ObB9GdBwv2nwT3nwTRnga2tQa5wQbq5Qb3gQeQgwfHrgfZrweaswcAAQP1swbHpAb3swbHpAbu3gbHpAYAAA=="
       },
-      "lastSeen": "11 seconds ago"
+      "lastSeen": "3 minutes ago"
     },
     {
-      "rank": 22,
-      "name": "demoshadow",
+      "rank": 15,
+      "name": "ustyacmd",
       "inMasterList": false,
       "battleTag": null,
       "deck": {
@@ -49,8 +49,8 @@
       "lastSeen": "9 minutes ago"
     },
     {
-      "rank": 25,
-      "name": "ShickenBoy",
+      "rank": 17,
+      "name": "Aljorr",
       "inMasterList": false,
       "battleTag": null,
       "deck": {
@@ -60,7 +60,7 @@
       "lastSeen": "19 minutes ago"
     },
     {
-      "rank": 57,
+      "rank": 47,
       "name": "GameBreaker",
       "inMasterList": true,
       "battleTag": "GameBreaker#21378",
@@ -71,36 +71,47 @@
       "lastSeen": "15 minutes ago"
     },
     {
-      "rank": 59,
-      "name": "stafu",
-      "inMasterList": false,
-      "battleTag": null,
+      "rank": 57,
+      "name": "Unknown",
+      "inMasterList": true,
+      "battleTag": "Unknown#21202",
       "deck": {
         "name": "Cycle Rogue",
         "code": "AAECAaIHBJegBL2+BvTJBozWBg32nwT3nwSgswa2tQaUygaY4Qbq5Qachwe+hwfBlwfXlwfUnQeKsQcAAA=="
       },
-      "lastSeen": "6 minutes ago"
+      "lastSeen": "26 minutes ago"
+    },
+    {
+      "rank": 59,
+      "name": "GameBreaker",
+      "inMasterList": true,
+      "battleTag": "GameBreaker#21378",
+      "deck": {
+        "name": "Cycle Rogue",
+        "code": "AAECAaIHBJegBL2+BvTJBozWBg32nwT3nwSgswa2tQaUygaY4Qbq5Qachwe+hwfBlwfXlwfUnQeKsQcAAA=="
+      },
+      "lastSeen": "9 minutes ago"
     },
     {
       "rank": 61,
-      "name": "ustyacmd",
+      "name": "Casualaddict",
       "inMasterList": false,
       "battleTag": null,
       "deck": {
         "name": "Cycle Rogue",
         "code": "AAECAaIHBJegBL2+BvTJBozWBg32nwT3nwSgswa2tQaUygaY4Qbq5Qachwe+hwfBlwfXlwfUnQeKsQcAAA=="
       },
-      "lastSeen": "21 minutes ago"
+      "lastSeen": "4 minutes ago"
     }
   ],
   "noNewResults": false,
   "metaSnapshot": {
     "24h": {
       "classDistribution": {
-        "Hunter": 81,
-        "Rogue": 92,
-        "Warlock": 14,
+        "Hunter": 79,
+        "Rogue": 97,
         "DH": 58,
+        "Warlock": 11,
         "Warrior": 6,
         "Shaman": 30,
         "Mage": 1,
@@ -108,10 +119,10 @@
         "DK": 1
       },
       "classPercentages": {
-        "Hunter": "28.5",
-        "Rogue": "32.4",
-        "Warlock": "4.9",
+        "Hunter": "27.8",
+        "Rogue": "34.2",
         "DH": "20.4",
+        "Warlock": "3.9",
         "Warrior": "2.1",
         "Shaman": "10.6",
         "Mage": "0.4",
@@ -121,28 +132,28 @@
       "topArchetypes": [
         {
           "name": "Discover Hunter",
-          "count": 81,
-          "percentage": "28.5"
+          "count": 79,
+          "percentage": "27.8"
         },
         {
           "name": "Elise Rogue",
-          "count": 61,
-          "percentage": "21.5"
+          "count": 62,
+          "percentage": "21.8"
         },
         {
           "name": "Cycle Rogue",
-          "count": 31,
-          "percentage": "10.9"
+          "count": 35,
+          "percentage": "12.3"
+        },
+        {
+          "name": "Broxigar DH",
+          "count": 30,
+          "percentage": "10.6"
         },
         {
           "name": "Hagatha Shaman",
           "count": 30,
           "percentage": "10.6"
-        },
-        {
-          "name": "Broxigar DH",
-          "count": 28,
-          "percentage": "9.9"
         }
       ],
       "mostPlayedClass": "Rogue",
@@ -151,25 +162,25 @@
     },
     "7d": {
       "classDistribution": {
-        "Warrior": 172,
-        "Rogue": 279,
+        "Warrior": 169,
+        "Rogue": 276,
         "Paladin": 24,
-        "Hunter": 288,
+        "Hunter": 290,
         "DK": 159,
         "Druid": 87,
-        "DH": 131,
+        "DH": 135,
         "Shaman": 19,
         "Mage": 19,
         "Warlock": 22
       },
       "classPercentages": {
-        "Warrior": "14.3",
-        "Rogue": "23.3",
+        "Warrior": "14.1",
+        "Rogue": "23.0",
         "Paladin": "2.0",
-        "Hunter": "24.0",
+        "Hunter": "24.2",
         "DK": "13.3",
         "Druid": "7.2",
-        "DH": "10.9",
+        "DH": "11.3",
         "Shaman": "1.6",
         "Mage": "1.6",
         "Warlock": "1.8"
@@ -177,8 +188,8 @@
       "topArchetypes": [
         {
           "name": "Discover Hunter",
-          "count": 288,
-          "percentage": "24.0"
+          "count": 290,
+          "percentage": "24.2"
         },
         {
           "name": "BBU Control DK",
@@ -192,13 +203,13 @@
         },
         {
           "name": "Quest Warrior",
-          "count": 106,
-          "percentage": "8.8"
+          "count": 103,
+          "percentage": "8.6"
         },
         {
           "name": "Imbue Rogue",
-          "count": 86,
-          "percentage": "7.2"
+          "count": 83,
+          "percentage": "6.9"
         }
       ],
       "mostPlayedClass": "Hunter",
@@ -309,28 +320,38 @@
         },
         {
           "name": "Elise Rogue",
-          "count": 61,
-          "percentage": "21.5",
-          "uniquePlayers": 34,
+          "count": 62,
+          "percentage": "21.8",
+          "uniquePlayers": 35,
           "avgRank": 29,
-          "metaScore": 46,
+          "metaScore": 47,
           "tier": "B",
           "sampleDeckCode": "AAECAaIHCIukBcekBrXqBuHrBoOKB4KYB5ObB9GdBwv2nwT3nwTRnga2tQa5wQbq5Qb3gQeQgwfHrgfZrweaswcAAQP1swbHpAb3swbHpAbu3gbHpAYAAA=="
         },
         {
           "name": "Discover Hunter",
-          "count": 81,
-          "percentage": "28.5",
+          "count": 79,
+          "percentage": "27.8",
           "uniquePlayers": 21,
-          "avgRank": 23,
+          "avgRank": 24,
+          "metaScore": 42,
+          "tier": "C",
+          "sampleDeckCode": null
+        },
+        {
+          "name": "Octosari DH",
+          "count": 2,
+          "percentage": "0.7",
+          "uniquePlayers": 2,
+          "avgRank": 61,
           "metaScore": 42,
           "tier": "C",
           "sampleDeckCode": null
         },
         {
           "name": "Broxigar DH",
-          "count": 28,
-          "percentage": "9.9",
+          "count": 30,
+          "percentage": "10.6",
           "uniquePlayers": 12,
           "avgRank": 15,
           "metaScore": 42,
@@ -349,31 +370,21 @@
         },
         {
           "name": "BF Egglock",
-          "count": 14,
-          "percentage": "4.9",
-          "uniquePlayers": 10,
-          "avgRank": 58,
-          "metaScore": 36,
-          "tier": "C",
-          "sampleDeckCode": null
-        },
-        {
-          "name": "Octosari DH",
-          "count": 4,
-          "percentage": "1.4",
-          "uniquePlayers": 3,
-          "avgRank": 58,
+          "count": 11,
+          "percentage": "3.9",
+          "uniquePlayers": 8,
+          "avgRank": 59,
           "metaScore": 36,
           "tier": "C",
           "sampleDeckCode": null
         },
         {
           "name": "Cycle Rogue",
-          "count": 31,
-          "percentage": "10.9",
-          "uniquePlayers": 15,
+          "count": 35,
+          "percentage": "12.3",
+          "uniquePlayers": 17,
           "avgRank": 57,
-          "metaScore": 32,
+          "metaScore": 33,
           "tier": "C",
           "sampleDeckCode": "AAECAaIHBJegBL2+BvTJBozWBg32nwT3nwSgswa2tQaUygaY4Qbq5Qachwe+hwfBlwfXlwfUnQeKsQcAAA=="
         },
@@ -410,7 +421,7 @@
       ],
       "totalDecksAnalyzed": 284,
       "period": "Last 24 hours",
-      "lastCalculated": "2026-01-25T22:13:56.205Z",
+      "lastCalculated": "2026-01-25T22:43:45.804Z",
       "methodology": {
         "frequency": "40% - Apariciones en el período",
         "diversity": "30% - Jugadores únicos que lo usan",
@@ -451,8 +462,8 @@
         },
         {
           "name": "Discover Hunter",
-          "count": 288,
-          "percentage": "24.0",
+          "count": 290,
+          "percentage": "24.2",
           "uniquePlayers": 112,
           "avgRank": 33,
           "metaScore": 41,
@@ -461,10 +472,10 @@
         },
         {
           "name": "Broxigar DH",
-          "count": 67,
-          "percentage": "5.6",
-          "uniquePlayers": 40,
-          "avgRank": 29,
+          "count": 71,
+          "percentage": "5.9",
+          "uniquePlayers": 42,
+          "avgRank": 31,
           "metaScore": 41,
           "tier": "C",
           "sampleDeckCode": "AAECAea5AwjDsAa9vgb8wAaq6gaKqgeSqgeTqgfRrwcLnKAE4fgF4/gF054G38AG9sAG3v8GtpcH15cH4rEH6LEHAAA="
@@ -476,6 +487,16 @@
           "uniquePlayers": 9,
           "avgRank": 13,
           "metaScore": 41,
+          "tier": "C",
+          "sampleDeckCode": null
+        },
+        {
+          "name": "Imbue Rogue",
+          "count": 83,
+          "percentage": "6.9",
+          "uniquePlayers": 56,
+          "avgRank": 48,
+          "metaScore": 39,
           "tier": "C",
           "sampleDeckCode": null
         },
@@ -496,16 +517,6 @@
           "uniquePlayers": 35,
           "avgRank": 51,
           "metaScore": 39,
-          "tier": "C",
-          "sampleDeckCode": null
-        },
-        {
-          "name": "Imbue Rogue",
-          "count": 86,
-          "percentage": "7.2",
-          "uniquePlayers": 57,
-          "avgRank": 49,
-          "metaScore": 38,
           "tier": "C",
           "sampleDeckCode": null
         },
@@ -571,10 +582,10 @@
         },
         {
           "name": "Quest Warrior",
-          "count": 106,
-          "percentage": "8.8",
-          "uniquePlayers": 51,
-          "avgRank": 46,
+          "count": 103,
+          "percentage": "8.6",
+          "uniquePlayers": 50,
+          "avgRank": 45,
           "metaScore": 34,
           "tier": "C",
           "sampleDeckCode": null
@@ -672,7 +683,7 @@
       ],
       "totalDecksAnalyzed": 1200,
       "period": "Last 7 days",
-      "lastCalculated": "2026-01-25T22:13:56.208Z",
+      "lastCalculated": "2026-01-25T22:43:45.806Z",
       "methodology": {
         "frequency": "40% - Apariciones en el período",
         "diversity": "30% - Jugadores únicos que lo usan",
@@ -1014,7 +1025,7 @@
       ],
       "totalDecksAnalyzed": 1200,
       "period": "Last 30 days",
-      "lastCalculated": "2026-01-25T22:13:56.211Z",
+      "lastCalculated": "2026-01-25T22:43:45.809Z",
       "methodology": {
         "frequency": "40% - Apariciones en el período",
         "diversity": "30% - Jugadores únicos que lo usan",
