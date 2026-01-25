@@ -1,41 +1,30 @@
 {
-  "lastUpdate": "2026-01-25T09:41:45.430Z",
+  "lastUpdate": "2026-01-25T10:14:33.026Z",
   "source": "HSGuru Top 100 + HSReplay player names",
-  "totalDecks": 3,
+  "totalDecks": 2,
   "knownPlayers": 1,
   "decks": [
     {
-      "rank": 11,
+      "rank": 2,
+      "name": "Legend #2",
+      "inMasterList": false,
+      "battleTag": null,
+      "deck": {
+        "name": "Discover Hunter",
+        "code": "AAECAR8Ip9MG4uMGw4MHg4oHmacHmqcHm6cHxbEHC6mfBKqfBJygBNOeBsK+Boa/Bs7ABtDABpXiBq3rBpCnBwAA"
+      },
+      "lastSeen": "2 minutes ago"
+    },
+    {
+      "rank": 2,
       "name": "maxiebon1234",
       "inMasterList": true,
       "battleTag": "maxiebon1234#1738",
       "deck": {
         "name": "Discover Hunter",
-        "code": "AAECAR8Kp9MG3OMG4uMGw4MHg4oHkKcHmacHmqcHm6cHxbEHCqmfBKqfBJygBNOeBsK+Boa/Bs7ABtDABpXiBq3rBgAA"
+        "code": "AAECAR8Ip9MG4uMGw4MHg4oHmacHmqcHm6cHxbEHC6mfBKqfBJygBNOeBsK+Boa/Bs7ABtDABpXiBq3rBpCnBwAA"
       },
-      "lastSeen": "1 hour ago"
-    },
-    {
-      "rank": 12,
-      "name": "LastHopelolz",
-      "inMasterList": false,
-      "battleTag": null,
-      "deck": {
-        "name": "Discover Hunter",
-        "code": "AAECAR8Kp9MG3OMG4uMGw4MHg4oHkKcHmacHmqcHm6cHxbEHCqmfBKqfBJygBNOeBsK+Boa/Bs7ABtDABpXiBq3rBgAA"
-      },
-      "lastSeen": "1 hour ago"
-    },
-    {
-      "rank": 12,
-      "name": "MRBEAN",
-      "inMasterList": false,
-      "battleTag": null,
-      "deck": {
-        "name": "Discover Hunter",
-        "code": "AAECAR8Kp9MG3OMG4uMGw4MHg4oHkKcHmacHmqcHm6cHxbEHCqmfBKqfBJygBNOeBsK+Boa/Bs7ABtDABpXiBq3rBgAA"
-      },
-      "lastSeen": "1 hour ago"
+      "lastSeen": "18 minutes ago"
     }
   ],
   "noNewResults": false,
@@ -43,7 +32,7 @@
     "24h": {
       "classDistribution": {
         "Warrior": 75,
-        "Hunter": 98,
+        "Hunter": 100,
         "DH": 30,
         "Rogue": 57,
         "Druid": 4,
@@ -54,46 +43,46 @@
         "Paladin": 3
       },
       "classPercentages": {
-        "Warrior": "23.6",
-        "Hunter": "30.8",
+        "Warrior": "23.4",
+        "Hunter": "31.3",
         "DH": "9.4",
-        "Rogue": "17.9",
+        "Rogue": "17.8",
         "Druid": "1.3",
         "DK": "0.9",
-        "Shaman": "5.7",
-        "Warlock": "8.2",
+        "Shaman": "5.6",
+        "Warlock": "8.1",
         "Mage": "1.3",
         "Paladin": "0.9"
       },
       "topArchetypes": [
         {
           "name": "Discover Hunter",
-          "count": 98,
-          "percentage": "30.8"
+          "count": 100,
+          "percentage": "31.3"
         },
         {
           "name": "Dragon Warrior",
           "count": 55,
-          "percentage": "17.3"
+          "percentage": "17.2"
         },
         {
           "name": "Elise Rogue",
           "count": 52,
-          "percentage": "16.4"
+          "percentage": "16.3"
         },
         {
           "name": "BF Egglock",
           "count": 25,
-          "percentage": "7.9"
+          "percentage": "7.8"
         },
         {
           "name": "Hagatha Shaman",
           "count": 18,
-          "percentage": "5.7"
+          "percentage": "5.6"
         }
       ],
       "mostPlayedClass": "Hunter",
-      "totalDecksAnalyzed": 318,
+      "totalDecksAnalyzed": 320,
       "period": "Last 24 hours"
     },
     "7d": {
@@ -236,13 +225,13 @@
         },
         {
           "name": "Discover Hunter",
-          "count": 98,
-          "percentage": "30.8",
+          "count": 100,
+          "percentage": "31.3",
           "uniquePlayers": 31,
           "avgRank": 30,
           "metaScore": 43,
           "tier": "C",
-          "sampleDeckCode": "AAECAR8Kp9MG3OMG4uMGw4MHg4oHkKcHmacHmqcHm6cHxbEHCqmfBKqfBJygBNOeBsK+Boa/Bs7ABtDABpXiBq3rBgAA"
+          "sampleDeckCode": "AAECAR8Ip9MG4uMGw4MHg4oHmacHmqcHm6cHxbEHC6mfBKqfBJygBNOeBsK+Boa/Bs7ABtDABpXiBq3rBpCnBwAA"
         },
         {
           "name": "Egglock",
@@ -267,7 +256,7 @@
         {
           "name": "Elise Rogue",
           "count": 52,
-          "percentage": "16.4",
+          "percentage": "16.3",
           "uniquePlayers": 27,
           "avgRank": 33,
           "metaScore": 42,
@@ -297,7 +286,7 @@
         {
           "name": "BF Egglock",
           "count": 25,
-          "percentage": "7.9",
+          "percentage": "7.8",
           "uniquePlayers": 19,
           "avgRank": 59,
           "metaScore": 38,
@@ -317,7 +306,7 @@
         {
           "name": "Hagatha Shaman",
           "count": 18,
-          "percentage": "5.7",
+          "percentage": "5.6",
           "uniquePlayers": 16,
           "avgRank": 73,
           "metaScore": 37,
@@ -357,7 +346,7 @@
         {
           "name": "Dragon Warrior",
           "count": 55,
-          "percentage": "17.3",
+          "percentage": "17.2",
           "uniquePlayers": 19,
           "avgRank": 60,
           "metaScore": 29,
@@ -415,9 +404,9 @@
           "sampleDeckCode": null
         }
       ],
-      "totalDecksAnalyzed": 318,
+      "totalDecksAnalyzed": 320,
       "period": "Last 24 hours",
-      "lastCalculated": "2026-01-25T09:41:45.423Z",
+      "lastCalculated": "2026-01-25T10:14:33.021Z",
       "methodology": {
         "frequency": "40% - Apariciones en el período",
         "diversity": "30% - Jugadores únicos que lo usan",
@@ -474,7 +463,7 @@
           "avgRank": 38,
           "metaScore": 38,
           "tier": "C",
-          "sampleDeckCode": "AAECAR8Kp9MG3OMG4uMGw4MHg4oHkKcHmacHmqcHm6cHxbEHCqmfBKqfBJygBNOeBsK+Boa/Bs7ABtDABpXiBq3rBgAA"
+          "sampleDeckCode": "AAECAR8Ip9MG4uMGw4MHg4oHmacHmqcHm6cHxbEHC6mfBKqfBJygBNOeBsK+Boa/Bs7ABtDABpXiBq3rBpCnBwAA"
         },
         {
           "name": "BBU Control DK",
@@ -679,7 +668,7 @@
       ],
       "totalDecksAnalyzed": 1200,
       "period": "Last 7 days",
-      "lastCalculated": "2026-01-25T09:41:45.426Z",
+      "lastCalculated": "2026-01-25T10:14:33.023Z",
       "methodology": {
         "frequency": "40% - Apariciones en el período",
         "diversity": "30% - Jugadores únicos que lo usan",
@@ -866,7 +855,7 @@
           "avgRank": 47,
           "metaScore": 35,
           "tier": "C",
-          "sampleDeckCode": "AAECAR8Kp9MG3OMG4uMGw4MHg4oHkKcHmacHmqcHm6cHxbEHCqmfBKqfBJygBNOeBsK+Boa/Bs7ABtDABpXiBq3rBgAA"
+          "sampleDeckCode": "AAECAR8Ip9MG4uMGw4MHg4oHmacHmqcHm6cHxbEHC6mfBKqfBJygBNOeBsK+Boa/Bs7ABtDABpXiBq3rBpCnBwAA"
         },
         {
           "name": "Elise Rogue",
@@ -1021,7 +1010,7 @@
       ],
       "totalDecksAnalyzed": 1200,
       "period": "Last 30 days",
-      "lastCalculated": "2026-01-25T09:41:45.429Z",
+      "lastCalculated": "2026-01-25T10:14:33.026Z",
       "methodology": {
         "frequency": "40% - Apariciones en el período",
         "diversity": "30% - Jugadores únicos que lo usan",
