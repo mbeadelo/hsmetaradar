@@ -1,8 +1,8 @@
 {
-  "lastUpdate": "2026-01-28T09:28:58.917Z",
+  "lastUpdate": "2026-01-28T09:56:53.379Z",
   "source": "HSGuru Top 100 + HSReplay player names",
-  "totalDecks": 8,
-  "knownPlayers": 2,
+  "totalDecks": 9,
+  "knownPlayers": 3,
   "decks": [
     {
       "rank": 25,
@@ -24,7 +24,7 @@
         "name": "Starship Rogue",
         "code": "AAECAaIHCsekBqfTBozWBvbdBu3nBqrqBrXqBtuXB4KYB9GdBwr2nwT3nwS2tQae3Abq5Qaa5gaQgweDigfBlwfHrgcAAQP1swbHpAb3swbHpAbu3gbHpAYAAA=="
       },
-      "lastSeen": "45 minutes ago"
+      "lastSeen": "1 hour ago"
     },
     {
       "rank": 26,
@@ -50,6 +50,17 @@
     },
     {
       "rank": 27,
+      "name": "Haztlan",
+      "inMasterList": false,
+      "battleTag": null,
+      "deck": {
+        "name": "Starship Rogue",
+        "code": "AAECAaIHCsekBqfTBozWBvbdBu3nBqrqBrXqBtuXB4KYB9GdBwr2nwT3nwS2tQae3Abq5Qaa5gaQgweDigfBlwfHrgcAAQP1swbHpAb3swbHpAbu3gbHpAYAAA=="
+      },
+      "lastSeen": "10 minutes ago"
+    },
+    {
+      "rank": 27,
       "name": "FAST44#11149",
       "inMasterList": false,
       "battleTag": null,
@@ -57,18 +68,18 @@
         "name": "Starship Rogue",
         "code": "AAECAaIHCsekBqfTBozWBvbdBu3nBqrqBrXqBtuXB4KYB9GdBwr2nwT3nwS2tQae3Abq5Qaa5gaQgweDigfBlwfHrgcAAQP1swbHpAb3swbHpAbu3gbHpAYAAA=="
       },
-      "lastSeen": "19 minutes ago"
+      "lastSeen": "47 minutes ago"
     },
     {
-      "rank": 27,
-      "name": "Vini",
-      "inMasterList": false,
-      "battleTag": null,
+      "rank": 28,
+      "name": "Fled",
+      "inMasterList": true,
+      "battleTag": "Fled#11390",
       "deck": {
         "name": "Starship Rogue",
         "code": "AAECAaIHCsekBqfTBozWBvbdBu3nBqrqBrXqBtuXB4KYB9GdBwr2nwT3nwS2tQae3Abq5Qaa5gaQgweDigfBlwfHrgcAAQP1swbHpAb3swbHpAbu3gbHpAYAAA=="
       },
-      "lastSeen": "1 hour ago"
+      "lastSeen": "15 minutes ago"
     },
     {
       "rank": 37,
@@ -79,7 +90,7 @@
         "name": "Starship Rogue",
         "code": "AAECAaIHCsekBqfTBozWBvbdBu3nBqrqBrXqBtuXB4KYB9GdBwr2nwT3nwS2tQae3Abq5Qaa5gaQgweDigfBlwfHrgcAAQP1swbHpAb3swbHpAbu3gbHpAYAAA=="
       },
-      "lastSeen": "3 minutes ago"
+      "lastSeen": "31 minutes ago"
     },
     {
       "rank": 97,
@@ -97,8 +108,8 @@
   "metaSnapshot": {
     "24h": {
       "classDistribution": {
-        "Rogue": 141,
-        "Warrior": 61,
+        "Rogue": 145,
+        "Warrior": 59,
         "Hunter": 48,
         "Shaman": 4,
         "DK": 16,
@@ -106,9 +117,9 @@
         "Mage": 2
       },
       "classPercentages": {
-        "Rogue": "51.1",
-        "Warrior": "22.1",
-        "Hunter": "17.4",
+        "Rogue": "52.2",
+        "Warrior": "21.2",
+        "Hunter": "17.3",
         "Shaman": "1.4",
         "DK": "5.8",
         "DH": "1.4",
@@ -117,23 +128,23 @@
       "topArchetypes": [
         {
           "name": "Starship Rogue",
-          "count": 84,
-          "percentage": "30.4"
+          "count": 87,
+          "percentage": "31.3"
         },
         {
           "name": "Elise Rogue",
-          "count": 54,
-          "percentage": "19.6"
+          "count": 55,
+          "percentage": "19.8"
         },
         {
           "name": "Discover Hunter",
           "count": 48,
-          "percentage": "17.4"
+          "percentage": "17.3"
         },
         {
           "name": "Dragon Warrior",
-          "count": 45,
-          "percentage": "16.3"
+          "count": 43,
+          "percentage": "15.5"
         },
         {
           "name": "Quest Warrior",
@@ -142,14 +153,14 @@
         }
       ],
       "mostPlayedClass": "Rogue",
-      "totalDecksAnalyzed": 276,
+      "totalDecksAnalyzed": 278,
       "period": "Last 24 hours"
     },
     "7d": {
       "classDistribution": {
-        "Druid": 52,
         "DK": 72,
-        "Hunter": 383,
+        "Druid": 50,
+        "Hunter": 385,
         "DH": 129,
         "Rogue": 163,
         "Warrior": 225,
@@ -159,9 +170,9 @@
         "Mage": 27
       },
       "classPercentages": {
-        "Druid": "4.3",
         "DK": "6.0",
-        "Hunter": "31.9",
+        "Druid": "4.2",
+        "Hunter": "32.1",
         "DH": "10.8",
         "Rogue": "13.6",
         "Warrior": "18.8",
@@ -173,8 +184,8 @@
       "topArchetypes": [
         {
           "name": "Discover Hunter",
-          "count": 383,
-          "percentage": "31.9"
+          "count": 385,
+          "percentage": "32.1"
         },
         {
           "name": "Dragon Warrior",
@@ -295,10 +306,10 @@
         },
         {
           "name": "Starship Rogue",
-          "count": 84,
-          "percentage": "30.4",
-          "uniquePlayers": 29,
-          "avgRank": 29,
+          "count": 87,
+          "percentage": "31.3",
+          "uniquePlayers": 30,
+          "avgRank": 30,
           "metaScore": 44,
           "tier": "C",
           "sampleDeckCode": "AAECAaIHCsekBqfTBozWBvbdBu3nBqrqBrXqBtuXB4KYB9GdBwr2nwT3nwS2tQae3Abq5Qaa5gaQgweDigfBlwfHrgcAAQP1swbHpAb3swbHpAbu3gbHpAYAAA=="
@@ -325,18 +336,18 @@
         },
         {
           "name": "Elise Rogue",
-          "count": 54,
-          "percentage": "19.6",
+          "count": 55,
+          "percentage": "19.8",
           "uniquePlayers": 31,
-          "avgRank": 40,
-          "metaScore": 43,
+          "avgRank": 41,
+          "metaScore": 42,
           "tier": "C",
           "sampleDeckCode": "AAECAaIHCsekBrOpBqfTBuHrBt/+BpKDB4OKB4KYB9GdB92vBwr2nwT3nwS2tQaM1gbq5Qa1+gaQgweMrQfHrgfZrwcAAQP1swbHpAb3swbHpAbu3gbHpAYAAA=="
         },
         {
           "name": "Discover Hunter",
           "count": 48,
-          "percentage": "17.4",
+          "percentage": "17.3",
           "uniquePlayers": 23,
           "avgRank": 37,
           "metaScore": 40,
@@ -364,22 +375,22 @@
           "sampleDeckCode": null
         },
         {
-          "name": "Dragon Warrior",
-          "count": 45,
-          "percentage": "16.3",
-          "uniquePlayers": 22,
-          "avgRank": 84,
-          "metaScore": 26,
-          "tier": "C",
-          "sampleDeckCode": null
-        },
-        {
           "name": "Hagatha Shaman",
           "count": 4,
           "percentage": "1.4",
           "uniquePlayers": 3,
           "avgRank": 91,
           "metaScore": 26,
+          "tier": "C",
+          "sampleDeckCode": null
+        },
+        {
+          "name": "Dragon Warrior",
+          "count": 43,
+          "percentage": "15.5",
+          "uniquePlayers": 20,
+          "avgRank": 84,
+          "metaScore": 25,
           "tier": "C",
           "sampleDeckCode": null
         },
@@ -394,9 +405,9 @@
           "sampleDeckCode": null
         }
       ],
-      "totalDecksAnalyzed": 276,
+      "totalDecksAnalyzed": 278,
       "period": "Last 24 hours",
-      "lastCalculated": "2026-01-28T09:28:58.909Z",
+      "lastCalculated": "2026-01-28T09:56:53.372Z",
       "methodology": {
         "frequency": "40% - Apariciones en el período",
         "diversity": "30% - Jugadores únicos que lo usan",
@@ -427,8 +438,8 @@
         },
         {
           "name": "Discover Hunter",
-          "count": 383,
-          "percentage": "31.9",
+          "count": 385,
+          "percentage": "32.1",
           "uniquePlayers": 119,
           "avgRank": 32,
           "metaScore": 42,
@@ -506,6 +517,16 @@
           "sampleDeckCode": null
         },
         {
+          "name": "Copy Druid",
+          "count": 50,
+          "percentage": "4.2",
+          "uniquePlayers": 32,
+          "avgRank": 52,
+          "metaScore": 35,
+          "tier": "C",
+          "sampleDeckCode": null
+        },
+        {
           "name": "Hagatha Shaman",
           "count": 67,
           "percentage": "5.6",
@@ -532,16 +553,6 @@
           "uniquePlayers": 3,
           "avgRank": 58,
           "metaScore": 35,
-          "tier": "C",
-          "sampleDeckCode": null
-        },
-        {
-          "name": "Copy Druid",
-          "count": 52,
-          "percentage": "4.3",
-          "uniquePlayers": 32,
-          "avgRank": 53,
-          "metaScore": 34,
           "tier": "C",
           "sampleDeckCode": null
         },
@@ -648,7 +659,7 @@
       ],
       "totalDecksAnalyzed": 1200,
       "period": "Last 7 days",
-      "lastCalculated": "2026-01-28T09:28:58.911Z",
+      "lastCalculated": "2026-01-28T09:56:53.375Z",
       "methodology": {
         "frequency": "40% - Apariciones en el período",
         "diversity": "30% - Jugadores únicos que lo usan",
@@ -990,7 +1001,7 @@
       ],
       "totalDecksAnalyzed": 1200,
       "period": "Last 30 days",
-      "lastCalculated": "2026-01-28T09:28:58.916Z",
+      "lastCalculated": "2026-01-28T09:56:53.378Z",
       "methodology": {
         "frequency": "40% - Apariciones en el período",
         "diversity": "30% - Jugadores únicos que lo usan",
