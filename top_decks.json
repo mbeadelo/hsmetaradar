@@ -1,100 +1,126 @@
 {
-  "lastUpdate": "2026-02-09T18:46:39.643Z",
+  "lastUpdate": "2026-02-09T19:58:43.972Z",
   "source": "HSGuru Top 100 + HSReplay player names",
-  "totalDecks": 4,
-  "knownPlayers": 0,
+  "totalDecks": 6,
+  "knownPlayers": 2,
   "decks": [
     {
-      "rank": 10,
-      "name": "Legend #10",
+      "rank": 18,
+      "name": "Legend #18",
+      "inMasterList": false,
+      "battleTag": null,
+      "deck": {
+        "name": "Quasar Rogue",
+        "code": "AAECAaIHBJegBPLnBseuB/KyBw33nwS9ngbZoga2tQbyyQaM1gbk6gbAjwfBlwfUnQfmowftrAe2sgcAAA=="
+      },
+      "lastSeen": "10 minutes ago"
+    },
+    {
+      "rank": 19,
+      "name": "Legend #19",
+      "inMasterList": false,
+      "battleTag": null,
+      "deck": {
+        "name": "Quasar Rogue",
+        "code": "AAECAaIHBJegBPLnBseuB/KyBw33nwS9ngbZoga2tQbyyQaM1gbk6gbAjwfBlwfUnQfmowftrAe2sgcAAA=="
+      },
+      "lastSeen": "5 minutes ago"
+    },
+    {
+      "rank": 41,
+      "name": "Legend #41",
       "inMasterList": false,
       "battleTag": null,
       "deck": {
         "name": "Among Us DH",
-        "code": "AAECAea5AwbAjweKqgeSqgeTqgehsQfosQcMgIUE4fgFw7AG18AG4+MGvuoGpfwG3v8G/oMHtpcHtZgH0a8HAAA="
+        "code": "AAECAea5AwSonga84gbJ5QbK5QYN4fgFw7AG398G5N8G4+IG4+MGzeQG0eUGouoGvuoGj6cH0a8H6LEHAAA="
       },
-      "lastSeen": "12 minutes ago"
+      "lastSeen": "7 minutes ago"
     },
     {
-      "rank": 69,
-      "name": "Legend #69",
+      "rank": 57,
+      "name": "Kubu",
+      "inMasterList": true,
+      "battleTag": "Kubu#21353",
+      "deck": {
+        "name": "Demon Warlock",
+        "code": "AAECAf0GBsekBpO/BsXlBuntBpKDB4KYBwzTngaaswaUygap4Qad5AbB5Abi5ga1+gbDhweEmQeHnAeKsQcAAQP1swbHpAb3swbHpAbu3gbHpAYAAA=="
+      },
+      "lastSeen": "2 minutes ago"
+    },
+    {
+      "rank": 64,
+      "name": "Asuna",
+      "inMasterList": true,
+      "battleTag": "Asuna#2996",
+      "deck": {
+        "name": "Demon Warlock",
+        "code": "AAECAf0GCMekBse4BpO/BsXlBuntBt+CB5KDB4KYBwuaswb/ugaUygap4Qad5AbB5Abi5ga1+gbDhweEmQeHnAcAAQP1swbHpAb3swbHpAbu3gbHpAYAAA=="
+      },
+      "lastSeen": "10 minutes ago"
+    },
+    {
+      "rank": 74,
+      "name": "Legend #74",
       "inMasterList": false,
       "battleTag": null,
       "deck": {
-        "name": "Among Us DH",
-        "code": "AAECAea5Awaonga84gbK5QaKqgeSqgeTqgcM4fgF398G5N8G4+IG4+MGzeQG0eUGouoGvuoGj6cH0a8H6LEHAAA="
+        "name": "Libram Paladin",
+        "code": "AAECAZ8FBNK5BtG/BqfTBqXoBg3JoATRqQbUuAbCvgaM1gbi3wbt3waS4AbJ5Qac6Aaf6Aai6Aa+sgcAAA=="
       },
-      "lastSeen": "12 minutes ago"
-    },
-    {
-      "rank": 77,
-      "name": "Legend #77",
-      "inMasterList": false,
-      "battleTag": null,
-      "deck": {
-        "name": "Among Us DH",
-        "code": "AAECAea5Awaonga84gbK5QaKqgeSqgeTqgcM4fgF398G5N8G4+IG4+MGzeQG0eUGouoGvuoGj6cH0a8H6LEHAAA="
-      },
-      "lastSeen": "4 minutes ago"
-    },
-    {
-      "rank": 93,
-      "name": "Legend #93",
-      "inMasterList": false,
-      "battleTag": null,
-      "deck": {
-        "name": "Maestra Rogue",
-        "code": "AAECAaIHCJGfBIukBbPBBvTJBqLhBoaoB4eoB4ioBwv2nwT3nwTWngatpwa2tQa5wQaTywaR5gbO/gbBlwfmowcAAA=="
-      },
-      "lastSeen": "21 minutes ago"
+      "lastSeen": "2 minutes ago"
     }
   ],
   "noNewResults": false,
   "metaSnapshot": {
     "24h": {
       "classDistribution": {
-        "Hunter": 20,
         "Warrior": 36,
-        "Rogue": 32,
-        "DH": 20,
-        "DK": 28
+        "Hunter": 19,
+        "Rogue": 34,
+        "DH": 21,
+        "DK": 28,
+        "Warlock": 2,
+        "Paladin": 1
       },
       "classPercentages": {
-        "Hunter": "14.7",
-        "Warrior": "26.5",
-        "Rogue": "23.5",
-        "DH": "14.7",
-        "DK": "20.6"
+        "Warrior": "25.5",
+        "Hunter": "13.5",
+        "Rogue": "24.1",
+        "DH": "14.9",
+        "DK": "19.9",
+        "Warlock": "1.4",
+        "Paladin": "0.7"
       },
       "topArchetypes": [
         {
           "name": "Imbue Rogue",
           "count": 28,
-          "percentage": "20.6"
+          "percentage": "19.9"
         },
         {
           "name": "Quest Warrior",
           "count": 20,
-          "percentage": "14.7"
+          "percentage": "14.2"
         },
         {
           "name": "Discover Hunter",
-          "count": 20,
-          "percentage": "14.7"
+          "count": 19,
+          "percentage": "13.5"
         },
         {
           "name": "Broxigar DH",
           "count": 17,
-          "percentage": "12.5"
+          "percentage": "12.1"
         },
         {
           "name": "Dragon Warrior",
           "count": 16,
-          "percentage": "11.8"
+          "percentage": "11.3"
         }
       ],
       "mostPlayedClass": "Warrior",
-      "totalDecksAnalyzed": 136,
+      "totalDecksAnalyzed": 141,
       "period": "Last 24 hours"
     },
     "7d": {
@@ -216,7 +242,7 @@
         {
           "name": "Quest Warrior",
           "count": 20,
-          "percentage": "14.7",
+          "percentage": "14.2",
           "uniquePlayers": 16,
           "avgRank": 11,
           "metaScore": 56,
@@ -226,17 +252,17 @@
         {
           "name": "Broxigar DH",
           "count": 17,
-          "percentage": "12.5",
+          "percentage": "12.1",
           "uniquePlayers": 13,
           "avgRank": 11,
-          "metaScore": 55,
+          "metaScore": 54,
           "tier": "B",
           "sampleDeckCode": null
         },
         {
           "name": "Imbue Rogue",
           "count": 28,
-          "percentage": "20.6",
+          "percentage": "19.9",
           "uniquePlayers": 19,
           "avgRank": 28,
           "metaScore": 50,
@@ -244,9 +270,19 @@
           "sampleDeckCode": null
         },
         {
+          "name": "Demon Warlock",
+          "count": 2,
+          "percentage": "1.4",
+          "uniquePlayers": 2,
+          "avgRank": 61,
+          "metaScore": 42,
+          "tier": "C",
+          "sampleDeckCode": "AAECAf0GCMekBse4BpO/BsXlBuntBt+CB5KDB4KYBwuaswb/ugaUygap4Qad5AbB5Abi5ga1+gbDhweEmQeHnAcAAQP1swbHpAb3swbHpAbu3gbHpAYAAA=="
+        },
+        {
           "name": "Elise Rogue",
           "count": 3,
-          "percentage": "2.2",
+          "percentage": "2.1",
           "uniquePlayers": 2,
           "avgRank": 52,
           "metaScore": 35,
@@ -256,10 +292,10 @@
         {
           "name": "Dragon Warrior",
           "count": 16,
-          "percentage": "11.8",
+          "percentage": "11.3",
           "uniquePlayers": 6,
           "avgRank": 42,
-          "metaScore": 34,
+          "metaScore": 33,
           "tier": "C",
           "sampleDeckCode": null
         },
@@ -275,10 +311,10 @@
         },
         {
           "name": "Discover Hunter",
-          "count": 20,
-          "percentage": "14.7",
+          "count": 19,
+          "percentage": "13.5",
           "uniquePlayers": 9,
-          "avgRank": 61,
+          "avgRank": 62,
           "metaScore": 31,
           "tier": "C",
           "sampleDeckCode": null
@@ -286,7 +322,7 @@
         {
           "name": "BBU Control DK",
           "count": 14,
-          "percentage": "10.3",
+          "percentage": "9.9",
           "uniquePlayers": 6,
           "avgRank": 57,
           "metaScore": 30,
@@ -296,7 +332,7 @@
         {
           "name": "BUU Corpse DK",
           "count": 13,
-          "percentage": "9.6",
+          "percentage": "9.2",
           "uniquePlayers": 6,
           "avgRank": 66,
           "metaScore": 28,
@@ -304,14 +340,34 @@
           "sampleDeckCode": null
         },
         {
-          "name": "Among Us DH",
-          "count": 3,
-          "percentage": "2.2",
+          "name": "Quasar Rogue",
+          "count": 2,
+          "percentage": "1.4",
           "uniquePlayers": 0,
-          "avgRank": 52,
-          "metaScore": 15,
+          "avgRank": 19,
+          "metaScore": 25,
           "tier": "C",
-          "sampleDeckCode": "AAECAea5Awaonga84gbK5QaKqgeSqgeTqgcM4fgF398G5N8G4+IG4+MGzeQG0eUGouoGvuoGj6cH0a8H6LEHAAA="
+          "sampleDeckCode": "AAECAaIHBJegBPLnBseuB/KyBw33nwS9ngbZoga2tQbyyQaM1gbk6gbAjwfBlwfUnQfmowftrAe2sgcAAA=="
+        },
+        {
+          "name": "Among Us DH",
+          "count": 4,
+          "percentage": "2.8",
+          "uniquePlayers": 0,
+          "avgRank": 49,
+          "metaScore": 16,
+          "tier": "C",
+          "sampleDeckCode": "AAECAea5AwSonga84gbJ5QbK5QYN4fgFw7AG398G5N8G4+IG4+MGzeQG0eUGouoGvuoGj6cH0a8H6LEHAAA="
+        },
+        {
+          "name": "Libram Paladin",
+          "count": 1,
+          "percentage": "0.7",
+          "uniquePlayers": 0,
+          "avgRank": 74,
+          "metaScore": 8,
+          "tier": "C",
+          "sampleDeckCode": "AAECAZ8FBNK5BtG/BqfTBqXoBg3JoATRqQbUuAbCvgaM1gbi3wbt3waS4AbJ5Qac6Aaf6Aai6Aa+sgcAAA=="
         },
         {
           "name": "Maestra Rogue",
@@ -321,12 +377,12 @@
           "avgRank": 93,
           "metaScore": 2,
           "tier": "C",
-          "sampleDeckCode": "AAECAaIHCJGfBIukBbPBBvTJBqLhBoaoB4eoB4ioBwv2nwT3nwTWngatpwa2tQa5wQaTywaR5gbO/gbBlwfmowcAAA=="
+          "sampleDeckCode": null
         }
       ],
-      "totalDecksAnalyzed": 136,
+      "totalDecksAnalyzed": 141,
       "period": "Last 24 hours",
-      "lastCalculated": "2026-02-09T18:46:39.637Z",
+      "lastCalculated": "2026-02-09T19:58:43.968Z",
       "methodology": {
         "frequency": "40% - Apariciones en el período",
         "diversity": "30% - Jugadores únicos que lo usan",
@@ -508,7 +564,7 @@
       ],
       "totalDecksAnalyzed": 1200,
       "period": "Last 7 days",
-      "lastCalculated": "2026-02-09T18:46:39.639Z",
+      "lastCalculated": "2026-02-09T19:58:43.970Z",
       "methodology": {
         "frequency": "40% - Apariciones en el período",
         "diversity": "30% - Jugadores únicos que lo usan",
@@ -850,7 +906,7 @@
       ],
       "totalDecksAnalyzed": 1200,
       "period": "Last 30 days",
-      "lastCalculated": "2026-02-09T18:46:39.642Z",
+      "lastCalculated": "2026-02-09T19:58:43.972Z",
       "methodology": {
         "frequency": "40% - Apariciones en el período",
         "diversity": "30% - Jugadores únicos que lo usan",
