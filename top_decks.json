@@ -1,20 +1,9 @@
 {
-  "lastUpdate": "2026-02-09T06:56:41.788Z",
+  "lastUpdate": "2026-02-09T07:52:39.821Z",
   "source": "HSGuru Top 100 + HSReplay player names",
-  "totalDecks": 5,
-  "knownPlayers": 3,
+  "totalDecks": 2,
+  "knownPlayers": 1,
   "decks": [
-    {
-      "rank": 51,
-      "name": "Pizza",
-      "inMasterList": true,
-      "battleTag": "Pizza#1279",
-      "deck": {
-        "name": "BBU Control DK",
-        "code": "AAECAfHhBA7HpAaouAan0wbm5QbC6Aaq6gbO8Qap9QaB/QaWggeSgwfDgweDigeCmAcIh/YE/7oGtfoG/fwGl4IHupUHh5wH4rEHAAED9bMGx6QG97MGx6QG7t4Gx6QGAAA="
-      },
-      "lastSeen": "1 hour ago"
-    },
     {
       "rank": 59,
       "name": "Drakins",
@@ -24,29 +13,7 @@
         "name": "BBU Control DK",
         "code": "AAECAfHhBA7HpAaouAan0wbm5QbC6Aaq6gbO8Qap9QaB/QaWggeSgwfDgweDigeCmAcIh/YE/7oGtfoG/fwGl4IHupUHh5wH4rEHAAED9bMGx6QG97MGx6QG7t4Gx6QGAAA="
       },
-      "lastSeen": "34 minutes ago"
-    },
-    {
-      "rank": 59,
-      "name": "Alex0711",
-      "inMasterList": false,
-      "battleTag": null,
-      "deck": {
-        "name": "BBU Control DK",
-        "code": "AAECAfHhBA7HpAaouAan0wbm5QbC6Aaq6gbO8Qap9QaB/QaWggeSgwfDgweDigeCmAcIh/YE/7oGtfoG/fwGl4IHupUHh5wH4rEHAAED9bMGx6QG97MGx6QG7t4Gx6QGAAA="
-      },
       "lastSeen": "1 hour ago"
-    },
-    {
-      "rank": 65,
-      "name": "Pizza",
-      "inMasterList": true,
-      "battleTag": "Pizza#1279",
-      "deck": {
-        "name": "BBU Control DK",
-        "code": "AAECAfHhBA7HpAaouAan0wbm5QbC6Aaq6gbO8Qap9QaB/QaWggeSgwfDgweDigeCmAcIh/YE/7oGtfoG/fwGl4IHupUHh5wH4rEHAAED9bMGx6QG97MGx6QG7t4Gx6QGAAA="
-      },
-      "lastSeen": "45 minutes ago"
     },
     {
       "rank": 66,
@@ -57,7 +24,7 @@
         "name": "BBU Control DK",
         "code": "AAECAfHhBA7HpAaouAan0wbm5QbC6Aaq6gbO8Qap9QaB/QaWggeSgwfDgweDigeCmAcIh/YE/7oGtfoG/fwGl4IHupUHh5wH4rEHAAED9bMGx6QG97MGx6QG7t4Gx6QGAAA="
       },
-      "lastSeen": "15 minutes ago"
+      "lastSeen": "1 hour ago"
     }
   ],
   "noNewResults": false,
@@ -69,65 +36,65 @@
         "Hunter": 21,
         "Rogue": 44,
         "Shaman": 1,
-        "DK": 10
+        "DK": 12
       },
       "classPercentages": {
-        "DH": "36.9",
-        "Warrior": "20.7",
-        "Hunter": "11.7",
-        "Rogue": "24.6",
+        "DH": "36.5",
+        "Warrior": "20.4",
+        "Hunter": "11.6",
+        "Rogue": "24.3",
         "Shaman": "0.6",
-        "DK": "5.6"
+        "DK": "6.6"
       },
       "topArchetypes": [
         {
           "name": "Imbue Rogue",
           "count": 41,
-          "percentage": "22.9"
+          "percentage": "22.7"
         },
         {
           "name": "Blobxigar DH",
           "count": 25,
-          "percentage": "14.0"
+          "percentage": "13.8"
         },
         {
           "name": "Quest Warrior",
           "count": 22,
-          "percentage": "12.3"
+          "percentage": "12.2"
         },
         {
           "name": "Cliff Dive DH",
           "count": 21,
-          "percentage": "11.7"
+          "percentage": "11.6"
         },
         {
           "name": "Discover Hunter",
           "count": 21,
-          "percentage": "11.7"
+          "percentage": "11.6"
         }
       ],
       "mostPlayedClass": "DH",
-      "totalDecksAnalyzed": 179,
+      "totalDecksAnalyzed": 181,
       "period": "Last 24 hours"
     },
     "7d": {
       "classDistribution": {
-        "DK": 70,
-        "Hunter": 255,
-        "Warrior": 90,
-        "Mage": 41,
-        "DH": 168,
+        "DK": 61,
+        "Hunter": 252,
+        "Warrior": 92,
+        "Mage": 40,
+        "DH": 179,
         "Shaman": 178,
         "Rogue": 320,
         "Paladin": 76,
         "Druid": 2
       },
       "classPercentages": {
-        "DK": "5.8",
-        "Hunter": "21.3",
-        "Warrior": "7.5",
-        "Mage": "3.4",
-        "DH": "14.0",
+        "DK": "5.1",
+        "Hunter": "21.0",
+        "Warrior": "7.7",
+        "Mage": "3.3",
+        "DH": "14.9",
         "Shaman": "14.8",
         "Rogue": "26.7",
         "Paladin": "6.3",
@@ -136,8 +103,8 @@
       "topArchetypes": [
         {
           "name": "Discover Hunter",
-          "count": 255,
-          "percentage": "21.3"
+          "count": 252,
+          "percentage": "21.0"
         },
         {
           "name": "Hagatha Shaman",
@@ -150,14 +117,14 @@
           "percentage": "10.7"
         },
         {
+          "name": "Cliff Dive DH",
+          "count": 111,
+          "percentage": "9.3"
+        },
+        {
           "name": "Imbue Rogue",
           "count": 106,
           "percentage": "8.8"
-        },
-        {
-          "name": "Cliff Dive DH",
-          "count": 103,
-          "percentage": "8.6"
         }
       ],
       "mostPlayedClass": "Rogue",
@@ -229,7 +196,7 @@
         {
           "name": "Broxigar DH",
           "count": 20,
-          "percentage": "11.2",
+          "percentage": "11.0",
           "uniquePlayers": 13,
           "avgRank": 10,
           "metaScore": 51,
@@ -239,7 +206,7 @@
         {
           "name": "Quest Warrior",
           "count": 22,
-          "percentage": "12.3",
+          "percentage": "12.2",
           "uniquePlayers": 13,
           "avgRank": 12,
           "metaScore": 49,
@@ -249,7 +216,7 @@
         {
           "name": "Imbue Rogue",
           "count": 41,
-          "percentage": "22.9",
+          "percentage": "22.7",
           "uniquePlayers": 25,
           "avgRank": 29,
           "metaScore": 49,
@@ -259,7 +226,7 @@
         {
           "name": "Cliff Dive DH",
           "count": 21,
-          "percentage": "11.7",
+          "percentage": "11.6",
           "uniquePlayers": 11,
           "avgRank": 10,
           "metaScore": 47,
@@ -269,7 +236,7 @@
         {
           "name": "Blobxigar DH",
           "count": 25,
-          "percentage": "14.0",
+          "percentage": "13.8",
           "uniquePlayers": 5,
           "avgRank": 11,
           "metaScore": 38,
@@ -287,19 +254,9 @@
           "sampleDeckCode": null
         },
         {
-          "name": "BBU Control DK",
-          "count": 10,
-          "percentage": "5.6",
-          "uniquePlayers": 6,
-          "avgRank": 55,
-          "metaScore": 34,
-          "tier": "C",
-          "sampleDeckCode": "AAECAfHhBA7HpAaouAan0wbm5QbC6Aaq6gbO8Qap9QaB/QaWggeSgwfDgweDigeCmAcIh/YE/7oGtfoG/fwGl4IHupUHh5wH4rEHAAED9bMGx6QG97MGx6QG7t4Gx6QGAAA="
-        },
-        {
           "name": "Dragon Warrior",
           "count": 15,
-          "percentage": "8.4",
+          "percentage": "8.3",
           "uniquePlayers": 5,
           "avgRank": 39,
           "metaScore": 32,
@@ -309,7 +266,7 @@
         {
           "name": "Discover Hunter",
           "count": 21,
-          "percentage": "11.7",
+          "percentage": "11.6",
           "uniquePlayers": 10,
           "avgRank": 59,
           "metaScore": 31,
@@ -325,11 +282,21 @@
           "metaScore": 31,
           "tier": "C",
           "sampleDeckCode": null
+        },
+        {
+          "name": "BBU Control DK",
+          "count": 12,
+          "percentage": "6.6",
+          "uniquePlayers": 6,
+          "avgRank": 57,
+          "metaScore": 31,
+          "tier": "C",
+          "sampleDeckCode": "AAECAfHhBA7HpAaouAan0wbm5QbC6Aaq6gbO8Qap9QaB/QaWggeSgwfDgweDigeCmAcIh/YE/7oGtfoG/fwGl4IHupUHh5wH4rEHAAED9bMGx6QG97MGx6QG7t4Gx6QGAAA="
         }
       ],
-      "totalDecksAnalyzed": 179,
+      "totalDecksAnalyzed": 181,
       "period": "Last 24 hours",
-      "lastCalculated": "2026-02-09T06:56:41.783Z",
+      "lastCalculated": "2026-02-09T07:52:39.814Z",
       "methodology": {
         "frequency": "40% - Apariciones en el período",
         "diversity": "30% - Jugadores únicos que lo usan",
@@ -390,21 +357,21 @@
         },
         {
           "name": "Dragon Warrior",
-          "count": 70,
-          "percentage": "5.8",
-          "uniquePlayers": 41,
-          "avgRank": 47,
-          "metaScore": 36,
+          "count": 72,
+          "percentage": "6.0",
+          "uniquePlayers": 45,
+          "avgRank": 46,
+          "metaScore": 37,
           "tier": "C",
           "sampleDeckCode": null
         },
         {
           "name": "Cliff Dive DH",
-          "count": 103,
-          "percentage": "8.6",
-          "uniquePlayers": 48,
+          "count": 111,
+          "percentage": "9.3",
+          "uniquePlayers": 53,
           "avgRank": 41,
-          "metaScore": 35,
+          "metaScore": 36,
           "tier": "C",
           "sampleDeckCode": null
         },
@@ -429,21 +396,21 @@
           "sampleDeckCode": null
         },
         {
-          "name": "Discover Hunter",
-          "count": 255,
-          "percentage": "21.3",
-          "uniquePlayers": 69,
-          "avgRank": 53,
-          "metaScore": 31,
+          "name": "Broxigar DH",
+          "count": 27,
+          "percentage": "2.3",
+          "uniquePlayers": 16,
+          "avgRank": 55,
+          "metaScore": 32,
           "tier": "C",
           "sampleDeckCode": null
         },
         {
-          "name": "Broxigar DH",
-          "count": 24,
-          "percentage": "2.0",
-          "uniquePlayers": 13,
-          "avgRank": 53,
+          "name": "Discover Hunter",
+          "count": 252,
+          "percentage": "21.0",
+          "uniquePlayers": 70,
+          "avgRank": 54,
           "metaScore": 31,
           "tier": "C",
           "sampleDeckCode": null
@@ -480,11 +447,11 @@
         },
         {
           "name": "BBU Control DK",
-          "count": 38,
-          "percentage": "3.2",
+          "count": 31,
+          "percentage": "2.6",
           "uniquePlayers": 11,
-          "avgRank": 53,
-          "metaScore": 24,
+          "avgRank": 63,
+          "metaScore": 23,
           "tier": "C",
           "sampleDeckCode": "AAECAfHhBA7HpAaouAan0wbm5QbC6Aaq6gbO8Qap9QaB/QaWggeSgwfDgweDigeCmAcIh/YE/7oGtfoG/fwGl4IHupUHh5wH4rEHAAED9bMGx6QG97MGx6QG7t4Gx6QGAAA="
         },
@@ -500,28 +467,28 @@
         },
         {
           "name": "Quest Mage",
-          "count": 12,
-          "percentage": "1.0",
+          "count": 11,
+          "percentage": "0.9",
           "uniquePlayers": 6,
           "avgRank": 92,
-          "metaScore": 18,
+          "metaScore": 19,
           "tier": "C",
           "sampleDeckCode": null
         },
         {
           "name": "BUU Control DK",
-          "count": 21,
-          "percentage": "1.8",
+          "count": 19,
+          "percentage": "1.6",
           "uniquePlayers": 4,
-          "avgRank": 73,
-          "metaScore": 14,
+          "avgRank": 75,
+          "metaScore": 15,
           "tier": "C",
           "sampleDeckCode": null
         }
       ],
       "totalDecksAnalyzed": 1200,
       "period": "Last 7 days",
-      "lastCalculated": "2026-02-09T06:56:41.785Z",
+      "lastCalculated": "2026-02-09T07:52:39.817Z",
       "methodology": {
         "frequency": "40% - Apariciones en el período",
         "diversity": "30% - Jugadores únicos que lo usan",
@@ -863,7 +830,7 @@
       ],
       "totalDecksAnalyzed": 1200,
       "period": "Last 30 days",
-      "lastCalculated": "2026-02-09T06:56:41.788Z",
+      "lastCalculated": "2026-02-09T07:52:39.820Z",
       "methodology": {
         "frequency": "40% - Apariciones en el período",
         "diversity": "30% - Jugadores únicos que lo usan",
