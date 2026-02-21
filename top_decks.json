@@ -1,14 +1,14 @@
 {
-  "lastUpdate": "2026-02-21T11:16:13.381Z",
+  "lastUpdate": "2026-02-21T11:43:36.014Z",
   "source": "HSGuru Top 100 + HSReplay player names",
-  "totalDecks": 3,
-  "knownPlayers": 0,
+  "totalDecks": 5,
+  "knownPlayers": 4,
   "decks": [
     {
-      "rank": 7,
-      "name": "ShickenBoy",
-      "inMasterList": false,
-      "battleTag": null,
+      "rank": 6,
+      "name": "kiki",
+      "inMasterList": true,
+      "battleTag": "kiki#21838",
       "deck": {
         "name": "Arkwing Mage",
         "code": "AAECAf0EArPFBpXqBg6yngaBvwbBvwaAygbmygbR5Qbx5Qby5QaG5gbX8wazhwf0kQf6mwfRpgcAAA=="
@@ -16,35 +16,57 @@
       "lastSeen": "7 minutes ago"
     },
     {
-      "rank": 46,
-      "name": "Aberg",
+      "rank": 6,
+      "name": "Ronnie",
       "inMasterList": false,
       "battleTag": null,
       "deck": {
-        "name": "Quest Mage",
-        "code": "AAECAf0ECMekBpXqBqrqBvKDB4KYB6ebB/KyB4u+BwuFvwbx5Qby5QaG5gaa9Aa1+gbxkQewmwf6mwf2pwfLtgcAAQP1swbHpAb3swbHpAbu3gbHpAYAAA=="
+        "name": "Arkwing Mage",
+        "code": "AAECAf0EArPFBpXqBg6yngaBvwbBvwaAygbmygbR5Qbx5Qby5QaG5gbX8wazhwf0kQf6mwfRpgcAAA=="
       },
-      "lastSeen": "3 minutes ago"
+      "lastSeen": "16 minutes ago"
     },
     {
-      "rank": 53,
-      "name": "Legend #53",
-      "inMasterList": false,
-      "battleTag": null,
+      "rank": 9,
+      "name": "Otsuna",
+      "inMasterList": true,
+      "battleTag": "Otsuna#2888",
+      "deck": {
+        "name": "Quest Warrior",
+        "code": "AAECAQcOzZ4Gx6QGjr8G+skGquoGg4oH7o8HtpQH1JcH25cHgpgHhJ0HyqsHi74HCIigBImgBI7UBIegBvPKBrDiBuqnB/yvBwABA/WzBsekBvezBsekBu7eBsekBgAA"
+      },
+      "lastSeen": "9 minutes ago"
+    },
+    {
+      "rank": 36,
+      "name": "preie",
+      "inMasterList": true,
+      "battleTag": "preie#21228",
+      "deck": {
+        "name": "Discover Hunter",
+        "code": "AAECAR8Ox6QGvb4Gp9MG4uMGquoGqfUGkoMHw4MH25cHgpgHmacHmqcHm6cHxbEHCKmfBNOeBsK+Boa/Bs7ABtDABpXiBq3rBgABA/WzBsekBvezBsekBu7eBsekBgAA"
+      },
+      "lastSeen": "7 minutes ago"
+    },
+    {
+      "rank": 40,
+      "name": "Louisdebou",
+      "inMasterList": true,
+      "battleTag": "Louisdebou#2313",
       "deck": {
         "name": "Quest Mage",
         "code": "AAECAf0ECMekBpXqBqrqBvKDB4KYB6ebB/KyB4u+BwuFvwbx5Qby5QaG5gaa9Aa1+gbxkQewmwf6mwf2pwfLtgcAAQP1swbHpAb3swbHpAbu3gbHpAYAAA=="
       },
-      "lastSeen": "18 minutes ago"
+      "lastSeen": "20 minutes ago"
     }
   ],
   "noNewResults": false,
   "metaSnapshot": {
     "24h": {
       "classDistribution": {
-        "Mage": 41,
-        "Hunter": 5,
-        "Warrior": 14,
+        "Mage": 44,
+        "Hunter": 6,
+        "Warrior": 15,
         "Whizbang": 1,
         "Warlock": 1,
         "DH": 43,
@@ -53,68 +75,68 @@
         "Paladin": 6
       },
       "classPercentages": {
-        "Mage": "27.3",
-        "Hunter": "3.3",
-        "Warrior": "9.3",
-        "Whizbang": "0.7",
-        "Warlock": "0.7",
-        "DH": "28.7",
-        "DK": "10.7",
-        "Rogue": "15.3",
-        "Paladin": "4.0"
+        "Mage": "28.4",
+        "Hunter": "3.9",
+        "Warrior": "9.7",
+        "Whizbang": "0.6",
+        "Warlock": "0.6",
+        "DH": "27.7",
+        "DK": "10.3",
+        "Rogue": "14.8",
+        "Paladin": "3.9"
       },
       "topArchetypes": [
         {
           "name": "Elise DH",
           "count": 43,
-          "percentage": "28.7"
+          "percentage": "27.7"
         },
         {
           "name": "Quest Mage",
-          "count": 30,
+          "count": 31,
           "percentage": "20.0"
         },
         {
           "name": "Imbue Rogue",
           "count": 23,
-          "percentage": "15.3"
+          "percentage": "14.8"
         },
         {
           "name": "Quest Warrior",
-          "count": 14,
-          "percentage": "9.3"
+          "count": 15,
+          "percentage": "9.7"
         },
         {
           "name": "Arkwing Mage",
-          "count": 11,
-          "percentage": "7.3"
+          "count": 13,
+          "percentage": "8.4"
         }
       ],
-      "mostPlayedClass": "DH",
-      "totalDecksAnalyzed": 150,
+      "mostPlayedClass": "Mage",
+      "totalDecksAnalyzed": 155,
       "period": "Last 24 hours"
     },
     "7d": {
       "classDistribution": {
-        "DH": 235,
-        "DK": 88,
-        "Warrior": 78,
+        "DH": 227,
+        "DK": 85,
+        "Warrior": 79,
         "Rogue": 164,
-        "Mage": 392,
+        "Mage": 395,
         "Paladin": 25,
-        "Hunter": 84,
+        "Hunter": 85,
         "Druid": 62,
         "Warlock": 39,
         "Whizbang": 11
       },
       "classPercentages": {
-        "DH": "19.9",
-        "DK": "7.5",
-        "Warrior": "6.6",
-        "Rogue": "13.9",
-        "Mage": "33.3",
+        "DH": "19.4",
+        "DK": "7.3",
+        "Warrior": "6.7",
+        "Rogue": "14.0",
+        "Mage": "33.7",
         "Paladin": "2.1",
-        "Hunter": "7.1",
+        "Hunter": "7.3",
         "Druid": "5.3",
         "Warlock": "3.3",
         "Whizbang": "0.9"
@@ -122,51 +144,51 @@
       "topArchetypes": [
         {
           "name": "Elise DH",
-          "count": 230,
-          "percentage": "19.5"
+          "count": 222,
+          "percentage": "18.9"
         },
         {
           "name": "Arkwing Mage",
-          "count": 212,
-          "percentage": "18.0"
+          "count": 214,
+          "percentage": "18.3"
         },
         {
           "name": "Imbue Rogue",
           "count": 132,
-          "percentage": "11.2"
+          "percentage": "11.3"
         },
         {
           "name": "Quest Mage",
-          "count": 131,
-          "percentage": "11.1"
+          "count": 132,
+          "percentage": "11.3"
         },
         {
           "name": "Quest Warrior",
-          "count": 71,
-          "percentage": "6.0"
+          "count": 72,
+          "percentage": "6.1"
         }
       ],
       "mostPlayedClass": "Mage",
-      "totalDecksAnalyzed": 1178,
+      "totalDecksAnalyzed": 1172,
       "period": "Last 7 days"
     },
     "30d": {
       "classDistribution": {
-        "Hunter": 345,
-        "DK": 27,
-        "Rogue": 274,
+        "Hunter": 339,
+        "DK": 26,
+        "Rogue": 280,
         "Warlock": 71,
         "Druid": 23,
-        "Warrior": 213,
+        "Warrior": 214,
         "DH": 152,
         "Mage": 22,
         "Paladin": 4,
         "Shaman": 69
       },
       "classPercentages": {
-        "Hunter": "28.7",
-        "DK": "2.3",
-        "Rogue": "22.8",
+        "Hunter": "28.2",
+        "DK": "2.2",
+        "Rogue": "23.3",
         "Warlock": "5.9",
         "Druid": "1.9",
         "Warrior": "17.8",
@@ -178,18 +200,18 @@
       "topArchetypes": [
         {
           "name": "Discover Hunter",
-          "count": 345,
-          "percentage": "28.7"
+          "count": 339,
+          "percentage": "28.2"
         },
         {
           "name": "Starship Rogue",
-          "count": 114,
-          "percentage": "9.5"
+          "count": 117,
+          "percentage": "9.8"
         },
         {
           "name": "Quest Warrior",
-          "count": 102,
-          "percentage": "8.5"
+          "count": 103,
+          "percentage": "8.6"
         },
         {
           "name": "Dragon Warrior",
@@ -198,8 +220,8 @@
         },
         {
           "name": "Elise Rogue",
-          "count": 86,
-          "percentage": "7.2"
+          "count": 85,
+          "percentage": "7.1"
         }
       ],
       "mostPlayedClass": "Hunter",
@@ -213,18 +235,18 @@
         {
           "name": "Elise DH",
           "count": 43,
-          "percentage": "28.7",
+          "percentage": "27.7",
           "uniquePlayers": 26,
           "avgRank": 20,
-          "metaScore": 54,
+          "metaScore": 53,
           "tier": "B",
           "sampleDeckCode": null
         },
         {
           "name": "Quest Mage",
-          "count": 30,
+          "count": 31,
           "percentage": "20.0",
-          "uniquePlayers": 24,
+          "uniquePlayers": 25,
           "avgRank": 43,
           "metaScore": 49,
           "tier": "B",
@@ -232,18 +254,18 @@
         },
         {
           "name": "Arkwing Mage",
-          "count": 11,
-          "percentage": "7.3",
-          "uniquePlayers": 7,
-          "avgRank": 31,
-          "metaScore": 43,
-          "tier": "C",
+          "count": 13,
+          "percentage": "8.4",
+          "uniquePlayers": 9,
+          "avgRank": 27,
+          "metaScore": 46,
+          "tier": "B",
           "sampleDeckCode": "AAECAf0EArPFBpXqBg6yngaBvwbBvwaAygbmygbR5Qbx5Qby5QaG5gbX8wazhwf0kQf6mwfRpgcAAA=="
         },
         {
           "name": "Imbue Rogue",
           "count": 23,
-          "percentage": "15.3",
+          "percentage": "14.8",
           "uniquePlayers": 17,
           "avgRank": 53,
           "metaScore": 42,
@@ -251,9 +273,19 @@
           "sampleDeckCode": null
         },
         {
+          "name": "Discover Hunter",
+          "count": 6,
+          "percentage": "3.9",
+          "uniquePlayers": 4,
+          "avgRank": 35,
+          "metaScore": 41,
+          "tier": "C",
+          "sampleDeckCode": "AAECAR8Ox6QGvb4Gp9MG4uMGquoGqfUGkoMHw4MH25cHgpgHmacHmqcHm6cHxbEHCKmfBNOeBsK+Boa/Bs7ABtDABpXiBq3rBgABA/WzBsekBvezBsekBu7eBsekBgAA"
+        },
+        {
           "name": "BFU Handbuff DK",
           "count": 6,
-          "percentage": "4.0",
+          "percentage": "3.9",
           "uniquePlayers": 6,
           "avgRank": 71,
           "metaScore": 40,
@@ -261,19 +293,19 @@
           "sampleDeckCode": null
         },
         {
-          "name": "Discover Hunter",
-          "count": 5,
-          "percentage": "3.3",
-          "uniquePlayers": 3,
-          "avgRank": 35,
-          "metaScore": 39,
+          "name": "Quest Warrior",
+          "count": 15,
+          "percentage": "9.7",
+          "uniquePlayers": 9,
+          "avgRank": 54,
+          "metaScore": 36,
           "tier": "C",
-          "sampleDeckCode": null
+          "sampleDeckCode": "AAECAQcOzZ4Gx6QGjr8G+skGquoGg4oH7o8HtpQH1JcH25cHgpgHhJ0HyqsHi74HCIigBImgBI7UBIegBvPKBrDiBuqnB/yvBwABA/WzBsekBvezBsekBu7eBsekBgAA"
         },
         {
           "name": "BBU Control DK",
           "count": 10,
-          "percentage": "6.7",
+          "percentage": "6.5",
           "uniquePlayers": 5,
           "avgRank": 43,
           "metaScore": 35,
@@ -281,19 +313,9 @@
           "sampleDeckCode": null
         },
         {
-          "name": "Quest Warrior",
-          "count": 14,
-          "percentage": "9.3",
-          "uniquePlayers": 8,
-          "avgRank": 57,
-          "metaScore": 34,
-          "tier": "C",
-          "sampleDeckCode": null
-        },
-        {
           "name": "Splendiferous Whizbang",
           "count": 1,
-          "percentage": "0.7",
+          "percentage": "0.6",
           "uniquePlayers": 1,
           "avgRank": 91,
           "metaScore": 33,
@@ -303,7 +325,7 @@
         {
           "name": "Shredslock",
           "count": 1,
-          "percentage": "0.7",
+          "percentage": "0.6",
           "uniquePlayers": 1,
           "avgRank": 96,
           "metaScore": 31,
@@ -313,7 +335,7 @@
         {
           "name": "Aura Paladin",
           "count": 6,
-          "percentage": "4.0",
+          "percentage": "3.9",
           "uniquePlayers": 4,
           "avgRank": 87,
           "metaScore": 25,
@@ -321,9 +343,9 @@
           "sampleDeckCode": null
         }
       ],
-      "totalDecksAnalyzed": 150,
+      "totalDecksAnalyzed": 155,
       "period": "Last 24 hours",
-      "lastCalculated": "2026-02-21T11:16:13.376Z",
+      "lastCalculated": "2026-02-21T11:43:36.009Z",
       "methodology": {
         "frequency": "40% - Apariciones en el período",
         "diversity": "30% - Jugadores únicos que lo usan",
@@ -384,9 +406,9 @@
         },
         {
           "name": "Elise DH",
-          "count": 230,
-          "percentage": "19.5",
-          "uniquePlayers": 96,
+          "count": 222,
+          "percentage": "18.9",
+          "uniquePlayers": 95,
           "avgRank": 22,
           "metaScore": 44,
           "tier": "C",
@@ -423,21 +445,11 @@
           "sampleDeckCode": null
         },
         {
-          "name": "BBU Control DK",
-          "count": 57,
-          "percentage": "4.8",
-          "uniquePlayers": 32,
-          "avgRank": 30,
-          "metaScore": 40,
-          "tier": "C",
-          "sampleDeckCode": null
-        },
-        {
           "name": "Arkwing Mage",
-          "count": 212,
-          "percentage": "18.0",
-          "uniquePlayers": 114,
-          "avgRank": 46,
+          "count": 214,
+          "percentage": "18.3",
+          "uniquePlayers": 116,
+          "avgRank": 45,
           "metaScore": 40,
           "tier": "C",
           "sampleDeckCode": "AAECAf0EArPFBpXqBg6yngaBvwbBvwaAygbmygbR5Qbx5Qby5QaG5gbX8wazhwf0kQf6mwfRpgcAAA=="
@@ -449,6 +461,16 @@
           "uniquePlayers": 23,
           "avgRank": 38,
           "metaScore": 40,
+          "tier": "C",
+          "sampleDeckCode": null
+        },
+        {
+          "name": "BBU Control DK",
+          "count": 54,
+          "percentage": "4.6",
+          "uniquePlayers": 30,
+          "avgRank": 30,
+          "metaScore": 39,
           "tier": "C",
           "sampleDeckCode": null
         },
@@ -485,7 +507,7 @@
         {
           "name": "Imbue Rogue",
           "count": 132,
-          "percentage": "11.2",
+          "percentage": "11.3",
           "uniquePlayers": 83,
           "avgRank": 50,
           "metaScore": 38,
@@ -494,9 +516,9 @@
         },
         {
           "name": "Quest Mage",
-          "count": 131,
-          "percentage": "11.1",
-          "uniquePlayers": 87,
+          "count": 132,
+          "percentage": "11.3",
+          "uniquePlayers": 88,
           "avgRank": 54,
           "metaScore": 38,
           "tier": "C",
@@ -514,13 +536,13 @@
         },
         {
           "name": "Quest Warrior",
-          "count": 71,
-          "percentage": "6.0",
-          "uniquePlayers": 38,
+          "count": 72,
+          "percentage": "6.1",
+          "uniquePlayers": 39,
           "avgRank": 41,
           "metaScore": 36,
           "tier": "C",
-          "sampleDeckCode": null
+          "sampleDeckCode": "AAECAQcOzZ4Gx6QGjr8G+skGquoGg4oH7o8HtpQH1JcH25cHgpgHhJ0HyqsHi74HCIigBImgBI7UBIegBvPKBrDiBuqnB/yvBwABA/WzBsekBvezBsekBu7eBsekBgAA"
         },
         {
           "name": "Dragon Warrior",
@@ -564,13 +586,13 @@
         },
         {
           "name": "Discover Hunter",
-          "count": 70,
-          "percentage": "5.9",
-          "uniquePlayers": 32,
+          "count": 71,
+          "percentage": "6.1",
+          "uniquePlayers": 33,
           "avgRank": 40,
           "metaScore": 34,
           "tier": "C",
-          "sampleDeckCode": null
+          "sampleDeckCode": "AAECAR8Ox6QGvb4Gp9MG4uMGquoGqfUGkoMHw4MH25cHgpgHmacHmqcHm6cHxbEHCKmfBNOeBsK+Boa/Bs7ABtDABpXiBq3rBgABA/WzBsekBvezBsekBu7eBsekBgAA"
         },
         {
           "name": "Toki Mage",
@@ -595,7 +617,7 @@
         {
           "name": "Libram Aura Paladin",
           "count": 10,
-          "percentage": "0.8",
+          "percentage": "0.9",
           "uniquePlayers": 7,
           "avgRank": 64,
           "metaScore": 32,
@@ -625,7 +647,7 @@
         {
           "name": "Wallow Warlock",
           "count": 10,
-          "percentage": "0.8",
+          "percentage": "0.9",
           "uniquePlayers": 6,
           "avgRank": 68,
           "metaScore": 28,
@@ -645,7 +667,7 @@
         {
           "name": "Splendiferous Whizbang",
           "count": 10,
-          "percentage": "0.8",
+          "percentage": "0.9",
           "uniquePlayers": 5,
           "avgRank": 61,
           "metaScore": 27,
@@ -683,9 +705,9 @@
           "sampleDeckCode": null
         }
       ],
-      "totalDecksAnalyzed": 1178,
+      "totalDecksAnalyzed": 1172,
       "period": "Last 7 days",
-      "lastCalculated": "2026-02-21T11:16:13.378Z",
+      "lastCalculated": "2026-02-21T11:43:36.011Z",
       "methodology": {
         "frequency": "40% - Apariciones en el período",
         "diversity": "30% - Jugadores únicos que lo usan",
@@ -716,13 +738,13 @@
         },
         {
           "name": "Discover Hunter",
-          "count": 345,
-          "percentage": "28.7",
-          "uniquePlayers": 108,
+          "count": 339,
+          "percentage": "28.2",
+          "uniquePlayers": 107,
           "avgRank": 31,
           "metaScore": 42,
           "tier": "C",
-          "sampleDeckCode": null
+          "sampleDeckCode": "AAECAR8Ox6QGvb4Gp9MG4uMGquoGqfUGkoMHw4MH25cHgpgHmacHmqcHm6cHxbEHCKmfBNOeBsK+Boa/Bs7ABtDABpXiBq3rBgABA/WzBsekBvezBsekBu7eBsekBgAA"
         },
         {
           "name": "BUU Control DK",
@@ -756,10 +778,20 @@
         },
         {
           "name": "Elise Rogue",
-          "count": 86,
-          "percentage": "7.2",
+          "count": 85,
+          "percentage": "7.1",
           "uniquePlayers": 45,
-          "avgRank": 34,
+          "avgRank": 33,
+          "metaScore": 39,
+          "tier": "C",
+          "sampleDeckCode": null
+        },
+        {
+          "name": "BBU Control DK",
+          "count": 25,
+          "percentage": "2.1",
+          "uniquePlayers": 18,
+          "avgRank": 49,
           "metaScore": 38,
           "tier": "C",
           "sampleDeckCode": null
@@ -771,16 +803,6 @@
           "uniquePlayers": 1,
           "avgRank": 75,
           "metaScore": 38,
-          "tier": "C",
-          "sampleDeckCode": null
-        },
-        {
-          "name": "BBU Control DK",
-          "count": 26,
-          "percentage": "2.2",
-          "uniquePlayers": 18,
-          "avgRank": 48,
-          "metaScore": 37,
           "tier": "C",
           "sampleDeckCode": null
         },
@@ -806,13 +828,13 @@
         },
         {
           "name": "Quest Warrior",
-          "count": 102,
-          "percentage": "8.5",
-          "uniquePlayers": 35,
+          "count": 103,
+          "percentage": "8.6",
+          "uniquePlayers": 36,
           "avgRank": 29,
           "metaScore": 35,
           "tier": "C",
-          "sampleDeckCode": null
+          "sampleDeckCode": "AAECAQcOzZ4Gx6QGjr8G+skGquoGg4oH7o8HtpQH1JcH25cHgpgHhJ0HyqsHi74HCIigBImgBI7UBIegBvPKBrDiBuqnB/yvBwABA/WzBsekBvezBsekBu7eBsekBgAA"
         },
         {
           "name": "Octosari DH",
@@ -906,20 +928,20 @@
         },
         {
           "name": "Cycle Rogue",
-          "count": 50,
-          "percentage": "4.2",
-          "uniquePlayers": 21,
-          "avgRank": 65,
+          "count": 54,
+          "percentage": "4.5",
+          "uniquePlayers": 23,
+          "avgRank": 66,
           "metaScore": 25,
           "tier": "C",
           "sampleDeckCode": null
         },
         {
           "name": "Starship Rogue",
-          "count": 114,
-          "percentage": "9.5",
-          "uniquePlayers": 32,
-          "avgRank": 62,
+          "count": 117,
+          "percentage": "9.8",
+          "uniquePlayers": 33,
+          "avgRank": 61,
           "metaScore": 24,
           "tier": "C",
           "sampleDeckCode": null
@@ -937,7 +959,7 @@
       ],
       "totalDecksAnalyzed": 1200,
       "period": "Last 30 days",
-      "lastCalculated": "2026-02-21T11:16:13.381Z",
+      "lastCalculated": "2026-02-21T11:43:36.014Z",
       "methodology": {
         "frequency": "40% - Apariciones en el período",
         "diversity": "30% - Jugadores únicos que lo usan",
