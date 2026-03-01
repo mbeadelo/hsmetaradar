@@ -1,5 +1,5 @@
 {
-  "lastUpdate": "2026-03-01T22:16:49.697Z",
+  "lastUpdate": "2026-03-01T22:48:36.748Z",
   "source": "HSGuru Top 100 + HSReplay player names",
   "totalDecks": 19,
   "knownPlayers": 11,
@@ -13,7 +13,7 @@
         "name": "Dragon Warrior",
         "code": "AAECAQcEzOEG4esGwY8HhJ0HDc6eBuqoBuPmBqr8Bqv8BveDB+iHB9KXB56ZB7etB5iwB4+xB+yyBwAA"
       },
-      "lastSeen": "3 hours ago"
+      "lastSeen": "4 hours ago"
     },
     {
       "rank": 6,
@@ -24,7 +24,7 @@
         "name": "Arkwing Mage",
         "code": "AAECAf0EArPFBpXqBg6BvwbBvwbOvwbmygbR5Qbx5Qby5QaG5gbX8wazhwf0kQf6mwfRpgeLsQcAAA=="
       },
-      "lastSeen": "3 hours ago"
+      "lastSeen": "4 hours ago"
     },
     {
       "rank": 6,
@@ -101,7 +101,7 @@
         "name": "Arkwing Mage",
         "code": "AAECAf0EArPFBpXqBg6BvwbBvwbOvwbmygbR5Qbx5Qby5QaG5gbX8wazhwf0kQf6mwfRpgeLsQcAAA=="
       },
-      "lastSeen": "4 hours ago"
+      "lastSeen": "5 hours ago"
     },
     {
       "rank": 10,
@@ -112,7 +112,7 @@
         "name": "Arkwing Mage",
         "code": "AAECAf0EArPFBpXqBg6BvwbBvwbOvwbmygbR5Qbx5Qby5QaG5gbX8wazhwf0kQf6mwfRpgeLsQcAAA=="
       },
-      "lastSeen": "4 hours ago"
+      "lastSeen": "5 hours ago"
     },
     {
       "rank": 11,
@@ -123,7 +123,7 @@
         "name": "Arkwing Mage",
         "code": "AAECAf0EArPFBpXqBg6BvwbBvwbOvwbmygbR5Qbx5Qby5QaG5gbX8wazhwf0kQf6mwfRpgeLsQcAAA=="
       },
-      "lastSeen": "4 hours ago"
+      "lastSeen": "5 hours ago"
     },
     {
       "rank": 17,
@@ -178,7 +178,7 @@
         "name": "Discover Hunter",
         "code": "AAECAR8Ip9MG3OMG4uMGw4MHmacHmqcHm6cHxbEHC6mfBKqfBJygBNOeBsK+Boa/Bs7ABtDABpXiBq3rBpCnBwAA"
       },
-      "lastSeen": "1 hour ago"
+      "lastSeen": "2 hours ago"
     },
     {
       "rank": 34,
@@ -218,50 +218,50 @@
   "metaSnapshot": {
     "24h": {
       "classDistribution": {
-        "DH": 6,
-        "Warrior": 52,
-        "Hunter": 287,
-        "DK": 115,
+        "DH": 5,
+        "Hunter": 291,
+        "Warrior": 46,
+        "DK": 119,
         "Druid": 39,
-        "Mage": 122
+        "Mage": 132
       },
       "classPercentages": {
-        "DH": "1.0",
-        "Warrior": "8.4",
-        "Hunter": "46.2",
-        "DK": "18.5",
-        "Druid": "6.3",
-        "Mage": "19.6"
+        "DH": "0.8",
+        "Hunter": "46.0",
+        "Warrior": "7.3",
+        "DK": "18.8",
+        "Druid": "6.2",
+        "Mage": "20.9"
       },
       "topArchetypes": [
         {
           "name": "Discover Hunter",
-          "count": 287,
-          "percentage": "46.2"
+          "count": 291,
+          "percentage": "46.0"
         },
         {
           "name": "Arkwing Mage",
-          "count": 122,
-          "percentage": "19.6"
+          "count": 132,
+          "percentage": "20.9"
         },
         {
           "name": "BUU Control DK",
-          "count": 100,
-          "percentage": "16.1"
+          "count": 104,
+          "percentage": "16.5"
         },
         {
           "name": "Dragon Warrior",
-          "count": 51,
-          "percentage": "8.2"
+          "count": 45,
+          "percentage": "7.1"
         },
         {
           "name": "Copy Druid",
           "count": 39,
-          "percentage": "6.3"
+          "percentage": "6.2"
         }
       ],
       "mostPlayedClass": "Hunter",
-      "totalDecksAnalyzed": 621,
+      "totalDecksAnalyzed": 632,
       "period": "Last 24 hours"
     },
     "7d": {
@@ -376,28 +376,38 @@
       "archetypes": [
         {
           "name": "Elise DH",
-          "count": 6,
-          "percentage": "1.0",
+          "count": 5,
+          "percentage": "0.8",
           "uniquePlayers": 3,
-          "avgRank": 17,
-          "metaScore": 40,
+          "avgRank": 16,
+          "metaScore": 43,
           "tier": "C",
           "sampleDeckCode": null
         },
         {
           "name": "Arkwing Mage",
-          "count": 122,
-          "percentage": "19.6",
+          "count": 132,
+          "percentage": "20.9",
           "uniquePlayers": 8,
           "avgRank": 8,
-          "metaScore": 37,
+          "metaScore": 38,
           "tier": "C",
           "sampleDeckCode": "AAECAf0EArPFBpXqBg6BvwbBvwbOvwbmygbR5Qbx5Qby5QaG5gbX8wazhwf0kQf6mwfRpgeLsQcAAA=="
         },
         {
+          "name": "Dragon Warrior",
+          "count": 45,
+          "percentage": "7.1",
+          "uniquePlayers": 13,
+          "avgRank": 16,
+          "metaScore": 37,
+          "tier": "C",
+          "sampleDeckCode": "AAECAQcEzOEG4esGwY8HhJ0HDc6eBuqoBuPmBqr8Bqv8BveDB+iHB9KXB56ZB7etB5iwB4+xB+yyBwAA"
+        },
+        {
           "name": "Discover Hunter",
-          "count": 287,
-          "percentage": "46.2",
+          "count": 291,
+          "percentage": "46.0",
           "uniquePlayers": 35,
           "avgRank": 56,
           "metaScore": 35,
@@ -405,19 +415,9 @@
           "sampleDeckCode": "AAECAR8Ip9MG3OMG4uMGw4MHmacHmqcHm6cHxbEHC6mfBKqfBJygBNOeBsK+Boa/Bs7ABtDABpXiBq3rBpCnBwAA"
         },
         {
-          "name": "Dragon Warrior",
-          "count": 51,
-          "percentage": "8.2",
-          "uniquePlayers": 14,
-          "avgRank": 25,
-          "metaScore": 34,
-          "tier": "C",
-          "sampleDeckCode": "AAECAQcEzOEG4esGwY8HhJ0HDc6eBuqoBuPmBqr8Bqv8BveDB+iHB9KXB56ZB7etB5iwB4+xB+yyBwAA"
-        },
-        {
           "name": "BUU Control DK",
-          "count": 100,
-          "percentage": "16.1",
+          "count": 104,
+          "percentage": "16.5",
           "uniquePlayers": 14,
           "avgRank": 27,
           "metaScore": 32,
@@ -447,7 +447,7 @@
         {
           "name": "BUU Corpse DK",
           "count": 11,
-          "percentage": "1.8",
+          "percentage": "1.7",
           "uniquePlayers": 1,
           "avgRank": 15,
           "metaScore": 29,
@@ -457,7 +457,7 @@
         {
           "name": "Copy Druid",
           "count": 39,
-          "percentage": "6.3",
+          "percentage": "6.2",
           "uniquePlayers": 6,
           "avgRank": 31,
           "metaScore": 28,
@@ -465,9 +465,9 @@
           "sampleDeckCode": null
         }
       ],
-      "totalDecksAnalyzed": 621,
+      "totalDecksAnalyzed": 632,
       "period": "Last 24 hours",
-      "lastCalculated": "2026-03-01T22:16:49.693Z",
+      "lastCalculated": "2026-03-01T22:48:36.742Z",
       "methodology": {
         "frequency": "40% - Apariciones en el período",
         "diversity": "30% - Jugadores únicos que lo usan",
@@ -769,7 +769,7 @@
       ],
       "totalDecksAnalyzed": 1200,
       "period": "Last 7 days",
-      "lastCalculated": "2026-03-01T22:16:49.695Z",
+      "lastCalculated": "2026-03-01T22:48:36.744Z",
       "methodology": {
         "frequency": "40% - Apariciones en el período",
         "diversity": "30% - Jugadores únicos que lo usan",
@@ -911,7 +911,7 @@
       ],
       "totalDecksAnalyzed": 1200,
       "period": "Last 30 days",
-      "lastCalculated": "2026-03-01T22:16:49.697Z",
+      "lastCalculated": "2026-03-01T22:48:36.748Z",
       "methodology": {
         "frequency": "40% - Apariciones en el período",
         "diversity": "30% - Jugadores únicos que lo usan",
