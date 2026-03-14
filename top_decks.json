@@ -1,9 +1,31 @@
 {
-  "lastUpdate": "2026-03-14T17:49:51.161Z",
+  "lastUpdate": "2026-03-14T18:26:49.765Z",
   "source": "HSGuru Top 100 + HSReplay player names",
-  "totalDecks": 6,
-  "knownPlayers": 2,
+  "totalDecks": 7,
+  "knownPlayers": 1,
   "decks": [
+    {
+      "rank": 72,
+      "name": "Aljorr",
+      "inMasterList": false,
+      "battleTag": null,
+      "deck": {
+        "name": "FU Location Warlock",
+        "code": "AAECAf0GBo+fBMe4Bv/JBqrqBvTtBs7xBgzTngaJtQaRvwbHyQaUygaZywaf8Qao9waA+AaD+AbfggeEmQcAAA=="
+      },
+      "lastSeen": "14 minutes ago"
+    },
+    {
+      "rank": 78,
+      "name": "Saxou",
+      "inMasterList": false,
+      "battleTag": null,
+      "deck": {
+        "name": "FU Location Warlock",
+        "code": "AAECAf0GBo+fBMe4Bv/JBqrqBvTtBs7xBgzTngaJtQaRvwbHyQaUygaZywaf8Qao9waA+AaD+AbfggeEmQcAAA=="
+      },
+      "lastSeen": "6 minutes ago"
+    },
     {
       "rank": 78,
       "name": "FrenchDiktat",
@@ -13,7 +35,7 @@
         "name": "FU Location Warlock",
         "code": "AAECAf0GBo+fBMe4Bv/JBqrqBvTtBs7xBgzTngaJtQaRvwbHyQaUygaZywaf8Qao9waA+AaD+AbfggeEmQcAAA=="
       },
-      "lastSeen": "35 minutes ago"
+      "lastSeen": "1 hour ago"
     },
     {
       "rank": 78,
@@ -35,7 +57,7 @@
         "name": "FU Location Warlock",
         "code": "AAECAf0GBo+fBMe4Bv/JBqrqBvTtBs7xBgzTngaJtQaRvwbHyQaUygaZywaf8Qao9waA+AaD+AbfggeEmQcAAA=="
       },
-      "lastSeen": "49 minutes ago"
+      "lastSeen": "1 hour ago"
     },
     {
       "rank": 83,
@@ -46,7 +68,7 @@
         "name": "FU Location Warlock",
         "code": "AAECAf0GBo+fBMe4Bv/JBqrqBvTtBs7xBgzTngaJtQaRvwbHyQaUygaZywaf8Qao9waA+AaD+AbfggeEmQcAAA=="
       },
-      "lastSeen": "27 minutes ago"
+      "lastSeen": "1 hour ago"
     },
     {
       "rank": 84,
@@ -58,53 +80,42 @@
         "code": "AAECAf0GBo+fBMe4Bv/JBqrqBvTtBs7xBgzTngaJtQaRvwbHyQaUygaZywaf8Qao9waA+AaD+AbfggeEmQcAAA=="
       },
       "lastSeen": "1 hour ago"
-    },
-    {
-      "rank": 95,
-      "name": "Roberg",
-      "inMasterList": true,
-      "battleTag": "Roberg#21812",
-      "deck": {
-        "name": "FU Location Warlock",
-        "code": "AAECAf0GBo+fBMe4Bv/JBqrqBvTtBs7xBgzTngaJtQaRvwbHyQaUygaZywaf8Qao9waA+AaD+AbfggeEmQcAAA=="
-      },
-      "lastSeen": "1 hour ago"
     }
   ],
   "noNewResults": false,
   "metaSnapshot": {
     "24h": {
       "classDistribution": {
-        "DH": 87,
+        "DH": 83,
         "Hunter": 2,
-        "Warlock": 40,
+        "Warlock": 47,
         "Druid": 4,
         "Shaman": 2,
         "DK": 2
       },
       "classPercentages": {
-        "DH": "63.5",
-        "Hunter": "1.5",
-        "Warlock": "29.2",
+        "DH": "59.3",
+        "Hunter": "1.4",
+        "Warlock": "33.6",
         "Druid": "2.9",
-        "Shaman": "1.5",
-        "DK": "1.5"
+        "Shaman": "1.4",
+        "DK": "1.4"
       },
       "topArchetypes": [
         {
           "name": "Cliff Dive DH",
-          "count": 58,
-          "percentage": "42.3"
+          "count": 54,
+          "percentage": "38.6"
         },
         {
           "name": "FU Location Warlock",
-          "count": 37,
-          "percentage": "27.0"
+          "count": 44,
+          "percentage": "31.4"
         },
         {
           "name": "Armor DH",
           "count": 29,
-          "percentage": "21.2"
+          "percentage": "20.7"
         },
         {
           "name": "Hydration Druid",
@@ -114,19 +125,19 @@
         {
           "name": "F Location Warlock",
           "count": 3,
-          "percentage": "2.2"
+          "percentage": "2.1"
         }
       ],
       "mostPlayedClass": "DH",
-      "totalDecksAnalyzed": 137,
+      "totalDecksAnalyzed": 140,
       "period": "Last 24 hours"
     },
     "7d": {
       "classDistribution": {
-        "Paladin": 42,
-        "DH": 273,
-        "Druid": 40,
-        "Warrior": 65,
+        "Paladin": 37,
+        "Druid": 34,
+        "Warrior": 64,
+        "DH": 285,
         "Rogue": 236,
         "Mage": 118,
         "Hunter": 266,
@@ -136,10 +147,10 @@
         "Priest": 3
       },
       "classPercentages": {
-        "Paladin": "3.5",
-        "DH": "22.8",
-        "Druid": "3.3",
-        "Warrior": "5.4",
+        "Paladin": "3.1",
+        "Druid": "2.8",
+        "Warrior": "5.3",
+        "DH": "23.8",
         "Rogue": "19.7",
         "Mage": "9.8",
         "Hunter": "22.2",
@@ -156,8 +167,8 @@
         },
         {
           "name": "No Minion DH",
-          "count": 133,
-          "percentage": "11.1"
+          "count": 131,
+          "percentage": "10.9"
         },
         {
           "name": "Arkwing Mage",
@@ -170,9 +181,9 @@
           "percentage": "7.8"
         },
         {
-          "name": "Discover Hunter",
-          "count": 76,
-          "percentage": "6.3"
+          "name": "Cliff Dive DH",
+          "count": 79,
+          "percentage": "6.6"
         }
       ],
       "mostPlayedClass": "DH",
@@ -240,19 +251,9 @@
     "24h": {
       "archetypes": [
         {
-          "name": "Cliff Dive DH",
-          "count": 58,
-          "percentage": "42.3",
-          "uniquePlayers": 11,
-          "avgRank": 32,
-          "metaScore": 43,
-          "tier": "C",
-          "sampleDeckCode": null
-        },
-        {
           "name": "Defense Terran Shaman",
           "count": 2,
-          "percentage": "1.5",
+          "percentage": "1.4",
           "uniquePlayers": 2,
           "avgRank": 60,
           "metaScore": 43,
@@ -260,19 +261,29 @@
           "sampleDeckCode": null
         },
         {
+          "name": "Cliff Dive DH",
+          "count": 54,
+          "percentage": "38.6",
+          "uniquePlayers": 10,
+          "avgRank": 33,
+          "metaScore": 41,
+          "tier": "C",
+          "sampleDeckCode": null
+        },
+        {
           "name": "FU Location Warlock",
-          "count": 37,
-          "percentage": "27.0",
-          "uniquePlayers": 12,
-          "avgRank": 87,
-          "metaScore": 24,
+          "count": 44,
+          "percentage": "31.4",
+          "uniquePlayers": 13,
+          "avgRank": 86,
+          "metaScore": 26,
           "tier": "C",
           "sampleDeckCode": "AAECAf0GBo+fBMe4Bv/JBqrqBvTtBs7xBgzTngaJtQaRvwbHyQaUygaZywaf8Qao9waA+AaD+AbfggeEmQcAAA=="
         },
         {
           "name": "Handbuff Hunter",
           "count": 2,
-          "percentage": "1.5",
+          "percentage": "1.4",
           "uniquePlayers": 1,
           "avgRank": 94,
           "metaScore": 17,
@@ -292,7 +303,7 @@
         {
           "name": "BBU Starship DK",
           "count": 2,
-          "percentage": "1.5",
+          "percentage": "1.4",
           "uniquePlayers": 1,
           "avgRank": 96,
           "metaScore": 17,
@@ -302,7 +313,7 @@
         {
           "name": "Armor DH",
           "count": 29,
-          "percentage": "21.2",
+          "percentage": "20.7",
           "uniquePlayers": 3,
           "avgRank": 89,
           "metaScore": 15,
@@ -312,7 +323,7 @@
         {
           "name": "F Location Warlock",
           "count": 3,
-          "percentage": "2.2",
+          "percentage": "2.1",
           "uniquePlayers": 1,
           "avgRank": 94,
           "metaScore": 13,
@@ -320,9 +331,9 @@
           "sampleDeckCode": null
         }
       ],
-      "totalDecksAnalyzed": 137,
+      "totalDecksAnalyzed": 140,
       "period": "Last 24 hours",
-      "lastCalculated": "2026-03-14T17:49:51.154Z",
+      "lastCalculated": "2026-03-14T18:26:49.759Z",
       "methodology": {
         "frequency": "40% - Apariciones en el período",
         "diversity": "30% - Jugadores únicos que lo usan",
@@ -432,6 +443,16 @@
           "sampleDeckCode": null
         },
         {
+          "name": "Colifero Druid",
+          "count": 9,
+          "percentage": "0.8",
+          "uniquePlayers": 6,
+          "avgRank": 39,
+          "metaScore": 39,
+          "tier": "C",
+          "sampleDeckCode": null
+        },
+        {
           "name": "Maestra Rogue",
           "count": 137,
           "percentage": "11.4",
@@ -452,21 +473,11 @@
           "sampleDeckCode": null
         },
         {
-          "name": "Lynessa OTK Paladin",
-          "count": 42,
-          "percentage": "3.5",
-          "uniquePlayers": 25,
-          "avgRank": 45,
-          "metaScore": 36,
-          "tier": "C",
-          "sampleDeckCode": null
-        },
-        {
-          "name": "Colifero Druid",
+          "name": "Dragon Warrior",
           "count": 15,
           "percentage": "1.3",
-          "uniquePlayers": 9,
-          "avgRank": 41,
+          "uniquePlayers": 11,
+          "avgRank": 55,
           "metaScore": 36,
           "tier": "C",
           "sampleDeckCode": null
@@ -512,21 +523,21 @@
           "sampleDeckCode": null
         },
         {
-          "name": "Cliff Dive DH",
-          "count": 65,
-          "percentage": "5.4",
-          "uniquePlayers": 28,
-          "avgRank": 31,
-          "metaScore": 36,
+          "name": "Lynessa OTK Paladin",
+          "count": 37,
+          "percentage": "3.1",
+          "uniquePlayers": 22,
+          "avgRank": 48,
+          "metaScore": 35,
           "tier": "C",
           "sampleDeckCode": null
         },
         {
-          "name": "Dragon Warrior",
-          "count": 16,
-          "percentage": "1.3",
-          "uniquePlayers": 11,
-          "avgRank": 56,
+          "name": "Cliff Dive DH",
+          "count": 79,
+          "percentage": "6.6",
+          "uniquePlayers": 30,
+          "avgRank": 30,
           "metaScore": 35,
           "tier": "C",
           "sampleDeckCode": null
@@ -633,9 +644,9 @@
         },
         {
           "name": "No Minion DH",
-          "count": 133,
-          "percentage": "11.1",
-          "uniquePlayers": 50,
+          "count": 131,
+          "percentage": "10.9",
+          "uniquePlayers": 49,
           "avgRank": 52,
           "metaScore": 30,
           "tier": "C",
@@ -794,7 +805,7 @@
       ],
       "totalDecksAnalyzed": 1200,
       "period": "Last 7 days",
-      "lastCalculated": "2026-03-14T17:49:51.159Z",
+      "lastCalculated": "2026-03-14T18:26:49.762Z",
       "methodology": {
         "frequency": "40% - Apariciones en el período",
         "diversity": "30% - Jugadores únicos que lo usan",
@@ -1146,7 +1157,7 @@
       ],
       "totalDecksAnalyzed": 1200,
       "period": "Last 30 days",
-      "lastCalculated": "2026-03-14T17:49:51.161Z",
+      "lastCalculated": "2026-03-14T18:26:49.764Z",
       "methodology": {
         "frequency": "40% - Apariciones en el período",
         "diversity": "30% - Jugadores únicos que lo usan",
