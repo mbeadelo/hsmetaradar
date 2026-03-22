@@ -1,11 +1,33 @@
 {
-  "lastUpdate": "2026-03-22T00:13:48.941Z",
+  "lastUpdate": "2026-03-22T00:57:47.245Z",
   "source": "HSGuru Top 100 + HSReplay player names",
-  "totalDecks": 3,
-  "knownPlayers": 0,
+  "totalDecks": 4,
+  "knownPlayers": 1,
   "decks": [
     {
-      "rank": 47,
+      "rank": 6,
+      "name": "maxiebon1234",
+      "inMasterList": true,
+      "battleTag": "maxiebon1234#1738",
+      "deck": {
+        "name": "Imbue Druid",
+        "code": "AAECAZICBKqBB6+HB+DAB/bBBw2HnwSunwSB1ATggQf3gQeIgwewhwfAhweqrwfWwAfXwAfbwAfswAcAAA=="
+      },
+      "lastSeen": "2 minutes ago"
+    },
+    {
+      "rank": 32,
+      "name": "Minislash",
+      "inMasterList": false,
+      "battleTag": null,
+      "deck": {
+        "name": "No Minion DH",
+        "code": "AAECAea5Awa2nwSKqgeSqgeTqgensQeUvwcM4fgF3v8G/oMHqocHtpcHnrEHobEHv7EHwLEH6LEHy7YHlb8HAAA="
+      },
+      "lastSeen": "6 minutes ago"
+    },
+    {
+      "rank": 37,
       "name": "Saxou",
       "inMasterList": false,
       "battleTag": null,
@@ -13,21 +35,10 @@
         "name": "No Minion DH",
         "code": "AAECAea5Awa2nwSKqgeSqgeTqgensQeUvwcM4fgF3v8G/oMHqocHtpcHnrEHobEHv7EHwLEH6LEHy7YHlb8HAAA="
       },
-      "lastSeen": "3 minutes ago"
+      "lastSeen": "17 minutes ago"
     },
     {
-      "rank": 47,
-      "name": "Turna",
-      "inMasterList": false,
-      "battleTag": null,
-      "deck": {
-        "name": "No Minion DH",
-        "code": "AAECAea5Awa2nwSKqgeSqgeTqgensQeUvwcM4fgF3v8G/oMHqocHtpcHnrEHobEHv7EHwLEH6LEHy7YHlb8HAAA="
-      },
-      "lastSeen": "20 minutes ago"
-    },
-    {
-      "rank": 51,
+      "rank": 42,
       "name": "Saxou",
       "inMasterList": false,
       "battleTag": null,
@@ -35,7 +46,7 @@
         "name": "No Minion DH",
         "code": "AAECAea5Awa2nwSKqgeSqgeTqgensQeUvwcM4fgF3v8G/oMHqocHtpcHnrEHobEHv7EHwLEH6LEHy7YHlb8HAAA="
       },
-      "lastSeen": "12 minutes ago"
+      "lastSeen": "27 minutes ago"
     }
   ],
   "noNewResults": false,
@@ -44,8 +55,8 @@
       "classDistribution": {
         "Warrior": 14,
         "Shaman": 21,
-        "Druid": 83,
-        "DH": 31,
+        "Druid": 84,
+        "DH": 34,
         "Rogue": 1,
         "Priest": 2,
         "Hunter": 2,
@@ -53,45 +64,45 @@
         "DK": 1
       },
       "classPercentages": {
-        "Warrior": "8.5",
-        "Shaman": "12.8",
-        "Druid": "50.6",
-        "DH": "18.9",
+        "Warrior": "8.3",
+        "Shaman": "12.5",
+        "Druid": "50.0",
+        "DH": "20.2",
         "Rogue": "0.6",
         "Priest": "1.2",
         "Hunter": "1.2",
-        "Mage": "5.5",
+        "Mage": "5.4",
         "DK": "0.6"
       },
       "topArchetypes": [
         {
           "name": "Imbue Druid",
-          "count": 83,
-          "percentage": "50.6"
+          "count": 84,
+          "percentage": "50.0"
         },
         {
           "name": "No Minion DH",
-          "count": 31,
-          "percentage": "18.9"
+          "count": 34,
+          "percentage": "20.2"
         },
         {
           "name": "Harold Shaman",
           "count": 21,
-          "percentage": "12.8"
+          "percentage": "12.5"
         },
         {
           "name": "Egg Warrior",
           "count": 11,
-          "percentage": "6.7"
+          "percentage": "6.5"
         },
         {
           "name": "Quest Mage",
           "count": 9,
-          "percentage": "5.5"
+          "percentage": "5.4"
         }
       ],
       "mostPlayedClass": "Druid",
-      "totalDecksAnalyzed": 164,
+      "totalDecksAnalyzed": 168,
       "period": "Last 24 hours"
     },
     "7d": {
@@ -218,13 +229,13 @@
       "archetypes": [
         {
           "name": "Imbue Druid",
-          "count": 83,
-          "percentage": "50.6",
+          "count": 84,
+          "percentage": "50.0",
           "uniquePlayers": 33,
           "avgRank": 38,
-          "metaScore": 51,
+          "metaScore": 50,
           "tier": "B",
-          "sampleDeckCode": null
+          "sampleDeckCode": "AAECAZICBKqBB6+HB+DAB/bBBw2HnwSunwSB1ATggQf3gQeIgwewhwfAhweqrwfWwAfXwAfbwAfswAcAAA=="
         },
         {
           "name": "No Hand Hunter",
@@ -249,7 +260,7 @@
         {
           "name": "Egg Warrior",
           "count": 11,
-          "percentage": "6.7",
+          "percentage": "6.5",
           "uniquePlayers": 5,
           "avgRank": 9,
           "metaScore": 44,
@@ -269,27 +280,27 @@
         {
           "name": "Harold Shaman",
           "count": 21,
-          "percentage": "12.8",
+          "percentage": "12.5",
           "uniquePlayers": 17,
           "avgRank": 76,
-          "metaScore": 37,
+          "metaScore": 36,
           "tier": "C",
           "sampleDeckCode": null
         },
         {
           "name": "No Minion DH",
-          "count": 31,
-          "percentage": "18.9",
-          "uniquePlayers": 15,
-          "avgRank": 67,
-          "metaScore": 32,
+          "count": 34,
+          "percentage": "20.2",
+          "uniquePlayers": 16,
+          "avgRank": 65,
+          "metaScore": 33,
           "tier": "C",
           "sampleDeckCode": "AAECAea5Awa2nwSKqgeSqgeTqgensQeUvwcM4fgF3v8G/oMHqocHtpcHnrEHobEHv7EHwLEH6LEHy7YHlb8HAAA="
         },
         {
           "name": "Quest Mage",
           "count": 9,
-          "percentage": "5.5",
+          "percentage": "5.4",
           "uniquePlayers": 6,
           "avgRank": 66,
           "metaScore": 32,
@@ -317,9 +328,9 @@
           "sampleDeckCode": null
         }
       ],
-      "totalDecksAnalyzed": 164,
+      "totalDecksAnalyzed": 168,
       "period": "Last 24 hours",
-      "lastCalculated": "2026-03-22T00:13:48.935Z",
+      "lastCalculated": "2026-03-22T00:57:47.239Z",
       "methodology": {
         "frequency": "40% - Apariciones en el período",
         "diversity": "30% - Jugadores únicos que lo usan",
@@ -456,7 +467,7 @@
           "avgRank": 39,
           "metaScore": 38,
           "tier": "C",
-          "sampleDeckCode": null
+          "sampleDeckCode": "AAECAZICBKqBB6+HB+DAB/bBBw2HnwSunwSB1ATggQf3gQeIgwewhwfAhweqrwfWwAfXwAfbwAfswAcAAA=="
         },
         {
           "name": "Harold Egglock",
@@ -761,7 +772,7 @@
       ],
       "totalDecksAnalyzed": 1200,
       "period": "Last 7 days",
-      "lastCalculated": "2026-03-22T00:13:48.938Z",
+      "lastCalculated": "2026-03-22T00:57:47.243Z",
       "methodology": {
         "frequency": "40% - Apariciones en el período",
         "diversity": "30% - Jugadores únicos que lo usan",
@@ -1073,7 +1084,7 @@
       ],
       "totalDecksAnalyzed": 1200,
       "period": "Last 30 days",
-      "lastCalculated": "2026-03-22T00:13:48.941Z",
+      "lastCalculated": "2026-03-22T00:57:47.245Z",
       "methodology": {
         "frequency": "40% - Apariciones en el período",
         "diversity": "30% - Jugadores únicos que lo usan",
