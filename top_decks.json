@@ -1,7 +1,7 @@
 {
-  "lastUpdate": "2026-03-26T19:25:08.757Z",
+  "lastUpdate": "2026-03-26T19:48:14.074Z",
   "source": "HSGuru Top 100 + HSReplay player names",
-  "totalDecks": 2,
+  "totalDecks": 5,
   "knownPlayers": 1,
   "decks": [
     {
@@ -13,61 +13,96 @@
         "name": "Imbue Druid",
         "code": "AAECAZICBKqBB/KDB6+HB+DABw2unwSB1ATggQfigQeIgwewhwekiQeUlweqrwfWwAfXwAfbwAfswAcAAA=="
       },
-      "lastSeen": "4 minutes ago"
+      "lastSeen": "1 minute ago"
     },
     {
-      "rank": 11,
-      "name": "demoshadow",
+      "rank": 10,
+      "name": "LoveXiaoDi",
       "inMasterList": false,
       "battleTag": null,
       "deck": {
         "name": "Imbue Druid",
         "code": "AAECAZICBKqBB/KDB6+HB+DABw2unwSB1ATggQfigQeIgwewhwekiQeUlweqrwfWwAfXwAfbwAfswAcAAA=="
       },
-      "lastSeen": "21 minutes ago"
+      "lastSeen": "5 minutes ago"
+    },
+    {
+      "rank": 80,
+      "name": "Legend #80",
+      "inMasterList": false,
+      "battleTag": null,
+      "deck": {
+        "name": "Imbue Druid",
+        "code": "AAECAZICBKqBB/KDB6+HB+DABw2unwSB1ATggQfigQeIgwewhwekiQeUlweqrwfWwAfXwAfbwAfswAcAAA=="
+      },
+      "lastSeen": "3 minutes ago"
+    },
+    {
+      "rank": 91,
+      "name": "Magruber",
+      "inMasterList": false,
+      "battleTag": null,
+      "deck": {
+        "name": "Imbue Druid",
+        "code": "AAECAZICBKqBB/KDB6+HB+DABw2unwSB1ATggQfigQeIgwewhwekiQeUlweqrwfWwAfXwAfbwAfswAcAAA=="
+      },
+      "lastSeen": "45 seconds ago"
+    },
+    {
+      "rank": 99,
+      "name": "Fenomeno",
+      "inMasterList": false,
+      "battleTag": null,
+      "deck": {
+        "name": "Finja Paladin",
+        "code": "AAECAZ8FBPD+BsODB+ysB+XBBw3JoASH5gbI/wa6lge9mQfLqQe+sgeNvgfiwQfowQfqwQf2wQeDwgcAAA=="
+      },
+      "lastSeen": "5 minutes ago"
     }
   ],
   "noNewResults": false,
   "metaSnapshot": {
     "24h": {
       "classDistribution": {
-        "Druid": 174,
-        "Priest": 3,
+        "Druid": 177,
+        "Priest": 2,
         "Warrior": 25,
         "Rogue": 10,
         "Hunter": 5,
         "Warlock": 1,
-        "DH": 6
+        "DH": 6,
+        "Paladin": 1
       },
       "classPercentages": {
-        "Druid": "77.7",
-        "Priest": "1.3",
-        "Warrior": "11.2",
-        "Rogue": "4.5",
+        "Druid": "78.0",
+        "Priest": "0.9",
+        "Warrior": "11.0",
+        "Rogue": "4.4",
         "Hunter": "2.2",
         "Warlock": "0.4",
-        "DH": "2.7"
+        "DH": "2.6",
+        "Paladin": "0.4"
       },
       "topArchetypes": [
         {
           "name": "Imbue Druid",
-          "count": 174,
-          "percentage": "77.7"
+          "count": 177,
+          "percentage": "78.0"
         },
         {
           "name": "Gladiator Warrior",
           "count": 25,
-          "percentage": "11.2"
+          "percentage": "11.0"
         },
         {
           "name": "Harold Rogue",
           "count": 10,
-          "percentage": "4.5"
+          "percentage": "4.4"
         },
         {
           "name": "No Minion DH",
           "count": 6,
-          "percentage": "2.7"
+          "percentage": "2.6"
         },
         {
           "name": "No Hand Hunter",
@@ -76,34 +111,34 @@
         }
       ],
       "mostPlayedClass": "Druid",
-      "totalDecksAnalyzed": 224,
+      "totalDecksAnalyzed": 227,
       "period": "Last 24 hours"
     },
     "7d": {
       "classDistribution": {
-        "Warrior": 113,
-        "DK": 9,
-        "Mage": 22,
+        "DK": 8,
+        "Mage": 21,
         "DH": 145,
         "Rogue": 81,
         "Shaman": 74,
-        "Druid": 663,
+        "Druid": 666,
         "Warlock": 10,
         "Priest": 21,
+        "Warrior": 112,
         "Hunter": 38,
         "Turnadin": 19,
         "Paladin": 5
       },
       "classPercentages": {
-        "Warrior": "9.4",
-        "DK": "0.8",
+        "DK": "0.7",
         "Mage": "1.8",
         "DH": "12.1",
         "Rogue": "6.8",
         "Shaman": "6.2",
-        "Druid": "55.3",
+        "Druid": "55.5",
         "Warlock": "0.8",
         "Priest": "1.8",
+        "Warrior": "9.3",
         "Hunter": "3.2",
         "Turnadin": "1.6",
         "Paladin": "0.4"
@@ -111,8 +146,8 @@
       "topArchetypes": [
         {
           "name": "Imbue Druid",
-          "count": 659,
-          "percentage": "54.9"
+          "count": 662,
+          "percentage": "55.2"
         },
         {
           "name": "No Minion DH",
@@ -141,44 +176,44 @@
     },
     "30d": {
       "classDistribution": {
-        "Rogue": 82,
-        "DH": 105,
-        "Hunter": 513,
-        "Mage": 163,
+        "Hunter": 510,
+        "Rogue": 80,
         "Druid": 55,
+        "Mage": 162,
+        "DH": 102,
         "Warrior": 101,
         "Paladin": 36,
         "Shaman": 1,
-        "DK": 123,
+        "DK": 132,
         "Whizbang": 21
       },
       "classPercentages": {
-        "Rogue": "6.8",
-        "DH": "8.8",
-        "Hunter": "42.8",
-        "Mage": "13.6",
+        "Hunter": "42.5",
+        "Rogue": "6.7",
         "Druid": "4.6",
+        "Mage": "13.5",
+        "DH": "8.5",
         "Warrior": "8.4",
         "Paladin": "3.0",
         "Shaman": "0.1",
-        "DK": "10.3",
+        "DK": "11.0",
         "Whizbang": "1.8"
       },
       "topArchetypes": [
         {
           "name": "Discover Hunter",
-          "count": 500,
-          "percentage": "41.7"
+          "count": 497,
+          "percentage": "41.4"
         },
         {
           "name": "BUU Control DK",
-          "count": 97,
-          "percentage": "8.1"
+          "count": 104,
+          "percentage": "8.7"
         },
         {
           "name": "Arkwing Mage",
-          "count": 91,
-          "percentage": "7.6"
+          "count": 90,
+          "percentage": "7.5"
         },
         {
           "name": "Dragon Warrior",
@@ -201,8 +236,8 @@
       "archetypes": [
         {
           "name": "Imbue Druid",
-          "count": 174,
-          "percentage": "77.7",
+          "count": 177,
+          "percentage": "78.0",
           "uniquePlayers": 96,
           "avgRank": 55,
           "metaScore": 61,
@@ -210,19 +245,9 @@
           "sampleDeckCode": "AAECAZICBKqBB/KDB6+HB+DABw2unwSB1ATggQfigQeIgwewhwekiQeUlweqrwfWwAfXwAfbwAfswAcAAA=="
         },
         {
-          "name": "Control Priest",
-          "count": 3,
-          "percentage": "1.3",
-          "uniquePlayers": 3,
-          "avgRank": 83,
-          "metaScore": 36,
-          "tier": "C",
-          "sampleDeckCode": null
-        },
-        {
           "name": "Harold Rogue",
           "count": 10,
-          "percentage": "4.5",
+          "percentage": "4.4",
           "uniquePlayers": 8,
           "avgRank": 65,
           "metaScore": 36,
@@ -230,12 +255,22 @@
           "sampleDeckCode": null
         },
         {
+          "name": "Control Priest",
+          "count": 2,
+          "percentage": "0.9",
+          "uniquePlayers": 2,
+          "avgRank": 90,
+          "metaScore": 34,
+          "tier": "C",
+          "sampleDeckCode": null
+        },
+        {
           "name": "Gladiator Warrior",
           "count": 25,
-          "percentage": "11.2",
+          "percentage": "11.0",
           "uniquePlayers": 18,
           "avgRank": 78,
-          "metaScore": 33,
+          "metaScore": 32,
           "tier": "C",
           "sampleDeckCode": null
         },
@@ -250,9 +285,19 @@
           "sampleDeckCode": null
         },
         {
+          "name": "Finja Paladin",
+          "count": 1,
+          "percentage": "0.4",
+          "uniquePlayers": 1,
+          "avgRank": 99,
+          "metaScore": 30,
+          "tier": "C",
+          "sampleDeckCode": "AAECAZ8FBPD+BsODB+ysB+XBBw3JoASH5gbI/wa6lge9mQfLqQe+sgeNvgfiwQfowQfqwQf2wQeDwgcAAA=="
+        },
+        {
           "name": "No Minion DH",
           "count": 6,
-          "percentage": "2.7",
+          "percentage": "2.6",
           "uniquePlayers": 4,
           "avgRank": 75,
           "metaScore": 28,
@@ -270,9 +315,9 @@
           "sampleDeckCode": null
         }
       ],
-      "totalDecksAnalyzed": 224,
+      "totalDecksAnalyzed": 227,
       "period": "Last 24 hours",
-      "lastCalculated": "2026-03-26T19:25:08.751Z",
+      "lastCalculated": "2026-03-26T19:48:14.070Z",
       "methodology": {
         "frequency": "40% - Apariciones en el período",
         "diversity": "30% - Jugadores únicos que lo usan",
@@ -283,9 +328,9 @@
       "archetypes": [
         {
           "name": "Imbue Druid",
-          "count": 659,
-          "percentage": "54.9",
-          "uniquePlayers": 220,
+          "count": 662,
+          "percentage": "55.2",
+          "uniquePlayers": 221,
           "avgRank": 47,
           "metaScore": 48,
           "tier": "B",
@@ -352,21 +397,21 @@
           "sampleDeckCode": null
         },
         {
-          "name": "Egg Warrior",
-          "count": 48,
-          "percentage": "4.0",
-          "uniquePlayers": 15,
-          "avgRank": 18,
-          "metaScore": 36,
-          "tier": "C",
-          "sampleDeckCode": null
-        },
-        {
           "name": "No Minion DH",
           "count": 140,
           "percentage": "11.7",
           "uniquePlayers": 67,
           "avgRank": 46,
+          "metaScore": 35,
+          "tier": "C",
+          "sampleDeckCode": null
+        },
+        {
+          "name": "Egg Warrior",
+          "count": 47,
+          "percentage": "3.9",
+          "uniquePlayers": 14,
+          "avgRank": 17,
           "metaScore": 35,
           "tier": "C",
           "sampleDeckCode": null
@@ -378,6 +423,16 @@
           "uniquePlayers": 3,
           "avgRank": 83,
           "metaScore": 35,
+          "tier": "C",
+          "sampleDeckCode": null
+        },
+        {
+          "name": "BBU Harold DK",
+          "count": 7,
+          "percentage": "0.6",
+          "uniquePlayers": 5,
+          "avgRank": 66,
+          "metaScore": 32,
           "tier": "C",
           "sampleDeckCode": null
         },
@@ -432,16 +487,6 @@
           "sampleDeckCode": null
         },
         {
-          "name": "BBU Harold DK",
-          "count": 8,
-          "percentage": "0.7",
-          "uniquePlayers": 5,
-          "avgRank": 65,
-          "metaScore": 29,
-          "tier": "C",
-          "sampleDeckCode": null
-        },
-        {
           "name": "Harold Egglock",
           "count": 9,
           "percentage": "0.8",
@@ -463,11 +508,11 @@
         },
         {
           "name": "Quest Mage",
-          "count": 22,
+          "count": 21,
           "percentage": "1.8",
           "uniquePlayers": 11,
-          "avgRank": 62,
-          "metaScore": 27,
+          "avgRank": 61,
+          "metaScore": 28,
           "tier": "C",
           "sampleDeckCode": null
         },
@@ -489,7 +534,7 @@
           "avgRank": 52,
           "metaScore": 21,
           "tier": "C",
-          "sampleDeckCode": null
+          "sampleDeckCode": "AAECAZ8FBPD+BsODB+ysB+XBBw3JoASH5gbI/wa6lge9mQfLqQe+sgeNvgfiwQfowQfqwQf2wQeDwgcAAA=="
         },
         {
           "name": "Divergence Warlock",
@@ -504,7 +549,7 @@
       ],
       "totalDecksAnalyzed": 1200,
       "period": "Last 7 days",
-      "lastCalculated": "2026-03-26T19:25:08.754Z",
+      "lastCalculated": "2026-03-26T19:48:14.072Z",
       "methodology": {
         "frequency": "40% - Apariciones en el período",
         "diversity": "30% - Jugadores únicos que lo usan",
@@ -585,20 +630,10 @@
         },
         {
           "name": "Discover Hunter",
-          "count": 500,
-          "percentage": "41.7",
-          "uniquePlayers": 143,
+          "count": 497,
+          "percentage": "41.4",
+          "uniquePlayers": 141,
           "avgRank": 49,
-          "metaScore": 40,
-          "tier": "C",
-          "sampleDeckCode": null
-        },
-        {
-          "name": "BUU Control DK",
-          "count": 97,
-          "percentage": "8.1",
-          "uniquePlayers": 47,
-          "avgRank": 25,
           "metaScore": 40,
           "tier": "C",
           "sampleDeckCode": null
@@ -609,6 +644,16 @@
           "percentage": "3.3",
           "uniquePlayers": 22,
           "avgRank": 28,
+          "metaScore": 39,
+          "tier": "C",
+          "sampleDeckCode": null
+        },
+        {
+          "name": "BUU Control DK",
+          "count": 104,
+          "percentage": "8.7",
+          "uniquePlayers": 47,
+          "avgRank": 26,
           "metaScore": 39,
           "tier": "C",
           "sampleDeckCode": null
@@ -654,20 +699,10 @@
           "sampleDeckCode": null
         },
         {
-          "name": "Cliff Dive DH",
-          "count": 35,
-          "percentage": "2.9",
-          "uniquePlayers": 27,
-          "avgRank": 71,
-          "metaScore": 33,
-          "tier": "C",
-          "sampleDeckCode": null
-        },
-        {
           "name": "Arkwing Mage",
-          "count": 91,
-          "percentage": "7.6",
-          "uniquePlayers": 43,
+          "count": 90,
+          "percentage": "7.5",
+          "uniquePlayers": 42,
           "avgRank": 46,
           "metaScore": 33,
           "tier": "C",
@@ -684,11 +719,11 @@
           "sampleDeckCode": null
         },
         {
-          "name": "BUU Corpse DK",
-          "count": 4,
-          "percentage": "0.3",
-          "uniquePlayers": 1,
-          "avgRank": 15,
+          "name": "Cliff Dive DH",
+          "count": 32,
+          "percentage": "2.7",
+          "uniquePlayers": 25,
+          "avgRank": 71,
           "metaScore": 33,
           "tier": "C",
           "sampleDeckCode": null
@@ -714,12 +749,22 @@
           "sampleDeckCode": null
         },
         {
+          "name": "BUU Corpse DK",
+          "count": 6,
+          "percentage": "0.5",
+          "uniquePlayers": 1,
+          "avgRank": 15,
+          "metaScore": 31,
+          "tier": "C",
+          "sampleDeckCode": null
+        },
+        {
           "name": "Maestra Rogue",
-          "count": 7,
-          "percentage": "0.6",
-          "uniquePlayers": 4,
-          "avgRank": 61,
-          "metaScore": 29,
+          "count": 5,
+          "percentage": "0.4",
+          "uniquePlayers": 3,
+          "avgRank": 66,
+          "metaScore": 28,
           "tier": "C",
           "sampleDeckCode": null
         },
@@ -766,7 +811,7 @@
       ],
       "totalDecksAnalyzed": 1200,
       "period": "Last 30 days",
-      "lastCalculated": "2026-03-26T19:25:08.756Z",
+      "lastCalculated": "2026-03-26T19:48:14.074Z",
       "methodology": {
         "frequency": "40% - Apariciones en el período",
         "diversity": "30% - Jugadores únicos que lo usan",
