@@ -1,41 +1,30 @@
 {
-  "lastUpdate": "2026-03-28T03:54:21.525Z",
+  "lastUpdate": "2026-03-28T04:37:47.130Z",
   "source": "HSGuru Top 100 + HSReplay player names",
-  "totalDecks": 8,
+  "totalDecks": 6,
   "knownPlayers": 3,
   "decks": [
     {
-      "rank": 73,
-      "name": "Legend #73",
-      "inMasterList": false,
-      "battleTag": null,
-      "deck": {
-        "name": "Imbue Druid",
-        "code": "AAECAZICBKqBB/KDB6+HB+DABw2unwSB1ATggQfigQeIgwewhwekiQeUlweqrwfWwAfXwAfbwAfswAcAAA=="
-      },
-      "lastSeen": "42 minutes ago"
-    },
-    {
-      "rank": 81,
-      "name": "Legend #81",
-      "inMasterList": false,
-      "battleTag": null,
-      "deck": {
-        "name": "Imbue Druid",
-        "code": "AAECAZICBKqBB/KDB6+HB+DABw2unwSB1ATggQfigQeIgwewhwekiQeUlweqrwfWwAfXwAfbwAfswAcAAA=="
-      },
-      "lastSeen": "33 minutes ago"
-    },
-    {
-      "rank": 82,
-      "name": "Virium",
+      "rank": 79,
+      "name": "Murf",
       "inMasterList": false,
       "battleTag": null,
       "deck": {
         "name": "Imbue Druid",
         "code": "AAECAZICBs6eBqqBB/KDB6+HB5SXB+DABwyunwSB1ATggQfigQeIgwewhwekiQeqrwfWwAfXwAfbwAfswAcAAA=="
       },
-      "lastSeen": "54 minutes ago"
+      "lastSeen": "18 minutes ago"
+    },
+    {
+      "rank": 79,
+      "name": "CHEOL",
+      "inMasterList": true,
+      "battleTag": "CHEOL#31673",
+      "deck": {
+        "name": "Imbue Druid",
+        "code": "AAECAZICBs6eBqqBB/KDB6+HB5SXB+DABwyunwSB1ATggQfigQeIgwewhwekiQeqrwfWwAfXwAfbwAfswAcAAA=="
+      },
+      "lastSeen": "41 minutes ago"
     },
     {
       "rank": 84,
@@ -46,18 +35,18 @@
         "name": "Imbue Druid",
         "code": "AAECAZICBs6eBqqBB/KDB6+HB5SXB+DABwyunwSB1ATggQfigQeIgwewhwekiQeqrwfWwAfXwAfbwAfswAcAAA=="
       },
-      "lastSeen": "10 minutes ago"
+      "lastSeen": "54 minutes ago"
     },
     {
-      "rank": 91,
-      "name": "Legend #91",
-      "inMasterList": false,
-      "battleTag": null,
+      "rank": 85,
+      "name": "Pizza",
+      "inMasterList": true,
+      "battleTag": "Pizza#1279",
       "deck": {
         "name": "Imbue Druid",
-        "code": "AAECAZICBKqBB/KDB6+HB+DABw2unwSB1ATggQfigQeIgwewhwekiQeUlweqrwfWwAfXwAfbwAfswAcAAA=="
+        "code": "AAECAZICBs6eBqqBB/KDB6+HB5SXB+DABwyunwSB1ATggQfigQeIgwewhwekiQeqrwfWwAfXwAfbwAfswAcAAA=="
       },
-      "lastSeen": "27 minutes ago"
+      "lastSeen": "32 minutes ago"
     },
     {
       "rank": 93,
@@ -68,56 +57,45 @@
         "name": "Imbue Druid",
         "code": "AAECAZICBKqBB/KDB6+HB+DABw2unwSB1ATggQfigQeIgwewhwekiQeUlweqrwfWwAfXwAfbwAfswAcAAA=="
       },
-      "lastSeen": "7 minutes ago"
+      "lastSeen": "51 minutes ago"
     },
     {
-      "rank": 95,
-      "name": "Pizza",
-      "inMasterList": true,
-      "battleTag": "Pizza#1279",
+      "rank": 100,
+      "name": "Legend #100",
+      "inMasterList": false,
+      "battleTag": null,
       "deck": {
         "name": "Imbue Druid",
-        "code": "AAECAZICBs6eBqqBB/KDB6+HB5SXB+DABwyunwSB1ATggQfigQeIgwewhwekiQeqrwfWwAfXwAfbwAfswAcAAA=="
+        "code": "AAECAZICBKqBB/KDB6+HB+DABw2unwSB1ATggQfigQeIgwewhwekiQeUlweqrwfWwAfXwAfbwAfswAcAAA=="
       },
-      "lastSeen": "43 minutes ago"
-    },
-    {
-      "rank": 96,
-      "name": "Pizza",
-      "inMasterList": true,
-      "battleTag": "Pizza#1279",
-      "deck": {
-        "name": "Imbue Druid",
-        "code": "AAECAZICBs6eBqqBB/KDB6+HB5SXB+DABwyunwSB1ATggQfigQeIgwewhwekiQeqrwfWwAfXwAfbwAfswAcAAA=="
-      },
-      "lastSeen": "26 minutes ago"
+      "lastSeen": "40 minutes ago"
     }
   ],
   "noNewResults": false,
   "metaSnapshot": {
     "24h": {
       "classDistribution": {
-        "Druid": 167,
+        "Druid": 172,
         "Warrior": 27,
         "Rogue": 5,
         "Hunter": 6
       },
       "classPercentages": {
-        "Druid": "81.5",
-        "Warrior": "13.2",
+        "Druid": "81.9",
+        "Warrior": "12.9",
         "Rogue": "2.4",
         "Hunter": "2.9"
       },
       "topArchetypes": [
         {
           "name": "Imbue Druid",
-          "count": 167,
-          "percentage": "81.5"
+          "count": 172,
+          "percentage": "81.9"
         },
         {
           "name": "Gladiator Warrior",
           "count": 27,
-          "percentage": "13.2"
+          "percentage": "12.9"
         },
         {
           "name": "No Hand Hunter",
@@ -131,7 +109,7 @@
         }
       ],
       "mostPlayedClass": "Druid",
-      "totalDecksAnalyzed": 205,
+      "totalDecksAnalyzed": 210,
       "period": "Last 24 hours"
     },
     "7d": {
@@ -254,18 +232,18 @@
       "archetypes": [
         {
           "name": "Imbue Druid",
-          "count": 167,
-          "percentage": "81.5",
-          "uniquePlayers": 41,
+          "count": 172,
+          "percentage": "81.9",
+          "uniquePlayers": 42,
           "avgRank": 65,
           "metaScore": 51,
           "tier": "B",
-          "sampleDeckCode": "AAECAZICBs6eBqqBB/KDB6+HB5SXB+DABwyunwSB1ATggQfigQeIgwewhwekiQeqrwfWwAfXwAfbwAfswAcAAA=="
+          "sampleDeckCode": "AAECAZICBKqBB/KDB6+HB+DABw2unwSB1ATggQfigQeIgwewhwekiQeUlweqrwfWwAfXwAfbwAfswAcAAA=="
         },
         {
           "name": "Gladiator Warrior",
           "count": 27,
-          "percentage": "13.2",
+          "percentage": "12.9",
           "uniquePlayers": 13,
           "avgRank": 66,
           "metaScore": 30,
@@ -293,9 +271,9 @@
           "sampleDeckCode": null
         }
       ],
-      "totalDecksAnalyzed": 205,
+      "totalDecksAnalyzed": 210,
       "period": "Last 24 hours",
-      "lastCalculated": "2026-03-28T03:54:21.520Z",
+      "lastCalculated": "2026-03-28T04:37:47.122Z",
       "methodology": {
         "frequency": "40% - Apariciones en el período",
         "diversity": "30% - Jugadores únicos que lo usan",
@@ -312,7 +290,7 @@
           "avgRank": 50,
           "metaScore": 50,
           "tier": "B",
-          "sampleDeckCode": "AAECAZICBs6eBqqBB/KDB6+HB5SXB+DABwyunwSB1ATggQfigQeIgwewhwekiQeqrwfWwAfXwAfbwAfswAcAAA=="
+          "sampleDeckCode": "AAECAZICBKqBB/KDB6+HB+DABw2unwSB1ATggQfigQeIgwewhwekiQeUlweqrwfWwAfXwAfbwAfswAcAAA=="
         },
         {
           "name": "Imbue Priest",
@@ -467,7 +445,7 @@
       ],
       "totalDecksAnalyzed": 1200,
       "period": "Last 7 days",
-      "lastCalculated": "2026-03-28T03:54:21.522Z",
+      "lastCalculated": "2026-03-28T04:37:47.127Z",
       "methodology": {
         "frequency": "40% - Apariciones en el período",
         "diversity": "30% - Jugadores únicos que lo usan",
@@ -699,7 +677,7 @@
       ],
       "totalDecksAnalyzed": 1200,
       "period": "Last 30 days",
-      "lastCalculated": "2026-03-28T03:54:21.525Z",
+      "lastCalculated": "2026-03-28T04:37:47.130Z",
       "methodology": {
         "frequency": "40% - Apariciones en el período",
         "diversity": "30% - Jugadores únicos que lo usan",
