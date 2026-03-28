@@ -1,30 +1,41 @@
 {
-  "lastUpdate": "2026-03-28T14:10:30.500Z",
+  "lastUpdate": "2026-03-28T14:43:18.045Z",
   "source": "HSGuru Top 100 + HSReplay player names",
-  "totalDecks": 2,
-  "knownPlayers": 0,
+  "totalDecks": 3,
+  "knownPlayers": 2,
   "decks": [
     {
-      "rank": 76,
-      "name": "Morte",
-      "inMasterList": false,
-      "battleTag": null,
+      "rank": 2,
+      "name": "Gaby59",
+      "inMasterList": true,
+      "battleTag": "Gaby59#21292",
       "deck": {
         "name": "Imbue Druid",
         "code": "AAECAZICBKqBB/KDB6+HB+DABw2unwSB1ATggQfigQeIgwewhwekiQeUlweqrwfWwAfXwAfbwAfswAcAAA=="
       },
-      "lastSeen": "37 seconds ago"
+      "lastSeen": "1 minute ago"
     },
     {
-      "rank": 79,
-      "name": "aljorr",
+      "rank": 75,
+      "name": "UwU",
+      "inMasterList": true,
+      "battleTag": "UwU#22326",
+      "deck": {
+        "name": "Imbue Druid",
+        "code": "AAECAZICBKqBB/KDB6+HB+DABw2unwSB1ATggQfigQeIgwewhwekiQeUlweqrwfWwAfXwAfbwAfswAcAAA=="
+      },
+      "lastSeen": "8 minutes ago"
+    },
+    {
+      "rank": 80,
+      "name": "zzx0318",
       "inMasterList": false,
       "battleTag": null,
       "deck": {
         "name": "Imbue Druid",
         "code": "AAECAZICBKqBB/KDB6+HB+DABw2unwSB1ATggQfigQeIgwewhwekiQeUlweqrwfWwAfXwAfbwAfswAcAAA=="
       },
-      "lastSeen": "12 minutes ago"
+      "lastSeen": "4 minutes ago"
     }
   ],
   "noNewResults": false,
@@ -32,48 +43,41 @@
     "24h": {
       "classDistribution": {
         "Druid": 142,
-        "Hunter": 6,
-        "Rogue": 1,
+        "Hunter": 4,
         "Warrior": 18
       },
       "classPercentages": {
-        "Druid": "85.0",
-        "Hunter": "3.6",
-        "Rogue": "0.6",
-        "Warrior": "10.8"
+        "Druid": "86.6",
+        "Hunter": "2.4",
+        "Warrior": "11.0"
       },
       "topArchetypes": [
         {
           "name": "Imbue Druid",
           "count": 142,
-          "percentage": "85.0"
+          "percentage": "86.6"
         },
         {
           "name": "Gladiator Warrior",
           "count": 18,
-          "percentage": "10.8"
+          "percentage": "11.0"
         },
         {
           "name": "No Hand Hunter",
-          "count": 6,
-          "percentage": "3.6"
-        },
-        {
-          "name": "Harold Rogue",
-          "count": 1,
-          "percentage": "0.6"
+          "count": 4,
+          "percentage": "2.4"
         }
       ],
       "mostPlayedClass": "Druid",
-      "totalDecksAnalyzed": 167,
+      "totalDecksAnalyzed": 164,
       "period": "Last 24 hours"
     },
     "7d": {
       "classDistribution": {
-        "Druid": 776,
-        "Hunter": 36,
-        "Shaman": 56,
+        "Hunter": 35,
+        "Druid": 778,
         "DH": 92,
+        "Shaman": 55,
         "Mage": 20,
         "DK": 1,
         "Warlock": 8,
@@ -84,10 +88,10 @@
         "Paladin": 6
       },
       "classPercentages": {
-        "Druid": "64.7",
-        "Hunter": "3.0",
-        "Shaman": "4.7",
+        "Hunter": "2.9",
+        "Druid": "64.8",
         "DH": "7.7",
+        "Shaman": "4.6",
         "Mage": "1.7",
         "DK": "0.1",
         "Warlock": "0.7",
@@ -100,8 +104,8 @@
       "topArchetypes": [
         {
           "name": "Imbue Druid",
-          "count": 776,
-          "percentage": "64.7"
+          "count": 778,
+          "percentage": "64.8"
         },
         {
           "name": "No Minion DH",
@@ -120,8 +124,8 @@
         },
         {
           "name": "Harold Shaman",
-          "count": 56,
-          "percentage": "4.7"
+          "count": 55,
+          "percentage": "4.6"
         }
       ],
       "mostPlayedClass": "Druid",
@@ -189,17 +193,17 @@
         {
           "name": "Imbue Druid",
           "count": 142,
-          "percentage": "85.0",
-          "uniquePlayers": 50,
+          "percentage": "86.6",
+          "uniquePlayers": 52,
           "avgRank": 46,
-          "metaScore": 61,
+          "metaScore": 62,
           "tier": "A",
           "sampleDeckCode": "AAECAZICBKqBB/KDB6+HB+DABw2unwSB1ATggQfigQeIgwewhwekiQeUlweqrwfWwAfXwAfbwAfswAcAAA=="
         },
         {
           "name": "Gladiator Warrior",
           "count": 18,
-          "percentage": "10.8",
+          "percentage": "11.0",
           "uniquePlayers": 13,
           "avgRank": 68,
           "metaScore": 36,
@@ -208,28 +212,18 @@
         },
         {
           "name": "No Hand Hunter",
-          "count": 6,
-          "percentage": "3.6",
+          "count": 4,
+          "percentage": "2.4",
           "uniquePlayers": 0,
-          "avgRank": 73,
-          "metaScore": 9,
-          "tier": "C",
-          "sampleDeckCode": null
-        },
-        {
-          "name": "Harold Rogue",
-          "count": 1,
-          "percentage": "0.6",
-          "uniquePlayers": 0,
-          "avgRank": 94,
-          "metaScore": 2,
+          "avgRank": 79,
+          "metaScore": 7,
           "tier": "C",
           "sampleDeckCode": null
         }
       ],
-      "totalDecksAnalyzed": 167,
+      "totalDecksAnalyzed": 164,
       "period": "Last 24 hours",
-      "lastCalculated": "2026-03-28T14:10:30.494Z",
+      "lastCalculated": "2026-03-28T14:43:18.039Z",
       "methodology": {
         "frequency": "40% - Apariciones en el período",
         "diversity": "30% - Jugadores únicos que lo usan",
@@ -240,8 +234,8 @@
       "archetypes": [
         {
           "name": "Imbue Druid",
-          "count": 776,
-          "percentage": "64.7",
+          "count": 778,
+          "percentage": "64.8",
           "uniquePlayers": 237,
           "avgRank": 52,
           "metaScore": 49,
@@ -329,22 +323,22 @@
           "sampleDeckCode": null
         },
         {
-          "name": "Harold Rogue",
-          "count": 73,
-          "percentage": "6.1",
-          "uniquePlayers": 44,
+          "name": "Harold Shaman",
+          "count": 55,
+          "percentage": "4.6",
+          "uniquePlayers": 33,
           "avgRank": 68,
           "metaScore": 30,
           "tier": "C",
           "sampleDeckCode": null
         },
         {
-          "name": "Harold Shaman",
-          "count": 56,
-          "percentage": "4.7",
-          "uniquePlayers": 33,
-          "avgRank": 67,
-          "metaScore": 29,
+          "name": "Harold Rogue",
+          "count": 73,
+          "percentage": "6.1",
+          "uniquePlayers": 44,
+          "avgRank": 68,
+          "metaScore": 30,
           "tier": "C",
           "sampleDeckCode": null
         },
@@ -380,10 +374,10 @@
         },
         {
           "name": "No Hand Hunter",
-          "count": 36,
-          "percentage": "3.0",
-          "uniquePlayers": 14,
-          "avgRank": 72,
+          "count": 35,
+          "percentage": "2.9",
+          "uniquePlayers": 13,
+          "avgRank": 73,
           "metaScore": 21,
           "tier": "C",
           "sampleDeckCode": null
@@ -401,7 +395,7 @@
       ],
       "totalDecksAnalyzed": 1200,
       "period": "Last 7 days",
-      "lastCalculated": "2026-03-28T14:10:30.497Z",
+      "lastCalculated": "2026-03-28T14:43:18.042Z",
       "methodology": {
         "frequency": "40% - Apariciones en el período",
         "diversity": "30% - Jugadores únicos que lo usan",
@@ -623,7 +617,7 @@
       ],
       "totalDecksAnalyzed": 1200,
       "period": "Last 30 days",
-      "lastCalculated": "2026-03-28T14:10:30.500Z",
+      "lastCalculated": "2026-03-28T14:43:18.044Z",
       "methodology": {
         "frequency": "40% - Apariciones en el período",
         "diversity": "30% - Jugadores únicos que lo usan",
