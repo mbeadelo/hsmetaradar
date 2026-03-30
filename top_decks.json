@@ -1,66 +1,44 @@
 {
-  "lastUpdate": "2026-03-30T16:33:42.126Z",
+  "lastUpdate": "2026-03-30T16:47:25.784Z",
   "source": "HSGuru Top 100 + HSReplay player names",
-  "totalDecks": 3,
+  "totalDecks": 1,
   "knownPlayers": 0,
   "decks": [
     {
-      "rank": 39,
-      "name": "Legend #39",
-      "inMasterList": false,
-      "battleTag": null,
-      "deck": {
-        "name": "Gladiator Warrior",
-        "code": "AAECAQcGn58Esf0GkoMHzI8HhJ0Hm9QHDI7UBOPmBqf8Bqn8BuiHB9WmB+KnB/yvB9CyB5XCB5vCB5zCBwAA"
-      },
-      "lastSeen": "12 minutes ago"
-    },
-    {
-      "rank": 52,
-      "name": "Legend #52",
+      "rank": 49,
+      "name": "Legend #49",
       "inMasterList": false,
       "battleTag": null,
       "deck": {
         "name": "Imbue Druid",
         "code": "AAECAZICBKqBB/KDB6+HB+DABw2unwSB1ATggQfigQeIgwewhwekiQeUlweqrwfWwAfXwAfbwAfswAcAAA=="
       },
-      "lastSeen": "6 minutes ago"
-    },
-    {
-      "rank": 60,
-      "name": "Legend #60",
-      "inMasterList": false,
-      "battleTag": null,
-      "deck": {
-        "name": "Imbue Druid",
-        "code": "AAECAZICBKqBB/KDB6+HB+DABw2unwSB1ATggQfigQeIgwewhwekiQeUlweqrwfWwAfXwAfbwAfswAcAAA=="
-      },
-      "lastSeen": "11 minutes ago"
+      "lastSeen": "13 minutes ago"
     }
   ],
   "noNewResults": false,
   "metaSnapshot": {
     "24h": {
       "classDistribution": {
-        "Druid": 93,
+        "Druid": 92,
         "Warrior": 66,
         "Rogue": 9
       },
       "classPercentages": {
-        "Druid": "55.4",
-        "Warrior": "39.3",
+        "Druid": "55.1",
+        "Warrior": "39.5",
         "Rogue": "5.4"
       },
       "topArchetypes": [
         {
           "name": "Imbue Druid",
-          "count": 93,
-          "percentage": "55.4"
+          "count": 92,
+          "percentage": "55.1"
         },
         {
           "name": "Gladiator Warrior",
           "count": 63,
-          "percentage": "37.5"
+          "percentage": "37.7"
         },
         {
           "name": "Harold Rogue",
@@ -74,7 +52,7 @@
         }
       ],
       "mostPlayedClass": "Druid",
-      "totalDecksAnalyzed": 168,
+      "totalDecksAnalyzed": 167,
       "period": "Last 24 hours"
     },
     "7d": {
@@ -196,18 +174,18 @@
         {
           "name": "Gladiator Warrior",
           "count": 63,
-          "percentage": "37.5",
+          "percentage": "37.7",
           "uniquePlayers": 36,
           "avgRank": 34,
           "metaScore": 52,
           "tier": "B",
-          "sampleDeckCode": "AAECAQcGn58Esf0GkoMHzI8HhJ0Hm9QHDI7UBOPmBqf8Bqn8BuiHB9WmB+KnB/yvB9CyB5XCB5vCB5zCBwAA"
+          "sampleDeckCode": null
         },
         {
           "name": "Imbue Druid",
-          "count": 93,
-          "percentage": "55.4",
-          "uniquePlayers": 39,
+          "count": 92,
+          "percentage": "55.1",
+          "uniquePlayers": 37,
           "avgRank": 58,
           "metaScore": 47,
           "tier": "B",
@@ -234,9 +212,9 @@
           "sampleDeckCode": null
         }
       ],
-      "totalDecksAnalyzed": 168,
+      "totalDecksAnalyzed": 167,
       "period": "Last 24 hours",
-      "lastCalculated": "2026-03-30T16:33:42.121Z",
+      "lastCalculated": "2026-03-30T16:47:25.779Z",
       "methodology": {
         "frequency": "40% - Apariciones en el período",
         "diversity": "30% - Jugadores únicos que lo usan",
@@ -333,7 +311,7 @@
           "avgRank": 63,
           "metaScore": 31,
           "tier": "C",
-          "sampleDeckCode": "AAECAQcGn58Esf0GkoMHzI8HhJ0Hm9QHDI7UBOPmBqf8Bqn8BuiHB9WmB+KnB/yvB9CyB5XCB5vCB5zCBwAA"
+          "sampleDeckCode": null
         },
         {
           "name": "Harold Shaman",
@@ -398,7 +376,7 @@
       ],
       "totalDecksAnalyzed": 1200,
       "period": "Last 7 days",
-      "lastCalculated": "2026-03-30T16:33:42.123Z",
+      "lastCalculated": "2026-03-30T16:47:25.781Z",
       "methodology": {
         "frequency": "40% - Apariciones en el período",
         "diversity": "30% - Jugadores únicos que lo usan",
@@ -590,7 +568,7 @@
       ],
       "totalDecksAnalyzed": 1200,
       "period": "Last 30 days",
-      "lastCalculated": "2026-03-30T16:33:42.125Z",
+      "lastCalculated": "2026-03-30T16:47:25.783Z",
       "methodology": {
         "frequency": "40% - Apariciones en el período",
         "diversity": "30% - Jugadores únicos que lo usan",
