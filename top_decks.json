@@ -1,9 +1,31 @@
 {
-  "lastUpdate": "2026-04-05T21:08:34.182Z",
+  "lastUpdate": "2026-04-05T21:43:11.868Z",
   "source": "HSGuru Top 100 + HSReplay player names",
-  "totalDecks": 5,
+  "totalDecks": 4,
   "knownPlayers": 2,
   "decks": [
+    {
+      "rank": 37,
+      "name": "nab",
+      "inMasterList": false,
+      "battleTag": null,
+      "deck": {
+        "name": "Harold Rogue",
+        "code": "AAECAaIHDtOeBpKDB4KYB9GdB+ylB4aoB4eoB4ioB92vB9C/B8DBB4rUB5vUB4jZBwj3nwTBlweMrQfZrwfLtge0wQedxQfVxQcAAA=="
+      },
+      "lastSeen": "2 minutes ago"
+    },
+    {
+      "rank": 38,
+      "name": "Judgement",
+      "inMasterList": true,
+      "battleTag": "Judgement#21438",
+      "deck": {
+        "name": "Harold Rogue",
+        "code": "AAECAaIHDtOeBpKDB4KYB9GdB+ylB4aoB4eoB4ioB92vB9C/B8DBB4rUB5vUB4jZBwj3nwTBlweMrQfZrwfLtge0wQedxQfVxQcAAA=="
+      },
+      "lastSeen": "21 minutes ago"
+    },
     {
       "rank": 40,
       "name": "Dragon",
@@ -13,60 +35,27 @@
         "name": "Harold Rogue",
         "code": "AAECAaIHDtOeBpKDB4KYB9GdB+ylB4aoB4eoB4ioB92vB9C/B8DBB4rUB5vUB4jZBwj3nwTBlweMrQfZrwfLtge0wQedxQfVxQcAAA=="
       },
-      "lastSeen": "25 seconds ago"
+      "lastSeen": "35 minutes ago"
     },
     {
-      "rank": 44,
-      "name": "Safta11",
+      "rank": 41,
+      "name": "Gremlin",
       "inMasterList": false,
       "battleTag": null,
       "deck": {
         "name": "Harold Rogue",
         "code": "AAECAaIHDtOeBpKDB4KYB9GdB+ylB4aoB4eoB4ioB92vB9C/B8DBB4rUB5vUB4jZBwj3nwTBlweMrQfZrwfLtge0wQedxQfVxQcAAA=="
       },
-      "lastSeen": "14 minutes ago"
-    },
-    {
-      "rank": 45,
-      "name": "sailio",
-      "inMasterList": true,
-      "battleTag": "sailio#21403",
-      "deck": {
-        "name": "Harold Rogue",
-        "code": "AAECAaIHDtOeBpKDB4KYB9GdB+ylB4aoB4eoB4ioB92vB9C/B8DBB4rUB5vUB4jZBwj3nwTBlweMrQfZrwfLtge0wQedxQfVxQcAAA=="
-      },
-      "lastSeen": "42 minutes ago"
-    },
-    {
-      "rank": 58,
-      "name": "method4s#2358",
-      "inMasterList": false,
-      "battleTag": null,
-      "deck": {
-        "name": "Harold Rogue",
-        "code": "AAECAaIHDtOeBpKDB4KYB9GdB+ylB4aoB4eoB4ioB92vB9C/B8DBB4rUB5vUB4jZBwj3nwTBlweMrQfZrwfLtge0wQedxQfVxQcAAA=="
-      },
-      "lastSeen": "24 minutes ago"
-    },
-    {
-      "rank": 93,
-      "name": "Legend #93",
-      "inMasterList": false,
-      "battleTag": null,
-      "deck": {
-        "name": "End of Turnadin",
-        "code": "AAECAZ8FBvD+BsODB+6oB++oB/CoB+XBBwzJoAS6lgfLqQfErgf1rwe+sgfiwQfowQfqwQf2wQeDwgerxgcAAA=="
-      },
-      "lastSeen": "43 minutes ago"
+      "lastSeen": "10 minutes ago"
     }
   ],
   "noNewResults": false,
   "metaSnapshot": {
     "24h": {
       "classDistribution": {
-        "DH": 70,
+        "DH": 66,
         "Priest": 5,
-        "Rogue": 51,
+        "Rogue": 55,
         "Warrior": 12,
         "Warlock": 20,
         "Turnadin": 20,
@@ -74,9 +63,9 @@
         "Druid": 31
       },
       "classPercentages": {
-        "DH": "32.3",
+        "DH": "30.4",
         "Priest": "2.3",
-        "Rogue": "23.5",
+        "Rogue": "25.3",
         "Warrior": "5.5",
         "Warlock": "9.2",
         "Turnadin": "9.2",
@@ -86,13 +75,13 @@
       "topArchetypes": [
         {
           "name": "No Minion DH",
-          "count": 70,
-          "percentage": "32.3"
+          "count": 66,
+          "percentage": "30.4"
         },
         {
           "name": "Harold Rogue",
-          "count": 51,
-          "percentage": "23.5"
+          "count": 55,
+          "percentage": "25.3"
         },
         {
           "name": "Merithra Druid",
@@ -174,10 +163,10 @@
     },
     "30d": {
       "classDistribution": {
-        "Rogue": 292,
-        "DK": 67,
-        "Warrior": 88,
-        "Hunter": 247,
+        "Rogue": 288,
+        "Warrior": 92,
+        "DK": 66,
+        "Hunter": 248,
         "Whizbang": 1,
         "Druid": 40,
         "Paladin": 88,
@@ -188,10 +177,10 @@
         "Shaman": 36
       },
       "classPercentages": {
-        "Rogue": "24.3",
-        "DK": "5.6",
-        "Warrior": "7.3",
-        "Hunter": "20.6",
+        "Rogue": "24.0",
+        "Warrior": "7.7",
+        "DK": "5.5",
+        "Hunter": "20.7",
         "Whizbang": "0.1",
         "Druid": "3.3",
         "Paladin": "7.3",
@@ -224,8 +213,8 @@
         },
         {
           "name": "Starship Rogue",
-          "count": 100,
-          "percentage": "8.3"
+          "count": 96,
+          "percentage": "8.0"
         }
       ],
       "mostPlayedClass": "Rogue",
@@ -238,20 +227,20 @@
       "archetypes": [
         {
           "name": "Harold Rogue",
-          "count": 51,
-          "percentage": "23.5",
-          "uniquePlayers": 23,
+          "count": 55,
+          "percentage": "25.3",
+          "uniquePlayers": 26,
           "avgRank": 31,
-          "metaScore": 44,
+          "metaScore": 45,
           "tier": "C",
           "sampleDeckCode": "AAECAaIHDtOeBpKDB4KYB9GdB+ylB4aoB4eoB4ioB92vB9C/B8DBB4rUB5vUB4jZBwj3nwTBlweMrQfZrwfLtge0wQedxQfVxQcAAA=="
         },
         {
           "name": "No Minion DH",
-          "count": 70,
-          "percentage": "32.3",
+          "count": 66,
+          "percentage": "30.4",
           "uniquePlayers": 26,
-          "avgRank": 38,
+          "avgRank": 35,
           "metaScore": 43,
           "tier": "C",
           "sampleDeckCode": null
@@ -304,7 +293,7 @@
           "avgRank": 80,
           "metaScore": 28,
           "tier": "C",
-          "sampleDeckCode": "AAECAZ8FBvD+BsODB+6oB++oB/CoB+XBBwzJoAS6lgfLqQfErgf1rwe+sgfiwQfowQfqwQf2wQeDwgerxgcAAA=="
+          "sampleDeckCode": null
         },
         {
           "name": "Shredslock",
@@ -339,7 +328,7 @@
       ],
       "totalDecksAnalyzed": 217,
       "period": "Last 24 hours",
-      "lastCalculated": "2026-04-05T21:08:34.178Z",
+      "lastCalculated": "2026-04-05T21:43:11.863Z",
       "methodology": {
         "frequency": "40% - Apariciones en el período",
         "diversity": "30% - Jugadores únicos que lo usan",
@@ -496,7 +485,7 @@
           "avgRank": 90,
           "metaScore": 29,
           "tier": "C",
-          "sampleDeckCode": "AAECAZ8FBvD+BsODB+6oB++oB/CoB+XBBwzJoAS6lgfLqQfErgf1rwe+sgfiwQfowQfqwQf2wQeDwgerxgcAAA=="
+          "sampleDeckCode": null
         },
         {
           "name": "Imbue Druid",
@@ -571,7 +560,7 @@
       ],
       "totalDecksAnalyzed": 1200,
       "period": "Last 7 days",
-      "lastCalculated": "2026-04-05T21:08:34.180Z",
+      "lastCalculated": "2026-04-05T21:43:11.865Z",
       "methodology": {
         "frequency": "40% - Apariciones en el período",
         "diversity": "30% - Jugadores únicos que lo usan",
@@ -772,10 +761,10 @@
         },
         {
           "name": "Starship Rogue",
-          "count": 100,
-          "percentage": "8.3",
+          "count": 96,
+          "percentage": "8.0",
           "uniquePlayers": 43,
-          "avgRank": 34,
+          "avgRank": 35,
           "metaScore": 36,
           "tier": "C",
           "sampleDeckCode": null
@@ -786,6 +775,16 @@
           "percentage": "0.2",
           "uniquePlayers": 1,
           "avgRank": 29,
+          "metaScore": 36,
+          "tier": "C",
+          "sampleDeckCode": null
+        },
+        {
+          "name": "Food Fight Warrior",
+          "count": 6,
+          "percentage": "0.5",
+          "uniquePlayers": 5,
+          "avgRank": 63,
           "metaScore": 36,
           "tier": "C",
           "sampleDeckCode": null
@@ -802,20 +801,20 @@
         },
         {
           "name": "BBB Control DK",
-          "count": 21,
-          "percentage": "1.8",
-          "uniquePlayers": 13,
-          "avgRank": 51,
-          "metaScore": 34,
+          "count": 20,
+          "percentage": "1.7",
+          "uniquePlayers": 12,
+          "avgRank": 52,
+          "metaScore": 33,
           "tier": "C",
           "sampleDeckCode": null
         },
         {
           "name": "Zerg Discover Hunter",
-          "count": 33,
+          "count": 34,
           "percentage": "2.8",
           "uniquePlayers": 21,
-          "avgRank": 57,
+          "avgRank": 55,
           "metaScore": 33,
           "tier": "C",
           "sampleDeckCode": null
@@ -896,16 +895,6 @@
           "percentage": "4.0",
           "uniquePlayers": 16,
           "avgRank": 44,
-          "metaScore": 28,
-          "tier": "C",
-          "sampleDeckCode": null
-        },
-        {
-          "name": "Food Fight Warrior",
-          "count": 2,
-          "percentage": "0.2",
-          "uniquePlayers": 1,
-          "avgRank": 57,
           "metaScore": 28,
           "tier": "C",
           "sampleDeckCode": null
@@ -1033,7 +1022,7 @@
       ],
       "totalDecksAnalyzed": 1200,
       "period": "Last 30 days",
-      "lastCalculated": "2026-04-05T21:08:34.182Z",
+      "lastCalculated": "2026-04-05T21:43:11.868Z",
       "methodology": {
         "frequency": "40% - Apariciones en el período",
         "diversity": "30% - Jugadores únicos que lo usan",
