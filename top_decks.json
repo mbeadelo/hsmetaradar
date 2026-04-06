@@ -1,30 +1,19 @@
 {
-  "lastUpdate": "2026-04-06T10:23:50.241Z",
+  "lastUpdate": "2026-04-06T10:47:33.317Z",
   "source": "HSGuru Top 100 + HSReplay player names",
-  "totalDecks": 8,
+  "totalDecks": 6,
   "knownPlayers": 3,
   "decks": [
     {
-      "rank": 75,
-      "name": "Robert228",
+      "rank": 85,
+      "name": "NivMizz",
       "inMasterList": false,
       "battleTag": null,
       "deck": {
         "name": "Quest Mage",
         "code": "AAECAf0ECJ75BrX6Bu/8BqebB/mbB9ieB/KyB//fBwub8gbxkQewmwf6mwfVnQfRpgfLtgf5wweGxAeSxAeG4AcAAA=="
       },
-      "lastSeen": "38 minutes ago"
-    },
-    {
-      "rank": 84,
-      "name": "Noobuser",
-      "inMasterList": true,
-      "battleTag": "Noobuser#2539",
-      "deck": {
-        "name": "End of Turnadin",
-        "code": "AAECAZ8FBvD+BsODB+6oB++oB/CoB+XBBwzJoATOnga6lgebqQfLqQfErge+sgfiwQfowQfqwQeDwgerxgcAAA=="
-      },
-      "lastSeen": "29 minutes ago"
+      "lastSeen": "5 minutes ago"
     },
     {
       "rank": 85,
@@ -35,18 +24,7 @@
         "name": "Harold Rogue",
         "code": "AAECAaIHDKGBB4KYB+ylB4aoB4eoB4ioB7ayB4++B9C/B4rUB5vUB4jZBwn3nwTTngbBlweMrQfZrwe0wQfAwQedxQfVxQcAAA=="
       },
-      "lastSeen": "4 minutes ago"
-    },
-    {
-      "rank": 85,
-      "name": "TEESMO",
-      "inMasterList": false,
-      "battleTag": null,
-      "deck": {
-        "name": "Quest Mage",
-        "code": "AAECAf0ECJ75BrX6Bu/8BqebB/mbB9ieB/KyB//fBwub8gbxkQewmwf6mwfVnQfRpgfLtgf5wweGxAeSxAeG4AcAAA=="
-      },
-      "lastSeen": "33 minutes ago"
+      "lastSeen": "28 minutes ago"
     },
     {
       "rank": 86,
@@ -57,7 +35,18 @@
         "name": "Quest Mage",
         "code": "AAECAf0ECJ75BrX6Bu/8BqebB/mbB9ieB/KyB//fBwub8gbxkQewmwf6mwfVnQfRpgfLtgf5wweGxAeSxAeG4AcAAA=="
       },
-      "lastSeen": "13 minutes ago"
+      "lastSeen": "37 minutes ago"
+    },
+    {
+      "rank": 98,
+      "name": "Benji42",
+      "inMasterList": false,
+      "battleTag": null,
+      "deck": {
+        "name": "Harold Rogue",
+        "code": "AAECAaIHDKGBB4KYB+ylB4aoB4eoB4ioB7ayB4++B9C/B4rUB5vUB4jZBwn3nwTTngbBlweMrQfZrwe0wQfAwQedxQfVxQcAAA=="
+      },
+      "lastSeen": "18 minutes ago"
     },
     {
       "rank": 98,
@@ -68,110 +57,99 @@
         "name": "Harold Rogue",
         "code": "AAECAaIHDKGBB4KYB+ylB4aoB4eoB4ioB7ayB4++B9C/B4rUB5vUB4jZBwn3nwTTngbBlweMrQfZrwe0wQfAwQedxQfVxQcAAA=="
       },
-      "lastSeen": "12 minutes ago"
-    },
-    {
-      "rank": 98,
-      "name": "Legend #98",
-      "inMasterList": false,
-      "battleTag": null,
-      "deck": {
-        "name": "End of Turnadin",
-        "code": "AAECAZ8FBvD+BsODB+6oB++oB/CoB+XBBwzJoATOnga6lgebqQfLqQfErge+sgfiwQfowQfqwQeDwgerxgcAAA=="
-      },
-      "lastSeen": "40 minutes ago"
+      "lastSeen": "35 minutes ago"
     },
     {
       "rank": 100,
-      "name": "seemsLegko",
-      "inMasterList": false,
-      "battleTag": null,
+      "name": "Roberg",
+      "inMasterList": true,
+      "battleTag": "Roberg#21812",
       "deck": {
         "name": "Quest Mage",
         "code": "AAECAf0ECJ75BrX6Bu/8BqebB/mbB9ieB/KyB//fBwub8gbxkQewmwf6mwfVnQfRpgfLtgf5wweGxAeSxAeG4AcAAA=="
       },
-      "lastSeen": "25 minutes ago"
+      "lastSeen": "22 minutes ago"
     }
   ],
   "noNewResults": false,
   "metaSnapshot": {
     "24h": {
       "classDistribution": {
-        "Turnadin": 14,
-        "DH": 20,
-        "Mage": 23,
-        "Rogue": 57,
+        "DH": 18,
+        "Mage": 26,
+        "Rogue": 60,
         "Druid": 62,
         "Warrior": 8,
+        "Turnadin": 11,
         "Hunter": 3
       },
       "classPercentages": {
-        "Turnadin": "7.5",
-        "DH": "10.7",
-        "Mage": "12.3",
-        "Rogue": "30.5",
-        "Druid": "33.2",
+        "DH": "9.6",
+        "Mage": "13.8",
+        "Rogue": "31.9",
+        "Druid": "33.0",
         "Warrior": "4.3",
+        "Turnadin": "5.9",
         "Hunter": "1.6"
       },
       "topArchetypes": [
         {
           "name": "Merithra Druid",
           "count": 62,
-          "percentage": "33.2"
+          "percentage": "33.0"
         },
         {
           "name": "Harold Rogue",
-          "count": 57,
-          "percentage": "30.5"
+          "count": 60,
+          "percentage": "31.9"
         },
         {
           "name": "Quest Mage",
-          "count": 23,
-          "percentage": "12.3"
+          "count": 26,
+          "percentage": "13.8"
         },
         {
           "name": "No Minion DH",
-          "count": 20,
-          "percentage": "10.7"
+          "count": 18,
+          "percentage": "9.6"
         },
         {
           "name": "End of Turnadin",
-          "count": 14,
-          "percentage": "7.5"
+          "count": 11,
+          "percentage": "5.9"
         }
       ],
       "mostPlayedClass": "Druid",
-      "totalDecksAnalyzed": 187,
+      "totalDecksAnalyzed": 188,
       "period": "Last 24 hours"
     },
     "7d": {
       "classDistribution": {
-        "Warrior": 221,
-        "Druid": 237,
+        "Warrior": 217,
+        "Druid": 232,
         "Rogue": 291,
-        "DH": 190,
+        "DH": 195,
         "Hunter": 8,
         "Shaman": 39,
         "Paladin": 16,
         "Mage": 88,
         "DK": 37,
         "Priest": 43,
-        "Turnadin": 10,
+        "Turnadin": 14,
         "Warlock": 20
       },
       "classPercentages": {
-        "Warrior": "18.4",
-        "Druid": "19.8",
+        "Warrior": "18.1",
+        "Druid": "19.3",
         "Rogue": "24.3",
-        "DH": "15.8",
+        "DH": "16.3",
         "Hunter": "0.7",
         "Shaman": "3.3",
         "Paladin": "1.3",
         "Mage": "7.3",
         "DK": "3.1",
         "Priest": "3.6",
-        "Turnadin": "0.8",
+        "Turnadin": "1.2",
         "Warlock": "1.7"
       },
       "topArchetypes": [
@@ -182,18 +160,18 @@
         },
         {
           "name": "No Minion DH",
-          "count": 183,
-          "percentage": "15.3"
+          "count": 188,
+          "percentage": "15.7"
         },
         {
           "name": "Imbue Druid",
-          "count": 178,
-          "percentage": "14.8"
+          "count": 173,
+          "percentage": "14.4"
         },
         {
           "name": "Gladiator Warrior",
-          "count": 156,
-          "percentage": "13.0"
+          "count": 152,
+          "percentage": "12.7"
         },
         {
           "name": "Quest Mage",
@@ -280,7 +258,7 @@
         {
           "name": "Merithra Druid",
           "count": 62,
-          "percentage": "33.2",
+          "percentage": "33.0",
           "uniquePlayers": 30,
           "avgRank": 35,
           "metaScore": 47,
@@ -288,24 +266,24 @@
           "sampleDeckCode": null
         },
         {
-          "name": "Harold Rogue",
-          "count": 57,
-          "percentage": "30.5",
-          "uniquePlayers": 27,
-          "avgRank": 35,
-          "metaScore": 46,
-          "tier": "B",
-          "sampleDeckCode": "AAECAaIHDKGBB4KYB+ylB4aoB4eoB4ioB7ayB4++B9C/B4rUB5vUB4jZBwn3nwTTngbBlweMrQfZrwe0wQfAwQedxQfVxQcAAA=="
-        },
-        {
           "name": "No Minion DH",
-          "count": 20,
-          "percentage": "10.7",
-          "uniquePlayers": 12,
-          "avgRank": 30,
-          "metaScore": 43,
+          "count": 18,
+          "percentage": "9.6",
+          "uniquePlayers": 11,
+          "avgRank": 25,
+          "metaScore": 45,
           "tier": "C",
           "sampleDeckCode": null
+        },
+        {
+          "name": "Harold Rogue",
+          "count": 60,
+          "percentage": "31.9",
+          "uniquePlayers": 28,
+          "avgRank": 38,
+          "metaScore": 45,
+          "tier": "B",
+          "sampleDeckCode": "AAECAaIHDKGBB4KYB+ylB4aoB4eoB4ioB7ayB4++B9C/B4rUB5vUB4jZBwn3nwTTngbBlweMrQfZrwe0wQfAwQedxQfVxQcAAA=="
         },
         {
           "name": "Dragon Warrior",
@@ -329,28 +307,28 @@
         },
         {
           "name": "End of Turnadin",
-          "count": 14,
-          "percentage": "7.5",
-          "uniquePlayers": 11,
-          "avgRank": 71,
-          "metaScore": 35,
+          "count": 11,
+          "percentage": "5.9",
+          "uniquePlayers": 8,
+          "avgRank": 72,
+          "metaScore": 32,
           "tier": "C",
-          "sampleDeckCode": "AAECAZ8FBvD+BsODB+6oB++oB/CoB+XBBwzJoATOnga6lgebqQfLqQfErge+sgfiwQfowQfqwQeDwgerxgcAAA=="
+          "sampleDeckCode": null
         },
         {
           "name": "Quest Mage",
-          "count": 23,
-          "percentage": "12.3",
-          "uniquePlayers": 11,
+          "count": 26,
+          "percentage": "13.8",
+          "uniquePlayers": 12,
           "avgRank": 89,
           "metaScore": 23,
           "tier": "C",
           "sampleDeckCode": "AAECAf0ECJ75BrX6Bu/8BqebB/mbB9ieB/KyB//fBwub8gbxkQewmwf6mwfVnQfRpgfLtgf5wweGxAeSxAeG4AcAAA=="
         }
       ],
-      "totalDecksAnalyzed": 187,
+      "totalDecksAnalyzed": 188,
       "period": "Last 24 hours",
-      "lastCalculated": "2026-04-06T10:23:50.235Z",
+      "lastCalculated": "2026-04-06T10:47:33.309Z",
       "methodology": {
         "frequency": "40% - Apariciones en el período",
         "diversity": "30% - Jugadores únicos que lo usan",
@@ -381,9 +359,9 @@
         },
         {
           "name": "Gladiator Warrior",
-          "count": 156,
-          "percentage": "13.0",
-          "uniquePlayers": 62,
+          "count": 152,
+          "percentage": "12.7",
+          "uniquePlayers": 61,
           "avgRank": 31,
           "metaScore": 38,
           "tier": "C",
@@ -431,10 +409,10 @@
         },
         {
           "name": "No Minion DH",
-          "count": 183,
-          "percentage": "15.3",
-          "uniquePlayers": 68,
-          "avgRank": 44,
+          "count": 188,
+          "percentage": "15.7",
+          "uniquePlayers": 70,
+          "avgRank": 43,
           "metaScore": 34,
           "tier": "C",
           "sampleDeckCode": null
@@ -490,16 +468,6 @@
           "sampleDeckCode": null
         },
         {
-          "name": "End of Turnadin",
-          "count": 10,
-          "percentage": "0.8",
-          "uniquePlayers": 9,
-          "avgRank": 91,
-          "metaScore": 30,
-          "tier": "C",
-          "sampleDeckCode": "AAECAZ8FBvD+BsODB+6oB++oB/CoB+XBBwzJoATOnga6lgebqQfLqQfErge+sgfiwQfowQfqwQeDwgerxgcAAA=="
-        },
-        {
           "name": "Painlock",
           "count": 17,
           "percentage": "1.4",
@@ -510,11 +478,21 @@
           "sampleDeckCode": null
         },
         {
+          "name": "End of Turnadin",
+          "count": 14,
+          "percentage": "1.2",
+          "uniquePlayers": 11,
+          "avgRank": 89,
+          "metaScore": 27,
+          "tier": "C",
+          "sampleDeckCode": null
+        },
+        {
           "name": "Imbue Druid",
-          "count": 178,
-          "percentage": "14.8",
-          "uniquePlayers": 51,
-          "avgRank": 62,
+          "count": 173,
+          "percentage": "14.4",
+          "uniquePlayers": 49,
+          "avgRank": 63,
           "metaScore": 26,
           "tier": "C",
           "sampleDeckCode": null
@@ -592,7 +570,7 @@
       ],
       "totalDecksAnalyzed": 1200,
       "period": "Last 7 days",
-      "lastCalculated": "2026-04-06T10:23:50.237Z",
+      "lastCalculated": "2026-04-06T10:47:33.311Z",
       "methodology": {
         "frequency": "40% - Apariciones en el período",
         "diversity": "30% - Jugadores únicos que lo usan",
@@ -1054,7 +1032,7 @@
       ],
       "totalDecksAnalyzed": 1200,
       "period": "Last 30 days",
-      "lastCalculated": "2026-04-06T10:23:50.240Z",
+      "lastCalculated": "2026-04-06T10:47:33.316Z",
       "methodology": {
         "frequency": "40% - Apariciones en el período",
         "diversity": "30% - Jugadores únicos que lo usan",
