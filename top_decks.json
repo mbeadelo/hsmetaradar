@@ -1,22 +1,33 @@
 {
-  "lastUpdate": "2026-04-08T21:45:01.954Z",
+  "lastUpdate": "2026-04-08T22:13:17.055Z",
   "source": "HSGuru Top 100 + HSReplay player names",
-  "totalDecks": 3,
+  "totalDecks": 6,
   "knownPlayers": 0,
   "decks": [
     {
-      "rank": 17,
-      "name": "Roulian",
+      "rank": 63,
+      "name": "Gev",
       "inMasterList": false,
       "battleTag": null,
       "deck": {
         "name": "Harold Rogue",
-        "code": "AAECAaIHCJz7BoaoB4eoB4ioB9C/B4rUB5vUB4jZBwv3nwTW+gb3gQfBlweMrQfZrweaswe6swe0wQedxQfVxQcAAA=="
+        "code": "AAECAaIHCt/+BtGdB+ylB4aoB4eoB4ioB9C/B4rUB5vUB4jZBwr3nwSQgweMrQfHrgfZrwe2sge0wQedxQfVxQfD8gcAAA=="
       },
-      "lastSeen": "13 minutes ago"
+      "lastSeen": "3 minutes ago"
     },
     {
-      "rank": 80,
+      "rank": 68,
+      "name": "Legend #68",
+      "inMasterList": false,
+      "battleTag": null,
+      "deck": {
+        "name": "Harold Rogue",
+        "code": "AAECAaIHCt/+BtGdB+ylB4aoB4eoB4ioB9C/B4rUB5vUB4jZBwr3nwSQgweMrQfHrgfZrwe2sge0wQedxQfVxQfD8gcAAA=="
+      },
+      "lastSeen": "16 minutes ago"
+    },
+    {
+      "rank": 71,
       "name": "Theo",
       "inMasterList": false,
       "battleTag": null,
@@ -24,28 +35,50 @@
         "name": "Control Priest",
         "code": "AAECAa0GBqiWB/ypB4CqB4SqB+SyB4O/BwzwnwTLoASg+wbD/waFhge2lAedrQeFvwebvweixAeyxQeW/AcAAA=="
       },
-      "lastSeen": "7 minutes ago"
+      "lastSeen": "4 seconds ago"
     },
     {
-      "rank": 93,
-      "name": "noProfy",
+      "rank": 77,
+      "name": "Turna#2738",
       "inMasterList": false,
       "battleTag": null,
       "deck": {
         "name": "Harold Rogue",
         "code": "AAECAaIHCt/+BtGdB+ylB4aoB4eoB4ioB9C/B4rUB5vUB4jZBwr3nwSQgweMrQfHrgfZrwe2sge0wQedxQfVxQfD8gcAAA=="
       },
-      "lastSeen": "6 minutes ago"
+      "lastSeen": "24 minutes ago"
+    },
+    {
+      "rank": 80,
+      "name": "ShickenBoy",
+      "inMasterList": false,
+      "battleTag": null,
+      "deck": {
+        "name": "Control Priest",
+        "code": "AAECAa0GBqiWB/ypB4CqB4SqB+SyB4O/BwzwnwTLoASg+wbD/waFhge2lAedrQeFvwebvweixAeyxQeW/AcAAA=="
+      },
+      "lastSeen": "10 minutes ago"
+    },
+    {
+      "rank": 97,
+      "name": "Dimon1shot",
+      "inMasterList": false,
+      "battleTag": null,
+      "deck": {
+        "name": "Control Priest",
+        "code": "AAECAa0GBqiWB/ypB4CqB4SqB+SyB4O/BwzwnwTLoASg+wbD/waFhge2lAedrQeFvwebvweixAeyxQeW/AcAAA=="
+      },
+      "lastSeen": "23 minutes ago"
     }
   ],
   "noNewResults": false,
   "metaSnapshot": {
     "24h": {
       "classDistribution": {
-        "Rogue": 68,
+        "Rogue": 64,
         "DH": 41,
         "Warrior": 39,
-        "Priest": 10,
+        "Priest": 13,
         "Druid": 14,
         "Shaman": 1,
         "DK": 1,
@@ -53,10 +86,10 @@
         "Mage": 3
       },
       "classPercentages": {
-        "Rogue": "37.8",
-        "DH": "22.8",
-        "Warrior": "21.7",
-        "Priest": "5.6",
+        "Rogue": "35.8",
+        "DH": "22.9",
+        "Warrior": "21.8",
+        "Priest": "7.3",
         "Druid": "7.8",
         "Shaman": "0.6",
         "DK": "0.6",
@@ -66,18 +99,18 @@
       "topArchetypes": [
         {
           "name": "Harold Rogue",
-          "count": 68,
-          "percentage": "37.8"
+          "count": 64,
+          "percentage": "35.8"
         },
         {
           "name": "No Minion DH",
           "count": 40,
-          "percentage": "22.2"
+          "percentage": "22.3"
         },
         {
           "name": "Dragon Warrior",
           "count": 39,
-          "percentage": "21.7"
+          "percentage": "21.8"
         },
         {
           "name": "Merithra Druid",
@@ -86,12 +119,12 @@
         },
         {
           "name": "Control Priest",
-          "count": 10,
-          "percentage": "5.6"
+          "count": 13,
+          "percentage": "7.3"
         }
       ],
       "mostPlayedClass": "Rogue",
-      "totalDecksAnalyzed": 180,
+      "totalDecksAnalyzed": 179,
       "period": "Last 24 hours"
     },
     "7d": {
@@ -182,8 +215,8 @@
       "topArchetypes": [
         {
           "name": "Cliff Dive DH",
-          "count": 210,
-          "percentage": "17.5"
+          "count": 212,
+          "percentage": "17.7"
         },
         {
           "name": "FU Location Warlock",
@@ -216,11 +249,11 @@
       "archetypes": [
         {
           "name": "Harold Rogue",
-          "count": 68,
-          "percentage": "37.8",
-          "uniquePlayers": 39,
-          "avgRank": 41,
-          "metaScore": 50,
+          "count": 64,
+          "percentage": "35.8",
+          "uniquePlayers": 38,
+          "avgRank": 43,
+          "metaScore": 49,
           "tier": "B",
           "sampleDeckCode": "AAECAaIHCt/+BtGdB+ylB4aoB4eoB4ioB9C/B4rUB5vUB4jZBwr3nwSQgweMrQfHrgfZrwe2sge0wQedxQfVxQfD8gcAAA=="
         },
@@ -237,7 +270,7 @@
         {
           "name": "No Minion DH",
           "count": 40,
-          "percentage": "22.2",
+          "percentage": "22.3",
           "uniquePlayers": 19,
           "avgRank": 41,
           "metaScore": 41,
@@ -247,7 +280,7 @@
         {
           "name": "Dragon Warrior",
           "count": 39,
-          "percentage": "21.7",
+          "percentage": "21.8",
           "uniquePlayers": 22,
           "avgRank": 49,
           "metaScore": 41,
@@ -276,10 +309,10 @@
         },
         {
           "name": "Control Priest",
-          "count": 10,
-          "percentage": "5.6",
-          "uniquePlayers": 7,
-          "avgRank": 70,
+          "count": 13,
+          "percentage": "7.3",
+          "uniquePlayers": 9,
+          "avgRank": 73,
           "metaScore": 32,
           "tier": "C",
           "sampleDeckCode": "AAECAa0GBqiWB/ypB4CqB4SqB+SyB4O/BwzwnwTLoASg+wbD/waFhge2lAedrQeFvwebvweixAeyxQeW/AcAAA=="
@@ -325,9 +358,9 @@
           "sampleDeckCode": null
         }
       ],
-      "totalDecksAnalyzed": 180,
+      "totalDecksAnalyzed": 179,
       "period": "Last 24 hours",
-      "lastCalculated": "2026-04-08T21:45:01.944Z",
+      "lastCalculated": "2026-04-08T22:13:17.050Z",
       "methodology": {
         "frequency": "40% - Apariciones en el período",
         "diversity": "30% - Jugadores únicos que lo usan",
@@ -599,7 +632,7 @@
       ],
       "totalDecksAnalyzed": 1200,
       "period": "Last 7 days",
-      "lastCalculated": "2026-04-08T21:45:01.947Z",
+      "lastCalculated": "2026-04-08T22:13:17.052Z",
       "methodology": {
         "frequency": "40% - Apariciones en el período",
         "diversity": "30% - Jugadores únicos que lo usan",
@@ -810,10 +843,10 @@
         },
         {
           "name": "Cliff Dive DH",
-          "count": 210,
-          "percentage": "17.5",
+          "count": 212,
+          "percentage": "17.7",
           "uniquePlayers": 55,
-          "avgRank": 44,
+          "avgRank": 43,
           "metaScore": 32,
           "tier": "C",
           "sampleDeckCode": null
@@ -920,10 +953,10 @@
         },
         {
           "name": "No Minion DH",
-          "count": 74,
-          "percentage": "6.2",
-          "uniquePlayers": 30,
-          "avgRank": 66,
+          "count": 72,
+          "percentage": "6.0",
+          "uniquePlayers": 29,
+          "avgRank": 65,
           "metaScore": 25,
           "tier": "C",
           "sampleDeckCode": null
@@ -991,7 +1024,7 @@
       ],
       "totalDecksAnalyzed": 1200,
       "period": "Last 30 days",
-      "lastCalculated": "2026-04-08T21:45:01.954Z",
+      "lastCalculated": "2026-04-08T22:13:17.055Z",
       "methodology": {
         "frequency": "40% - Apariciones en el período",
         "diversity": "30% - Jugadores únicos que lo usan",
