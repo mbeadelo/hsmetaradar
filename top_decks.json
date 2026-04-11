@@ -1,9 +1,42 @@
 {
-  "lastUpdate": "2026-04-11T06:21:14.295Z",
+  "lastUpdate": "2026-04-11T06:47:58.466Z",
   "source": "HSGuru Top 100 + HSReplay player names",
-  "totalDecks": 4,
-  "knownPlayers": 1,
+  "totalDecks": 7,
+  "knownPlayers": 3,
   "decks": [
+    {
+      "rank": 60,
+      "name": "Ramses",
+      "inMasterList": true,
+      "battleTag": "Ramses#22111",
+      "deck": {
+        "name": "Quest Mage",
+        "code": "AAECAf0EBO/8BrOHB6ebB/KyBw2b8ga1+gbxkQehmwewmwf6mwfRpgfLtgf5wweGxAeSxAeT2geG4AcAAA=="
+      },
+      "lastSeen": "2 minutes ago"
+    },
+    {
+      "rank": 65,
+      "name": "SoBad",
+      "inMasterList": false,
+      "battleTag": null,
+      "deck": {
+        "name": "Quest Mage",
+        "code": "AAECAf0EBO/8BrOHB6ebB/KyBw2b8ga1+gbxkQehmwewmwf6mwfRpgfLtgf5wweGxAeSxAeT2geG4AcAAA=="
+      },
+      "lastSeen": "15 minutes ago"
+    },
+    {
+      "rank": 71,
+      "name": "Ramses",
+      "inMasterList": true,
+      "battleTag": "Ramses#22111",
+      "deck": {
+        "name": "Quest Mage",
+        "code": "AAECAf0EBO/8BrOHB6ebB/KyBw2b8ga1+gbxkQehmwewmwf6mwfRpgfLtgf5wweGxAeSxAeT2geG4AcAAA=="
+      },
+      "lastSeen": "21 minutes ago"
+    },
     {
       "rank": 80,
       "name": "Ramses",
@@ -13,7 +46,7 @@
         "name": "Quest Mage",
         "code": "AAECAf0EBO/8BrOHB6ebB/KyBw2b8ga1+gbxkQehmwewmwf6mwfRpgfLtgf5wweGxAeSxAeT2geG4AcAAA=="
       },
-      "lastSeen": "7 minutes ago"
+      "lastSeen": "33 minutes ago"
     },
     {
       "rank": 84,
@@ -24,7 +57,7 @@
         "name": "Dragon Warrior",
         "code": "AAECAQcCg4oHlcIHDuPmBqr8Bqv8BseHB+iHB9KXB7etB4+xB+yyB4S9B7XAB5vCB5zCB/nDBwAA"
       },
-      "lastSeen": "20 minutes ago"
+      "lastSeen": "47 minutes ago"
     },
     {
       "rank": 91,
@@ -35,7 +68,7 @@
         "name": "Dragon Warrior",
         "code": "AAECAQcCg4oHlcIHDuPmBqr8Bqv8BseHB+iHB9KXB7etB4+xB+yyB4S9B7XAB5vCB5zCB/nDBwAA"
       },
-      "lastSeen": "29 minutes ago"
+      "lastSeen": "56 minutes ago"
     },
     {
       "rank": 92,
@@ -46,26 +79,26 @@
         "name": "Dragon Warrior",
         "code": "AAECAQcCg4oHlcIHDuPmBqr8Bqv8BseHB+iHB9KXB7etB4+xB+yyB4S9B7XAB5vCB5zCB/nDBwAA"
       },
-      "lastSeen": "6 minutes ago"
+      "lastSeen": "33 minutes ago"
     }
   ],
   "noNewResults": false,
   "metaSnapshot": {
     "24h": {
       "classDistribution": {
-        "DH": 83,
-        "Warrior": 38,
+        "DH": 78,
         "Rogue": 99,
+        "Warrior": 39,
         "Druid": 18,
-        "Mage": 14,
+        "Mage": 18,
         "DK": 3
       },
       "classPercentages": {
-        "DH": "32.5",
-        "Warrior": "14.9",
+        "DH": "30.6",
         "Rogue": "38.8",
+        "Warrior": "15.3",
         "Druid": "7.1",
-        "Mage": "5.5",
+        "Mage": "7.1",
         "DK": "1.2"
       },
       "topArchetypes": [
@@ -76,13 +109,13 @@
         },
         {
           "name": "No Minion DH",
-          "count": 83,
-          "percentage": "32.5"
+          "count": 78,
+          "percentage": "30.6"
         },
         {
           "name": "Dragon Warrior",
-          "count": 38,
-          "percentage": "14.9"
+          "count": 39,
+          "percentage": "15.3"
         },
         {
           "name": "Merithra Druid",
@@ -91,8 +124,8 @@
         },
         {
           "name": "Quest Mage",
-          "count": 14,
-          "percentage": "5.5"
+          "count": 18,
+          "percentage": "7.1"
         }
       ],
       "mostPlayedClass": "Rogue",
@@ -222,16 +255,6 @@
     "24h": {
       "archetypes": [
         {
-          "name": "No Minion DH",
-          "count": 83,
-          "percentage": "32.5",
-          "uniquePlayers": 35,
-          "avgRank": 38,
-          "metaScore": 44,
-          "tier": "C",
-          "sampleDeckCode": null
-        },
-        {
           "name": "Harold Rogue",
           "count": 99,
           "percentage": "38.8",
@@ -242,14 +265,14 @@
           "sampleDeckCode": null
         },
         {
-          "name": "Quest Mage",
-          "count": 14,
-          "percentage": "5.5",
-          "uniquePlayers": 8,
-          "avgRank": 59,
-          "metaScore": 32,
+          "name": "No Minion DH",
+          "count": 78,
+          "percentage": "30.6",
+          "uniquePlayers": 33,
+          "avgRank": 39,
+          "metaScore": 43,
           "tier": "C",
-          "sampleDeckCode": "AAECAf0EBO/8BrOHB6ebB/KyBw2b8ga1+gbxkQehmwewmwf6mwfRpgfLtgf5wweGxAeSxAeT2geG4AcAAA=="
+          "sampleDeckCode": null
         },
         {
           "name": "BBU Harold DK",
@@ -272,9 +295,19 @@
           "sampleDeckCode": null
         },
         {
+          "name": "Quest Mage",
+          "count": 18,
+          "percentage": "7.1",
+          "uniquePlayers": 9,
+          "avgRank": 61,
+          "metaScore": 30,
+          "tier": "C",
+          "sampleDeckCode": "AAECAf0EBO/8BrOHB6ebB/KyBw2b8ga1+gbxkQehmwewmwf6mwfRpgfLtgf5wweGxAeSxAeT2geG4AcAAA=="
+        },
+        {
           "name": "Dragon Warrior",
-          "count": 38,
-          "percentage": "14.9",
+          "count": 39,
+          "percentage": "15.3",
           "uniquePlayers": 4,
           "avgRank": 80,
           "metaScore": 15,
@@ -284,7 +317,7 @@
       ],
       "totalDecksAnalyzed": 255,
       "period": "Last 24 hours",
-      "lastCalculated": "2026-04-11T06:21:14.287Z",
+      "lastCalculated": "2026-04-11T06:47:58.458Z",
       "methodology": {
         "frequency": "40% - Apariciones en el período",
         "diversity": "30% - Jugadores únicos que lo usan",
@@ -526,7 +559,7 @@
       ],
       "totalDecksAnalyzed": 1200,
       "period": "Last 7 days",
-      "lastCalculated": "2026-04-11T06:21:14.290Z",
+      "lastCalculated": "2026-04-11T06:47:58.460Z",
       "methodology": {
         "frequency": "40% - Apariciones en el período",
         "diversity": "30% - Jugadores únicos que lo usan",
@@ -968,7 +1001,7 @@
       ],
       "totalDecksAnalyzed": 1200,
       "period": "Last 30 days",
-      "lastCalculated": "2026-04-11T06:21:14.295Z",
+      "lastCalculated": "2026-04-11T06:47:58.466Z",
       "methodology": {
         "frequency": "40% - Apariciones en el período",
         "diversity": "30% - Jugadores únicos que lo usan",
