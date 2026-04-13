@@ -1,103 +1,136 @@
 {
-  "lastUpdate": "2026-04-13T20:46:59.168Z",
+  "lastUpdate": "2026-04-13T21:16:27.526Z",
   "source": "HSGuru Top 100 + HSReplay player names",
-  "totalDecks": 3,
-  "knownPlayers": 0,
+  "totalDecks": 6,
+  "knownPlayers": 1,
   "decks": [
     {
-      "rank": 7,
-      "name": "Legend #7",
+      "rank": 4,
+      "name": "Legend #4",
       "inMasterList": false,
       "battleTag": null,
       "deck": {
         "name": "No Minion DH",
         "code": "AAECAea5Awa0lweKqgeSqgeTqgensQeUvwcM4fgF3v8G/oMHqocHtpcH550HnrEHobEHv7EHwLEHkr8Hlb8HAAA="
       },
-      "lastSeen": "6 minutes ago"
+      "lastSeen": "28 seconds ago"
     },
     {
-      "rank": 82,
-      "name": "bored",
+      "rank": 4,
+      "name": "Tume",
+      "inMasterList": false,
+      "battleTag": null,
+      "deck": {
+        "name": "No Minion DH",
+        "code": "AAECAea5Awa0lweKqgeSqgeTqgensQeUvwcM4fgF3v8G/oMHqocHtpcH550HnrEHobEHv7EHwLEHkr8Hlb8HAAA="
+      },
+      "lastSeen": "11 minutes ago"
+    },
+    {
+      "rank": 68,
+      "name": "Legend #68",
       "inMasterList": false,
       "battleTag": null,
       "deck": {
         "name": "Quest Mage",
         "code": "AAECAf0EBJ75Bu/8BsODB6ebBw2b8ga1+gbxkQewmwf6mwfYngfRpgfLtgf5wweGxAeSxAeT2geG4AcAAA=="
       },
-      "lastSeen": "6 minutes ago"
+      "lastSeen": "10 minutes ago"
     },
     {
-      "rank": 91,
-      "name": "Legend #91",
+      "rank": 92,
+      "name": "Dizdemon",
+      "inMasterList": true,
+      "battleTag": "Dizdemon#2464",
+      "deck": {
+        "name": "Quest Mage",
+        "code": "AAECAf0EBO/8BsODB6ebB/KyBw2b8ga1+gbxkQewmwf6mwfVnQfRpgfLtgf5wweGxAeSxAeT2geG4AcAAA=="
+      },
+      "lastSeen": "14 minutes ago"
+    },
+    {
+      "rank": 93,
+      "name": "method4s#2358",
       "inMasterList": false,
       "battleTag": null,
       "deck": {
         "name": "Quest Mage",
-        "code": "AAECAf0EBJ75Bu/8BsODB6ebBw2b8ga1+gbxkQewmwf6mwfYngfRpgfLtgf5wweGxAeSxAeT2geG4AcAAA=="
+        "code": "AAECAf0EBO/8BsODB6ebB/KyBw2b8ga1+gbxkQewmwf6mwfVnQfRpgfLtgf5wweGxAeSxAeT2geG4AcAAA=="
       },
-      "lastSeen": "15 minutes ago"
+      "lastSeen": "1 minute ago"
+    },
+    {
+      "rank": 94,
+      "name": "Legend #94",
+      "inMasterList": false,
+      "battleTag": null,
+      "deck": {
+        "name": "Dragon Warrior",
+        "code": "AAECAQcCi6AEq/wGDoagBOPmBqr8BuiHB9KXB7etB4+xB9CyB+yyB/bBB5XCB5vCB5zCB/nDBwAA"
+      },
+      "lastSeen": "21 minutes ago"
     }
   ],
   "noNewResults": false,
   "metaSnapshot": {
     "24h": {
       "classDistribution": {
-        "Mage": 18,
-        "Druid": 35,
+        "Mage": 19,
         "Rogue": 53,
-        "DH": 61,
-        "Warrior": 17,
+        "Druid": 34,
+        "DH": 63,
+        "Warrior": 18,
         "Paladin": 11,
         "DK": 12
       },
       "classPercentages": {
-        "Mage": "8.7",
-        "Druid": "16.9",
-        "Rogue": "25.6",
-        "DH": "29.5",
-        "Warrior": "8.2",
-        "Paladin": "5.3",
-        "DK": "5.8"
+        "Mage": "9.0",
+        "Rogue": "25.2",
+        "Druid": "16.2",
+        "DH": "30.0",
+        "Warrior": "8.6",
+        "Paladin": "5.2",
+        "DK": "5.7"
       },
       "topArchetypes": [
         {
           "name": "No Minion DH",
-          "count": 61,
-          "percentage": "29.5"
+          "count": 63,
+          "percentage": "30.0"
         },
         {
           "name": "Harold Rogue",
           "count": 53,
-          "percentage": "25.6"
+          "percentage": "25.2"
         },
         {
           "name": "Merithra Druid",
-          "count": 35,
-          "percentage": "16.9"
+          "count": 34,
+          "percentage": "16.2"
         },
         {
           "name": "Quest Mage",
-          "count": 18,
-          "percentage": "8.7"
+          "count": 19,
+          "percentage": "9.0"
         },
         {
           "name": "Dragon Warrior",
-          "count": 17,
-          "percentage": "8.2"
+          "count": 18,
+          "percentage": "8.6"
         }
       ],
       "mostPlayedClass": "DH",
-      "totalDecksAnalyzed": 207,
+      "totalDecksAnalyzed": 210,
       "period": "Last 24 hours"
     },
     "7d": {
       "classDistribution": {
-        "DH": 343,
-        "Druid": 145,
+        "Druid": 146,
         "Warrior": 174,
-        "Rogue": 344,
+        "Rogue": 345,
         "Mage": 132,
         "DK": 19,
+        "DH": 341,
         "Shaman": 4,
         "Hunter": 9,
         "Priest": 17,
@@ -105,12 +138,12 @@
         "Turnadin": 3
       },
       "classPercentages": {
-        "DH": "28.6",
-        "Druid": "12.1",
+        "Druid": "12.2",
         "Warrior": "14.5",
         "Rogue": "28.7",
         "Mage": "11.0",
         "DK": "1.6",
+        "DH": "28.4",
         "Shaman": "0.3",
         "Hunter": "0.8",
         "Priest": "1.4",
@@ -120,13 +153,13 @@
       "topArchetypes": [
         {
           "name": "Harold Rogue",
-          "count": 344,
+          "count": 345,
           "percentage": "28.7"
         },
         {
           "name": "No Minion DH",
-          "count": 340,
-          "percentage": "28.3"
+          "count": 338,
+          "percentage": "28.2"
         },
         {
           "name": "Dragon Warrior",
@@ -135,8 +168,8 @@
         },
         {
           "name": "Merithra Druid",
-          "count": 145,
-          "percentage": "12.1"
+          "count": 146,
+          "percentage": "12.2"
         },
         {
           "name": "Quest Mage",
@@ -150,10 +183,10 @@
     },
     "30d": {
       "classDistribution": {
-        "Warlock": 197,
         "Druid": 156,
+        "Warlock": 194,
         "DH": 335,
-        "Warrior": 110,
+        "Warrior": 113,
         "Hunter": 209,
         "DK": 31,
         "Shaman": 70,
@@ -164,10 +197,10 @@
         "Paladin": 3
       },
       "classPercentages": {
-        "Warlock": "16.4",
         "Druid": "13.0",
+        "Warlock": "16.2",
         "DH": "27.9",
-        "Warrior": "9.2",
+        "Warrior": "9.4",
         "Hunter": "17.4",
         "DK": "2.6",
         "Shaman": "5.8",
@@ -184,14 +217,14 @@
           "percentage": "13.3"
         },
         {
-          "name": "FU Location Warlock",
+          "name": "Cliff Dive DH",
           "count": 154,
           "percentage": "12.8"
         },
         {
-          "name": "Cliff Dive DH",
-          "count": 154,
-          "percentage": "12.8"
+          "name": "FU Location Warlock",
+          "count": 151,
+          "percentage": "12.6"
         },
         {
           "name": "Zerg Discover Hunter",
@@ -214,28 +247,28 @@
       "archetypes": [
         {
           "name": "No Minion DH",
-          "count": 61,
-          "percentage": "29.5",
-          "uniquePlayers": 16,
-          "avgRank": 48,
-          "metaScore": 35,
+          "count": 63,
+          "percentage": "30.0",
+          "uniquePlayers": 17,
+          "avgRank": 47,
+          "metaScore": 36,
           "tier": "C",
           "sampleDeckCode": "AAECAea5Awa0lweKqgeSqgeTqgensQeUvwcM4fgF3v8G/oMHqocHtpcH550HnrEHobEHv7EHwLEHkr8Hlb8HAAA="
         },
         {
           "name": "Quest Mage",
-          "count": 18,
-          "percentage": "8.7",
-          "uniquePlayers": 9,
-          "avgRank": 49,
+          "count": 19,
+          "percentage": "9.0",
+          "uniquePlayers": 11,
+          "avgRank": 56,
           "metaScore": 34,
           "tier": "C",
-          "sampleDeckCode": "AAECAf0EBJ75Bu/8BsODB6ebBw2b8ga1+gbxkQewmwf6mwfYngfRpgfLtgf5wweGxAeSxAeT2geG4AcAAA=="
+          "sampleDeckCode": "AAECAf0EBO/8BsODB6ebB/KyBw2b8ga1+gbxkQewmwf6mwfVnQfRpgfLtgf5wweGxAeSxAeT2geG4AcAAA=="
         },
         {
           "name": "Harold Rogue",
           "count": 53,
-          "percentage": "25.6",
+          "percentage": "25.2",
           "uniquePlayers": 19,
           "avgRank": 73,
           "metaScore": 29,
@@ -244,10 +277,10 @@
         },
         {
           "name": "Merithra Druid",
-          "count": 35,
-          "percentage": "16.9",
+          "count": 34,
+          "percentage": "16.2",
           "uniquePlayers": 12,
-          "avgRank": 62,
+          "avgRank": 63,
           "metaScore": 28,
           "tier": "C",
           "sampleDeckCode": null
@@ -255,7 +288,7 @@
         {
           "name": "BBU Harold DK",
           "count": 12,
-          "percentage": "5.8",
+          "percentage": "5.7",
           "uniquePlayers": 2,
           "avgRank": 47,
           "metaScore": 23,
@@ -265,7 +298,7 @@
         {
           "name": "Aura Paladin",
           "count": 11,
-          "percentage": "5.3",
+          "percentage": "5.2",
           "uniquePlayers": 3,
           "avgRank": 80,
           "metaScore": 16,
@@ -274,18 +307,18 @@
         },
         {
           "name": "Dragon Warrior",
-          "count": 17,
-          "percentage": "8.2",
+          "count": 18,
+          "percentage": "8.6",
           "uniquePlayers": 0,
-          "avgRank": 65,
-          "metaScore": 14,
+          "avgRank": 67,
+          "metaScore": 13,
           "tier": "C",
-          "sampleDeckCode": null
+          "sampleDeckCode": "AAECAQcCi6AEq/wGDoagBOPmBqr8BuiHB9KXB7etB4+xB9CyB+yyB/bBB5XCB5vCB5zCB/nDBwAA"
         }
       ],
-      "totalDecksAnalyzed": 207,
+      "totalDecksAnalyzed": 210,
       "period": "Last 24 hours",
-      "lastCalculated": "2026-04-13T20:46:59.163Z",
+      "lastCalculated": "2026-04-13T21:16:27.522Z",
       "methodology": {
         "frequency": "40% - Apariciones en el período",
         "diversity": "30% - Jugadores únicos que lo usan",
@@ -345,24 +378,24 @@
           "sampleDeckCode": null
         },
         {
-          "name": "No Minion DH",
-          "count": 340,
-          "percentage": "28.3",
-          "uniquePlayers": 110,
-          "avgRank": 47,
-          "metaScore": 37,
-          "tier": "C",
-          "sampleDeckCode": "AAECAea5Awa0lweKqgeSqgeTqgensQeUvwcM4fgF3v8G/oMHqocHtpcH550HnrEHobEHv7EHwLEHkr8Hlb8HAAA="
-        },
-        {
           "name": "Harold Rogue",
-          "count": 344,
+          "count": 345,
           "percentage": "28.7",
           "uniquePlayers": 139,
           "avgRank": 55,
           "metaScore": 37,
           "tier": "C",
           "sampleDeckCode": null
+        },
+        {
+          "name": "No Minion DH",
+          "count": 338,
+          "percentage": "28.2",
+          "uniquePlayers": 110,
+          "avgRank": 47,
+          "metaScore": 37,
+          "tier": "C",
+          "sampleDeckCode": "AAECAea5Awa0lweKqgeSqgeTqgensQeUvwcM4fgF3v8G/oMHqocHtpcH550HnrEHobEHv7EHwLEHkr8Hlb8HAAA="
         },
         {
           "name": "Egg Warrior",
@@ -386,10 +419,10 @@
         },
         {
           "name": "Merithra Druid",
-          "count": 145,
-          "percentage": "12.1",
-          "uniquePlayers": 67,
-          "avgRank": 58,
+          "count": 146,
+          "percentage": "12.2",
+          "uniquePlayers": 68,
+          "avgRank": 59,
           "metaScore": 31,
           "tier": "C",
           "sampleDeckCode": null
@@ -402,7 +435,7 @@
           "avgRank": 53,
           "metaScore": 30,
           "tier": "C",
-          "sampleDeckCode": "AAECAf0EBJ75Bu/8BsODB6ebBw2b8ga1+gbxkQewmwf6mwfYngfRpgfLtgf5wweGxAeSxAeT2geG4AcAAA=="
+          "sampleDeckCode": "AAECAf0EBO/8BsODB6ebB/KyBw2b8ga1+gbxkQewmwf6mwfVnQfRpgfLtgf5wweGxAeSxAeT2geG4AcAAA=="
         },
         {
           "name": "End of Turnadin",
@@ -452,7 +485,7 @@
           "avgRank": 68,
           "metaScore": 24,
           "tier": "C",
-          "sampleDeckCode": null
+          "sampleDeckCode": "AAECAQcCi6AEq/wGDoagBOPmBqr8BuiHB9KXB7etB4+xB9CyB+yyB/bBB5XCB5vCB5zCB/nDBwAA"
         },
         {
           "name": "No Hand Hunter",
@@ -467,7 +500,7 @@
       ],
       "totalDecksAnalyzed": 1200,
       "period": "Last 7 days",
-      "lastCalculated": "2026-04-13T20:46:59.165Z",
+      "lastCalculated": "2026-04-13T21:16:27.524Z",
       "methodology": {
         "frequency": "40% - Apariciones en el período",
         "diversity": "30% - Jugadores únicos que lo usan",
@@ -554,7 +587,7 @@
           "avgRank": 40,
           "metaScore": 42,
           "tier": "C",
-          "sampleDeckCode": null
+          "sampleDeckCode": "AAECAQcCi6AEq/wGDoagBOPmBqr8BuiHB9KXB7etB4+xB9CyB+yyB/bBB5XCB5vCB5zCB/nDBwAA"
         },
         {
           "name": "Dino Egglock",
@@ -717,6 +750,16 @@
           "sampleDeckCode": null
         },
         {
+          "name": "Egg Warrior",
+          "count": 26,
+          "percentage": "2.2",
+          "uniquePlayers": 11,
+          "avgRank": 31,
+          "metaScore": 34,
+          "tier": "C",
+          "sampleDeckCode": null
+        },
+        {
           "name": "Protoss Druid",
           "count": 34,
           "percentage": "2.8",
@@ -767,16 +810,6 @@
           "sampleDeckCode": null
         },
         {
-          "name": "Egg Warrior",
-          "count": 23,
-          "percentage": "1.9",
-          "uniquePlayers": 10,
-          "avgRank": 34,
-          "metaScore": 33,
-          "tier": "C",
-          "sampleDeckCode": null
-        },
-        {
           "name": "Imbue Rogue",
           "count": 1,
           "percentage": "0.1",
@@ -798,10 +831,10 @@
         },
         {
           "name": "FU Location Warlock",
-          "count": 154,
-          "percentage": "12.8",
-          "uniquePlayers": 34,
-          "avgRank": 42,
+          "count": 151,
+          "percentage": "12.6",
+          "uniquePlayers": 33,
+          "avgRank": 41,
           "metaScore": 29,
           "tier": "C",
           "sampleDeckCode": null
@@ -864,7 +897,7 @@
           "avgRank": 84,
           "metaScore": 25,
           "tier": "C",
-          "sampleDeckCode": "AAECAf0EBJ75Bu/8BsODB6ebBw2b8ga1+gbxkQewmwf6mwfYngfRpgfLtgf5wweGxAeSxAeT2geG4AcAAA=="
+          "sampleDeckCode": "AAECAf0EBO/8BsODB6ebB/KyBw2b8ga1+gbxkQewmwf6mwfVnQfRpgfLtgf5wweGxAeSxAeT2geG4AcAAA=="
         },
         {
           "name": "Shredslock",
@@ -919,7 +952,7 @@
       ],
       "totalDecksAnalyzed": 1200,
       "period": "Last 30 days",
-      "lastCalculated": "2026-04-13T20:46:59.167Z",
+      "lastCalculated": "2026-04-13T21:16:27.526Z",
       "methodology": {
         "frequency": "40% - Apariciones en el período",
         "diversity": "30% - Jugadores únicos que lo usan",
