@@ -1,5 +1,5 @@
 {
-  "lastUpdate": "2026-04-19T03:43:42.235Z",
+  "lastUpdate": "2026-04-19T04:59:02.739Z",
   "source": "HSGuru Top 100 + HSReplay player names",
   "totalDecks": 1,
   "knownPlayers": 1,
@@ -16,7 +16,7 @@
       "lastSeen": "37 minutes ago"
     }
   ],
-  "noNewResults": false,
+  "noNewResults": true,
   "metaSnapshot": {
     "24h": {
       "classDistribution": {
@@ -698,5 +698,6 @@
         "ranking": "30% - Ranking promedio de los jugadores"
       }
     }
-  }
+  },
+  "noNewResultsMessage": "Se ha refrescado la información pero no se han encontrado nuevos mazos recientes dentro del top 100"
 }
